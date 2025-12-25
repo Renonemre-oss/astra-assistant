@@ -1,14 +1,14 @@
-# Sistema de Logging do ALEX
+# Sistema de Logging do ASTRA
 
 ## Visão Geral
 
-O ALEX possui um sistema de logging centralizado que registra todas as atividades importantes do sistema em arquivo e no console.
+O ASTRA possui um sistema de logging centralizado que registra todas as atividades importantes do sistema em arquivo e no console.
 
 ## Configuração
 
 ### Localização dos Logs
 - **Diretório:** `logs/`
-- **Arquivo principal:** `alex_assistant.log`
+- **Arquivo principal:** `ASTRA_assistant.log`
 - **Encoding:** UTF-8 (suporte completo a emojis e caracteres especiais)
 
 ### Função de Configuração
@@ -50,7 +50,7 @@ logger.critical("Erro crítico do sistema")
 
 ```python
 # Log de inicialização
-logger.info("🚀 ALEX iniciado com sucesso")
+logger.info("🚀 ASTRA iniciado com sucesso")
 
 # Log de operações
 logger.info("✅ Base de dados conectada")
@@ -74,7 +74,7 @@ logger.info(f"📄 Conversa criada: ID={conversation_id}")
 ## Formato das Mensagens
 
 ```
-2025-09-19 16:17:56,412 - INFO - 🚀 ALEX iniciado com sucesso
+2025-09-19 16:17:56,412 - INFO - 🚀 ASTRA iniciado com sucesso
 ```
 
 **Estrutura:**
@@ -84,7 +84,7 @@ logger.info(f"📄 Conversa criada: ID={conversation_id}")
 
 ## Integração com Módulos
 
-### run_alex.py
+### run_ASTRA.py
 - Configura logging no início da execução
 - Garante que todos os módulos herdem a configuração
 
@@ -113,7 +113,7 @@ Para implementar rotação automática de logs:
 from logging.handlers import RotatingFileHandler
 
 handler = RotatingFileHandler(
-    LOGS_DIR / 'alex_assistant.log',
+    LOGS_DIR / 'ASTRA_assistant.log',
     maxBytes=10*1024*1024,  # 10MB
     backupCount=5,
     encoding='utf-8'

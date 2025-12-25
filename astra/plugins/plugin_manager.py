@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Plugin Manager
+ASTRA/Astra - Plugin Manager
 Manages loading, unloading, and execution of plugins.
 """
 
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 class PluginManager:
     """
-    Manager for ALEX/Astra plugins.
+    Manager for ASTRA/Astra plugins.
     Handles plugin lifecycle: discovery, loading, activation, execution, and unloading.
     """
     
@@ -263,4 +263,5 @@ class PluginManager:
                 logger.error(f"Failed to load {plugin_name}: {e}")
                 
         return loaded_count
+
 

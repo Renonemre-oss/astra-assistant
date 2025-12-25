@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Framework de Testes Automatizados
+ASTRA - Framework de Testes Automatizados
 Sistema completo de testes para validar funcionalidades do projeto
 
 Este módulo fornece:
@@ -51,8 +51,8 @@ log_level = get_test_setting("logging_level", "INFO")
 logging.basicConfig(level=getattr(logging, log_level))
 logger = logging.getLogger(__name__)
 
-class ALEXTestCase(unittest.TestCase):
-    """Classe base para testes do ALEX com utilitários comuns."""
+class ASTRATestCase(unittest.TestCase):
+    """Classe base para testes do ASTRA com utilitários comuns."""
     
     def setUp(self):
         """Configuração inicial para cada teste."""
@@ -90,7 +90,7 @@ class ALEXTestCase(unittest.TestCase):
         """
         return get_test_setting("skip_unavailable_modules", True)
 
-class TestSystemDiagnostics(ALEXTestCase):
+class TestSystemDiagnostics(ASTRATestCase):
     """Testes para o sistema de diagnóstico."""
     
     def setUp(self):
@@ -119,7 +119,7 @@ class TestSystemDiagnostics(ALEXTestCase):
         except ImportError:
             self.skipTest("SystemDiagnostics não disponível")
 
-class TestPerformanceManager(ALEXTestCase):
+class TestPerformanceManager(ASTRATestCase):
     """Testes para o gestor de performance."""
     
     def setUp(self):
@@ -183,7 +183,7 @@ class TestPerformanceManager(ALEXTestCase):
             if self.skip_if_module_unavailable("ThreadSafeCache"):
                 self.skipTest("ThreadSafeCache não disponível")
 
-class TestErrorHandler(ALEXTestCase):
+class TestErrorHandler(ASTRATestCase):
     """Testes para o sistema de tratamento de erros."""
     
     def test_validation_error_creation(self):
@@ -260,7 +260,7 @@ class TestErrorHandler(ALEXTestCase):
             if self.skip_if_module_unavailable("Validators"):
                 self.skipTest("Validators não disponível")
 
-class TestAudioManager(ALEXTestCase):
+class TestAudioManager(ASTRATestCase):
     """Testes para o gestor de áudio."""
     
     def setUp(self):
@@ -291,7 +291,7 @@ class TestAudioManager(ALEXTestCase):
             if self.skip_if_module_unavailable("AudioManager"):
                 self.skipTest("AudioManager não disponível")
 
-class TestPersonalProfile(ALEXTestCase):
+class TestPersonalProfile(ASTRATestCase):
     """Testes para o perfil pessoal."""
     
     def setUp(self):
@@ -323,7 +323,7 @@ class TestPersonalProfile(ALEXTestCase):
         except ImportError:
             self.skipTest("PersonalProfile não disponível")
 
-class TestDatabaseModels(ALEXTestCase):
+class TestDatabaseModels(ASTRATestCase):
     """Testes para modelos de base de dados."""
     
     def test_database_models_import(self):
@@ -355,7 +355,7 @@ class TestDatabaseModels(ALEXTestCase):
         except ImportError:
             self.skipTest("Modelos de base de dados não disponíveis")
 
-class TestConfigSystem(ALEXTestCase):
+class TestConfigSystem(ASTRATestCase):
     """Testes para sistema de configuração."""
     
     def test_config_import(self):
@@ -374,7 +374,7 @@ class TestConfigSystem(ALEXTestCase):
         except ImportError:
             self.skipTest("Sistema de configuração não disponível")
 
-class PerformanceTest(ALEXTestCase):
+class PerformanceTest(ASTRATestCase):
     """Testes de performance para funções críticas."""
     
     def test_file_operations_performance(self):
@@ -412,7 +412,7 @@ class PerformanceTest(ALEXTestCase):
         
         logger.info(f"Performance - Escrita: {write_time:.3f}s, Leitura: {read_time:.3f}s")
 
-class IntegrationTest(ALEXTestCase):
+class IntegrationTest(ASTRATestCase):
     """Testes de integração entre módulos."""
     
     def test_config_and_logging_integration(self):
@@ -519,7 +519,7 @@ def main():
     """Função principal para executar testes."""
     import argparse
     
-    parser = argparse.ArgumentParser(description='ALEX Test Framework')
+    parser = argparse.ArgumentParser(description='ASTRA Test Framework')
     parser.add_argument('-v', '--verbose', action='count', default=1,
                        help='Increase verbosity')
     parser.add_argument('--coverage', action='store_true',

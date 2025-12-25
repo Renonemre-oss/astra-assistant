@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Script para mostrar showcase de logos
+ASTRA - Script para mostrar showcase de logos
 Abre o navegador com a página de demonstração dos logos
 """
 
@@ -25,7 +25,7 @@ def show_logo_showcase():
         # Converter para URL file://
         file_url = showcase_path.as_uri()
         
-        print("🎨 Abrindo showcase de logos do ALEX...")
+        print("🎨 Abrindo showcase de logos do ASTRA...")
         print(f"📂 Arquivo: {showcase_path}")
         
         # Abrir no navegador padrão
@@ -61,10 +61,10 @@ def check_assets():
     
     # Verificar arquivos principais
     expected_files = [
-        "logos/alex_logo_main.png",
-        "logos/alex_logo_horizontal.png", 
-        "favicons/alex_favicon.png",
-        "icons/alex_app_icon.png"
+        "logos/ASTRA_logo_main.png",
+        "logos/ASTRA_logo_horizontal.png", 
+        "favicons/ASTRA_favicon.png",
+        "icons/ASTRA_app_icon.png"
     ]
     
     missing_files = []
@@ -97,7 +97,7 @@ def check_assets():
 
 def main():
     """Função principal."""
-    print("🎨 ALEX - Logo Showcase")
+    print("🎨 ASTRA - Logo Showcase")
     print("=" * 40)
     
     # Verificar assets primeiro

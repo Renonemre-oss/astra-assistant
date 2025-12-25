@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Secrets Manager
+ASTRA/Astra - Secrets Manager
 Sistema seguro para gestão de API keys, tokens e credenciais.
 """
 
@@ -42,7 +42,7 @@ class SecretMetadata:
 
 
 class SecretManager:
-    """Gestor seguro de secrets para o ALEX/Astra."""
+    """Gestor seguro de secrets para o ASTRA/Astra."""
     
     def __init__(self, env_file: Optional[Path] = None):
         self.env_file = env_file or Path(__file__).parent.parent.parent / '.env'
@@ -62,10 +62,10 @@ class SecretManager:
             kdf = PBKDF2HMAC(
                 algorithm=hashes.SHA256(),
                 length=32,
-                salt=b'alex_Astra_2024',
+                salt=b'ASTRA_Astra_2024',
                 iterations=100000,
             )
-            key = base64.urlsafe_b64encode(kdf.derive(b'alex_master_key'))
+            key = base64.urlsafe_b64encode(kdf.derive(b'ASTRA_master_key'))
             self._cipher = Fernet(key)
         except Exception as e:
             logger.error(f"Erro ao inicializar encriptação: {e}")
@@ -170,4 +170,5 @@ def get_secret_manager() -> SecretManager:
 
 def get_secret(name: str, default: Optional[str] = None) -> Optional[str]:
     return get_secret_manager().get(name, default)
+
 

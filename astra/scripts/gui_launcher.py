@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🎭 ALEX Voice System Launcher
+🎭 ASTRA Voice System Launcher
 Launcher para todas as interfaces do sistema de voz.
 
 Interfaces disponíveis:
@@ -20,7 +20,7 @@ from pathlib import Path
 
 class VoiceLauncher:
     """
-    Launcher principal para o sistema de voz ALEX.
+    Launcher principal para o sistema de voz ASTRA.
     """
     
     def __init__(self):
@@ -30,7 +30,7 @@ class VoiceLauncher:
     def setup_gui(self):
         """Configura a interface gráfica."""
         self.root = tk.Tk()
-        self.root.title("🎭 ALEX Voice System Launcher")
+        self.root.title("🎭 ASTRA Voice System Launcher")
         self.root.geometry("500x400")
         self.root.resizable(False, False)
         
@@ -39,7 +39,7 @@ class VoiceLauncher:
         main_frame.pack(fill=tk.BOTH, expand=True)
         
         # Título
-        title_label = ttk.Label(main_frame, text="🎭 ALEX Voice System", 
+        title_label = ttk.Label(main_frame, text="🎭 ASTRA Voice System", 
                                font=("Arial", 18, "bold"))
         title_label.pack(pady=(0, 10))
         
@@ -131,13 +131,13 @@ class VoiceLauncher:
 
 
 if __name__ == "__main__":
-    print("🎭 Iniciando ALEX Voice System Launcher...")
+    print("🎭 Iniciando ASTRA Voice System Launcher...")
     
     # Verificar se estamos no diretório correto
     project_root = Path(__file__).parent.parent
     if not (project_root / "speech").exists():
         print("❌ Erro: Diretório 'speech' não encontrado")
-        print("   Execute este script do diretório principal do ALEX")
+        print("   Execute este script do diretório principal do ASTRA")
         input("Pressione Enter para sair...")
         sys.exit(1)
     

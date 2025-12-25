@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Configuração do Sistema de Visualização
+ASTRA - Configuração do Sistema de Visualização
 Configurações para feedback visual durante escuta e interações.
 """
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Encryption System
+ASTRA/Astra - Encryption System
 Sistema de encriptação para dados sensíveis.
 """
 
@@ -39,7 +39,7 @@ class DataEncryptor:
         logger.info("🔐 Encriptação inicializada")
     
     @classmethod
-    def from_password(cls, password: str, salt: bytes = b'alex_Astra_salt'):
+    def from_password(cls, password: str, salt: bytes = b'ASTRA_Astra_salt'):
         """Cria encriptação a partir de password."""
         if not CRYPTO_AVAILABLE:
             return cls(None)
@@ -93,7 +93,7 @@ _default_encryptor: Optional[DataEncryptor] = None
 def get_encryptor() -> DataEncryptor:
     global _default_encryptor
     if _default_encryptor is None:
-        _default_encryptor = DataEncryptor.from_password('alex_default_key_2024')
+        _default_encryptor = DataEncryptor.from_password('ASTRA_default_key_2024')
     return _default_encryptor
 
 
@@ -105,4 +105,5 @@ def encrypt_data(data: Union[str, bytes]) -> Optional[str]:
 def decrypt_data(encrypted: str) -> Optional[str]:
     """Atalho para decriptar."""
     return get_encryptor().decrypt(encrypted)
+
 

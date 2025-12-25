@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script para gerar múltiplas versões do logo ALEX
+Script para gerar múltiplas versões do logo ASTRA
 Gera logos em diferentes formatos e tamanhos
 """
 
@@ -15,9 +15,9 @@ from utils.asset_manager import get_asset_manager
 from PIL import Image, ImageDraw, ImageFont
 import io
 
-def create_alex_logo(size=(512, 512), text_size=None):
+def create_ASTRA_logo(size=(512, 512), text_size=None):
     """
-    Cria o logo do ALEX com design moderno
+    Cria o logo do ASTRA com design moderno
     
     Args:
         size: Tupla (width, height) para o tamanho da imagem
@@ -66,8 +66,8 @@ def create_alex_logo(size=(512, 512), text_size=None):
         except:
             font = ImageFont.load_default()
     
-    # Texto "ALEX"
-    text = "ALEX"
+    # Texto "ASTRA"
+    text = "ASTRA"
     
     # Calcular posição centralizada do texto
     bbox = draw.textbbox((0, 0), text, font=font)
@@ -100,7 +100,7 @@ def create_alex_logo(size=(512, 512), text_size=None):
 
 def generate_all_logos():
     """Gera todas as versões do logo"""
-    print("🎨 Gerando logos do ALEX...")
+    print("🎨 Gerando logos do ASTRA...")
     
     am = get_asset_manager()
     
@@ -108,31 +108,31 @@ def generate_all_logos():
     logo_configs = [
         # Logo principal (quadrado)
         {
-            'name': 'alex_logo_main',
+            'name': 'ASTRA_logo_main',
             'size': (512, 512),
             'formats': ['png', 'ico'],
-            'description': 'Logo principal do ALEX - versão quadrada alta resolução'
+            'description': 'Logo principal do ASTRA - versão quadrada alta resolução'
         },
         # Logo horizontal
         {
-            'name': 'alex_logo_horizontal', 
+            'name': 'ASTRA_logo_horizontal', 
             'size': (800, 300),
             'formats': ['png'],
-            'description': 'Logo horizontal do ALEX para interfaces largas'
+            'description': 'Logo horizontal do ASTRA para interfaces largas'
         },
         # Favicon
         {
-            'name': 'alex_favicon',
+            'name': 'ASTRA_favicon',
             'size': (64, 64),
             'formats': ['png', 'ico'],
-            'description': 'Favicon do ALEX para navegadores e aplicações'
+            'description': 'Favicon do ASTRA para navegadores e aplicações'
         },
         # Ícone da aplicação
         {
-            'name': 'alex_app_icon',
+            'name': 'ASTRA_app_icon',
             'size': (256, 256),
             'formats': ['png', 'ico'],
-            'description': 'Ícone da aplicação ALEX para Windows'
+            'description': 'Ícone da aplicação ASTRA para Windows'
         }
     ]
     
@@ -147,7 +147,7 @@ def generate_all_logos():
         print(f"\n📸 Gerando {name} ({size[0]}x{size[1]})...")
         
         # Gerar a imagem
-        logo_img = create_alex_logo(size)
+        logo_img = create_ASTRA_logo(size)
         
         # Salvar em cada formato
         for fmt in formats:

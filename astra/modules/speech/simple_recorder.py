@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🎙️ ALEX - Gravador Simples de Áudio
+🎙️ ASTRA - Gravador Simples de Áudio
 Interface simplificada para gravação de áudio para clonagem de voz.
 """
 
@@ -135,14 +135,14 @@ class SimpleRecorderGUI:
     def setup_gui(self):
         """Configura interface."""
         self.root = tk.Tk()
-        self.root.title("🎙️ ALEX - Gravador Simples")
+        self.root.title("🎙️ ASTRA - Gravador Simples")
         self.root.geometry("600x500")
         
         main_frame = ttk.Frame(self.root, padding="10")
         main_frame.pack(fill=tk.BOTH, expand=True)
         
         # Título
-        ttk.Label(main_frame, text="🎙️ Gravador de Voz ALEX", 
+        ttk.Label(main_frame, text="🎙️ Gravador de Voz ASTRA", 
                  font=("Arial", 16, "bold")).pack(pady=(0, 20))
         
         # Dispositivos
@@ -193,7 +193,7 @@ class SimpleRecorderGUI:
 3. Fale de forma clara por 10-30 segundos:
    
    Exemplos de texto:
-   • "Olá, meu nome é [SEU NOME]. Eu sou o assistente virtual ALEX."
+   • "Olá, meu nome é [SEU NOME]. Eu sou o assistente virtual ASTRA."
    • "Como posso ajudá-lo hoje? Estou aqui para tornar sua vida mais fácil."
    • "Posso responder perguntas e executar diversas tarefas."
 
@@ -315,6 +315,6 @@ class SimpleRecorderGUI:
 
 
 if __name__ == "__main__":
-    print("🎙️ Iniciando Gravador Simples ALEX...")
+    print("🎙️ Iniciando Gravador Simples ASTRA...")
     app = SimpleRecorderGUI()
     app.run()

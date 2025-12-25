@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Vector Store
+ASTRA/Astra - Vector Store
 Sistema de armazenamento de embeddings com ChromaDB.
 """
 
@@ -55,8 +55,8 @@ class VectorStore:
             
             # Criar ou obter coleção
             self.collection = self.client.get_or_create_collection(
-                name="alex_memory",
-                metadata={"description": "ALEX/Astra memory embeddings"}
+                name="ASTRA_memory",
+                metadata={"description": "ASTRA/Astra memory embeddings"}
             )
             
             logger.info(f"✅ VectorStore inicializado: {self.collection.count()} documentos")
@@ -183,8 +183,8 @@ class VectorStore:
             return False
         
         try:
-            self.client.delete_collection("alex_memory")
-            self.collection = self.client.create_collection("alex_memory")
+            self.client.delete_collection("ASTRA_memory")
+            self.collection = self.client.create_collection("ASTRA_memory")
             logger.info("🧹 Vector store limpo")
             return True
         except Exception as e:
@@ -216,4 +216,5 @@ def get_vector_store() -> VectorStore:
     if _vector_store is None:
         _vector_store = VectorStore()
     return _vector_store
+
 

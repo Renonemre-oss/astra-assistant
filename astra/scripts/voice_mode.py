@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Modo Astra (Voice-Only)
+ASTRA - Modo Astra (Voice-Only)
 Executa o assistente em modo somente voz, sem interface gráfica.
 Sistema fica sempre escutando por "Astra" automaticamente.
 
@@ -78,7 +78,7 @@ logger = logging.getLogger(__name__)
 
 class AstraVoiceMode:
     """
-    Modo de voz do ALEX - funciona apenas com comandos de voz.
+    Modo de voz do ASTRA - funciona apenas com comandos de voz.
     """
     
     def __init__(self):
@@ -96,7 +96,7 @@ class AstraVoiceMode:
         # Histórico simples
         self.conversation_history = []
         
-        print("🤖 ALEX - Modo Astra (Somente Voz)")
+        print("🤖 ASTRA - Modo Astra (Somente Voz)")
         print("=" * 40)
     
     def initialize_systems(self):
@@ -271,7 +271,7 @@ class AstraVoiceMode:
             
             context_str = "\n\n".join(context_parts) if context_parts else ""
             
-            prompt = f"""Tu és o Alex, um assistente virtual casual e amigável. 
+            prompt = f"""Tu és o ASTRA, um assistente virtual casual e amigável. 
             Responde de forma natural e direta.
 
 {context_str}
@@ -333,7 +333,7 @@ Utilizador: {command}"""
         """Fala um texto usando TTS."""
         if self.audio_manager:
             self.audio_manager.text_to_speech(text)
-        print(f"🗣️ ALEX: {text}")
+        print(f"🗣️ ASTRA: {text}")
     
     def start(self):
         """Inicia o modo de voz."""
@@ -414,3 +414,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

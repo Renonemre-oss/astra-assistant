@@ -1,6 +1,6 @@
-# 🗄️ ALEX - Integração MySQL com HeidiSQL
+# 🗄️ ASTRA - Integração MySQL com HeidiSQL
 
-O assistente ALEX agora suporta gravação completa de conversas numa base de dados MySQL, permitindo histórico persistente e análise detalhada das interações.
+O assistente ASTRA agora suporta gravação completa de conversas numa base de dados MySQL, permitindo histórico persistente e análise detalhada das interações.
 
 ## 🚀 **CONFIGURAÇÃO INICIAL**
 
@@ -17,7 +17,7 @@ python setup_database.py
 
 Este script irá:
 - 🔧 Configurar a conexão MySQL
-- 🏗️ Criar a base de dados `alex_assistant`
+- 🏗️ Criar a base de dados `ASTRA_assistant`
 - 📋 Criar todas as tabelas necessárias  
 - 💾 Gerar ficheiro de configuração `mysql_config.ini`
 - 📱 Mostrar instruções para HeidiSQL
@@ -178,7 +178,7 @@ WHERE created_at < DATE_SUB(NOW(), INTERVAL 30 DAY);
 #### **Tabelas Não Encontradas**
 ```sql
 -- Recriar estrutura manualmente se necessário
-USE alex_assistant;
+USE ASTRA_assistant;
 SHOW TABLES;
 ```
 
@@ -200,4 +200,4 @@ CREATE INDEX idx_messages_content ON messages(content);
 
 ---
 
-**🎉 Agora pode gerir completamente o histórico do ALEX através do HeidiSQL!**
+**🎉 Agora pode gerir completamente o histórico do ASTRA através do HeidiSQL!**

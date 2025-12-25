@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Correções para os problemas identificados no sistema de voz do ALEX
+Correções para os problemas identificados no sistema de voz do ASTRA
 """
 
 import sys
@@ -79,7 +79,7 @@ class SafeFormatter(logging.Formatter):
             '🗣️': '[TTS]',
             '🎙️': '[STT]',
             '🎯': '[TARGET]',
-            '🤖': '[ALEX]',
+            '🤖': '[ASTRA]',
             '📊': '[INFO]',
             '🔊': '[SPEAKER]',
             '🎵': '[VOICE]',
@@ -231,7 +231,7 @@ def setup_windows_safe_logging():
             '🗣️': '[SPEAK]',
             '🎙️': '[LISTEN]',
             '🎯': '[TARGET]',
-            '🤖': '[ALEX]',
+            '🤖': '[ASTRA]',
         }
         
         def format(self, record):
@@ -276,7 +276,7 @@ def safe_porcupine_init():
         # Método 3: Buscar por keywords built-in
         else:
             # Usar keywords padrão conhecidas
-            keywords = ['alexa', 'computer', 'hey google', 'hey siri']
+            keywords = ['ASTRAa', 'computer', 'hey google', 'hey siri']
             return keywords[0]  # Retornar primeira disponível
         
         # Processar keyword_paths encontradas
@@ -348,7 +348,7 @@ def test_fixes():
 
 def main():
     """Função principal das correções"""
-    print("🛠️ ALEX - CORREÇÕES DO SISTEMA DE VOZ")
+    print("🛠️ ASTRA - CORREÇÕES DO SISTEMA DE VOZ")
     print("=" * 50)
     
     results = {}

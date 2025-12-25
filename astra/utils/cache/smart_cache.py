@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Smart Cache System
+ASTRA/Astra - Smart Cache System
 Sistema de cache inteligente com Redis e fallback local.
 """
 
@@ -339,4 +339,5 @@ def cached(ttl: int = 3600, key_prefix: str = "func"):
         
         return wrapper
     return decorator
+
 

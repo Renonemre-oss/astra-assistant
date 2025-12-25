@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Template para Novos Módulos - Assistente ALEX
+Template para Novos Módulos - Assistente ASTRA
 ======================================
 
-Este é um template padrão para criar novos módulos no assistente ALEX.
+Este é um template padrão para criar novos módulos no assistente ASTRA.
 Copie este arquivo e adapte conforme necessário.
 
 Author: [SEU_NOME]
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 class ModuleTemplate:
     """
-    Template para novos módulos do assistente ALEX.
+    Template para novos módulos do assistente ASTRA.
     
     Esta classe fornece a estrutura básica que todos os módulos devem seguir
     para manter consistência e facilitar integração.

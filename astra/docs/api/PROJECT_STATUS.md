@@ -1,4 +1,4 @@
-# 🎯 ALEX - Estado Atual do Projeto
+# 🎯 ASTRA - Estado Atual do Projeto
 
 ## ✅ **Status: ORGANIZADO E LIMPO**
 
@@ -6,7 +6,7 @@ Data de organização: 19 de setembro de 2025
 
 ## 📁 **Estrutura Final**
 
-O projeto ALEX foi completamente reorganizado e limpo, resultando numa estrutura profissional e bem organizada:
+O projeto ASTRA foi completamente reorganizado e limpo, resultando numa estrutura profissional e bem organizada:
 
 ### 🗂️ **Diretórios Principais**
 - **`core/`** - 1 arquivo Python (aplicação principal)
@@ -42,11 +42,11 @@ Durante a limpeza foram removidos:
 
 ### **Launcher Principal:**
 ```bash
-python run_alex.py          # Executar assistente
-python run_alex.py test     # Executar testes
-python run_alex.py struct   # Ver estrutura
-python run_alex.py clean    # Limpar projeto
-python run_alex.py help     # Mostrar ajuda
+python run_ASTRA.py          # Executar assistente
+python run_ASTRA.py test     # Executar testes
+python run_ASTRA.py struct   # Ver estrutura
+python run_ASTRA.py clean    # Limpar projeto
+python run_ASTRA.py help     # Mostrar ajuda
 ```
 
 ### **Funcionalidades Disponíveis:**
@@ -82,7 +82,7 @@ python run_alex.py help     # Mostrar ajuda
 ## 🔧 **Manutenção**
 
 ### **Limpeza Regular:**
-Execute `python run_alex.py clean` periodicamente para:
+Execute `python run_ASTRA.py clean` periodicamente para:
 - Remover cache Python (*.pyc)
 - Limpar arquivos temporários
 - Remover logs antigos
@@ -101,7 +101,7 @@ O ambiente virtual `.venv_assistente` contém todas as dependências e deve ser 
 
 ## ✨ **Projeto 100% Organizado e Funcional!**
 
-O ALEX está agora numa estrutura profissional, limpa e pronta para desenvolvimento avançado. Todos os sistemas estão integrados e testados.
+O ASTRA está agora numa estrutura profissional, limpa e pronta para desenvolvimento avançado. Todos os sistemas estão integrados e testados.
 
 ---
 

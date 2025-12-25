@@ -1,4 +1,4 @@
-# 🚀 Jarvis API Integration Hub
+# 🚀 ASTRA API Integration Hub
 
 ## 📋 Resumo
 Sistema unificado para integração de múltiplas APIs que fornece dados em tempo real sobre:
@@ -63,7 +63,7 @@ hub.set_api_key('openweather', 'YOUR_OPENWEATHER_API_KEY')
 ## 📊 Exemplo de Saída
 
 ```
-🚀 JARVIS API INTEGRATION HUB - DASHBOARD
+🚀 ASTRA API INTEGRATION HUB - DASHBOARD
 ================================================================================
 
 📰 ÚLTIMAS NOTÍCIAS
@@ -93,11 +93,11 @@ hub.set_api_key('openweather', 'YOUR_OPENWEATHER_API_KEY')
 ## 📁 Estrutura do Projeto
 
 ```
-jarvis/
+ASTRA/
 ├── api_integration_hub.py      # Arquivo principal
 ├── newsdata_api_script.py      # Script de notícias
 ├── API_HUB_README.md          # Este arquivo
-└── ...outros arquivos do Jarvis
+└── ...outros arquivos do ASTRA
 ```
 
 ## 🔧 Personalização
@@ -140,7 +140,7 @@ self.cache_duration = {
 
 ## 🚀 Próximos Passos
 
-1. **Integrar com GUI do Jarvis**
+1. **Integrar com GUI do ASTRA**
 2. **Adicionar banco de dados local**
 3. **Implementar alertas personalizados**
 4. **Criar API REST própria**
@@ -157,4 +157,4 @@ Para dúvidas ou problemas:
 
 **🎯 Status**: ✅ Funcionando
 **🔄 Última atualização**: 30/09/2025
-**👨‍💻 Desenvolvido para**: Projeto Jarvis
+**👨‍💻 Desenvolvido para**: Projeto ASTRA

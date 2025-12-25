@@ -235,7 +235,7 @@
       }
     },
     "environment": {
-      "working_directory": "C:\\Users\\antop\\Desktop\\jarvis\\tests",
+      "working_directory": "C:\\Users\\antop\\Desktop\\Astra\\tests",
       "python_path": "C:\\Users\\antop\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\python.exe",
       "memory_available": "52.0 GB",
       "cpu_count": 32,

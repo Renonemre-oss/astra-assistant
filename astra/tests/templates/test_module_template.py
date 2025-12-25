@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Template para Módulo de Teste
+ASTRA - Template para Módulo de Teste
 Template para criação de novos módulos de teste
 
 INSTRUÇÕES DE USO:
@@ -32,10 +32,10 @@ from .test_factories import (
 )
 
 # Importar classe base
-from .test_framework import ALEXTestCase
+from .test_framework import ASTRATestCase
 
 
-class Test[ModuleName](ALEXTestCase):
+class Test[ModuleName](ASTRATestCase):
     """Testes para o módulo [ModuleName]."""
     
     def setUp(self):
@@ -125,7 +125,7 @@ class Test[ModuleName](ALEXTestCase):
                 self.skipTest("[ModuleName] não disponível")
 
 
-class Test[ModuleName]Integration(ALEXTestCase):
+class Test[ModuleName]Integration(ASTRATestCase):
     """Testes de integração para o módulo [ModuleName]."""
     
     def setUp(self):
@@ -154,7 +154,7 @@ class Test[ModuleName]Integration(ALEXTestCase):
                 self.skipTest("Módulos de integração não disponíveis")
 
 
-class Performance[ModuleName](ALEXTestCase):
+class Performance[ModuleName](ASTRATestCase):
     """Testes de performance para o módulo [ModuleName]."""
     
     def setUp(self):

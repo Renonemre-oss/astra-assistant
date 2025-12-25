@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Splash Screen Component
-Interface de inicialização com logo do ALEX
+ASTRA - Splash Screen Component
+Interface de inicialização com logo do ASTRA
 
-Este módulo fornece uma tela de apresentação moderna com o logo do ALEX,
+Este módulo fornece uma tela de apresentação moderna com o logo do ASTRA,
 animações suaves e indicadores de progresso de carregamento.
 """
 
@@ -28,7 +28,7 @@ except ImportError:
 from utils.asset_manager import get_asset_manager
 
 class SplashScreen(QWidget):
-    """Tela de splash moderna com logo do ALEX."""
+    """Tela de splash moderna com logo do ASTRA."""
     
     # Sinais para comunicação
     finished = pyqtSignal()
@@ -38,7 +38,7 @@ class SplashScreen(QWidget):
         super().__init__(parent)
         
         self.loading_steps = loading_steps or [
-            "Inicializando sistema ALEX...",
+            "Inicializando sistema ASTRA...",
             "Carregando módulos principais...",
             "Configurando interface...",
             "Carregando modelos de IA...",
@@ -100,12 +100,12 @@ class SplashScreen(QWidget):
         container_layout.setContentsMargins(40, 40, 40, 40)
         container_layout.setSpacing(25)
         
-        # Logo do ALEX
+        # Logo do ASTRA
         self.logo_label = self.create_logo_widget()
         container_layout.addWidget(self.logo_label, alignment=Qt.AlignmentFlag.AlignCenter)
         
         # Título
-        self.title_label = QLabel("ALEX")
+        self.title_label = QLabel("ASTRA")
         self.title_label.setStyleSheet("""
             QLabel {
                 font-family: Arial, sans-serif;
@@ -203,7 +203,7 @@ class SplashScreen(QWidget):
         
         # Tentar carregar logo do asset manager
         try:
-            logo_asset = self.asset_manager.get_asset("alex_logo_main")
+            logo_asset = self.asset_manager.get_asset("ASTRA_logo_main")
             if logo_asset and logo_asset.path.exists():
                 pixmap = QPixmap(str(logo_asset.path))
                 if not pixmap.isNull():
@@ -220,7 +220,7 @@ class SplashScreen(QWidget):
             print(f"Erro ao carregar logo: {e}")
         
         # Fallback: criar logo textual
-        logo_label.setText("🤖\nALEX")
+        logo_label.setText("🤖\nASTRA")
         logo_label.setStyleSheet("""
             QLabel {
                 font-family: Arial, sans-serif;
@@ -381,7 +381,7 @@ class LoadingWorker(QThread):
 def show_splash_screen(parent=None, loading_tasks: List[Callable] = None, 
                       auto_duration_ms: int = 4000) -> SplashScreen:
     """
-    Mostra a tela de splash do ALEX.
+    Mostra a tela de splash do ASTRA.
     
     Args:
         parent: Widget pai (opcional)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🎭 ALEX - Gerenciador de Vozes Clonadas
+🎭 ASTRA - Gerenciador de Vozes Clonadas
 Interface para criar, gerenciar e testar vozes clonadas.
 
 Funcionalidades:
@@ -69,7 +69,7 @@ class VoiceManagerGUI:
     def setup_gui(self):
         """Configura a interface gráfica."""
         self.root = tk.Tk()
-        self.root.title("🎭 ALEX - Gerenciador de Vozes")
+        self.root.title("🎭 ASTRA - Gerenciador de Vozes")
         self.root.geometry("900x700")
         
         # Frame principal
@@ -77,7 +77,7 @@ class VoiceManagerGUI:
         main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
         
         # Título
-        title_label = ttk.Label(main_frame, text="🎭 Gerenciador de Vozes ALEX", 
+        title_label = ttk.Label(main_frame, text="🎭 Gerenciador de Vozes ASTRA", 
                                font=("Arial", 16, "bold"))
         title_label.grid(row=0, column=0, columnspan=3, pady=(0, 20))
         
@@ -177,7 +177,7 @@ class VoiceManagerGUI:
         test_frame.grid(row=1, column=0, columnspan=4, sticky=(tk.W, tk.E), pady=(10, 0))
         
         self.test_text_var = tk.StringVar()
-        self.test_text_var.set("Olá, este é um teste da voz clonada do ALEX. Como você avalia a qualidade?")
+        self.test_text_var.set("Olá, este é um teste da voz clonada do ASTRA. Como você avalia a qualidade?")
         
         test_entry = ttk.Entry(test_frame, textvariable=self.test_text_var, width=80)
         test_entry.grid(row=0, column=0, sticky=(tk.W, tk.E), padx=(0, 10))
@@ -485,7 +485,7 @@ class VoiceManagerGUI:
         info = self.hybrid_engine.get_system_info()
         
         info_text = f"""
-🎯 Sistema Híbrido ALEX
+🎯 Sistema Híbrido ASTRA
 
 🔧 Engine Principal: {info.get('current_engine', 'N/A')}
 🛡️ Engine Fallback: {info.get('fallback_engine', 'N/A')}
@@ -521,7 +521,7 @@ except ImportError:
 
 
 if __name__ == "__main__":
-    print("🎭 Iniciando Gerenciador de Vozes ALEX...")
+    print("🎭 Iniciando Gerenciador de Vozes ASTRA...")
     
     app = VoiceManagerGUI()
     app.run()

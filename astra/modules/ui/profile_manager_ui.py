@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Interface de Gestão de Perfil
+ASTRA - Interface de Gestão de Perfil
 Interface gráfica para configuração completa de perfil do utilizador
 
 Este módulo fornece:
@@ -54,7 +54,7 @@ class ProfileManagerUI(QMainWindow):
         
     def init_ui(self):
         """Inicializa a interface de utilizador."""
-        self.setWindowTitle("ALEX - Gestão de Perfil")
+        self.setWindowTitle("ASTRA - Gestão de Perfil")
         self.setGeometry(200, 200, 900, 700)
         self.setStyleSheet(UI_STYLES["main_style"])
         
@@ -108,7 +108,7 @@ class ProfileManagerUI(QMainWindow):
         header_layout = QHBoxLayout()
         
         # Título
-        title_label = QLabel("🤖 Gestão de Perfil ALEX")
+        title_label = QLabel("🤖 Gestão de Perfil ASTRA")
         title_label.setObjectName("titleLabel")
         title_label.setAlignment(Qt.AlignmentFlag.AlignLeft)
         
@@ -259,8 +259,8 @@ class ProfileManagerUI(QMainWindow):
         tab = QWidget()
         layout = QVBoxLayout(tab)
         
-        # Personalidade do ALEX
-        personality_group = QGroupBox("🎭 Personalidade do ALEX")
+        # Personalidade do ASTRA
+        personality_group = QGroupBox("🎭 Personalidade do ASTRA")
         personality_layout = QVBoxLayout(personality_group)
         
         self.personality_combo = QComboBox()
@@ -633,7 +633,7 @@ class ProfileManagerUI(QMainWindow):
             'desporto_favorito': self.favorite_sport_edit.text(),
             'cor_favorita': self.favorite_color_edit.text(),
             'estacao_favorita': self.favorite_season_combo.currentText(),
-            'personalidade_alex': self.personality_combo.currentData(),
+            'personalidade_ASTRA': self.personality_combo.currentData(),
             'data_collection_consent': self.data_collection.isChecked(),
             'voice_analysis_consent': self.voice_analysis.isChecked(),
             'conversation_logging': self.conversation_logging.isChecked()
@@ -657,7 +657,7 @@ class ProfileManagerUI(QMainWindow):
     def export_profile(self):
         """Exporta perfil para ficheiro."""
         file_path, _ = QFileDialog.getSaveFileName(
-            self, "Exportar Perfil", "alex_profile.json", "JSON Files (*.json)"
+            self, "Exportar Perfil", "ASTRA_profile.json", "JSON Files (*.json)"
         )
         
         if file_path:
@@ -703,7 +703,7 @@ class ProfileManagerUI(QMainWindow):
             backup_dir.mkdir(exist_ok=True)
             
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            backup_file = backup_dir / f"alex_profile_backup_{timestamp}.json"
+            backup_file = backup_dir / f"ASTRA_profile_backup_{timestamp}.json"
             
             profile_data = self.collect_form_data()
             with open(backup_file, 'w', encoding='utf-8') as f:

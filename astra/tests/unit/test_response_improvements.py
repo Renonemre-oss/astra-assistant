@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Script de Teste para Melhorias nas Respostas do ALEX
+Script de Teste para Melhorias nas Respostas do ASTRA
 =====================================================
 
 Testa se o sistema de contexto inteligente funciona corretamente
@@ -172,13 +172,13 @@ def test_casual_tone():
     
     # Comparar ton antigo vs novo
     old_responses = [
-        "O utilizador está a conversar com um assistente virtual chamado Alex. Responde de forma útil, concisa e natural.",
+        "O utilizador está a conversar com um assistente virtual chamado ASTRA. Responde de forma útil, concisa e natural.",
         "Olá! Como posso ajudar hoje?",
         "👋 Até logo! Sempre às ordens."
     ]
     
     new_responses = [
-        "Tu és o Alex, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem falaria. Evita ser muito formal.",
+        "Tu és o ASTRA, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem falaria. Evita ser muito formal.",
         "Ey! Tudo bem?",
         "Até à próxima! 👋"
     ]

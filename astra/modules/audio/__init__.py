@@ -1,4 +1,4 @@
 """
-Audio module for ALEX assistant
+Audio module for ASTRA assistant
 Handles text-to-speech and audio management functionality
 """

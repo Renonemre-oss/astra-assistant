@@ -1,6 +1,6 @@
-# 🌐 Integrações com APIs Externas - Jarvis
+# 🌐 Integrações com APIs Externas - ASTRA
 
-Este documento descreve as novas integrações implementadas no Jarvis para conectar com APIs externas, incluindo notícias, calendários, email e redes sociais.
+Este documento descreve as novas integrações implementadas no ASTRA para conectar com APIs externas, incluindo notícias, calendários, email e redes sociais.
 
 ## 📋 APIs Implementadas
 
@@ -114,7 +114,7 @@ tweets = manager.social.twitter_user_timeline("user_id", max_results=5)
 ## 📁 Estrutura dos Arquivos
 
 ```
-jarvis/
+ASTRA/
 ├── modules/external_apis/
 │   ├── __init__.py
 │   ├── base_api.py          # Classe base para requisições HTTP

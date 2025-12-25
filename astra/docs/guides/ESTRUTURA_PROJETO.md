@@ -1,4 +1,4 @@
-# 📁 ESTRUTURA ORGANIZADA DO PROJETO ALEX
+# 📁 ESTRUTURA ORGANIZADA DO PROJETO ASTRA
 
 > **Atualizado em:** 20 de Setembro de 2025  
 > **Versão:** 2.0 - Estrutura Reorganizada
@@ -6,7 +6,7 @@
 ## 📋 ESTRUTURA DE DIRETÓRIOS
 
 ```
-C:\Users\antop\Desktop\jarvis\
+C:\Users\antop\Desktop\ASTRA\
 ├── 📂 audio/                     # Sistema de áudio (TTS/STT)
 ├── 📂 build/                     # ⭐ NOVO: Arquivos de build e deployment
 │   ├── Makefile.ps1             # Scripts de automação
@@ -20,7 +20,7 @@ C:\Users\antop\Desktop\jarvis\
 ├── 📂 modules/                  # Módulos funcionais (perfis, pessoas, etc.)
 ├── 📂 neural_models/            # Modelos de machine learning
 ├── 📂 reports/                  # ⭐ NOVO: Relatórios e análises
-│   ├── ALEX_DEBUG_REPORT.md     # Relatório de debug detalhado
+│   ├── ASTRA_DEBUG_REPORT.md     # Relatório de debug detalhado
 │   ├── debug_results.json       # Resultados de análise em JSON
 │   └── PROJECT_STATUS.md        # Status do projeto
 ├── 📂 scripts/                  # Scripts utilitários
@@ -38,9 +38,9 @@ C:\Users\antop\Desktop\jarvis\
 ├── 📄 LICENSE                  # Licença do projeto
 ├── 📄 README.md                # Documentação principal
 ├── 📄 __init__.py              # Inicialização do módulo Python
-├── 📄 jarvis.code-workspace    # Workspace do VSCode
+├── 📄 ASTRA.code-workspace    # Workspace do VSCode
 ├── 📄 requirements.txt         # Dependências Python
-└── 📄 run_alex.py             # Ponto de entrada principal
+└── 📄 run_ASTRA.py             # Ponto de entrada principal
 ```
 
 ## 🔄 MUDANÇAS REALIZADAS
@@ -52,7 +52,7 @@ C:\Users\antop\Desktop\jarvis\
 | `Makefile.ps1` | `/` (raiz) | ➡️ | `/build/Makefile.ps1` |
 | `pyproject.toml` | `/` (raiz) | ➡️ | `/build/pyproject.toml` |
 | `debug_results.json` | `/` (raiz) | ➡️ | `/reports/debug_results.json` |
-| `ALEX_DEBUG_REPORT.md` | `/` (raiz) | ➡️ | `/reports/ALEX_DEBUG_REPORT.md` |
+| `ASTRA_DEBUG_REPORT.md` | `/` (raiz) | ➡️ | `/reports/ASTRA_DEBUG_REPORT.md` |
 | `PROJECT_STATUS.md` | `/` (raiz) | ➡️ | `/reports/PROJECT_STATUS.md` |
 | `test_placeholder_fix.py` | `/` (raiz) | ➡️ | `/tests/test_placeholder_fix.py` |
 | `debug_system.py` | `/` (raiz) | ➡️ | `/tests/debug_system.py` |
@@ -81,27 +81,27 @@ C:\Users\antop\Desktop\jarvis\
 
 ## 📖 **COMO USAR**
 
-### 🚀 **Para Executar o ALEX:**
+### 🚀 **Para Executar o ASTRA:**
 ```bash
-cd C:\Users\antop\Desktop\jarvis
-python run_alex.py
+cd C:\Users\antop\Desktop\ASTRA
+python run_ASTRA.py
 ```
 
 ### 🔧 **Para Build/Deploy:**
 ```powershell
-cd C:\Users\antop\Desktop\jarvis\build
+cd C:\Users\antop\Desktop\ASTRA\build
 .\Makefile.ps1
 ```
 
 ### 🧪 **Para Executar Testes:**
 ```bash
-cd C:\Users\antop\Desktop\jarvis\tests
+cd C:\Users\antop\Desktop\ASTRA\tests
 python debug_system.py              # Sistema de debug completo
 python test_placeholder_fix.py      # Teste específico de placeholders
 ```
 
 ### 📊 **Para Ver Relatórios:**
-- **Análise Completa**: `reports/ALEX_DEBUG_REPORT.md`
+- **Análise Completa**: `reports/ASTRA_DEBUG_REPORT.md`
 - **Status do Projeto**: `reports/PROJECT_STATUS.md`
 - **Dados JSON**: `reports/debug_results.json`
 
@@ -116,7 +116,7 @@ python test_placeholder_fix.py      # Teste específico de placeholders
 
 ### 📄 **Arquivos de Configuração**
 - **`requirements.txt`**: Dependências Python
-- **`run_alex.py`**: Ponto de entrada principal
+- **`run_ASTRA.py`**: Ponto de entrada principal
 - **`/config/`**: Configurações do sistema
 
 ### 🧪 **Sistema de Testes**
@@ -127,7 +127,7 @@ python test_placeholder_fix.py      # Teste específico de placeholders
 
 ## 🎉 **PROJETO ORGANIZADO COM SUCESSO!**
 
-A nova estrutura mantém toda a funcionalidade do ALEX enquanto oferece:
+A nova estrutura mantém toda a funcionalidade do ASTRA enquanto oferece:
 - ✅ **Organização aprimorada**
 - ✅ **Facilidade de manutenção**  
 - ✅ **Melhor experiência de desenvolvimento**

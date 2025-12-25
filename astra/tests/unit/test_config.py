@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Configuração para Testes
+ASTRA - Sistema de Configuração para Testes
 Gerencia configurações dinâmicas para testes do framework
 """
 

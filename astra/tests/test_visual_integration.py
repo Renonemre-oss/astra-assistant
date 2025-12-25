@@ -214,14 +214,14 @@ def main():
         print("\n🎉 INTEGRAÇÃO COMPLETA!")
         print("✨ O sistema de visualização está funcionando e integrado!")
         print("\n📝 PRÓXIMOS PASSOS:")
-        print("1. Execute: python run_alex.py")
+        print("1. Execute: python run_ASTRA.py")
         print("2. Clique no botão de microfone")  
-        print("3. Diga 'Alex' ou 'Astra' para ativar")
+        print("3. Diga 'ASTRA' ou 'Astra' para ativar")
         print("4. Observe o feedback visual durante a escuta!")
         print("\n🎮 COMANDOS DISPONÍVEIS:")
-        print("• 'Alex, alterar modo visual'")
-        print("• 'Alex, aplicar preset festa'")
-        print("• 'Alex, mudar para visualização completa'")
+        print("• 'ASTRA, alterar modo visual'")
+        print("• 'ASTRA, aplicar preset festa'")
+        print("• 'ASTRA, mudar para visualização completa'")
         
     else:
         print(f"\n⚠️ {total - passed} teste(s) falharam")
@@ -232,3 +232,4 @@ def main():
 if __name__ == "__main__":
     success = main()
     sys.exit(0 if success else 1)
+

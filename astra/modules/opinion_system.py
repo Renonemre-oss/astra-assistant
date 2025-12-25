@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Opinião
-Módulo que permite ao ALEX expressar opiniões, preocupações e dar conselhos
+ASTRA - Sistema de Opinião
+Módulo que permite ao ASTRA expressar opiniões, preocupações e dar conselhos
 de forma proativa e responsável.
 """
 
@@ -16,7 +16,7 @@ from .ethical_analyzer import ethical_analyzer, RiskAssessment, RiskLevel, RiskC
 logger = logging.getLogger(__name__)
 
 class OpinionSystem:
-    """Sistema de opinião do ALEX"""
+    """Sistema de opinião do ASTRA"""
     
     def __init__(self):
         self.concern_history = []  # Histórico de preocupações expressas
@@ -71,7 +71,7 @@ class OpinionSystem:
         Args:
             user_input: Texto do usuário
             context: Contexto da conversa
-            personality: Personalidade atual do ALEX
+            personality: Personalidade atual do ASTRA
         
         Returns:
             Tuple (resposta_opinion, should_decline)
@@ -208,7 +208,7 @@ class OpinionSystem:
         }
     
     def should_check_on_user(self) -> bool:
-        """Determina se o ALEX deve verificar como o usuário está"""
+        """Determina se o ASTRA deve verificar como o usuário está"""
         recent_high_risks = [
             c for c in self.concern_history[-5:] 
             if c["level"] >= RiskLevel.HIGH.value and 

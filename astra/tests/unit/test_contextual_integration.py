@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Teste de Integração do Analisador Contextual com Sistema Multi-Utilizador
 
 Testa a integração completa do analisador contextual com o sistema de gestão

@@ -1,4 +1,4 @@
-# 🎯 MELHORIAS NAS RESPOSTAS DO ALEX
+# 🎯 MELHORIAS NAS RESPOSTAS DO ASTRA
 
 > **Data:** 20 de Setembro de 2025  
 > **Objetivo:** Resolver problema de respostas repetitivas e formalismo excessivo
@@ -8,7 +8,7 @@
 ## 🔍 **PROBLEMAS IDENTIFICADOS**
 
 ### ❌ **Problemas Originais:**
-1. **Menção constante de pizza:** ALEX sempre mencionava a comida favorita em quase todas as respostas, mesmo quando irrelevante
+1. **Menção constante de pizza:** ASTRA sempre mencionava a comida favorita em quase todas as respostas, mesmo quando irrelevante
 2. **Tom muito formal:** Linguagem demasiado formal e robótica
 3. **Respostas repetitivas:** Sempre o mesmo tipo de resposta sem variação
 4. **Contexto inadequado:** Sistema passava todas as informações do perfil indiscriminadamente
@@ -63,13 +63,13 @@ Use esta informação apenas se a conversa for sobre comida/alimentação.
 
 **Prompt antigo:**
 ```
-O utilizador está a conversar com um assistente virtual chamado Alex. 
+O utilizador está a conversar com um assistente virtual chamado ASTRA. 
 Responde de forma útil, concisa e natural.
 ```
 
 **Prompt novo:**
 ```
-Tu és o Alex, um assistente virtual descontraído e natural. 
+Tu és o ASTRA, um assistente virtual descontraído e natural. 
 Responde de forma casual, amigável e direta, como um amigo jovem falaria. 
 Evita ser muito formal.
 ```
@@ -119,33 +119,33 @@ Evita ser muito formal.
 ### ✅ **Cenário 1: Cumprimento Simples**
 ```
 Usuário: "oi"
-ALEX: "Ey! Tudo bem?" (sem mencionar pizza)
+ASTRA: "Ey! Tudo bem?" (sem mencionar pizza)
 ```
 
 ### ✅ **Cenário 2: Pergunta sobre Hora**
 ```
 Usuário: "que horas são?"
-ALEX: "🕐 Agora são 10:15." (direto, sem contexto desnecessário)
+ASTRA: "🕐 Agora são 10:15." (direto, sem contexto desnecessário)
 ```
 
 ### ✅ **Cenário 3: Conversa sobre Comida**
 ```
 Usuário: "tenho fome"
-ALEX: "Que tal uma pizza? Sei que é a tua comida favorita! 🍕"
+ASTRA: "Que tal uma pizza? Sei que é a tua comida favorita! 🍕"
 (Contextualmente apropriado)
 ```
 
 ### ✅ **Cenário 4: Pergunta Pessoal**
 ```
 Usuário: "quem sou eu?"
-ALEX: "Tu és o António Pereira, tens 19 anos..."
+ASTRA: "Tu és o António Pereira, tens 19 anos..."
 (Info pessoal relevante, sem mencionar comida)
 ```
 
 ### ✅ **Cenário 5: Conversa Geral**
 ```
 Usuário: "como está o tempo?"
-ALEX: "Não tenho informações sobre o tempo atual, mas posso ajudar com outra coisa!"
+ASTRA: "Não tenho informações sobre o tempo atual, mas posso ajudar com outra coisa!"
 (Natural, sem forçar informações do perfil)
 ```
 
@@ -173,7 +173,7 @@ ALEX: "Não tenho informações sobre o tempo atual, mas posso ajudar com outra 
 4. **😊 Experiência do Usuário Melhorada:**
    - Respostas menos irritantes
    - Conversação mais fluida
-   - ALEX parece mais "humano"
+   - ASTRA parece mais "humano"
 
 ### 📈 **Métricas de Melhoria:**
 
@@ -215,7 +215,7 @@ As melhorias implementadas resolveram completamente os problemas identificados:
 - ❌ **Respostas repetitivas** → ✅ **Variadas e dinâmicas**
 - ❌ **Contexto inadequado** → ✅ **Inteligente e apropriado**
 
-**🚀 O ALEX agora responde de forma muito mais natural, inteligente e agradável!**
+**🚀 O ASTRA agora responde de forma muito mais natural, inteligente e agradável!**
 
 ---
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Tacotron 2 Engine
+ASTRA - Tacotron 2 Engine
 Implementação do modelo Tacotron 2 da NVIDIA para síntese de voz de alta qualidade
 """
 
@@ -37,7 +37,7 @@ class Tacotron2Engine:
         self.sample_rate = 22050
         
         # Diretório temporário para áudios gerados
-        self.temp_dir = Path(tempfile.gettempdir()) / "alex_tacotron2"
+        self.temp_dir = Path(tempfile.gettempdir()) / "ASTRA_tacotron2"
         self.temp_dir.mkdir(exist_ok=True)
         
         # Cache do último áudio gerado

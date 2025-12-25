@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Memory System Tests
+ASTRA/Astra - Memory System Tests
 Comprehensive unit tests for the memory system
 """
 
@@ -381,4 +381,5 @@ class TestPatternRecognizer:
         
         assert "topic_preferences" in patterns
         assert "frequency_patterns" in patterns
+
 

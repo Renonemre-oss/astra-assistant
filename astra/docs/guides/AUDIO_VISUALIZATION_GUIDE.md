@@ -1,8 +1,8 @@
-# 🎨 JARVIS - Sistema de Visualização de Áudio
+# 🎨 ASTRA - Sistema de Visualização de Áudio
 
 ## 📋 Resumo
 
-O sistema de visualização de áudio do Jarvis usa **Manim** para criar animações em tempo real que reagem às vibrações sonoras durante o modo de escuta. Quando o Jarvis está ouvindo por wake words, em vez de apenas mostrar texto, ele exibe animações visuais dinâmicas que respondem ao áudio captado pelo microfone.
+O sistema de visualização de áudio do ASTRA usa **Manim** para criar animações em tempo real que reagem às vibrações sonoras durante o modo de escuta. Quando o ASTRA está ouvindo por wake words, em vez de apenas mostrar texto, ele exibe animações visuais dinâmicas que respondem ao áudio captado pelo microfone.
 
 ## ✨ Funcionalidades Principais
 
@@ -30,7 +30,7 @@ O sistema de visualização de áudio do Jarvis usa **Manim** para criar animaç
 
 ### **Instalação Rápida**
 
-O sistema já está configurado no projeto Jarvis. Apenas certifique-se de que o Manim está instalado:
+O sistema já está configurado no projeto ASTRA. Apenas certifique-se de que o Manim está instalado:
 
 ```bash
 pip install manim
@@ -80,7 +80,7 @@ detector.set_detection_callback(on_detection)
 # Iniciar escuta com visualização
 detector.start_listening()
 
-# Dizer "Jarvis" ou "Alex" - verá animação + detecção!
+# Dizer "ASTRA" ou "ASTRA" - verá animação + detecção!
 ```
 
 ## ⚙️ Configurações Avançadas
@@ -110,7 +110,7 @@ detector.set_visualization_mode(VisualizationMode.PARTICLES)
 # Ajustar sensibilidade (0.1 a 5.0)
 detector.set_sensitivity(2.0)
 
-# Cores personalizadas (tema Matrix/Jarvis)
+# Cores personalizadas (tema Matrix/ASTRA)
 colors = ["#00ff41", "#41ff00", "#00ffff", "#0080ff", "#ffffff"]
 detector.set_colors(colors)
 ```
@@ -119,11 +119,11 @@ detector.set_colors(colors)
 
 ```python
 # Adicionar nova wake word
-detector.add_wake_word("hey jarvis")
+detector.add_wake_word("hey ASTRA")
 detector.add_wake_word("computer")
 
 # Remover wake word
-detector.remove_wake_word("alex")
+detector.remove_wake_word("ASTRA")
 ```
 
 ## 📊 Modos de Visualização Detalhados
@@ -164,11 +164,11 @@ detector.remove_wake_word("alex")
 - **Efeito**: Explosões coloridas
 - **Melhor para**: Efeito visual dramático
 
-## 🎯 Integração no Projeto Jarvis
+## 🎯 Integração no Projeto ASTRA
 
 ### **Modificar Launcher Existente**
 
-Para integrar no launcher principal do Jarvis, edite o arquivo de launcher:
+Para integrar no launcher principal do ASTRA, edite o arquivo de launcher:
 
 ```python
 # No início do arquivo
@@ -291,7 +291,7 @@ detector.set_colors(matrix_colors)
 ### **Configuração Completa Personalizada**
 
 ```python
-def setup_custom_jarvis_visual():
+def setup_custom_ASTRA_visual():
     detector = create_visual_hotword_detector()
     
     # Configurações visuais
@@ -299,13 +299,13 @@ def setup_custom_jarvis_visual():
     detector.set_visualization_mode(VisualizationMode.CIRCLE_WAVE)
     detector.set_sensitivity(1.8)
     
-    # Cores tema Jarvis
-    jarvis_colors = ["#00ff41", "#41ff00", "#00ffff", "#ffffff"]
-    detector.set_colors(jarvis_colors)
+    # Cores tema ASTRA
+    ASTRA_colors = ["#00ff41", "#41ff00", "#00ffff", "#ffffff"]
+    detector.set_colors(ASTRA_colors)
     
     # Wake words personalizadas
-    detector.add_wake_word("jarvis")
-    detector.add_wake_word("alex")
+    detector.add_wake_word("ASTRA")
+    detector.add_wake_word("ASTRA")
     detector.add_wake_word("computer")
     detector.add_wake_word("assistant")
     
@@ -336,7 +336,7 @@ detector.set_visualization_mode(VisualizationMode.PARTICLES)
 detector.set_sensitivity(2.5)
 
 detector.start_listening()
-# Falar "Jarvis" e ver explosão de partículas!
+# Falar "ASTRA" e ver explosão de partículas!
 ```
 
 ## 🔮 Implementações Futuras
@@ -372,6 +372,6 @@ Para dúvidas ou problemas:
 
 **🎯 Status**: ✅ Funcional e integrado  
 **🔄 Última atualização**: 02/10/2025  
-**👨‍💻 Desenvolvido para**: Projeto Jarvis
+**👨‍💻 Desenvolvido para**: Projeto ASTRA
 
-**🎨 Experimente diferentes modos e descubra qual visualização mais combina com seu estilo de uso do Jarvis!** ✨
+**🎨 Experimente diferentes modos e descubra qual visualização mais combina com seu estilo de uso do ASTRA!** ✨

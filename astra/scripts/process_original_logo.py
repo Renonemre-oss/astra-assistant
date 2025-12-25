@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Processador do Logo Original
-Script para processar o logo original do ALEX e gerar todas as variantes necessárias
+ASTRA - Processador do Logo Original
+Script para processar o logo original do ASTRA e gerar todas as variantes necessárias
 """
 
 import os
@@ -19,11 +19,11 @@ import shutil
 
 def process_original_logo():
     """Processa o logo original e gera todas as variantes."""
-    print("🎨 Processando logo original do ALEX...")
+    print("🎨 Processando logo original do ASTRA...")
     
     # Caminhos
     project_root = Path(__file__).parent.parent
-    original_logo_path = project_root / "logo_ALEX.png"
+    original_logo_path = project_root / "logo_ASTRA.png"
     
     if not original_logo_path.exists():
         print(f"❌ Logo original não encontrado: {original_logo_path}")
@@ -43,7 +43,7 @@ def process_original_logo():
         print(f"📐 Tamanho original: {original_img.size}")
         
         # Primeiro, copiar o original para a pasta de assets
-        original_dest = am.assets_dir / "logos" / "alex_logo_original.png"
+        original_dest = am.assets_dir / "logos" / "ASTRA_logo_original.png"
         os.makedirs(os.path.dirname(original_dest), exist_ok=True)
         shutil.copy2(original_logo_path, original_dest)
         print(f"✅ Logo original copiado para: {original_dest}")
@@ -51,32 +51,32 @@ def process_original_logo():
         # Configurações das versões a gerar
         logo_variants = [
             {
-                'name': 'alex_logo_main',
+                'name': 'ASTRA_logo_main',
                 'size': (512, 512),
-                'path': 'logos/alex_logo_main.png',
-                'description': 'Logo principal do ALEX - versão quadrada alta resolução',
+                'path': 'logos/ASTRA_logo_main.png',
+                'description': 'Logo principal do ASTRA - versão quadrada alta resolução',
                 'enhance': True
             },
             {
-                'name': 'alex_logo_horizontal',
+                'name': 'ASTRA_logo_horizontal',
                 'size': (800, 300), 
-                'path': 'logos/alex_logo_horizontal.png',
-                'description': 'Logo horizontal do ALEX para interfaces largas',
+                'path': 'logos/ASTRA_logo_horizontal.png',
+                'description': 'Logo horizontal do ASTRA para interfaces largas',
                 'enhance': True,
                 'crop_to_fit': True
             },
             {
-                'name': 'alex_favicon',
+                'name': 'ASTRA_favicon',
                 'size': (64, 64),
-                'path': 'favicons/alex_favicon.png',
-                'description': 'Favicon do ALEX para navegadores e aplicações',
+                'path': 'favicons/ASTRA_favicon.png',
+                'description': 'Favicon do ASTRA para navegadores e aplicações',
                 'enhance': True
             },
             {
-                'name': 'alex_app_icon',
+                'name': 'ASTRA_app_icon',
                 'size': (256, 256),
-                'path': 'icons/alex_app_icon.png', 
-                'description': 'Ícone da aplicação ALEX para Windows',
+                'path': 'icons/ASTRA_app_icon.png', 
+                'description': 'Ícone da aplicação ASTRA para Windows',
                 'enhance': True
             }
         ]
@@ -107,7 +107,7 @@ def process_original_logo():
             generated_count += 1
             
             # Gerar ICO se apropriado
-            if variant['name'] in ['alex_logo_main', 'alex_favicon', 'alex_app_icon']:
+            if variant['name'] in ['ASTRA_logo_main', 'ASTRA_favicon', 'ASTRA_app_icon']:
                 ico_path = png_path.with_suffix('.ico')
                 create_ico_file(processed_img, ico_path, variant['size'])
                 print(f"  ✅ {variant['name']}.ico salvo")
@@ -154,7 +154,7 @@ def create_horizontal_version(img, target_size):
     
     horizontal_img.paste(img_copy, (x, y), img_copy)
     
-    # Adicionar texto "ALEX" à direita (simulado com fonte padrão)
+    # Adicionar texto "ASTRA" à direita (simulado com fonte padrão)
     try:
         from PIL import ImageDraw, ImageFont
         draw = ImageDraw.Draw(horizontal_img)
@@ -169,7 +169,7 @@ def create_horizontal_version(img, target_size):
             except:
                 font = ImageFont.load_default()
         
-        text = "ALEX"
+        text = "ASTRA"
         
         # Calcular posição do texto
         bbox = draw.textbbox((0, 0), text, font=font)

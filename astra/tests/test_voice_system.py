@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Teste completo do sistema de voz do ALEX
+Teste completo do sistema de voz do ASTRA
 Testa TTS, STT e integração completa
 """
 
@@ -35,7 +35,7 @@ def test_tts_system():
         
         if status['tts_loaded']:
             print("4. Testando síntese...")
-            success = audio_mgr.text_to_speech("Olá, eu sou o ALEX. Sistema de voz funcionando!")
+            success = audio_mgr.text_to_speech("Olá, eu sou o ASTRA. Sistema de voz funcionando!")
             print(f"   Resultado: {'✅ Sucesso' if success else '❌ Falha'}")
             
             # Aguardar fala
@@ -184,7 +184,7 @@ def test_launchers():
 
 def main():
     """Função principal do teste"""
-    print("🤖 ALEX - TESTE COMPLETO DO SISTEMA DE VOZ")
+    print("🤖 ASTRA - TESTE COMPLETO DO SISTEMA DE VOZ")
     print("=" * 50)
     print(f"📁 Diretório: {project_root}")
     

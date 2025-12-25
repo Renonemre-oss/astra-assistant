@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Detecção de Hotword (Wake Word)
-Sistema para detectar palavras de ativação como "Astra", "Alex", etc.
+ASTRA - Sistema de Detecção de Hotword (Wake Word)
+Sistema para detectar palavras de ativação como "Astra", "ASTRA", etc.
 
 Funcionalidades:
 - Detecção contínua de wake words
@@ -38,7 +38,7 @@ class HotwordStatus(Enum):
 
 class HotwordDetector:
     """
-    Sistema de detecção de wake words para ALEX.
+    Sistema de detecção de wake words para ASTRA.
     Suporta múltiplos engines e palavras de ativação.
     """
     
@@ -55,8 +55,8 @@ class HotwordDetector:
         
         # Palavras de ativação padrão
         self.wake_words = [
-            "Astra", "alex", "assistente", "hey alex", "ola alex",
-            "ei alex", "alex ajuda", "alex preciso"
+            "Astra", "ASTRA", "assistente", "hey ASTRA", "ola ASTRA",
+            "ei ASTRA", "ASTRA ajuda", "ASTRA preciso"
         ]
         
         # Configurações
@@ -120,7 +120,7 @@ class HotwordDetector:
             
             # Selecionar palavras-chave disponíveis
             selected_keywords = []
-            for keyword in ['computer', 'alexa', 'Astra']:
+            for keyword in ['computer', 'ASTRAa', 'Astra']:
                 if keyword in available_keywords:
                     selected_keywords.append(keyword)
             
@@ -264,7 +264,7 @@ class HotwordDetector:
                 
                 keyword_index = self.porcupine.process(pcm)
                 if keyword_index >= 0:
-                    detected_word = ["computer", "alexa"][keyword_index]
+                    detected_word = ["computer", "ASTRAa"][keyword_index]
                     self._on_hotword_detected(detected_word)
                     time.sleep(1)  # Pausa após detecção
             
@@ -397,13 +397,13 @@ def create_hotword_detector(status_callback: Optional[Callable[[str], None]] = N
     """
     detector = HotwordDetector(status_callback)
     
-    # Adicionar wake words específicas do ALEX
-    wake_words_alex = [
-        "Astra", "alex", "hey alex", "ola alex", "ei alex",
-        "alex ajuda", "alex preciso", "assistente"
+    # Adicionar wake words específicas do ASTRA
+    wake_words_ASTRA = [
+        "Astra", "ASTRA", "hey ASTRA", "ola ASTRA", "ei ASTRA",
+        "ASTRA ajuda", "ASTRA preciso", "assistente"
     ]
     
-    for word in wake_words_alex:
+    for word in wake_words_ASTRA:
         detector.add_wake_word(word)
     
     return detector
@@ -421,7 +421,7 @@ if __name__ == "__main__":
     detector.set_detection_callback(on_detection)
     
     print("Iniciando teste de detecção de hotword...")
-    print("Diga 'Astra', 'Alex' ou outra wake word.")
+    print("Diga 'Astra', 'ASTRA' ou outra wake word.")
     print("Pressione Ctrl+C para sair.")
     
     detector.start_listening()
@@ -432,3 +432,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nParando detector...")
         detector.shutdown()
+

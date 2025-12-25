@@ -1,4 +1,4 @@
-# 🛠️ ALEX - Correções Aplicadas
+# 🛠️ ASTRA - Correções Aplicadas
 
 > **Data:** 27 de Setembro de 2025  
 > **Status:** ✅ **CONCLUÍDO COM SUCESSO**  
@@ -8,7 +8,7 @@
 
 ## 🎯 **RESUMO DAS CORREÇÕES**
 
-Foram identificados e corrigidos **2 problemas principais** que estavam causando erros nos testes do framework ALEX:
+Foram identificados e corrigidos **2 problemas principais** que estavam causando erros nos testes do framework ASTRA:
 
 1. **AudioManager DEPENDENCIES** - Atributo em falta para framework de testes
 2. **SQLAlchemy metadata conflict** - Campo reservado causando conflitos de importação
@@ -178,7 +178,7 @@ As APIs JSON retornam agora `extra_data` em vez de `metadata`:
 
 ### **Testes Executados**
 ```bash
-python run_alex.py test
+python run_ASTRA.py test
 ```
 
 ### **Resultado**
@@ -200,7 +200,7 @@ python run_alex.py test
 
 ## 🚀 **PRÓXIMOS PASSOS**
 
-Com todas as correções aplicadas, o projeto ALEX está agora:
+Com todas as correções aplicadas, o projeto ASTRA está agora:
 
 - ✅ **100% funcional** - Todos os sistemas operacionais
 - ✅ **100% testado** - Framework de testes completo  
@@ -209,7 +209,7 @@ Com todas as correções aplicadas, o projeto ALEX está agora:
 
 ### **Recomendações**
 1. **Continuar roadmap** - Implementar próximas funcionalidades
-2. **Manter testes** - Executar `python run_alex.py test` regularmente
+2. **Manter testes** - Executar `python run_ASTRA.py test` regularmente
 3. **Usar templates** - Aproveitar templates em `templates/` para novos módulos
 4. **Seguir padrões** - Usar `extra_data` para dados JSON adicionais
 
@@ -228,4 +228,4 @@ Com todas as correções aplicadas, o projeto ALEX está agora:
 
 ---
 
-**🎉 Projeto ALEX agora 100% funcional e livre de erros!**
+**🎉 Projeto ASTRA agora 100% funcional e livre de erros!**

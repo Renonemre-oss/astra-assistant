@@ -18,7 +18,7 @@ def setup_windows_safe_logging():
             '🗣️': '[SPEAK]',
             '🎙️': '[LISTEN]',
             '🎯': '[TARGET]',
-            '🤖': '[ALEX]',
+            '🤖': '[ASTRA]',
         }
         
         def format(self, record):
@@ -37,3 +37,4 @@ def setup_windows_safe_logging():
         handler.setFormatter(formatter)
     
     return True
+

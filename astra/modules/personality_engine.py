@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Personalidade Dinâmica
+ASTRA - Sistema de Personalidade Dinâmica
 Sistema que analisa o humor do usuário, aprende preferências e adapta o tom de resposta.
 
 Funcionalidades:
@@ -36,7 +36,7 @@ class MoodType(Enum):
     STRESSED = "stressed"
 
 class PersonalityMode(Enum):
-    """Modos de personalidade do ALEX."""
+    """Modos de personalidade do ASTRA."""
     CASUAL = "casual"          # Amigável e descontraído
     FORMAL = "formal"          # Profissional e educado  
     ENERGETIC = "energetic"    # Animado e motivador
@@ -56,7 +56,7 @@ class TimeContext(Enum):
 
 class PersonalityEngine:
     """
-    Motor de personalidade dinâmica do ALEX.
+    Motor de personalidade dinâmica do ASTRA.
     Analisa contexto e adapta comportamento automaticamente.
     """
     
@@ -565,7 +565,7 @@ if __name__ == "__main__":
         
         print(f"\n👤 Usuário: {user_input}")
         print(f"🎭 Personalidade: {personality.value}")
-        print(f"🤖 ALEX: {personalized_response}")
+        print(f"🤖 ASTRA: {personalized_response}")
         print(f"📊 Humor detectado: {engine.current_mood.value}")
     
     # Mostrar resumo

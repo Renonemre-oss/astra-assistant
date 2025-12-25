@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Memória Inteligente
+ASTRA - Sistema de Memória Inteligente
 Sistema avançado de memória que simula a memória humana com diferentes tipos:
 - Memória Episódica: Eventos específicos e experiências
 - Memória Semântica: Conhecimento geral e fatos
@@ -271,7 +271,7 @@ class PatternRecognizer:
 
 class MemorySystem:
     """
-    Sistema principal de memória inteligente do ALEX.
+    Sistema principal de memória inteligente do ASTRA.
     """
     
     def __init__(self, data_dir: str = None):
@@ -446,7 +446,7 @@ class MemorySystem:
         
         # Armazenar memória do assistente
         assistant_memory_id = self.store_memory(
-            content=f"ALEX respondeu: {assistant_response}",
+            content=f"ASTRA respondeu: {assistant_response}",
             memory_type=MemoryType.EPISODIC,
             importance=assistant_importance,
             tags=assistant_tags,
@@ -509,7 +509,7 @@ class MemorySystem:
             content = memory.content
             if content.startswith("Usuário disse: "):
                 content = content[15:]
-            elif content.startswith("ALEX respondeu: "):
+            elif content.startswith("ASTRA respondeu: "):
                 content = content[16:]
             
             context_parts.append(f"- {content}")

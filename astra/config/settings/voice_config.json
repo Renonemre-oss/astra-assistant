@@ -2,22 +2,22 @@
   "hotword": {
     "enabled": true,
     "wake_words": [
-      "jarvis",
-      "alex",
+      "Astra",
+      "ASTRA",
       "assistente",
-      "hey alex"
+      "hey ASTRA"
     ],
     "sensitivity": 0.7,
     "engine": "auto"
   },
   "vosk": {
-    "model_path": "C:\\Users\\antop\\Desktop\\jarvis\\models\\vosk-model-small-pt-0.3",
+    "model_path": "C:\\Users\\antop\\Desktop\\Astra\\models\\vosk-model-small-pt-0.3",
     "sample_rate": 16000
   },
   "porcupine": {
     "keywords": [
       "computer",
-      "alexa"
+      "ASTRAa"
     ],
     "sensitivity": 0.7
   },

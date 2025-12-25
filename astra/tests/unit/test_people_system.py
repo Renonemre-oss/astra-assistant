@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Teste Completo do Sistema de Pessoas
 
 Script para demonstrar o funcionamento automático do sistema de reconhecimento

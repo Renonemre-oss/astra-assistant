@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX Assistant - Version Information
+ASTRA Assistant - Version Information
 Sistema de controle de versão interno
 """
 
@@ -72,7 +72,7 @@ def is_development():
 
 def print_version_info():
     """Imprime informações da versão de forma formatada."""
-    print(f"🤖 ALEX Assistant v{__version__}")
+    print(f"🤖 ASTRA Assistant v{__version__}")
     print(f"📅 Release: {RELEASE_DATE}")
     print(f"🏷️  Status: {DEVELOPMENT_STATUS}")
     print(f"⚖️  Stability: {STABILITY}")

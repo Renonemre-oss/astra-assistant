@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Factories para Testes
+ASTRA - Factories para Testes
 Fornece funções de criação de mocks e objetos de teste comuns
 """
 
@@ -303,3 +303,4 @@ class MockLogger:
         if level:
             return len(self.logs.get(level, []))
         return sum(len(logs) for logs in self.logs.values())
+

@@ -1,6 +1,6 @@
-# 📁 Templates - Assistente ALEX
+# 📁 Templates - Assistente ASTRA
 
-Esta pasta contém templates padronizados para facilitar o desenvolvimento de novos módulos e funcionalidades no assistente ALEX.
+Esta pasta contém templates padronizados para facilitar o desenvolvimento de novos módulos e funcionalidades no assistente ASTRA.
 
 ## 📋 **Templates Disponíveis**
 

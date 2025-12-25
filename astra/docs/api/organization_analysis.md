@@ -1,16 +1,16 @@
-# ALEX - Análise de Problemas de Organização
+# ASTRA - Análise de Problemas de Organização
 
 ## 📋 Problemas Identificados
 
 ### 1. **Diretórios Duplicados/Desnecessários**
-- `ALEX-clean/` - Diretório duplicado que pode ser removido
+- `ASTRA-clean/` - Diretório duplicado que pode ser removido
 - `.venv_assistente/` - Ambiente virtual deve estar fora do projeto ou no .gitignore
 - `__pycache__/` - Arquivos de cache Python na raiz (devem estar no .gitignore)
 
 ### 2. **Ficheiros Mal Posicionados**
 - `demo_tts_melhorado.py` - Arquivo de demo na raiz (deveria estar em `scripts/` ou `examples/`)
 - `test_eleven.py` - Arquivo de teste na raiz (deveria estar em `tests/`)
-- `run_alex.py` - OK na raiz (ponto de entrada principal)
+- `run_ASTRA.py` - OK na raiz (ponto de entrada principal)
 
 ### 3. **Documentação Espalhada**
 - `CONFIGURAR_ELEVENLABS.md` - ✅ OK
@@ -44,7 +44,7 @@
 ## 🔧 Ações Recomendadas
 
 ### Prioridade Alta
-1. **Remover `ALEX-clean/`** - Diretório duplicado desnecessário
+1. **Remover `ASTRA-clean/`** - Diretório duplicado desnecessário
 2. **Mover ficheiros de teste** - `test_eleven.py` → `tests/`
 3. **Mover demo** - `demo_tts_melhorado.py` → `scripts/examples/`
 4. **Atualizar .gitignore** - Excluir `__pycache__/`, `build/`, `.venv_assistente/`

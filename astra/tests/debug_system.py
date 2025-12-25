@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Debug e Diagnóstico Detalhado
+ASTRA - Sistema de Debug e Diagnóstico Detalhado
 ===============================================
 
 Sistema abrangente de diagnóstico que analisa:
@@ -29,8 +29,8 @@ from typing import Dict, List, Any, Optional, Tuple
 from collections import defaultdict
 import platform
 
-class ALEXDebugger:
-    """Sistema completo de debug e diagnóstico do projeto ALEX"""
+class ASTRADebugger:
+    """Sistema completo de debug e diagnóstico do projeto ASTRA"""
     
     def __init__(self):
         self.start_time = time.time()
@@ -54,7 +54,7 @@ class ALEXDebugger:
         
     def _setup_logger(self) -> logging.Logger:
         """Configura logger para o debug system"""
-        logger = logging.getLogger('ALEXDebugger')
+        logger = logging.getLogger('ASTRADebugger')
         logger.setLevel(logging.DEBUG)
         
         if not logger.handlers:
@@ -67,7 +67,7 @@ class ALEXDebugger:
     
     def run_full_debug(self) -> Dict[str, Any]:
         """Executa debug completo do projeto"""
-        print("🔍 ALEX PROJECT DEBUG SYSTEM")
+        print("🔍 ASTRA PROJECT DEBUG SYSTEM")
         print("=" * 50)
         
         try:
@@ -730,7 +730,7 @@ class ALEXDebugger:
         """Imprime relatório detalhado"""
         results = self.results
         
-        print(f"\n🎯 ALEX PROJECT DEBUG REPORT")
+        print(f"\n🎯 ASTRA PROJECT DEBUG REPORT")
         print(f"{'='*60}")
         print(f"⏱️  Execution Time: {results['execution_time']:.2f}s")
         print(f"📅 Generated: {results['timestamp']}")
@@ -809,7 +809,7 @@ class ALEXDebugger:
 
 def main():
     """Função principal do debug"""
-    debugger = ALEXDebugger()
+    debugger = ASTRADebugger()
     results = debugger.run_full_debug()
     
     # Imprimir relatório detalhado

@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal Inteligente
+ASTRA - Assistente Pessoal Inteligente
 Launcher Principal
 
-Este script facilita a execução do ALEX com a nova estrutura organizada.
+Este script facilita a execução do ASTRA com a nova estrutura organizada.
 """
 
 import sys
@@ -24,12 +24,12 @@ from config.settings.main_config import configure_logging
 configure_logging()
 
 def main():
-    """Função principal para executar o ALEX."""
+    """Função principal para executar o ASTRA."""
     try:
         # Importar o assistente principal
         from core.assistant import main as assistente_main
         
-        print("🤖 ALEX - Assistente Pessoal Inteligente")
+        print("🤖 ASTRA - Assistente Pessoal Inteligente")
         print("📁 Nova estrutura organizada carregada!")
         print("-" * 50)
         
@@ -57,13 +57,13 @@ def run_tests():
     """Executa os testes do sistema."""
     try:
         from tests.test_framework import run_tests as framework_run_tests
-        print("🧪 Executando framework de testes do ALEX...")
+        print("🧪 Executando framework de testes do ASTRA...")
         result = framework_run_tests(verbosity=2)
         return result.wasSuccessful()
     except ImportError:
         # Fallback para método antigo
         import subprocess
-        print("🧪 Executando testes básicos do ALEX...")
+        print("🧪 Executando testes básicos do ASTRA...")
         
         test_files = [
             "tests/test_multi_user_system.py",
@@ -89,7 +89,7 @@ def run_tests():
 
 def show_structure():
     """Mostra a estrutura do projeto."""
-    print("📁 Estrutura do Projeto ALEX:")
+    print("📁 Estrutura do Projeto ASTRA:")
     print("-" * 40)
     
     folders = [
@@ -110,7 +110,7 @@ def run_cleanup():
     """Executa o script de limpeza do projeto."""
     import subprocess
     
-    print("🧹 Executando limpeza do projeto ALEX...")
+    print("🧹 Executando limpeza do projeto ASTRA...")
     
     cleanup_script = "scripts/cleanup.py"
     if Path(cleanup_script).exists():
@@ -126,7 +126,7 @@ def run_diagnostics():
     """Executa diagnóstico completo do sistema."""
     try:
         from utils.system_diagnostics import SystemDiagnostics
-        print("🔍 Executando diagnóstico do sistema ALEX...")
+        print("🔍 Executando diagnóstico do sistema ASTRA...")
         
         diagnostics = SystemDiagnostics()
         diagnostics.run_full_diagnostic()
@@ -160,7 +160,7 @@ def run_performance_report():
     try:
         from utils.profiling.performance_monitor import performance_monitor as pm
         
-        print("📈 Relatório de Performance ALEX")
+        print("📈 Relatório de Performance ASTRA")
         print("=" * 40)
         
         stats = pm.get_statistics()
@@ -195,17 +195,18 @@ if __name__ == "__main__":
         elif command == "perf" or command == "performance":
             run_performance_report()
         elif command == "help":
-            print("🤖 ALEX Launcher - Comandos disponíveis:")
-            print("  python run_alex.py              - Executar o assistente")
-            print("  python run_alex.py test         - Executar testes")
-            print("  python run_alex.py struct       - Mostrar estrutura")
-            print("  python run_alex.py clean        - Limpar arquivos desnecessários")
-            print("  python run_alex.py diag         - Executar diagnóstico")
-            print("  python run_alex.py profile      - Abrir gestão de perfil")
-            print("  python run_alex.py perf         - Mostrar performance")
-            print("  python run_alex.py help         - Mostrar ajuda")
+            print("🤖 ASTRA Launcher - Comandos disponíveis:")
+            print("  python run_ASTRA.py              - Executar o assistente")
+            print("  python run_ASTRA.py test         - Executar testes")
+            print("  python run_ASTRA.py struct       - Mostrar estrutura")
+            print("  python run_ASTRA.py clean        - Limpar arquivos desnecessários")
+            print("  python run_ASTRA.py diag         - Executar diagnóstico")
+            print("  python run_ASTRA.py profile      - Abrir gestão de perfil")
+            print("  python run_ASTRA.py perf         - Mostrar performance")
+            print("  python run_ASTRA.py help         - Mostrar ajuda")
         else:
             print(f"❌ Comando desconhecido: {command}")
-            print("Use 'python run_alex.py help' para ver comandos disponíveis.")
+            print("Use 'python run_ASTRA.py help' para ver comandos disponíveis.")
     else:
         main()
+

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Sistema de Análise Contextual Avançada
 
 Sistema inteligente para análise contextual avançada que melhora a identificação
@@ -691,3 +691,4 @@ class ContextualAnalyzer:
         }
         
         return stats
+

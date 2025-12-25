@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-🤖 ALEX - Sistema Companion Adaptativo Inteligente
+🤖 ASTRA - Sistema Companion Adaptativo Inteligente
 
 Sistema que analisa o contexto da situação atual, detecta o estado emocional do usuário,
 considera o histórico recente e escolhe automaticamente a melhor abordagem:
@@ -35,7 +35,7 @@ from modules.personality_engine import PersonalityEngine, MoodType, PersonalityM
 logger = logging.getLogger(__name__)
 
 class CompanionType(Enum):
-    """Tipos de companhia que o ALEX pode assumir."""
+    """Tipos de companhia que o ASTRA pode assumir."""
     FRIEND = "friend"                    # Amigo próximo, casual e divertido
     CARING_ASSISTANT = "caring_assistant"  # Assistente carinhoso e atencioso
     MENTOR = "mentor"                    # Mentor sábio e orientador
@@ -69,7 +69,7 @@ class RelationshipLevel(Enum):
 
 class CompanionEngine:
     """
-    Motor de companhia inteligente do ALEX.
+    Motor de companhia inteligente do ASTRA.
     Analisa contexto multi-dimensional e adapta comportamento automaticamente.
     """
     
@@ -716,7 +716,7 @@ if __name__ == "__main__":
     # Teste do sistema
     engine = CompanionEngine()
     
-    print("🤖 ALEX Companion - Sistema Adaptativo Inteligente")
+    print("🤖 ASTRA Companion - Sistema Adaptativo Inteligente")
     print("=" * 60)
     
     # Simular algumas interações
@@ -731,5 +731,5 @@ if __name__ == "__main__":
     for interaction in test_interactions:
         print(f"\n👤 Usuário: {interaction}")
         response, metadata = engine.process_companion_interaction(interaction)
-        print(f"🤖 ALEX ({metadata['companion_type_chosen']}): {response}")
+        print(f"🤖 ASTRA ({metadata['companion_type_chosen']}): {response}")
         print(f"📊 Contexto: {metadata['interaction_context']} | Humor: {metadata['user_mood']}")

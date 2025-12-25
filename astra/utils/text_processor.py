@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Módulo de Processamento de Texto
 
 Funções para OCR, processamento de imagens e análise de texto.
@@ -436,7 +436,7 @@ def testar_analise_texto():
     textos_teste = [
         "Estou muito feliz hoje! O dia está fantástico!",
         "Que dia terrível... Estou muito chateado.",
-        "O assistente ALEX funciona bem com Python e MySQL."
+        "O assistente ASTRA funciona bem com Python e MySQL."
     ]
     
     for texto in textos_teste:
@@ -455,7 +455,7 @@ def testar_analise_texto():
         print(f"Idioma: {idioma}")
 
 if __name__ == "__main__":
-    print("📄 PROCESSADOR DE TEXTO DO ALEX")
+    print("📄 PROCESSADOR DE TEXTO DO ASTRA")
     print("=" * 40)
     
     testar_ocr()

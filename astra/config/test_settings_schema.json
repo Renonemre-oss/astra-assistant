@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ALEX Test Settings Schema",
+  "title": "ASTRA Test Settings Schema",
   "description": "Schema para validação de configurações do framework de testes",
   "type": "object",
   "properties": {

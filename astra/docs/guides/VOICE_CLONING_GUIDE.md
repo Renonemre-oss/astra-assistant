@@ -1,11 +1,11 @@
-# 🎤 Guia de Voice Cloning para ALEX
+# 🎤 Guia de Voice Cloning para ASTRA
 
-Este guia mostra como implementar voice cloning no seu assistente ALEX usando múltiplas tecnologias.
+Este guia mostra como implementar voice cloning no seu assistente ASTRA usando múltiplas tecnologias.
 
 ## 🎯 Opções de Voice Cloning Disponíveis
 
 ### 1. **ElevenLabs (Já Integrado) - RECOMENDADO** ⭐
-Sua instalação ALEX já tem suporte ao ElevenLabs, que oferece voice cloning premium.
+Sua instalação ASTRA já tem suporte ao ElevenLabs, que oferece voice cloning premium.
 
 #### Configuração do ElevenLabs:
 ```powershell
@@ -18,7 +18,7 @@ echo "ELEVENLABS_API_KEY=sua_chave_aqui" > audio\.env
 
 #### Como usar:
 ```python
-# Testar ElevenLabs no ALEX
+# Testar ElevenLabs no ASTRA
 python -c "
 from audio.elevenlabs_tts import ElevenLabsTTS
 tts = ElevenLabsTTS()
@@ -60,21 +60,21 @@ python demo_toolbox.py
 ```
 
 ### 3. **Coqui TTS com Voice Cloning**
-Sua instalação ALEX usa Coqui TTS que suporta voice cloning.
+Sua instalação ASTRA usa Coqui TTS que suporta voice cloning.
 
 #### Atualizar para voice cloning:
 ```powershell
-# Voltar ao diretório ALEX
-cd ..\jarvis
+# Voltar ao diretório ASTRA
+cd ..\ASTRA
 
-# Ativar ambiente virtual do ALEX
+# Ativar ambiente virtual do ASTRA
 .venv_assistente\Scripts\Activate.ps1
 
 # Instalar versão atualizada do Coqui TTS com voice cloning
 pip install TTS[all] --upgrade
 ```
 
-## 🔧 Integração com ALEX
+## 🔧 Integração com ASTRA
 
 ### Opção 1: ElevenLabs Voice Cloning (Mais Fácil)
 
@@ -83,7 +83,7 @@ pip install TTS[all] --upgrade
    - Crie uma conta
    - Vá para Profile > API Key
 
-2. **Configurar no ALEX**:
+2. **Configurar no ASTRA**:
 ```powershell
 # Criar arquivo de configuração
 $configContent = @"
@@ -104,7 +104,7 @@ print('Voz atual:', tts.current_voice.description if tts.current_voice else 'Nen
 
 ### Opção 2: Integrar Real-Time Voice Cloning
 
-Vou criar um módulo integrado para o ALEX:
+Vou criar um módulo integrado para o ASTRA:
 
 ```python
 # Arquivo: audio/voice_cloning.py
@@ -166,12 +166,12 @@ except ImportError as e:
     RealTimeVoiceCloning = None
 ```
 
-## 🎵 Como Usar Voice Cloning no ALEX
+## 🎵 Como Usar Voice Cloning no ASTRA
 
 ### 1. Preparar Amostra de Voz
 ```powershell
 # Gravar uma amostra de voz (10-30 segundos)
-# Pode ser feito pelo próprio ALEX ou externamente
+# Pode ser feito pelo próprio ASTRA ou externamente
 
 # Exemplo de script para gravar
 python -c "
@@ -193,11 +193,11 @@ print('✅ Gravação salva como minha_voz.wav')
 "
 ```
 
-### 2. Clonar e Usar no ALEX
+### 2. Clonar e Usar no ASTRA
 
 #### Com ElevenLabs:
 ```python
-# No código do ALEX (audio/enhanced_tts.py)
+# No código do ASTRA (audio/enhanced_tts.py)
 # ElevenLabs permite upload de voice samples via API
 # Implementar método de clonagem:
 
@@ -216,7 +216,7 @@ from audio.voice_cloning import RealTimeVoiceCloning
 cloner = RealTimeVoiceCloning()
 cloned_audio = cloner.clone_voice(
     audio_file="minha_voz.wav",
-    text="Olá, eu sou o ALEX com sua voz!",
+    text="Olá, eu sou o ASTRA com sua voz!",
     output_file="resultado_clonado.wav"
 )
 ```
@@ -225,7 +225,7 @@ cloned_audio = cloner.clone_voice(
 
 ### Configuração Completa:
 ```powershell
-# 1. Ativar ambiente do ALEX
+# 1. Ativar ambiente do ASTRA
 .venv_assistente\Scripts\Activate.ps1
 
 # 2. Atualizar TTS para suporte de clonagem
@@ -236,7 +236,7 @@ pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install sounddevice soundfile librosa
 
 # 4. Testar sistema atual
-python run_alex.py
+python run_ASTRA.py
 
 # 5. Configurar ElevenLabs (se tiver API key)
 # Editar audio/.env ou definir variável de ambiente
@@ -244,12 +244,12 @@ python run_alex.py
 
 ### Teste Rápido:
 ```powershell
-# Testar TTS atual do ALEX
+# Testar TTS atual do ASTRA
 python -c "
 from audio.audio_manager import AudioManager
 audio = AudioManager()
 if audio.load_tts_model():
-    audio.text_to_speech('Olá! Este é um teste do sistema TTS do ALEX.')
+    audio.text_to_speech('Olá! Este é um teste do sistema TTS do ASTRA.')
     print('✅ TTS funcionando')
 else:
     print('❌ TTS com problema')
@@ -296,16 +296,16 @@ print('API Key:', os.getenv('ELEVENLABS_API_KEY', 'NÃO CONFIGURADA'))
 1. **Escolher método preferido** (ElevenLabs recomendado para iniciantes)
 2. **Configurar chaves API** (se usando ElevenLabs)
 3. **Testar com amostras de voz**
-4. **Integrar com interface do ALEX**
+4. **Integrar com interface do ASTRA**
 5. **Criar vozes personalizadas** para diferentes usuários
 
 ## 📞 Suporte
 
 Para problemas específicos:
-- Consulte logs em `logs/alex_assistant.log`
-- Execute `python run_alex.py test` para diagnósticos
+- Consulte logs em `logs/ASTRA_assistant.log`
+- Execute `python run_ASTRA.py test` para diagnósticos
 - Verifique documentação em `docs/`
 
 ---
 
-**Desenvolvido para ALEX - Assistente Pessoal Inteligente** 🤖
+**Desenvolvido para ASTRA - Assistente Pessoal Inteligente** 🤖

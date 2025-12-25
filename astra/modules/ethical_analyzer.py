@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Analisador Ético
+ASTRA - Analisador Ético
 Módulo responsável por avaliar pedidos do usuário e identificar potenciais riscos,
-permitindo ao ALEX expressar opiniões e dar conselhos responsáveis.
+permitindo ao ASTRA expressar opiniões e dar conselhos responsáveis.
 """
 
 import re
@@ -204,7 +204,7 @@ class EthicalAnalyzer:
         
         Args:
             assessment: Avaliação do risco
-            personality: Personalidade do ALEX
+            personality: Personalidade do ASTRA
         
         Returns:
             Resposta formatada com preocupação e sugestão
@@ -252,7 +252,7 @@ class EthicalAnalyzer:
     
     def should_decline_request(self, assessment: RiskAssessment) -> bool:
         """
-        Determina se o ALEX deve se recusar a ajudar com o pedido
+        Determina se o ASTRA deve se recusar a ajudar com o pedido
         
         Args:
             assessment: Avaliação do risco

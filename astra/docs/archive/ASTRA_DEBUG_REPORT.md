@@ -1,4 +1,4 @@
-# 🔍 ALEX PROJECT - RELATÓRIO DETALHADO DE DEBUG
+# 🔍 ASTRA PROJECT - RELATÓRIO DETALHADO DE DEBUG
 
 **Gerado em:** 20 de Setembro de 2025  
 **Tempo de execução:** 7.51 segundos  
@@ -118,7 +118,7 @@
 | Funcionalidade | Status | Detalhes |
 |----------------|--------|----------|
 | Arquivos locais | ✅ | 6 arquivos JSON, 0.33MB total |
-| Conexão MySQL | ✅ | Conectado à base 'alex_assistant' |
+| Conexão MySQL | ✅ | Conectado à base 'ASTRA_assistant' |
 
 ### 🛠️ Utilitários
 | Utilitário | Status | Detalhes |
@@ -241,7 +241,7 @@ Nenhum arquivo de log específico encontrado no projeto.
 - **Sistema de logs:** Pode ser aprimorado
 
 ### 🏆 Nota Geral: **7.5/10**
-O projeto ALEX demonstra uma arquitetura robusta e funcionalidades avançadas, mas precisa de ajustes em dependências para atingir seu potencial completo.
+O projeto ASTRA demonstra uma arquitetura robusta e funcionalidades avançadas, mas precisa de ajustes em dependências para atingir seu potencial completo.
 
 ---
 
@@ -267,5 +267,5 @@ O projeto ALEX demonstra uma arquitetura robusta e funcionalidades avançadas, m
 
 ---
 
-*Relatório gerado automaticamente pelo ALEX Debug System v1.0*  
+*Relatório gerado automaticamente pelo ASTRA Debug System v1.0*  
 *Para mais detalhes, consulte: `debug_results.json`*

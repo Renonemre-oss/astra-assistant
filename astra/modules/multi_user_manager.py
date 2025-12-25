@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Sistema de Gestão Multi-Utilizador
 
 Sistema avançado para identificar diferentes utilizadores por voz, padrões de texto
@@ -692,3 +692,4 @@ class MultiUserManager:
             stats['contextual'] = self.get_contextual_stats()
         
         return stats
+

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Voz Limpo e Moderno
+ASTRA - Sistema de Voz Limpo e Moderno
 Sistema de speech (TTS + STT) redesenhado do zero para máxima simplicidade e confiabilidade
 """
 
@@ -34,7 +34,7 @@ class SpeechStatus(Enum):
 
 class SpeechEngine:
     """
-    Sistema de speech principal do ALEX.
+    Sistema de speech principal do ASTRA.
     Focado em simplicidade, confiabilidade e performance.
     """
     
@@ -430,7 +430,7 @@ def stop_speaking():
 
 def test_speech_engine():
     """Função de teste do sistema de speech."""
-    print("🎤 Testando Sistema de Speech do ALEX")
+    print("🎤 Testando Sistema de Speech do ASTRA")
     print("=" * 45)
     
     def status_print(msg):
@@ -453,7 +453,7 @@ def test_speech_engine():
     
     # Teste de fala
     print(f"\n🗣️ Teste de fala:")
-    success = engine.speak("Olá! Este é o novo sistema de voz do ALEX, funcionando perfeitamente.", blocking=True)
+    success = engine.speak("Olá! Este é o novo sistema de voz do ASTRA, funcionando perfeitamente.", blocking=True)
     print(f"Resultado: {'✅ Sucesso' if success else '❌ Falhou'}")
     
     return engine

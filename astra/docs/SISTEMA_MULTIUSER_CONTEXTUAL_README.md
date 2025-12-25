@@ -1,8 +1,8 @@
-# 🤖 Sistema Multi-Utilizador com Análise Contextual - ALEX
+# 🤖 Sistema Multi-Utilizador com Análise Contextual - ASTRA
 
 ## 📋 Resumo do Sistema
 
-O **Sistema Multi-Utilizador com Análise Contextual** para o ALEX é uma solução avançada de gestão de utilizadores que combina múltiplas tecnologias de identificação para reconhecer automaticamente quem está a interagir com o assistente pessoal. O sistema personaliza as respostas com base nos padrões comportamentais, preferências e contexto de cada utilizador.
+O **Sistema Multi-Utilizador com Análise Contextual** para o ASTRA é uma solução avançada de gestão de utilizadores que combina múltiplas tecnologias de identificação para reconhecer automaticamente quem está a interagir com o assistente pessoal. O sistema personaliza as respostas com base nos padrões comportamentais, preferências e contexto de cada utilizador.
 
 ## 🎯 Características Principais
 
@@ -166,7 +166,7 @@ manager.add_voice_sample(user_id, audio_data)
 
 ## 🏆 **Conclusão**
 
-O Sistema Multi-Utilizador com Análise Contextual para o ALEX representa uma solução completa e robusta para identificação e personalização de utilizadores. Com múltiplas modalidades de identificação, análise comportamental avançada e aprendizagem contínua, o sistema oferece uma experiência personalizada e inteligente para cada utilizador.
+O Sistema Multi-Utilizador com Análise Contextual para o ASTRA representa uma solução completa e robusta para identificação e personalização de utilizadores. Com múltiplas modalidades de identificação, análise comportamental avançada e aprendizagem contínua, o sistema oferece uma experiência personalizada e inteligente para cada utilizador.
 
 ### ✅ **Objetivos Alcançados**
 - ✅ Sistema multi-utilizador funcional
@@ -190,4 +190,4 @@ Para questões técnicas ou melhorias, consulte:
 - Testes em `test_*.py`
 - Documentação no código fonte
 
-**Sistema desenvolvido com ❤️ para o ALEX - Assistente Pessoal Inteligente**
+**Sistema desenvolvido com ❤️ para o ASTRA - Assistente Pessoal Inteligente**

@@ -251,7 +251,7 @@
       }
     },
     "environment": {
-      "working_directory": "C:\\Users\\antop\\Desktop\\jarvis",
+      "working_directory": "C:\\Users\\antop\\Desktop\\Astra",
       "python_path": "C:\\Users\\antop\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\python.exe",
       "memory_available": "48.9 GB",
       "cpu_count": 32,
@@ -309,7 +309,7 @@
       },
       "mysql": {
         "connection": "OK",
-        "database": "alex_assistant"
+        "database": "ASTRA_assistant"
       }
     },
     "audio": {
@@ -359,7 +359,7 @@
   },
   "logs": {
     "log_files": {
-      "alex_assistant.log": {
+      "ASTRA_assistant.log": {
         "size_kb": 17.978515625,
         "last_modified": "2025-09-20T10:38:04.164860"
       }

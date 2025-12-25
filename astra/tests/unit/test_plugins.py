@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Plugins para Testes
+ASTRA - Sistema de Plugins para Testes
 Permite extensão dinâmica do framework de testes
 """
 
@@ -96,7 +96,7 @@ class PluginManager:
         ]
         
         # Adicionar caminhos de variáveis de ambiente
-        env_paths = os.environ.get("ALEX_TEST_PLUGIN_PATHS", "")
+        env_paths = os.environ.get("ASTRA_TEST_PLUGIN_PATHS", "")
         for path_str in env_paths.split(os.pathsep):
             if path_str.strip():
                 self.plugin_directories.append(Path(path_str.strip()))

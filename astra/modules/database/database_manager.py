@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Database Manager - Gerenciamento de Base de Dados SQLite
 
 Este módulo fornece funcionalidades para:
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class DatabaseConfig:
     """Configuração da base de dados SQLite"""
-    database_path: str = "alex_assistant.db"
+    database_path: str = "ASTRA_assistant.db"
     
     def get_full_path(self) -> Path:
         """Retorna o caminho completo do arquivo da base de dados"""
@@ -40,7 +40,7 @@ class DatabaseConfig:
 
 class DatabaseManager:
     """
-    Gerenciador de base de dados SQLite para o assistente ALEX
+    Gerenciador de base de dados SQLite para o assistente ASTRA
     """
     
     def __init__(self, config: DatabaseConfig = None):
@@ -483,4 +483,4 @@ def generate_session_id() -> str:
         str: Session ID único
     """
     import uuid
-    return f"alex_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{str(uuid.uuid4())[:8]}"
+    return f"ASTRA_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{str(uuid.uuid4())[:8]}"

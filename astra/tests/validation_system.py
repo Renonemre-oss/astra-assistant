@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Validação e Geração
+ASTRA - Sistema de Validação e Geração
 Valida configurações usando schemas e gera novos módulos usando templates
 """
 

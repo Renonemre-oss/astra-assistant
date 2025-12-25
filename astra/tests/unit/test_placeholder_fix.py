@@ -7,7 +7,7 @@ Script de Teste para Verificar Correção de Placeholders
 
 Este script testa se a função substituir_placeholders está 
 funcionando corretamente para resolver o problema do 
-ALEX responder com "[hora atual]" em vez da hora real.
+ASTRA responder com "[hora atual]" em vez da hora real.
 """
 
 import sys
@@ -72,7 +72,7 @@ def test_ollama_response_simulation():
         
         # Processar como o sistema real faz
         processed = formatar_resposta(response)
-        print(f"  ALEX mostra: '{processed[:60]}...'")
+        print(f"  ASTRA mostra: '{processed[:60]}...'")
         
         # Verificar se ainda tem placeholder
         has_placeholder = "[hora atual]" in processed
@@ -117,12 +117,12 @@ if __name__ == "__main__":
     
     print("🏁 TESTES CONCLUÍDOS!")
     print()
-    print("💡 COMO TESTAR NO ALEX REAL:")
-    print("1. Execute o ALEX normalmente")
+    print("💡 COMO TESTAR NO ASTRA REAL:")
+    print("1. Execute o ASTRA normalmente")
     print("2. Pergunte: 'que horas são?'")
     print("3. Se responder com hora real em vez de '[hora atual]', funcionou!")
     print()
     print("🔧 SE AINDA NÃO FUNCIONAR:")
     print("- Verifique se text_processor.py foi atualizado")
-    print("- Reinicie o ALEX completamente")
+    print("- Reinicie o ASTRA completamente")
     print("- Verifique os logs para confirmar que substituição aconteceu")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Gerenciador de Assets
+ASTRA - Gerenciador de Assets
 Sistema para gestão de recursos visuais e assets do projeto
 """
 
@@ -56,7 +56,7 @@ class AssetInfo:
             self.tags = []
 
 class AssetManager:
-    """Gerenciador de assets do ALEX."""
+    """Gerenciador de assets do ASTRA."""
     
     def __init__(self, assets_dir: Optional[Path] = None):
         """
@@ -125,39 +125,39 @@ class AssetManager:
         """Cria registry inicial com estrutura básica."""
         initial_assets = [
             {
-                "name": "alex_logo_main",
+                "name": "ASTRA_logo_main",
                 "type": "logo",
                 "format": "png",
-                "path": "assets/logos/alex_logo_main.png",
+                "path": "assets/logos/ASTRA_logo_main.png",
                 "size": [512, 512],
-                "description": "Logo principal do ALEX - versão quadrada alta resolução",
+                "description": "Logo principal do ASTRA - versão quadrada alta resolução",
                 "tags": ["main", "primary", "high-res"]
             },
             {
-                "name": "alex_logo_horizontal",
+                "name": "ASTRA_logo_horizontal",
                 "type": "logo", 
                 "format": "png",
-                "path": "assets/logos/alex_logo_horizontal.png",
+                "path": "assets/logos/ASTRA_logo_horizontal.png",
                 "size": [800, 300],
-                "description": "Logo horizontal do ALEX para interfaces largas",
+                "description": "Logo horizontal do ASTRA para interfaces largas",
                 "tags": ["horizontal", "interface", "wide"]
             },
             {
-                "name": "alex_favicon",
+                "name": "ASTRA_favicon",
                 "type": "favicon",
                 "format": "ico",
-                "path": "assets/favicons/alex_favicon.ico",
+                "path": "assets/favicons/ASTRA_favicon.ico",
                 "size": [32, 32],
-                "description": "Favicon do ALEX para navegadores e aplicações",
+                "description": "Favicon do ASTRA para navegadores e aplicações",
                 "tags": ["favicon", "browser", "small"]
             },
             {
-                "name": "alex_app_icon",
+                "name": "ASTRA_app_icon",
                 "type": "icon",
                 "format": "ico",
-                "path": "assets/icons/alex_app_icon.ico",
+                "path": "assets/icons/ASTRA_app_icon.ico",
                 "size": [256, 256],
-                "description": "Ícone da aplicação ALEX para Windows",
+                "description": "Ícone da aplicação ASTRA para Windows",
                 "tags": ["application", "windows", "desktop"]
             }
         ]
@@ -166,7 +166,7 @@ class AssetManager:
             "metadata": {
                 "version": "1.0.0",
                 "created": "2025-09-20",
-                "description": "Registry de assets do ALEX"
+                "description": "Registry de assets do ASTRA"
             },
             "assets": initial_assets
         }
@@ -294,7 +294,7 @@ class AssetManager:
             "metadata": {
                 "version": "1.0.0",
                 "updated": "2025-09-20", 
-                "description": "Registry de assets do ALEX",
+                "description": "Registry de assets do ASTRA",
                 "total_assets": len(assets_data)
             },
             "assets": assets_data
@@ -304,7 +304,7 @@ class AssetManager:
     
     def get_logo_variants(self) -> Dict[str, AssetInfo]:
         """
-        Obtém todas as variantes do logo do ALEX.
+        Obtém todas as variantes do logo do ASTRA.
         
         Returns:
             Dicionário com variantes do logo
@@ -314,21 +314,21 @@ class AssetManager:
     
     def get_main_logo(self) -> Optional[AssetInfo]:
         """
-        Obtém o logo principal do ALEX.
+        Obtém o logo principal do ASTRA.
         
         Returns:
             AssetInfo do logo principal
         """
-        return self.get_asset("alex_logo_main")
+        return self.get_asset("ASTRA_logo_main")
     
     def get_favicon(self) -> Optional[AssetInfo]:
         """
-        Obtém o favicon do ALEX.
+        Obtém o favicon do ASTRA.
         
         Returns:
             AssetInfo do favicon
         """
-        return self.get_asset("alex_favicon")
+        return self.get_asset("ASTRA_favicon")
     
     def get_app_icon(self) -> Optional[AssetInfo]:
         """
@@ -337,7 +337,7 @@ class AssetManager:
         Returns:
             AssetInfo do ícone da aplicação
         """
-        return self.get_asset("alex_app_icon")
+        return self.get_asset("ASTRA_app_icon")
     
     def validate_assets(self) -> Dict[str, Any]:
         """
@@ -459,21 +459,21 @@ def get_asset_manager() -> AssetManager:
 # Funções de conveniência
 def get_logo_path() -> Optional[Path]:
     """Obtém caminho do logo principal."""
-    return get_asset_manager().get_asset_path("alex_logo_main")
+    return get_asset_manager().get_asset_path("ASTRA_logo_main")
 
 def get_favicon_path() -> Optional[Path]:
     """Obtém caminho do favicon."""
-    return get_asset_manager().get_asset_path("alex_favicon")
+    return get_asset_manager().get_asset_path("ASTRA_favicon")
 
 def get_app_icon_path() -> Optional[Path]:
     """Obtém caminho do ícone da aplicação."""
-    return get_asset_manager().get_asset_path("alex_app_icon")
+    return get_asset_manager().get_asset_path("ASTRA_app_icon")
 
-def create_logo_html(css_class: str = "alex-logo", width: int = None) -> str:
+def create_logo_html(css_class: str = "ASTRA-logo", width: int = None) -> str:
     """Cria tag HTML para o logo principal."""
     return get_asset_manager().create_asset_html_tag(
-        "alex_logo_main", 
-        alt_text="ALEX - Assistente Pessoal",
+        "ASTRA_logo_main", 
+        alt_text="ASTRA - Assistente Pessoal",
         css_class=css_class,
         width=width
     )

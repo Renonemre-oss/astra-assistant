@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🎙️ ALEX - Interface de Gravação de Áudio
+🎙️ ASTRA - Interface de Gravação de Áudio
 Sistema para gravar áudio de qualidade para clonagem de voz.
 
 Funcionalidades:
@@ -187,7 +187,7 @@ class AudioRecorderGUI:
     def setup_gui(self):
         """Configura a interface gráfica."""
         self.root = tk.Tk()
-        self.root.title("🎙️ ALEX - Gravador de Voz")
+        self.root.title("🎙️ ASTRA - Gravador de Voz")
         self.root.geometry("800x600")
         
         # Frame principal
@@ -195,7 +195,7 @@ class AudioRecorderGUI:
         main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
         
         # Título
-        title_label = ttk.Label(main_frame, text="🎙️ Gravador de Voz ALEX", 
+        title_label = ttk.Label(main_frame, text="🎙️ Gravador de Voz ASTRA", 
                                font=("Arial", 16, "bold"))
         title_label.grid(row=0, column=0, columnspan=2, pady=(0, 20))
         
@@ -500,6 +500,6 @@ if __name__ == "__main__":
     except ImportError:
         pass
     
-    print("🎙️ Iniciando Gravador de Voz ALEX...")
+    print("🎙️ Iniciando Gravador de Voz ASTRA...")
     app = AudioRecorderGUI()
     app.run()

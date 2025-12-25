@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Database Models
+ASTRA - Database Models
 SQLAlchemy ORM models for database abstraction layer
 
 This module defines all database models using SQLAlchemy ORM for 

@@ -1,5 +1,5 @@
 """
-ALEX/Astra - Security Module
+ASTRA/Astra - Security Module
 Sistema completo de segurança.
 """
 
@@ -23,4 +23,5 @@ __all__ = [
     'encrypt_data',
     'decrypt_data',
 ]
+
 

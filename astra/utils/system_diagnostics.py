@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Diagnóstico
+ASTRA - Sistema de Diagnóstico
 Módulo para verificar o estado do sistema e sugerir correções
 
 Este módulo fornece funcionalidades para:
@@ -24,7 +24,7 @@ from config import CONFIG, DEPENDENCIES, DATABASE_AVAILABLE, TESSERACT_AVAILABLE
 logger = logging.getLogger(__name__)
 
 class SystemDiagnostics:
-    """Sistema de diagnóstico completo para o ALEX."""
+    """Sistema de diagnóstico completo para o ASTRA."""
     
     def __init__(self):
         self.results = {}
@@ -168,7 +168,7 @@ class SystemDiagnostics:
         base_path = Path(__file__).parent.parent
         
         essential_files = {
-            'run_alex.py': base_path / 'run_alex.py',
+            'run_ASTRA.py': base_path / 'run_ASTRA.py',
             'requirements.txt': base_path / 'requirements.txt',
             'build/pyproject.toml': base_path / 'build' / 'pyproject.toml',
             'config/config.py': base_path / 'config' / 'config.py',
@@ -295,7 +295,7 @@ class SystemDiagnostics:
         """Gera relatório em formato texto."""
         report = []
         report.append("=" * 60)
-        report.append("🤖 ALEX - RELATÓRIO DE DIAGNÓSTICO DO SISTEMA")
+        report.append("🤖 ASTRA - RELATÓRIO DE DIAGNÓSTICO DO SISTEMA")
         report.append("=" * 60)
         report.append(f"⏰ Data: {self.results['timestamp']}")
         report.append(f"💻 Sistema: {self.results['system_info']['platform']} {self.results['system_info']['platform_release']}")
@@ -355,7 +355,7 @@ class SystemDiagnostics:
         <!DOCTYPE html>
         <html>
         <head>
-            <title>ALEX - Relatório de Diagnóstico</title>
+            <title>ASTRA - Relatório de Diagnóstico</title>
             <style>
                 body {{ font-family: Arial, sans-serif; margin: 20px; }}
                 .header {{ background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }}
@@ -370,7 +370,7 @@ class SystemDiagnostics:
         </head>
         <body>
             <div class="header">
-                <h1>🤖 ALEX - Relatório de Diagnóstico</h1>
+                <h1>🤖 ASTRA - Relatório de Diagnóstico</h1>
                 <p>Data: {self.results['timestamp']}</p>
                 <p>Sistema: {self.results['system_info']['platform']} {self.results['system_info']['platform_release']}</p>
             </div>
@@ -467,14 +467,14 @@ host = localhost
 port = 3306
 user = root
 password = sua_senha_aqui
-database = alex_assistant
+database = ASTRA_assistant
 charset = utf8mb4
 collation = utf8mb4_unicode_ci
 
 # Instruções:
 # 1. Renomeie este arquivo para 'mysql_config.ini'
 # 2. Configure suas credenciais MySQL
-# 3. Reinicie o ALEX
+# 3. Reinicie o ASTRA
 """
                 mysql_config_path.write_text(example_config, encoding='utf-8')
                 actions_taken.append(f"Criado arquivo exemplo: mysql_config.ini.example")
@@ -488,7 +488,7 @@ def main():
     """Função principal para executar diagnóstico via linha de comandos."""
     import argparse
     
-    parser = argparse.ArgumentParser(description='ALEX System Diagnostics')
+    parser = argparse.ArgumentParser(description='ASTRA System Diagnostics')
     parser.add_argument('--format', choices=['text', 'json', 'html'], default='text',
                        help='Formato do relatório')
     parser.add_argument('--output', type=str, help='Arquivo para salvar o relatório')

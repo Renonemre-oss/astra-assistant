@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Script de Limpeza do Projeto
 
-Este script remove arquivos desnecessários do projeto ALEX,
+Este script remove arquivos desnecessários do projeto ASTRA,
 mantendo apenas os arquivos essenciais para funcionamento.
 """
 
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 def cleanup_project():
     """Remove arquivos desnecessários do projeto."""
     
-    logger.info("🧹 Iniciando limpeza do projeto ALEX...")
+    logger.info("🧹 Iniciando limpeza do projeto ASTRA...")
     
     # Definir o diretório raiz do projeto
     project_root = Path(__file__).parent.parent
@@ -69,7 +69,7 @@ def cleanup_project():
             if not any(preserve in str(file_path) for preserve in preserve_dirs):
                 try:
                     # Exceção especial para logs importantes
-                    if pattern == "*.log" and file_path.name in ["alex_assistant.log"]:
+                    if pattern == "*.log" and file_path.name in ["ASTRA_assistant.log"]:
                         continue
                     
                     file_path.unlink()

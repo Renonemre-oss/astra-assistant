@@ -2,7 +2,7 @@
 
 ## 🔍 RESUMO EXECUTIVO
 
-Após análise completa do projeto Jarvis, identifiquei **38 arquivos/módulos** com funcionalidades importantes que **não estão sendo utilizados** pelo sistema principal. Estes módulos representam um valor estimado de **~15.000 linhas de código** que podem ser aproveitadas.
+Após análise completa do projeto ASTRA, identifiquei **38 arquivos/módulos** com funcionalidades importantes que **não estão sendo utilizados** pelo sistema principal. Estes módulos representam um valor estimado de **~15.000 linhas de código** que podem ser aproveitadas.
 
 ---
 
@@ -151,7 +151,7 @@ class AutoFixManager:
 # Modificar core/assistente.py para incluir:
 from modules.ethical_analyzer import EthicalAnalyzer
 
-class AlexAssistant:
+class ASTRAAssistant:
     def __init__(self):
         self.ethical_analyzer = EthicalAnalyzer()
     
@@ -195,7 +195,7 @@ class EnhancedHotwordDetector:
 # Integrar ao sistema principal:
 from modules.external_apis.api_integration_hub import ApiIntegrationHub
 
-class AlexAssistant:
+class ASTRAAssistant:
     def __init__(self):
         self.api_hub = ApiIntegrationHub()
         self.api_hub.set_api_key('newsdata', 'pub_92678c...')
@@ -208,9 +208,9 @@ class AlexAssistant:
 #### 2️⃣ **Sistema de Comandos de Notícias**
 ```python
 # Adicionar comandos:
-- "Alex, me dê as últimas notícias sobre tecnologia"
-- "Alex, qual o clima hoje?"
-- "Alex, me mostre notícias do Brasil"
+- "ASTRA, me dê as últimas notícias sobre tecnologia"
+- "ASTRA, qual o clima hoje?"
+- "ASTRA, me mostre notícias do Brasil"
 ```
 
 ---
@@ -354,4 +354,4 @@ python example_external_apis.py
 5. ✅ **Testar integração** antes de prosseguir
 6. ✅ **Implementar fases subsequentes** progressivamente
 
-O seu projeto Jarvis tem um **potencial inexplorado gigantesco**! 🚀
+O seu projeto ASTRA tem um **potencial inexplorado gigantesco**! 🚀

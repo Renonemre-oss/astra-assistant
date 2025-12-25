@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Demonstração do Sistema de Memória Inteligente
-Script para demonstrar como o ALEX lembra de conversas e aprende sobre o usuário.
+ASTRA - Demonstração do Sistema de Memória Inteligente
+Script para demonstrar como o ASTRA lembra de conversas e aprende sobre o usuário.
 """
 
 import sys
@@ -268,7 +268,7 @@ def demonstrate_memory_health():
 
 def main():
     """Função principal da demonstração."""
-    print("🧠 ALEX - Demonstração do Sistema de Memória Inteligente")
+    print("🧠 ASTRA - Demonstração do Sistema de Memória Inteligente")
     print("=" * 60)
     print()
     

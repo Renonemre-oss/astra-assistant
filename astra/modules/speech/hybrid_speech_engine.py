@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Speech Híbrido
+ASTRA - Sistema de Speech Híbrido
 Combina múltiplos engines TTS com fallback inteligente
 """
 
@@ -483,7 +483,7 @@ def test_hybrid_speech():
     
     # Teste de fala
     print(f"\n🗣️ Teste de Fala:")
-    test_text = "Olá! Este é o sistema híbrido de voz do ALEX, escolhendo automaticamente a melhor qualidade disponível."
+    test_text = "Olá! Este é o sistema híbrido de voz do ASTRA, escolhendo automaticamente a melhor qualidade disponível."
     
     success = engine.speak(test_text, blocking=True)
     print(f"Resultado: {'✅ Sucesso' if success else '❌ Falhou'}")

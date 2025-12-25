@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Módulo de Perfil do Utilizador
 
 Gere o perfil do utilizador principal para personalizar a experiência

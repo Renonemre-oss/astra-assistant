@@ -382,7 +382,7 @@ if __name__ == "__main__":
     print(f"  - Status: {detector.get_status_info()}")
     
     print("\nIniciando escuta visual...")
-    print("Diga 'Astra', 'Alex' ou outra wake word.")
+    print("Diga 'Astra', 'ASTRA' ou outra wake word.")
     print("Você verá animações reagindo ao som!")
     print("Pressione Ctrl+C para sair.")
     
@@ -412,3 +412,4 @@ if __name__ == "__main__":
         detector.shutdown()
         print("✅ Sistema visual parado com sucesso!")
         print("🎨 Obrigado por testar as animações do Astra!")
+

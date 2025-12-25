@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - FastAPI REST API
+ASTRA/Astra - FastAPI REST API
 Main application with all endpoints.
 """
 
@@ -19,8 +19,8 @@ __version__ = "2.0.0"
 
 # Create FastAPI app
 app = FastAPI(
-    title="ALEX/Astra API",
-    description="RESTful API for ALEX/Astra AI Assistant",
+    title="ASTRA/Astra API",
+    description="RESTful API for ASTRA/Astra AI Assistant",
     version=__version__,
     docs_url="/api/docs",
     redoc_url="/api/redoc"
@@ -74,7 +74,7 @@ class HealthResponse(BaseModel):
 async def root():
     """Root endpoint."""
     return {
-        "name": "ALEX/Astra API",
+        "name": "ASTRA/Astra API",
         "version": __version__,
         "status": "online",
         "docs": "/api/docs"
@@ -221,4 +221,5 @@ async def internal_error(request, exc):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001, reload=True)
+
 

@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX Speech Module
-Módulo de processamento de voz e áudio do ALEX.
+ASTRA Speech Module
+Módulo de processamento de voz e áudio do ASTRA.
 """
 
 __version__ = "1.0.0"
-__author__ = "ALEX System"
+__author__ = "ASTRA System"
 
 # Importações principais do módulo speech
 try:

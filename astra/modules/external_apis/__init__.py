@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal Inteligente
+ASTRA - Assistente Pessoal Inteligente
 Módulo de Integração com APIs Externas
 
 Este módulo centraliza todas as integrações com APIs externas, incluindo:
@@ -32,4 +32,4 @@ __all__ = [
 ]
 
 __version__ = "1.0.0"
-__author__ = "ALEX Assistant"
+__author__ = "ASTRA Assistant"

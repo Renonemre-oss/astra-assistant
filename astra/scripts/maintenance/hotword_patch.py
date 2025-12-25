@@ -21,7 +21,7 @@ def safe_porcupine_init():
         # Método 3: Buscar por keywords built-in
         else:
             # Usar keywords padrão conhecidas
-            keywords = ['alexa', 'computer', 'hey google', 'hey siri']
+            keywords = ['ASTRAa', 'computer', 'hey google', 'hey siri']
             return keywords[0]  # Retornar primeira disponível
         
         # Processar keyword_paths encontradas
@@ -38,3 +38,4 @@ def safe_porcupine_init():
     except Exception as e:
         logging.error(f"Erro na inicialização segura do Porcupine: {e}")
         return None
+

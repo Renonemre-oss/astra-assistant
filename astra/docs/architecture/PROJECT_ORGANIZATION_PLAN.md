@@ -1,4 +1,4 @@
-# 📁 ALEX - Plano de Organização do Projeto
+# 📁 ASTRA - Plano de Organização do Projeto
 
 > **Data:** 27 de Setembro de 2025  
 > **Status:** ✅ **CONCLUÍDO**  
@@ -26,7 +26,7 @@
 ## 📊 **ESTRUTURA ATUAL ANALISADA**
 
 ```
-C:\Users\antop\Desktop\jarvis\
+C:\Users\antop\Desktop\ASTRA\
 ├── 📂 audio/                    # ✅ Sistema de áudio - BEM ORGANIZADO
 ├── 📂 config/                   # ✅ Configurações - BEM ORGANIZADO  
 ├── 📂 core/                     # ✅ Núcleo do assistente - BEM ORGANIZADO
@@ -48,9 +48,9 @@ C:\Users\antop\Desktop\jarvis\
 ├── 📂 assets/                   # ✅ Assets - BEM ORGANIZADO
 ├── 📂 .vscode/                  # ✅ Configurações VS Code
 ├── 📂 .venv_assistente/         # ✅ Ambiente virtual
-├── 📄 jarvis_voice_mode.py      # 🔧 MOVER PARA LAUNCHERS/
+├── 📄 ASTRA_voice_mode.py      # 🔧 MOVER PARA LAUNCHERS/
 ├── 📄 voice_launcher.py         # 🔧 MOVER PARA LAUNCHERS/
-├── 📄 start_jarvis.bat          # 🔧 MOVER PARA LAUNCHERS/
+├── 📄 start_ASTRA.bat          # 🔧 MOVER PARA LAUNCHERS/
 └── 📄 Outros arquivos raiz      # ✅ Necessários na raiz
 ```
 
@@ -61,10 +61,10 @@ C:\Users\antop\Desktop\jarvis\
 ### **1. 📂 Criar pasta `launchers/`**
 - **Objetivo:** Centralizar todos os launchers e scripts de inicialização
 - **Conteúdo:**
-  - `jarvis_voice_mode.py` → `launchers/voice_mode.py`
+  - `ASTRA_voice_mode.py` → `launchers/voice_mode.py`
   - `voice_launcher.py` → `launchers/gui_launcher.py`
-  - `start_jarvis.bat` → `launchers/start_jarvis.bat`
-  - `run_alex.py` → Manter na raiz (principal)
+  - `start_ASTRA.bat` → `launchers/start_ASTRA.bat`
+  - `run_ASTRA.py` → Manter na raiz (principal)
 
 ### **2. 📂 Reorganizar `CORRECOES/`**
 - **Renomear:** `CORRECOES/` → `docs/guides/`
@@ -96,11 +96,11 @@ C:\Users\antop\Desktop\jarvis\
 ## 🎯 **ESTRUTURA FINAL PROPOSTA**
 
 ```
-C:\Users\antop\Desktop\jarvis\
+C:\Users\antop\Desktop\ASTRA\
 ├── 📂 launchers/                # 🆕 NOVO - Todos os launchers
-│   ├── voice_mode.py           # Ex: jarvis_voice_mode.py
+│   ├── voice_mode.py           # Ex: ASTRA_voice_mode.py
 │   ├── gui_launcher.py         # Ex: voice_launcher.py  
-│   └── start_jarvis.bat        # Launcher Windows
+│   └── start_ASTRA.bat        # Launcher Windows
 ├── 📂 core/                     # Núcleo do sistema
 ├── 📂 modules/                  # Módulos funcionais
 │   ├── personality_engine.py   # ✅ JÁ IMPLEMENTADO
@@ -131,7 +131,7 @@ C:\Users\antop\Desktop\jarvis\
 ├── 📂 neural_models/            # Modelos treino
 ├── 📂 .vscode/                  # Config VS Code
 ├── 📂 .venv_assistente/         # Ambiente virtual
-└── 📄 run_alex.py              # Launcher principal
+└── 📄 run_ASTRA.py              # Launcher principal
 ```
 
 ---
@@ -193,4 +193,4 @@ Após a reorganização, validar:
 
 ---
 
-**🚀 Projeto ALEX ainda mais profissional e organizado!**
+**🚀 Projeto ASTRA ainda mais profissional e organizado!**

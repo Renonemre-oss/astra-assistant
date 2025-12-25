@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - API Migration Script
+ASTRA/Astra - API Migration Script
 Script para consolidar api_integration_hub.py em modules/external_apis/
 
 Este script:
@@ -29,7 +29,7 @@ def create_compatibility_layer():
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - API Integration Hub Compatibility Layer
+ASTRA/Astra - API Integration Hub Compatibility Layer
 Camada de compatibilidade para código antigo que usa api.api_integration_hub
 
 Este módulo mantém compatibilidade retroativa enquanto usa o novo sistema modular.
@@ -241,7 +241,7 @@ def main():
     """Executar migração completa"""
     
     print("=" * 60)
-    print("🚀 ALEX/Astra - Migração de Sistema de APIs")
+    print("🚀 ASTRA/Astra - Migração de Sistema de APIs")
     print("=" * 60)
     print()
     
@@ -290,4 +290,5 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
         sys.exit(1)
+
 

@@ -1,4 +1,4 @@
-# 🤖 ALEX Assistant - Version Information
+# 🤖 ASTRA Assistant - Version Information
 
 ## Current Version: **v0.8.0-alpha**
 
@@ -113,8 +113,8 @@
 
 For Alpha testing feedback, please provide:
 - System specifications
-- Error logs from `logs/alex_assistant.log`
-- Test results from `python run_alex.py test`
+- Error logs from `logs/ASTRA_assistant.log`
+- Test results from `python run_ASTRA.py test`
 - Feature requests and bug reports
 
 ---

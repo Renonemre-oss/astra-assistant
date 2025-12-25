@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Hotword Detector com Visualização Integrada
+ASTRA - Hotword Detector com Visualização Integrada
 Sistema que combina detecção de wake words com feedback visual imersivo.
 """
 

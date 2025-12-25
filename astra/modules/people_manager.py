@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Módulo de Gestão de Pessoas
 
 Sistema automático para reconhecer e guardar informações sobre pessoas

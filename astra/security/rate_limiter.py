@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Rate Limiter
+ASTRA/Astra - Rate Limiter
 Sistema de rate limiting para proteger API contra abuse.
 """
 
@@ -114,4 +114,5 @@ def get_rate_limiter() -> RateLimiter:
 def rate_limit(key: str, rule: str = 'default') -> Tuple[bool, Optional[int]]:
     """Atalho para verificar rate limit."""
     return get_rate_limiter().is_allowed(key, rule)
+
 

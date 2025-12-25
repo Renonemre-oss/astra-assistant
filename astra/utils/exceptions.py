@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Exceções Customizadas
+ASTRA - Sistema de Exceções Customizadas
 Hierarquia completa de exceções para tratamento de erros específicos do sistema.
 """
 
@@ -12,8 +12,8 @@ from typing import Optional, Any, Dict
 # ==========================
 # BASE EXCEPTION
 # ==========================
-class AlexException(Exception):
-    """Exceção base para todo o sistema ALEX."""
+class ASTRAException(Exception):
+    """Exceção base para todo o sistema ASTRA."""
     
     def __init__(self, message: str, details: Optional[Dict[str, Any]] = None):
         self.message = message
@@ -29,7 +29,7 @@ class AlexException(Exception):
 # ==========================
 # CONFIGURATION EXCEPTIONS
 # ==========================
-class ConfigurationError(AlexException):
+class ConfigurationError(ASTRAException):
     """Erro de configuração do sistema."""
     pass
 
@@ -47,7 +47,7 @@ class InvalidConfigError(ConfigurationError):
 # ==========================
 # DATABASE EXCEPTIONS
 # ==========================
-class DatabaseError(AlexException):
+class DatabaseError(ASTRAException):
     """Erro relacionado à base de dados."""
     pass
 
@@ -75,7 +75,7 @@ class DatabaseNotAvailableError(DatabaseError):
 # ==========================
 # API EXCEPTIONS
 # ==========================
-class APIError(AlexException):
+class APIError(ASTRAException):
     """Erro relacionado a APIs externas."""
     pass
 
@@ -108,7 +108,7 @@ class APIResponseError(APIError):
 # ==========================
 # OLLAMA EXCEPTIONS
 # ==========================
-class OllamaError(AlexException):
+class OllamaError(ASTRAException):
     """Erro relacionado ao Ollama."""
     pass
 
@@ -136,7 +136,7 @@ class OllamaResponseError(OllamaError):
 # ==========================
 # SPEECH/AUDIO EXCEPTIONS
 # ==========================
-class SpeechError(AlexException):
+class SpeechError(ASTRAException):
     """Erro relacionado a speech (TTS/STT)."""
     pass
 
@@ -156,7 +156,7 @@ class STTError(SpeechError):
     pass
 
 
-class AudioError(AlexException):
+class AudioError(ASTRAException):
     """Erro relacionado a áudio."""
     pass
 
@@ -179,7 +179,7 @@ class AudioPlaybackError(AudioError):
 # ==========================
 # PERSONALITY EXCEPTIONS
 # ==========================
-class PersonalityError(AlexException):
+class PersonalityError(ASTRAException):
     """Erro no sistema de personalidade."""
     pass
 
@@ -197,7 +197,7 @@ class PersonalityDataError(PersonalityError):
 # ==========================
 # MEMORY EXCEPTIONS
 # ==========================
-class MemoryError(AlexException):
+class MemoryError(ASTRAException):
     """Erro no sistema de memória."""
     pass
 
@@ -220,7 +220,7 @@ class MemoryNotFoundError(MemoryError):
 # ==========================
 # USER EXCEPTIONS
 # ==========================
-class UserError(AlexException):
+class UserError(ASTRAException):
     """Erro relacionado a usuários."""
     pass
 
@@ -243,7 +243,7 @@ class InvalidUserDataError(UserError):
 # ==========================
 # PLUGIN EXCEPTIONS
 # ==========================
-class PluginError(AlexException):
+class PluginError(ASTRAException):
     """Erro relacionado a plugins."""
     pass
 
@@ -271,7 +271,7 @@ class PluginExecutionError(PluginError):
 # ==========================
 # VALIDATION EXCEPTIONS
 # ==========================
-class ValidationError(AlexException):
+class ValidationError(ASTRAException):
     """Erro de validação de dados."""
     pass
 
@@ -294,7 +294,7 @@ class ValueRangeError(ValidationError):
 # ==========================
 # FILE EXCEPTIONS
 # ==========================
-class FileError(AlexException):
+class FileError(ASTRAException):
     """Erro relacionado a arquivos."""
     pass
 
@@ -322,7 +322,7 @@ class FilePermissionError(FileError):
 # ==========================
 # NETWORK EXCEPTIONS
 # ==========================
-class NetworkError(AlexException):
+class NetworkError(ASTRAException):
     """Erro relacionado a rede."""
     pass
 
@@ -340,7 +340,7 @@ class TimeoutError(NetworkError):
 # ==========================
 # CACHE EXCEPTIONS
 # ==========================
-class CacheError(AlexException):
+class CacheError(ASTRAException):
     """Erro relacionado ao sistema de cache."""
     pass
 
@@ -358,7 +358,7 @@ class CacheStorageError(CacheError):
 # ==========================
 # RESOURCE EXCEPTIONS
 # ==========================
-class ResourceError(AlexException):
+class ResourceError(ASTRAException):
     """Erro relacionado a recursos do sistema."""
     pass
 
@@ -381,7 +381,7 @@ class ResourceLockError(ResourceError):
 # ==========================
 # CONTEXTUAL EXCEPTIONS
 # ==========================
-class ContextualError(AlexException):
+class ContextualError(ASTRAException):
     """Erro no sistema de análise contextual."""
     pass
 
@@ -394,7 +394,7 @@ class ContextAnalysisError(ContextualError):
 # ==========================
 # COMPANION EXCEPTIONS
 # ==========================
-class CompanionError(AlexException):
+class CompanionError(ASTRAException):
     """Erro no sistema companion."""
     pass
 
@@ -415,7 +415,7 @@ def get_exception_hierarchy() -> Dict[str, Any]:
         Dict com a estrutura hierárquica das exceções
     """
     return {
-        'AlexException': {
+        'ASTRAException': {
             'ConfigurationError': ['MissingConfigError', 'InvalidConfigError'],
             'DatabaseError': [
                 'DatabaseConnectionError',
@@ -507,3 +507,4 @@ def is_critical_error(exception: Exception) -> bool:
         ResourceNotAvailableError
     )
     return isinstance(exception, critical_exceptions)
+

@@ -1,4 +1,4 @@
-# 🎉 ALEX - Reorganização Concluída
+# 🎉 ASTRA - Reorganização Concluída
 
 > **Data:** 27 de Setembro de 2025  
 > **Status:** ✅ **CONCLUÍDO COM SUCESSO**  
@@ -8,14 +8,14 @@
 
 ## 🏆 **REORGANIZAÇÃO CONCLUÍDA**
 
-O projeto ALEX foi completamente reorganizado com sucesso! Todas as funcionalidades foram preservadas e a estrutura ficou mais profissional.
+O projeto ASTRA foi completamente reorganizado com sucesso! Todas as funcionalidades foram preservadas e a estrutura ficou mais profissional.
 
 ## 📊 **MUDANÇAS REALIZADAS**
 
 ### ✅ **Pasta `launchers/` Criada**
-- ✅ `jarvis_voice_mode.py` → `launchers/voice_mode.py`
+- ✅ `ASTRA_voice_mode.py` → `launchers/voice_mode.py`
 - ✅ `voice_launcher.py` → `launchers/gui_launcher.py`
-- ✅ `start_jarvis.bat` → `launchers/start_jarvis.bat`
+- ✅ `start_ASTRA.bat` → `launchers/start_ASTRA.bat`
 - ✅ Paths corrigidos para funcionar da nova localização
 
 ### ✅ **Documentação Reorganizada**
@@ -36,11 +36,11 @@ O projeto ALEX foi completamente reorganizado com sucesso! Todas as funcionalida
 ## 🎯 **ESTRUTURA FINAL**
 
 ```
-C:\Users\antop\Desktop\jarvis\
+C:\Users\antop\Desktop\ASTRA\
 ├── 📂 launchers/            # 🆕 NOVO - Todos os launchers
 │   ├── voice_mode.py       # Modo somente voz
 │   ├── gui_launcher.py     # Sistema de voz GUI
-│   └── start_jarvis.bat    # Launcher Windows
+│   └── start_ASTRA.bat    # Launcher Windows
 ├── 📂 templates/            # 🆕 NOVO - Templates para desenvolvimento
 │   ├── module_template.py  # Template de módulo
 │   ├── config_template.json # Template de config
@@ -69,21 +69,21 @@ C:\Users\antop\Desktop\jarvis\
 ├── 📂 ui/                   # Interface gráfica
 ├── 📂 assets/               # Assets (logos, etc)
 ├── 📂 neural_models/        # Modelos treino
-└── 📄 run_alex.py          # Launcher principal
+└── 📄 run_ASTRA.py          # Launcher principal
 ```
 
 ## 🚀 **COMO USAR AGORA**
 
 ### **Launcher Principal**
 ```bash
-# Executar ALEX (modo GUI)
-python run_alex.py
+# Executar ASTRA (modo GUI)
+python run_ASTRA.py
 
 # Ver estrutura do projeto
-python run_alex.py struct
+python run_ASTRA.py struct
 
 # Ver ajuda
-python run_alex.py help
+python run_ASTRA.py help
 ```
 
 ### **Launchers Específicos**
@@ -95,7 +95,7 @@ python launchers/voice_mode.py
 python launchers/gui_launcher.py
 
 # Windows batch launcher
-launchers/start_jarvis.bat
+launchers/start_ASTRA.bat
 ```
 
 ### **Desenvolvimento**
@@ -149,4 +149,4 @@ explorer templates/
 
 ---
 
-**🚀 Projeto ALEX agora mais profissional, organizado e pronto para crescer!**
+**🚀 Projeto ASTRA agora mais profissional, organizado e pronto para crescer!**

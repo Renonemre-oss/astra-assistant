@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Sistema de Comandos de Utilizador
 
 Comandos especiais para gestão manual de utilizadores múltiplos.

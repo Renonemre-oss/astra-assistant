@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Authentication System
+ASTRA/Astra - Authentication System
 Sistema de autenticação JWT para API REST.
 """
 
@@ -127,4 +127,5 @@ def get_auth_manager() -> AuthenticationManager:
     if _auth_manager is None:
         _auth_manager = AuthenticationManager()
     return _auth_manager
+
 

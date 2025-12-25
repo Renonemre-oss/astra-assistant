@@ -1,7 +1,7 @@
 @echo off
 echo.
 echo ================================
-echo  🤖 ALEX - Iniciando Modo Jarvis
+echo  🤖 ASTRA - Iniciando Modo Astra
 echo ================================
 echo.
 
@@ -16,18 +16,18 @@ if %errorlevel% neq 0 (
 )
 
 REM Verificar arquivos principais
-if not exist "jarvis_voice_mode.py" (
-    echo ❌ Arquivo jarvis_voice_mode.py não encontrado!
+if not exist "Astra_voice_mode.py" (
+    echo ❌ Arquivo Astra_voice_mode.py não encontrado!
     pause
     exit /b 1
 )
 
-echo ✅ Iniciando ALEX em modo Jarvis...
-echo 💡 Para sair, diga "Jarvis, sair" ou pressione Ctrl+C
+echo ✅ Iniciando ASTRA em modo Astra...
+echo 💡 Para sair, diga "Astra, sair" ou pressione Ctrl+C
 echo.
 
-python jarvis_voice_mode.py
+python Astra_voice_mode.py
 
 echo.
-echo 👋 Jarvis encerrado!
+echo 👋 Astra encerrado!
 pause

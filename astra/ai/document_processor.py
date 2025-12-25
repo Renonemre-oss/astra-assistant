@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Document Processor
+ASTRA/Astra - Document Processor
 Processamento de documentos para RAG.
 """
 
@@ -197,4 +197,5 @@ def get_document_processor() -> DocumentProcessor:
     if _document_processor is None:
         _document_processor = DocumentProcessor()
     return _document_processor
+
 

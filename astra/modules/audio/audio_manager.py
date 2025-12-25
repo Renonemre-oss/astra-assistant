@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Audio Manager
+ASTRA - Audio Manager
 Manages text-to-speech and audio functionality for the assistant
 Wraps the SpeechEngine to provide a consistent audio interface
 """
@@ -34,7 +34,7 @@ DEPENDENCIES = {
 
 class AudioManager:
     """
-    Audio Manager for ALEX Assistant.
+    Audio Manager for ASTRA Assistant.
     Provides text-to-speech functionality using the SpeechEngine.
     """
     
@@ -252,7 +252,7 @@ def test_audio_manager():
     # Test speech
     if audio_mgr.tts_loaded:
         print("\n3. Testando fala...")
-        success = audio_mgr.text_to_speech("Olá! Este é o Audio Manager do ALEX funcionando perfeitamente.")
+        success = audio_mgr.text_to_speech("Olá! Este é o Audio Manager do ASTRA funcionando perfeitamente.")
         print(f"Resultado: {'✅ Sucesso' if success else '❌ Falhou'}")
         
         # Wait for speech to complete

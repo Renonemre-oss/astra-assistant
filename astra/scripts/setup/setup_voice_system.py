@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Setup do Sistema de Voz
+ASTRA - Setup do Sistema de Voz
 Script para configurar e baixar dependências do sistema de voz e hotword detection.
 
 Funcionalidades:
@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class VoiceSystemSetup:
-    """Configurador do sistema de voz ALEX."""
+    """Configurador do sistema de voz ASTRA."""
     
     def __init__(self):
         self.project_root = Path(__file__).parent.parent
@@ -130,7 +130,7 @@ class VoiceSystemSetup:
         config = {
             "hotword": {
                 "enabled": True,
-                "wake_words": ["Astra", "alex", "assistente", "hey alex"],
+                "wake_words": ["Astra", "ASTRA", "assistente", "hey ASTRA"],
                 "sensitivity": 0.7,
                 "engine": "auto"  # auto, porcupine, vosk, simple_stt
             },
@@ -139,7 +139,7 @@ class VoiceSystemSetup:
                 "sample_rate": 16000
             },
             "porcupine": {
-                "keywords": ["computer", "alexa"],
+                "keywords": ["computer", "ASTRAa"],
                 "sensitivity": 0.7
             },
             "tts": {
@@ -206,7 +206,7 @@ class VoiceSystemSetup:
     
     def run_full_setup(self):
         """Executa setup completo."""
-        logger.info("🚀 Iniciando configuração do sistema de voz ALEX...")
+        logger.info("🚀 Iniciando configuração do sistema de voz ASTRA...")
         
         # 1. Criar diretórios
         self.ensure_directories()
@@ -224,11 +224,11 @@ class VoiceSystemSetup:
         self.test_system()
         
         logger.info("🎉 Setup do sistema de voz concluído!")
-        logger.info("💡 Agora você pode usar: 'Astra' ou 'Alex' para ativar o assistente")
+        logger.info("💡 Agora você pode usar: 'Astra' ou 'ASTRA' para ativar o assistente")
     
     def interactive_setup(self):
         """Setup interativo."""
-        print("🤖 ALEX - Configuração do Sistema de Voz")
+        print("🤖 ASTRA - Configuração do Sistema de Voz")
         print("=" * 40)
         
         # Perguntar sobre modelo Vosk
@@ -266,7 +266,7 @@ class VoiceSystemSetup:
             self.test_system()
         
         print("\n🎉 Configuração concluída!")
-        print("💡 Execute 'python run_alex.py' para testar o assistente")
+        print("💡 Execute 'python run_ASTRA.py' para testar o assistente")
 
 
 def main():
@@ -295,3 +295,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

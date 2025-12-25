@@ -1,4 +1,4 @@
-# 🔧 CORREÇÕES REALIZADAS APÓS REORGANIZAÇÃO DO PROJETO ALEX
+# 🔧 CORREÇÕES REALIZADAS APÓS REORGANIZAÇÃO DO PROJETO ASTRA
 
 > **Data:** 20 de Setembro de 2025  
 > **Ação:** Correção de paths e imports após reorganização de arquivos
@@ -7,7 +7,7 @@
 
 ## 📋 **PROBLEMA IDENTIFICADO**
 
-Após reorganizar os arquivos do projeto ALEX em uma estrutura mais organizada (movendo arquivos para pastas `/build/`, `/reports/`, etc.), várias referências de paths e imports estavam quebradas, causando erros de execução.
+Após reorganizar os arquivos do projeto ASTRA em uma estrutura mais organizada (movendo arquivos para pastas `/build/`, `/reports/`, etc.), várias referências de paths e imports estavam quebradas, causando erros de execução.
 
 ---
 
@@ -82,7 +82,7 @@ python tests/test_placeholder_fix.py
 
 ### ⚠️ **Testes Gerais (Melhorados)**
 ```bash 
-python run_alex.py test
+python run_ASTRA.py test
 ```
 **Resultado:** 
 - ✅ Imports corrigidos
@@ -94,13 +94,13 @@ python run_alex.py test
 ## 🎯 **ESTRUTURA FINAL CORRIGIDA**
 
 ```
-📁 jarvis/
+📁 ASTRA/
 ├── 📂 build/                    # ✅ Arquivos de build corrigidos
 │   ├── Makefile.ps1            # ✅ Paths atualizados nos CIs
 │   └── pyproject.toml          # ✅ Refs corrigidas em .github/, .pre-commit
 ├── 📂 reports/                 # ✅ Relatórios organizados
 │   ├── debug_results.json      # ✅ Path corrigido em debug_system.py
-│   ├── ALEX_DEBUG_REPORT.md    
+│   ├── ASTRA_DEBUG_REPORT.md    
 │   └── PROJECT_STATUS.md       
 ├── 📂 tests/                   # ✅ Todos os imports corrigidos
 │   ├── debug_system.py         # ✅ Path corrigido para reports/
@@ -109,7 +109,7 @@ python run_alex.py test
 ├── 📂 utils/                   # ✅ Imports corrigidos
 │   ├── error_handler.py        # ✅ Tuple import adicionado
 │   └── system_diagnostics.py   # ✅ Path build/ corrigido
-└── 📄 run_alex.py              # ✅ Continua funcionando
+└── 📄 run_ASTRA.py              # ✅ Continua funcionando
 ```
 
 ---
@@ -117,7 +117,7 @@ python run_alex.py test
 ## 🚀 **STATUS FINAL**
 
 ### ✅ **O que funciona:**
-- ✅ Execução principal do ALEX (`python run_alex.py`)
+- ✅ Execução principal do ASTRA (`python run_ASTRA.py`)
 - ✅ Sistema de substituição de placeholders (problema "[hora atual]" resolvido)
 - ✅ Imports corrigidos nos módulos principais
 - ✅ Paths atualizados para nova estrutura
@@ -137,7 +137,7 @@ python run_alex.py test
 
 ---
 
-## 🎉 **PROJETO ALEX REORGANIZADO E CORRIGIDO COM SUCESSO!**
+## 🎉 **PROJETO ASTRA REORGANIZADO E CORRIGIDO COM SUCESSO!**
 
 O projeto agora possui:
 - ✅ **Estrutura profissional e organizada**
@@ -146,4 +146,4 @@ O projeto agora possui:
 - ✅ **Todos os imports e paths corrigidos**
 - ✅ **Sistema pronto para desenvolvimento contínuo**
 
-**🚀 O ALEX está pronto para ser executado na nova estrutura organizada!**
+**🚀 O ASTRA está pronto para ser executado na nova estrutura organizada!**

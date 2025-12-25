@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Setup da Base de Dados SQLite
 
 Script para configurar a base de dados SQLite e criar as tabelas iniciais.
@@ -18,7 +18,7 @@ from database.database_manager import DatabaseManager, DatabaseConfig
 def print_header():
     """Imprime o cabeçalho do script"""
     print("=" * 60)
-    print("🤖 ALEX - Assistente Pessoal")
+    print("🤖 ASTRA - Assistente Pessoal")
     print("   Configuração da Base de Dados SQLite")
     print("=" * 60)
     print()
@@ -34,7 +34,7 @@ def get_database_config():
     print("-" * 40)
     
     # Caminho do arquivo da base de dados
-    default_path = "alex_assistant.db"
+    default_path = "ASTRA_assistant.db"
     db_path = input(f"💾 Caminho do arquivo da base de dados [{default_path}]: ").strip()
     if not db_path:
         db_path = default_path
@@ -83,7 +83,7 @@ def create_config_file(config: DatabaseConfig):
     Args:
         config: Configuração da base de dados
     """
-    config_content = f"""# Configuração SQLite para ALEX Assistente
+    config_content = f"""# Configuração SQLite para ASTRA Assistente
 # Gerado automaticamente pelo setup_database.py
 
 [sqlite]

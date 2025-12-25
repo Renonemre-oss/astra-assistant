@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Arquivo Principal da Interface Gráfica
 
 Sistema modular usando PyQt6 e funcionalidades organizadas em módulos separados.
@@ -132,7 +132,7 @@ HTML_BACKGROUND = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEX - Perlin Noise Clouds</title>
+    <title>ASTRA - Perlin Noise Clouds</title>
     <style>
         body, html {
             margin: 0;
@@ -295,7 +295,7 @@ class AssistenteGUI(QtWidgets.QWidget):
         self.session_id = generate_session_id()
         
         # Configurar janela
-        self.setWindowTitle("ALEX - Assistente Pessoal")
+        self.setWindowTitle("ASTRA - Assistente Pessoal")
         self.setGeometry(100, 100, 800, 600)
         self.setStyleSheet(UI_STYLES["main_style"])
 
@@ -359,7 +359,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                 if 'sqlite' in config_parser:
                     sqlite_config = config_parser['sqlite']
                     self.db_config = DatabaseConfig(
-                        database_path=sqlite_config.get('database_path', 'alex_assistant.db')
+                        database_path=sqlite_config.get('database_path', 'ASTRA_assistant.db')
                     )
                     logging.info("Configuração SQLite carregada do ficheiro")
                 else:
@@ -456,7 +456,7 @@ class AssistenteGUI(QtWidgets.QWidget):
         try:
             from utils.asset_manager import get_asset_manager
             asset_manager = get_asset_manager()
-            logo_asset = asset_manager.get_asset("alex_logo_main")
+            logo_asset = asset_manager.get_asset("ASTRA_logo_main")
             
             if logo_asset and logo_asset.path.exists():
                 pixmap = QtGui.QPixmap(str(logo_asset.path))
@@ -524,12 +524,12 @@ class AssistenteGUI(QtWidgets.QWidget):
         header_container = QtWidgets.QWidget()
         header_layout = QtWidgets.QHBoxLayout(header_container)
         
-        # Logo do ALEX
+        # Logo do ASTRA
         self.logo_label = self.create_logo_widget()
         header_layout.addWidget(self.logo_label)
         
         # Título
-        self.title_label = QtWidgets.QLabel("ALEX - Assistente Virtual")
+        self.title_label = QtWidgets.QLabel("ASTRA - Assistente Virtual")
         self.title_label.setObjectName("titleLabel")
         self.title_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
         header_layout.addWidget(self.title_label)
@@ -633,7 +633,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                         # Se deve declinar, não processar mais nada
                         if should_decline:
                             response_time = time.time() - response_start_time
-                            self.ui_updater.append_output_signal.emit(f"🤖 Alex: {opinion_response}")
+                            self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {opinion_response}")
                             self.save_assistant_message(opinion_response, response_time, "ethical_refusal")
                             self.history.append({"role": "assistant", "content": opinion_response})
                             self.audio_manager.text_to_speech(limpar_texto_tts(opinion_response))
@@ -669,7 +669,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                 if any(palavra in comando_lower for palavra in ["horas", "hora", "data", "dia"]):
                     if any(frase in comando_lower for frase in [
                         "que horas", "diz-me as horas", "hora atual", "são as horas",
-                        "me dizer as horas", "podes me dizer as horas", "alex podes me dizer as horas",
+                        "me dizer as horas", "podes me dizer as horas", "ASTRA podes me dizer as horas",
                         "que dia", "qual a data", "data de hoje", "dia é hoje"
                     ]):
                         # Obter data e hora atuais
@@ -741,7 +741,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                             "Bye! Se precisares, grita! 😉"
                         ]
                         resposta = random.choice(despedidas)
-                        self.ui_updater.append_output_signal.emit(f"🤖 Alex: {resposta}")
+                        self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta}")
                         self.audio_manager.text_to_speech(resposta)
                         QtCore.QTimer.singleShot(1000, self.close)
                         return
@@ -831,7 +831,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                         context_info = "\n\n".join(context_parts) if context_parts else ""
                         
                         # Prompt melhorado com personalidade dinâmica
-                        base_instruction = "Tu és o Alex, um assistente virtual inteligente e adaptável."
+                        base_instruction = "Tu és o ASTRA, um assistente virtual inteligente e adaptável."
                         if personality_context:
                             full_prompt = f"""{base_instruction}
 {context_info}
@@ -842,7 +842,7 @@ Histórico da conversa:
 Utilizador: {comando}"""
                         else:
                             # Fallback para comportamento casual se personalidade não disponível
-                            full_prompt = f"""Tu és o Alex, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem falaria. Evita ser muito formal.
+                            full_prompt = f"""Tu és o ASTRA, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem falaria. Evita ser muito formal.
 {context_info}
 
 Histórico da conversa:
@@ -931,7 +931,7 @@ Utilizador: {comando}"""
 
             if not stop_signal.is_set():
                 resposta_formatada = formatar_resposta(resposta)
-                self.ui_updater.append_output_signal.emit(f"🤖 Alex: {resposta_formatada}")
+                self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta_formatada}")
                 self.audio_manager.text_to_speech(resposta)
 
         except Exception as e:
@@ -960,7 +960,7 @@ Utilizador: {comando}"""
                         detection_callback=self.on_hotword_detected
                     )
                     self.hotword_mode = True
-                    self.ui_updater.set_status_signal.emit("🎨 Modo visual ativo - Diga 'Alex' ou 'Astra'...")
+                    self.ui_updater.set_status_signal.emit("🎨 Modo visual ativo - Diga 'ASTRA' ou 'Astra'...")
                     logging.info("✨ Sistema de visualização integrado ativo")
                 except Exception as e:
                     logging.error(f"Erro ao inicializar sistema visual: {e}")
@@ -971,7 +971,7 @@ Utilizador: {comando}"""
                             self.hotword_detector = create_hotword_detector(self.ui_updater.set_status_signal.emit)
                             self.hotword_detector.set_detection_callback(self.on_hotword_detected)
                             self.hotword_mode = True
-                            self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'Alex'...")
+                            self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'ASTRA'...")
                         except Exception as e2:
                             logging.error(f"Erro no fallback básico: {e2}")
                             self.hotword_mode = False
@@ -985,7 +985,7 @@ Utilizador: {comando}"""
                     self.hotword_detector = create_hotword_detector(self.ui_updater.set_status_signal.emit)
                     self.hotword_detector.set_detection_callback(self.on_hotword_detected)
                     self.hotword_mode = True
-                    self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'Alex'...")
+                    self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'ASTRA'...")
                 except Exception as e:
                     logging.error(f"Erro ao inicializar hotword: {e}")
                     self.hotword_mode = False
@@ -1270,7 +1270,7 @@ Utilizador: {comando}"""
         matches = re.findall(name_pattern, text)
         
         # Filtrar palavras comuns que não são nomes
-        common_words = {'Alex', 'Como', 'Para', 'Mas', 'Que', 'Quando', 'Onde', 'Esta', 'Este', 'Essa', 'Esse'}
+        common_words = {'ASTRA', 'Como', 'Para', 'Mas', 'Que', 'Quando', 'Onde', 'Esta', 'Este', 'Essa', 'Esse'}
         names = [name for name in matches if name not in common_words and len(name) > 2]
         
         return list(set(names))  # Remover duplicados
@@ -1718,3 +1718,4 @@ if __name__ == "__main__":
     gui = AssistenteGUI()
     gui.show()
     sys.exit(app.exec())
+

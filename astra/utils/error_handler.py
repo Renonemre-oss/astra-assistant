@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Sistema de Tratamento de Erros e Validações
+ASTRA - Sistema de Tratamento de Erros e Validações
 Sistema robusto para captura, tratamento e recuperação de erros
 
 Este módulo fornece:

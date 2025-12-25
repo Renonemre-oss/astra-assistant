@@ -1,11 +1,11 @@
-# 📁 ALEX - Estrutura do Projeto Reorganizada
+# 📁 ASTRA - Estrutura do Projeto Reorganizada
 
 O projeto foi completamente reorganizado em módulos especializados para facilitar manutenção e desenvolvimento.
 
 ## 🗂️ **ESTRUTURA DE ARQUIVOS:**
 
 ```
-jarvis/
+ASTRA/
 ├── 🤖 assistente.py           # Interface principal e GUI
 ├── ⚙️ config.py              # Configurações centralizadas
 ├── 🔧 utils.py               # Funções auxiliares gerais
@@ -173,4 +173,4 @@ python setup_database.py
 
 ---
 
-**🎉 O ALEX agora tem uma arquitetura profissional e escalável!**
+**🎉 O ASTRA agora tem uma arquitetura profissional e escalável!**

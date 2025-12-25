@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal  
+ASTRA - Assistente Pessoal  
 Módulo de Utilidades
 
 Funções auxiliares e utilities para o sistema.
@@ -326,7 +326,7 @@ def debug_info() -> Dict[str, Any]:
     }
 
 if __name__ == "__main__":
-    print("🔧 UTILITÁRIOS DO ALEX")
+    print("🔧 UTILITÁRIOS DO ASTRA")
     print("=" * 40)
     
     # Testar funções principais

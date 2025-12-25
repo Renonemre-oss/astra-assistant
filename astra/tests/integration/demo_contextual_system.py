@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Demonstração do Sistema Multi-Utilizador com Análise Contextual
 
 Demonstra o sistema integrado de gestão multi-utilizador com análise contextual avançada,
@@ -39,7 +39,7 @@ def demonstrate_contextual_system():
         logger.info(f"✓ Análise contextual: {'Disponível' if manager.contextual_analyzer else 'Indisponível'}")
         
         print("\n" + "="*60)
-        print("           SISTEMA ALEX MULTI-UTILIZADOR")
+        print("           SISTEMA ASTRA MULTI-UTILIZADOR")
         print("       Com Análise Contextual Inteligente")
         print("="*60)
         

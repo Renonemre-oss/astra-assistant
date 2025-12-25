@@ -1,6 +1,6 @@
-## 🤖 ALEX - Assistente Pessoal Inteligente
+## 🤖 ASTRA - Assistente Pessoal Inteligente
 
-![ALEX Logo](assets/logos/alex_logo_main.png)
+![ASTRA Logo](assets/logos/ASTRA_logo_main.png)
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![PyQt6](https://img.shields.io/badge/GUI-PyQt6-green.svg)
@@ -10,7 +10,7 @@
 
 ## 📋 Sobre
 
-O ALEX é um assistente virtual inteligente desenvolvido em Python com interface gráfica, que combina processamento de linguagem natural, síntese de voz, reconhecimento de fala e integração com base de dados. Projetado para ser um assistente pessoal completo com funcionalidades avançadas de personalização e memória.
+O ASTRA é um assistente virtual inteligente desenvolvido em Python com interface gráfica, que combina processamento de linguagem natural, síntese de voz, reconhecimento de fala e integração com base de dados. Projetado para ser um assistente pessoal completo com funcionalidades avançadas de personalização e memória.
 
 ## ✨ Funcionalidades
 
@@ -47,7 +47,7 @@ O ALEX é um assistente virtual inteligente desenvolvido em Python com interface
 ## 🏗️ Estrutura do Projeto
 
 ```
-ALEX/
+ASTRA/
 ├── 📁 assets/               # Sistema de recursos visuais
 │   ├── 📁 logos/           # Logos principais
 │   ├── 📁 icons/           # Ícones da aplicação
@@ -86,7 +86,7 @@ ALEX/
 │   ├── asset_manager.py    # Gestor de assets
 │   ├── text_processor.py
 │   └── utils.py
-├── 📄 run_alex.py          # Launcher principal
+├── 📄 run_ASTRA.py          # Launcher principal
 └── 📄 requirements.txt     # Dependências
 ```
 
@@ -102,8 +102,8 @@ ALEX/
 
 1. **Clone o repositório:**
 ```bash
-git clone https://github.com/Renonemre-oss/ALEX.git
-cd ALEX
+git clone https://github.com/Renonemre-oss/ASTRA.git
+cd ASTRA
 ```
 
 2. **Crie um ambiente virtual:**
@@ -125,20 +125,20 @@ pip install -r requirements.txt
 python scripts/setup_database.py
 ```
 
-5. **Execute o ALEX:**
+5. **Execute o ASTRA:**
 ```bash
-python run_alex.py
+python run_ASTRA.py
 ```
 
 ## ⚙️ Configuração
 
 ### 🗄️ Base de Dados SQLite
 
-O ALEX usa SQLite por padrão. Para personalizar, crie um arquivo `database.ini` na pasta `config/`:
+O ASTRA usa SQLite por padrão. Para personalizar, crie um arquivo `database.ini` na pasta `config/`:
 
 ```ini
 [sqlite]
-database_path = alex_assistant.db
+database_path = ASTRA_assistant.db
 
 # Configurações adicionais
 check_same_thread = false
@@ -158,11 +158,11 @@ ollama pull llama3.2
 
 ### 🚀 **Launcher Principal**
 ```bash
-python run_alex.py           # Executar o assistente
-python run_alex.py test      # Executar testes
-python run_alex.py struct    # Mostrar estrutura
-python run_alex.py clean     # Limpar arquivos desnecessários
-python run_alex.py help      # Mostrar ajuda
+python run_ASTRA.py           # Executar o assistente
+python run_ASTRA.py test      # Executar testes
+python run_ASTRA.py struct    # Mostrar estrutura
+python run_ASTRA.py clean     # Limpar arquivos desnecessários
+python run_ASTRA.py help      # Mostrar ajuda
 ```
 
 ### 💬 **Comandos de Voz/Texto**
@@ -193,9 +193,9 @@ open docs/logo_showcase.html  # Linux/Mac
 
 ## 📊 Sistema de Logging
 
-O ALEX possui um sistema de logging centralizado que registra todas as atividades:
+O ASTRA possui um sistema de logging centralizado que registra todas as atividades:
 
-- **Localização:** `logs/alex_assistant.log`
+- **Localização:** `logs/ASTRA_assistant.log`
 - **Formato:** UTF-8 com suporte a emojis
 - **Níveis:** DEBUG, INFO, WARNING, ERROR, CRITICAL
 
@@ -206,7 +206,7 @@ Consulte `docs/logging_system.md` para mais detalhes.
 Execute os testes do sistema:
 
 ```bash
-python run_alex.py test
+python run_ASTRA.py test
 ```
 
 Testes individuais:
@@ -226,7 +226,7 @@ python tests/test_contextual_integration.py
 
 ### 🔄 **Sistema de Intenções**
 
-O ALEX usa machine learning para classificar intenções do usuário:
+O ASTRA usa machine learning para classificar intenções do usuário:
 - Treinado com scikit-learn
 - Armazenado em `neural_models/modelo.pkl`
 - Fallback para Ollama em baixa confiança
@@ -278,6 +278,6 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ⭐ **Se este projeto foi útil para você, considere dar uma estrela!**
 
-📧 **Dúvidas?** Abra uma [issue](https://github.com/Renonemre-oss/ALEX/issues) ou entre em contato!
+📧 **Dúvidas?** Abra uma [issue](https://github.com/Renonemre-oss/ASTRA/issues) ou entre em contato!
 
 🚀 **Happy coding!**

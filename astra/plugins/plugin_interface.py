@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - Plugin Interface
+ASTRA/Astra - Plugin Interface
 Base interface for all plugins in the system.
 """
 
@@ -48,7 +48,7 @@ class PluginMetadata:
 
 class PluginInterface(ABC):
     """
-    Base interface for all ALEX/Astra plugins.
+    Base interface for all ASTRA/Astra plugins.
     
     All plugins must inherit from this class and implement the required methods.
     """
@@ -269,4 +269,5 @@ class PluginInterface(ABC):
     def __repr__(self) -> str:
         """String representation."""
         return self.__str__()
+
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Módulo de Configurações
 
 Centraliza todas as configurações e constantes do sistema.
@@ -29,10 +29,10 @@ LOGS_DIR.mkdir(exist_ok=True)
 
 
 def configure_logging():
-    """Configura o sistema de logging do ALEX."""
+    """Configura o sistema de logging do ASTRA."""
     # Criar o handler de arquivo com encoding UTF-8
     file_handler = logging.FileHandler(
-        LOGS_DIR / 'alex_assistant.log',
+        LOGS_DIR / 'ASTRA_assistant.log',
         encoding='utf-8'
     )
     
@@ -74,7 +74,7 @@ CONFIG = {
     "lembretes_file": DATA_DIR / "lembretes.txt",
     "history_file": DATA_DIR / "conversation_history.json",
     "facts_file": DATA_DIR / "personal_facts.json",
-    "log_file": LOGS_DIR / "alex_assistant.log",
+    "log_file": LOGS_DIR / "ASTRA_assistant.log",
     
     # Modelo neural
     "model_file": NEURAL_DIR / "modelo.pkl",
@@ -453,7 +453,7 @@ TESSERACT_AVAILABLE = check_tesseract_installation()
 DATABASE_AVAILABLE = get_database_available()
 
 if __name__ == "__main__":
-    print("🔧 CONFIGURAÇÕES DO ALEX")
+    print("🔧 CONFIGURAÇÕES DO ASTRA")
     print("=" * 40)
     print(f"Diretório de trabalho: {WORK_DIR}")
     print(f"Diretório de dados: {DATA_DIR}")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - RAG Memory Integration
+ASTRA/Astra - RAG Memory Integration
 Integração do sistema RAG com a memória do assistente.
 """
 
@@ -298,4 +298,5 @@ def get_rag_memory_integration() -> RAGMemoryIntegration:
     if _rag_memory_integration is None:
         _rag_memory_integration = RAGMemoryIntegration()
     return _rag_memory_integration
+
 

@@ -1,4 +1,4 @@
-# 🎤 ALEX - Guia de Voice Cloning e Treinamento de Voz
+# 🎤 ASTRA - Guia de Voice Cloning e Treinamento de Voz
 
 ## 🎯 Métodos Disponíveis para Treinar/Clonar Voz
 
@@ -47,7 +47,7 @@ Vou implementar o **RTVC** por ser o mais simples e eficaz:
 1. **Gravação**: Interface para gravar sua voz
 2. **Processamento**: Limpeza e normalização do áudio
 3. **Clonagem**: Geração do modelo de voz
-4. **Integração**: Adicionar ao sistema ALEX
+4. **Integração**: Adicionar ao sistema ASTRA
 
 ---
 
@@ -60,7 +60,7 @@ Vou implementar o **RTVC** por ser o mais simples e eficaz:
 
 ### Conteúdo Sugerido:
 ```
-"Olá, meu nome é [SEU NOME]. Eu sou o assistente virtual ALEX."
+"Olá, meu nome é [SEU NOME]. Eu sou o assistente virtual ASTRA."
 "Como posso ajudá-lo hoje? Estou aqui para tornar sua vida mais fácil."
 "Posso responder perguntas, executar comandos e realizar diversas tarefas."
 "Este é um teste da minha nova voz personalizada criada especialmente para você."
@@ -98,7 +98,7 @@ Vou criar uma interface gráfica que permite:
 4. **⚡ Processamento**: Limpeza automática do áudio
 5. **🎯 Clonagem**: Gerar modelo de voz personalizada
 6. **🔊 Teste**: Testar a voz clonada
-7. **💾 Salvar**: Integrar no sistema ALEX
+7. **💾 Salvar**: Integrar no sistema ASTRA
 
 ---
 
@@ -143,7 +143,7 @@ Vou criar uma interface gráfica que permite:
 1. **Implementar RTVC** - Sistema de clonagem rápida
 2. **Criar interface de gravação** - UI para capturar voz
 3. **Pipeline de processamento** - Limpeza automática
-4. **Integração com ALEX** - Adicionar ao HybridSpeechEngine
+4. **Integração com ASTRA** - Adicionar ao HybridSpeechEngine
 5. **Testes de qualidade** - Validar resultado final
 
 ---

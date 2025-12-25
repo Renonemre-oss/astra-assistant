@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🎤 ALEX - Módulo de Voice Cloning com Coqui XTTS v2
+🎤 ASTRA - Módulo de Voice Cloning com Coqui XTTS v2
 Sistema avançado de clonagem de voz usando o estado da arte em TTS.
 
 Funcionalidades:
@@ -400,7 +400,7 @@ class XTTSVoiceCloning:
         Returns:
             Dicionário com métricas de qualidade
         """
-        test_text = "Este é um teste da qualidade da voz clonada do ALEX."
+        test_text = "Este é um teste da qualidade da voz clonada do ASTRA."
         
         try:
             # Sintetizar texto de teste
@@ -488,7 +488,7 @@ class SimpleVoiceCloner:
 
 if __name__ == "__main__":
     # Exemplo de uso
-    print("🎤 ALEX - Sistema de Voice Cloning XTTS v2")
+    print("🎤 ASTRA - Sistema de Voice Cloning XTTS v2")
     print("========================================")
     
     # Criar instância
@@ -499,6 +499,6 @@ if __name__ == "__main__":
     print(f"Vozes disponíveis: {voices}")
     
     # Exemplo de uso (descomente para testar)
-    # cloner.clone_from_file("minha_voz.wav", "alex_voice")
-    # audio_file = cloner.speak("Olá, esta é minha voz clonada!", "alex_voice")
+    # cloner.clone_from_file("minha_voz.wav", "ASTRA_voice")
+    # audio_file = cloner.speak("Olá, esta é minha voz clonada!", "ASTRA_voice")
     # print(f"Áudio gerado: {audio_file}")

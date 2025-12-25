@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Database Repositories
+ASTRA - Database Repositories
 Repository pattern implementation for clean database abstraction
 
 This module provides repository classes that encapsulate database operations

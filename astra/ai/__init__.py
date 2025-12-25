@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - AI Module
+ASTRA/Astra - AI Module
 Sistema de inteligência artificial com RAG e AI Engine unificado.
 """
 
@@ -43,4 +43,5 @@ __all__ = [
     'OllamaProvider',
     'OpenAIProvider',
 ]
+
 

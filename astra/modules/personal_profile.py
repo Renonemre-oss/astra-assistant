@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Assistente Pessoal
+ASTRA - Assistente Pessoal
 Módulo de Perfil Pessoal
 
 Sistema completo de gestão de preferências e personalização do utilizador.

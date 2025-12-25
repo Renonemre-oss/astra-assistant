@@ -4,7 +4,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 ## Project Overview
 
-ALEX is an intelligent Portuguese-language voice assistant with advanced multi-user recognition, contextual analysis, and modular architecture. Built with PyQt6, the system features sophisticated user identification, machine learning intent classification, and comprehensive database integration with MySQL fallback.
+ASTRA is an intelligent Portuguese-language voice assistant with advanced multi-user recognition, contextual analysis, and modular architecture. Built with PyQt6, the system features sophisticated user identification, machine learning intent classification, and comprehensive database integration with MySQL fallback.
 
 ### Key Features
 - **Multi-User System** with voice pattern recognition and contextual analysis
@@ -126,19 +126,19 @@ python scripts\setup_database.py
 ### Primary Launcher Commands
 ```powershell
 # Run the main application
-python run_alex.py
+python run_ASTRA.py
 
 # Run comprehensive test suite
-python run_alex.py test
+python run_ASTRA.py test
 
 # Show project structure
-python run_alex.py struct
+python run_ASTRA.py struct
 
 # Clean project files (cache, temp files, logs)
-python run_alex.py clean
+python run_ASTRA.py clean
 
 # Show help and available commands
-python run_alex.py help
+python run_ASTRA.py help
 ```
 
 ### Individual Component Testing
@@ -218,7 +218,7 @@ python scripts\cleanup.py --database
    port = 3306
    user = root
    password = your_password
-   database = alex_assistant
+   database = ASTRA_assistant
    charset = utf8mb4
    collation = utf8mb4_unicode_ci
    ```
@@ -232,12 +232,12 @@ python scripts\cleanup.py --database
   - `data/personal_facts.json` - Personal information
   - `data/users.json` - User profiles with patterns
   - `data/people.json` - People relationships
-  - `logs/alex_assistant.log` - Activity logging
+  - `logs/ASTRA_assistant.log` - Activity logging
 
 ## File Structure & Architecture
 
 ```
-ALEX/
+ASTRA/
 ├── audio/                 # Audio management subsystem
 │   └── audio_manager.py   # TTS and speech recognition
 ├── config/                # Centralized configuration
@@ -259,7 +259,7 @@ ALEX/
 │   ├── SISTEMA_MULTIUSER_CONTEXTUAL_README.md # Multi-user system docs
 │   └── WARP.md                    # WARP documentation
 ├── logs/                  # System logs
-│   └── alex_assistant.log # Main log file
+│   └── ASTRA_assistant.log # Main log file
 ├── modules/               # Core functionality modules
 │   ├── contextual_analyzer.py    # Context analysis
 │   ├── multi_user_manager.py     # User identification
@@ -284,7 +284,7 @@ ALEX/
 ├── .venv_assistente/      # Virtual environment
 ├── README.md              # Project overview
 ├── requirements.txt       # Dependencies
-└── run_alex.py            # Main application launcher
+└── run_ASTRA.py            # Main application launcher
 ```
 
 ## Key Technical Details
@@ -430,3 +430,4 @@ except Exception as e:
 - **Ollama Server**: Must be running locally with Portuguese-capable model
 - **MySQL Server**: Optional but recommended for production use
 - **Tesseract OCR**: System-level installation for image text recognition
+

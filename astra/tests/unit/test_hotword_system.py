@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Teste do Sistema de Hotword
+ASTRA - Teste do Sistema de Hotword
 Teste simples para verificar se o sistema de detecção de wake words está funcionando.
 """
 
@@ -77,7 +77,7 @@ def test_interactive_hotword():
         detector.set_detection_callback(detection_callback)
         
         print("🚀 Iniciando detector...")
-        print("💡 Diga uma das palavras: Astra, alex, hey alex, assistente")
+        print("💡 Diga uma das palavras: Astra, ASTRA, hey ASTRA, assistente")
         print("⏳ Aguardando wake word...\n")
         
         # Iniciar escuta
@@ -156,7 +156,7 @@ def test_system_info():
 
 def main():
     """Função principal do teste."""
-    print("🤖 ALEX - Teste do Sistema de Hotword")
+    print("🤖 ASTRA - Teste do Sistema de Hotword")
     print("=" * 40)
     
     # Teste de sistema
@@ -192,3 +192,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

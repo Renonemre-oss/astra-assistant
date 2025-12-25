@@ -19,7 +19,7 @@ class SafeFormatter(logging.Formatter):
             '🗣️': '[TTS]',
             '🎙️': '[STT]',
             '🎯': '[TARGET]',
-            '🤖': '[ALEX]',
+            '🤖': '[ASTRA]',
             '📊': '[INFO]',
             '🔊': '[SPEAKER]',
             '🎵': '[VOICE]',
@@ -54,3 +54,4 @@ def setup_safe_logging():
     logging.root.addHandler(handler)
     
     return True
+

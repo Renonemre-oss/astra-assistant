@@ -1,4 +1,4 @@
-# 🤖 ALEX - Relatório de Status do Sistema
+# 🤖 ASTRA - Relatório de Status do Sistema
 **Data**: 21 de setembro de 2025  
 **Versão**: Sistema completo testado  
 **Autor**: Teste completo do sistema
@@ -7,7 +7,7 @@
 
 ## 📋 Resumo Executivo
 
-O sistema ALEX foi submetido a uma bateria completa de testes para verificar o funcionamento de todos os seus componentes. O resultado geral é **MUITO POSITIVO** com a maioria dos sistemas funcionando corretamente.
+O sistema ASTRA foi submetido a uma bateria completa de testes para verificar o funcionamento de todos os seus componentes. O resultado geral é **MUITO POSITIVO** com a maioria dos sistemas funcionando corretamente.
 
 ### 🎯 Status Geral: ✅ **OPERACIONAL**
 - **Taxa de sucesso geral**: 85%
@@ -104,7 +104,7 @@ O sistema ALEX foi submetido a uma bateria completa de testes para verificar o f
 
 ### Arquitetura do Sistema
 ```
-ALEX Sistema Principal
+ASTRA Sistema Principal
 ├── Interface Gráfica (PyQt6) ✅
 ├── Sistema Multi-Utilizador ✅
 ├── Análise Contextual ✅
@@ -182,7 +182,7 @@ ALEX Sistema Principal
 
 ## ✅ Conclusão
 
-O sistema ALEX está **OPERACIONAL e ESTÁVEL** para uso em produção. Todos os componentes críticos funcionam corretamente:
+O sistema ASTRA está **OPERACIONAL e ESTÁVEL** para uso em produção. Todos os componentes críticos funcionam corretamente:
 
 - ✅ Interface gráfica moderna e responsiva
 - ✅ Sistema multi-utilizador inteligente  
@@ -197,5 +197,5 @@ O sistema pode ser usado com confiança, utilizando o Windows SAPI TTS como sist
 
 ---
 
-**Relatório gerado automaticamente pelo sistema de testes do ALEX**  
+**Relatório gerado automaticamente pelo sistema de testes do ASTRA**  
 *Para mais detalhes técnicos, consulte os logs individuais de cada teste*

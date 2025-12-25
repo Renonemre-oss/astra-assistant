@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Demonstração do Sistema de Personalidade Dinâmica
-Script para demonstrar como o ALEX adapta sua personalidade baseado no contexto.
+ASTRA - Demonstração do Sistema de Personalidade Dinâmica
+Script para demonstrar como o ASTRA adapta sua personalidade baseado no contexto.
 """
 
 import sys
@@ -64,7 +64,7 @@ def demonstrate_personality_adaptation():
         print(f"👤 Usuário: {user_input}")
         print(f"📝 Contexto: {description}")
         print(f"🎭 Personalidade: {personality.value.upper()}")
-        print(f"🤖 ALEX: {personalized_response}")
+        print(f"🤖 ASTRA: {personalized_response}")
         print("-" * 40)
 
 def demonstrate_time_adaptation():
@@ -112,7 +112,7 @@ def demonstrate_learning():
     
     engine = PersonalityEngine()
     
-    print("📚 Ensinando preferências ao ALEX...")
+    print("📚 Ensinando preferências ao ASTRA...")
     
     # Simular algumas interações
     preferences_to_learn = [
@@ -164,7 +164,7 @@ def demonstrate_conversation_flow():
         print(f"👤 Usuário: {user_input}")
         print(f"🎭 Personalidade: {personality.value}")
         print(f"📊 Humor detectado: {engine.current_mood.value}")
-        print(f"🤖 ALEX: {personalized_response}")
+        print(f"🤖 ASTRA: {personalized_response}")
         print()
         
         time.sleep(1)  # Pausa dramática
@@ -178,7 +178,7 @@ def demonstrate_conversation_flow():
 
 def main():
     """Função principal da demonstração."""
-    print("🎭 ALEX - Demonstração do Sistema de Personalidade Dinâmica")
+    print("🎭 ASTRA - Demonstração do Sistema de Personalidade Dinâmica")
     print("=" * 60)
     print()
     

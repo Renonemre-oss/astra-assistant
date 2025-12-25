@@ -1,6 +1,6 @@
-# 🎤 ALEX - Guia de Configuração Hotword (Wake Word)
+# 🎤 ASTRA - Guia de Configuração Hotword (Wake Word)
 
-> **Implementação completa do sistema "Jarvis" - Ativação por voz**  
+> **Implementação completa do sistema "ASTRA" - Ativação por voz**  
 > **Data:** 26 de Setembro de 2025  
 > **Status:** ✅ **IMPLEMENTADO**
 
@@ -11,7 +11,7 @@
 ✅ **Sistema completo de detecção de wake words**  
 ✅ **Suporte a múltiplos engines** (Porcupine, Vosk, SpeechRecognition)  
 ✅ **Integração com assistente principal**  
-✅ **Modo "Jarvis" ativo**  
+✅ **Modo "ASTRA" ativo**  
 ✅ **Scripts de configuração automática**
 
 ---
@@ -27,29 +27,29 @@ python scripts/setup_voice_system.py auto
 ### **2A. Modo AUTOMÁTICO (Sem clique!) 🎯**
 ```powershell
 # Modo só voz - sem interface gráfica
-python jarvis_voice_mode.py
+python ASTRA_voice_mode.py
 
 # OU usar o arquivo .bat no Windows
-start_jarvis.bat
+start_ASTRA.bat
 ```
 
 ### **2B. Modo COM Interface**
 ```powershell
-# Iniciar assistente com GUI (inicia Jarvis automaticamente)
-python run_alex.py
+# Iniciar assistente com GUI (inicia ASTRA automaticamente)
+python run_ASTRA.py
 ```
 
 ### **3. Usar o assistente**
-1. **Sistema já ativo** → Aguardando "Jarvis"
-2. **Diga:** "Jarvis, que horas são?"
-3. **ALEX responde** → Por voz
-4. **Sistema volta a escutar** → Aguarda próximo "Jarvis"
+1. **Sistema já ativo** → Aguardando "ASTRA"
+2. **Diga:** "ASTRA, que horas são?"
+3. **ASTRA responde** → Por voz
+4. **Sistema volta a escutar** → Aguarda próximo "ASTRA"
 
 ### **💡 Exemplos de comandos:**
-- "**Jarvis, que horas são?**"
-- "**Jarvis, como está o tempo?**"
-- "**Jarvis, conte uma piada**"
-- "**Jarvis, sair**" (para encerrar)
+- "**ASTRA, que horas são?**"
+- "**ASTRA, como está o tempo?**"
+- "**ASTRA, conte uma piada**"
+- "**ASTRA, sair**" (para encerrar)
 
 ---
 
@@ -103,7 +103,7 @@ python voice/hotword_detector.py
 ### **1. Porcupine (Mais preciso)**
 - ✅ Detecção offline
 - ✅ Baixo uso de CPU
-- ✅ Palavras: "computer", "alexa"
+- ✅ Palavras: "computer", "ASTRAa"
 - 📦 `pip install pvporcupine`
 
 ### **2. Vosk (Flexível)**
@@ -123,12 +123,12 @@ python voice/hotword_detector.py
 ## 🎙️ **Palavras de Ativação**
 
 ### **Padrão**
-- ✅ **"Jarvis"**
-- ✅ **"Alex"**  
+- ✅ **"ASTRA"**
+- ✅ **"ASTRA"**  
 - ✅ **"Assistente"**
-- ✅ **"Hey Alex"**
-- ✅ **"Ola Alex"**
-- ✅ **"Ei Alex"**
+- ✅ **"Hey ASTRA"**
+- ✅ **"Ola ASTRA"**
+- ✅ **"Ei ASTRA"**
 
 ### **Adicionar novas palavras**
 ```python
@@ -138,7 +138,7 @@ detector.add_wake_word("nova palavra")
 # Ou editar: voice/voice_config.json
 {
   "hotword": {
-    "wake_words": ["jarvis", "alex", "minhas palavras"]
+    "wake_words": ["ASTRA", "ASTRA", "minhas palavras"]
   }
 }
 ```
@@ -157,14 +157,14 @@ flowchart TD
     D --> F[Escuta contínua por wake words]
     F --> G{Wake word detectado?}
     G -->|Não| F
-    G -->|Sim| H["🔥 Jarvis detectado!"]
+    G -->|Sim| H["🔥 ASTRA detectado!"]
     
     H --> I[Escuta comando por 10s]
     I --> J{Comando reconhecido?}
     J -->|Sim| K[Processa comando]
     J -->|Não| L[Volta à escuta de wake word]
     
-    K --> M[ALEX responde por voz]
+    K --> M[ASTRA responde por voz]
     M --> L
     
     E --> N[Escuta direta de comandos]
@@ -177,9 +177,9 @@ flowchart TD
 
 ### **Código Principal**
 - ✅ `voice/hotword_detector.py` - Sistema de detecção
-- ✅ `core/assistente.py` - Integração com ALEX (modificado)
-- ✅ `jarvis_voice_mode.py` - Modo só voz (SEM clique!)
-- ✅ `start_jarvis.bat` - Launcher Windows
+- ✅ `core/assistente.py` - Integração com ASTRA (modificado)
+- ✅ `ASTRA_voice_mode.py` - Modo só voz (SEM clique!)
+- ✅ `start_ASTRA.bat` - Launcher Windows
 
 ### **Scripts**
 - ✅ `scripts/setup_voice_system.py` - Configuração automática
@@ -250,7 +250,7 @@ python tests/test_hotword_system.py
   "hotword": {
     "sensitivity": 0.8,    // Mais sensível
     "engine": "porcupine", // Forçar engine
-    "wake_words": ["jarvis", "alex"]  // Menos palavras = mais rápido
+    "wake_words": ["ASTRA", "ASTRA"]  // Menos palavras = mais rápido
   }
 }
 ```
@@ -260,17 +260,17 @@ python tests/test_hotword_system.py
 ## 🎉 **Funcionalidade Completa!**
 
 ### **Implementado:**
-- ✅ **Detecção "Jarvis"** - Funcional
+- ✅ **Detecção "ASTRA"** - Funcional
 - ✅ **Múltiplos engines** - Porcupine, Vosk, SpeechRecognition  
 - ✅ **Configuração automática** - Script completo
-- ✅ **Integração ALEX** - Modo hotword no assistente
+- ✅ **Integração ASTRA** - Modo hotword no assistente
 - ✅ **Testes completos** - Scripts de validação
 
 ### **Próximos passos sugeridos:**
 1. **Testar sistema** → `python tests/test_hotword_system.py`
 2. **Configurar preferências** → Editar `voice/voice_config.json`
-3. **Usar assistente** → `python run_alex.py` + clique 🎙️
-4. **Dizer "Jarvis"** → Sistema responde automaticamente!
+3. **Usar assistente** → `python run_ASTRA.py` + clique 🎙️
+4. **Dizer "ASTRA"** → Sistema responde automaticamente!
 
 ---
 
@@ -278,10 +278,10 @@ python tests/test_hotword_system.py
 
 Para problemas ou melhorias:
 1. Executar `python scripts/setup_voice_system.py test`
-2. Verificar logs em `logs/alex_assistant.log`  
+2. Verificar logs em `logs/ASTRA_assistant.log`  
 3. Testar com `python tests/test_hotword_system.py`
 
-**🎯 Sistema "Jarvis" implementado e funcional!** 
+**🎯 Sistema "ASTRA" implementado e funcional!** 
 
 ---
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Weather API Integration
+ASTRA - Weather API Integration
 Integração com APIs de clima (OpenWeatherMap, AccuWeather)
 """
 

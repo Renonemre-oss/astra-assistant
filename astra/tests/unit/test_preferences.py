@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Teste rápido do sistema de preferências do ALEX
+Teste rápido do sistema de preferências do ASTRA
 """
 
 import sys
@@ -112,3 +112,4 @@ if __name__ == "__main__":
         print(f"❌ Erro de import: {e}")
         print("Execute primeiro: python setup_database.py")
         input("\nPressione Enter para sair...")
+

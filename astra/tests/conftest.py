@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/Astra - PyTest Configuration
+ASTRA/Astra - PyTest Configuration
 Fixtures and configuration for all tests
 """
 
@@ -264,4 +264,5 @@ def cleanup_test_data():
         path = Path(test_dir)
         if path.exists():
             shutil.rmtree(path, ignore_errors=True)
+
 
