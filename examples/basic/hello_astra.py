@@ -186,7 +186,7 @@ def main():
     print("   1. Leia docs/guides/01_getting_started.md")
     print("   2. Configure config/ai_config.yaml")
     print("   3. Experimente criar sua própria skill!")
-    print("\n🆘 Precisa de ajuda? https://github.com/Renonemre-oss/Astra-ai-assistant/issues")
+    print("\n🆘 Precisa de ajuda? https://github.com/Renonemre-oss/astra-assistant/issues")
     print()
 
 
@@ -199,4 +199,5 @@ if __name__ == "__main__":
         print(f"\n❌ Erro inesperado: {e}")
         import traceback
         traceback.print_exc()
+
 

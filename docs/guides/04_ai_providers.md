@@ -392,9 +392,10 @@ fallback_chain:
 
 - **Documentação Ollama**: [ollama.ai/docs](https://ollama.ai/docs)
 - **Documentação OpenAI**: [platform.openai.com/docs](https://platform.openai.com/docs)
-- **Issues**: [GitHub Issues](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)
+- **Issues**: [GitHub Issues](https://github.com/Renonemre-oss/astra-assistant/issues)
 
 ---
 
 **💡 Dica Final**: Comece com Ollama para aprender e testar. Quando estiver confortável, adicione OpenAI como fallback para máxima confiabilidade!
+
 

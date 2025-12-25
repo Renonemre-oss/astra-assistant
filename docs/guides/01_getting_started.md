@@ -14,8 +14,8 @@ Bem-vindo ao Astra! Este guia vai te ajudar a configurar e executar o Astra em p
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/Renonemre-oss/Astra-ai-assistant.git
-cd Astra-ai-assistant
+git clone https://github.com/Renonemre-oss/astra-assistant.git
+cd astra-assistant
 ```
 
 ### 2. Crie um Ambiente Virtual
@@ -244,10 +244,11 @@ Agora que o Astra está funcionando:
 ## 🆘 Precisa de Ajuda?
 
 - **Documentação:** [docs/](../)
-- **Issues:** [GitHub Issues](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)
+- **Issues:** [GitHub Issues](https://github.com/Renonemre-oss/astra-assistant/issues)
 - **Exemplos:** [examples/](../../examples/)
 
 ---
 
 **✨ Parabéns! Você configurou o Astra com sucesso! ✨**
+
 

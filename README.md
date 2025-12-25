@@ -28,8 +28,8 @@ Astra é mais do que um simples assistente - é uma plataforma completa para con
 
 ```bash
 # Clone o repositório
-git clone https://github.com/Renonemre-oss/Astra-ai-assistant.git
-cd Astra-ai-assistant
+git clone https://github.com/Renonemre-oss/astra-assistant.git
+cd astra-assistant
 
 # Crie ambiente virtual
 python -m venv .venv
@@ -302,9 +302,10 @@ Este projeto está sob a licença MIT. Veja [LICENSE](LICENSE) para detalhes.
 
 **⭐ Se este projeto foi útil, considere dar uma estrela! ⭐**
 
-**📧 Dúvidas? Abra uma [issue](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)**
+**📧 Dúvidas? Abra uma [issue](https://github.com/Renonemre-oss/astra-assistant/issues)**
 
 **🚀 Happy coding!**
 
 </div>
+
 
