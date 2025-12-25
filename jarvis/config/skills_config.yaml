@@ -1,0 +1,98 @@
+# ============================================================================
+# Configuração de Skills - Jarvis AI Assistant
+# ============================================================================
+# Este arquivo controla quais skills estão ativas e suas configurações.
+
+# Skills Nativas (Built-in)
+builtin_skills:
+  # Weather Skill - Previsão do tempo
+  weather:
+    enabled: true
+    config:
+      openweather_api_key: ${OPENWEATHER_API_KEY}  # Variável de ambiente ou substitua aqui
+      default_city: "São Paulo"
+    description: "Obter informações sobre clima e previsão do tempo"
+
+  # News Skill - Notícias (a implementar)
+  news:
+    enabled: false
+    config:
+      newsapi_key: ${NEWSAPI_KEY}
+      default_country: "br"
+      default_category: "general"
+    description: "Buscar e apresentar notícias recentes"
+
+  # Memory Skill - Sistema de memória (a implementar)
+  memory:
+    enabled: false
+    config:
+      storage_path: "data/memory"
+      max_memories: 1000
+    description: "Gerenciar e recuperar memórias do usuário"
+
+  # Calculator Skill - Cálculos matemáticos (a implementar)
+  calculator:
+    enabled: false
+    config: {}
+    description: "Realizar cálculos matemáticos complexos"
+
+  # Timer Skill - Temporizadores e alarmes (a implementar)
+  timer:
+    enabled: false
+    config: {}
+    description: "Gerenciar temporizadores e alarmes"
+
+# Skills Customizadas (Custom)
+# Adicione aqui suas próprias skills
+custom_skills:
+  # exemplo_skill:
+  #   enabled: false
+  #   module: "skills.custom.exemplo_skill"
+  #   class: "ExemploSkill"
+  #   config:
+  #     param1: "value1"
+
+# Configurações Globais de Skills
+settings:
+  # Auto-descoberta de skills
+  auto_discover: true
+  discover_paths:
+    - "skills/builtin"
+    - "skills/custom"
+  
+  # Prioridade de execução
+  # Skills são executadas por ordem de prioridade (maior primeiro)
+  use_priority: true
+  
+  # Timeout para execução de skills (segundos)
+  execution_timeout: 30
+  
+  # Permitir skills concorrentes
+  allow_concurrent: false
+  
+  # Logging de skills
+  log_execution: true
+  log_level: "INFO"
+
+# ============================================================================
+# Guia Rápido - Como Adicionar uma Nova Skill
+# ============================================================================
+#
+# 1. Criar arquivo da skill em jarvis/skills/custom/
+# 2. Herdar de BaseSkill e implementar métodos abstratos
+# 3. Adicionar configuração aqui em custom_skills
+# 4. Ativar a skill (enabled: true)
+#
+# Exemplo:
+# ---
+# custom_skills:
+#   minha_skill:
+#     enabled: true
+#     module: "skills.custom.minha_skill"
+#     class: "MinhaSkill"
+#     config:
+#       api_key: "minha-chave"
+#       param: "valor"
+# ---
+#
+# ============================================================================
