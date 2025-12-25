@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 class EngineType(Enum):
     """Tipos de engines de TTS disponíveis."""
+    PIPER = "piper"  # Piper TTS neural (alta qualidade)
     WINDOWS_SAPI = "windows_sapi"
     SYSTEM_DEFAULT = "system_default"
     OFFLINE = "offline"
@@ -50,6 +51,7 @@ class SpeechEngine:
         
         # Engines disponíveis
         self.tts_engine = None
+        self.piper_engine = None  # Engine Piper TTS
         self.stt_engine = None
         self.current_engine_type = None
         
@@ -83,23 +85,62 @@ class SpeechEngine:
         logger.info(f"Speech Engine: {message}")
     
     def initialize_default_engine(self) -> bool:
-        """Inicializa o engine padrão (Windows SAPI)."""
+        """Inicializa o engine padrão (Piper TTS neural se disponível)."""
         self.set_status("🔄 Inicializando sistema de speech...", SpeechStatus.PROCESSING)
         
-        # Tentar Windows SAPI primeiro (mais confiável)
-        if self._init_windows_sapi():
-            self.current_engine_type = EngineType.WINDOWS_SAPI
-            self.set_status("✅ Windows SAPI TTS carregado", SpeechStatus.READY)
+        # Tentar Piper TTS primeiro (melhor qualidade)
+        if self._init_piper():
+            self.current_engine_type = EngineType.PIPER
+            self.set_status("✅ Piper TTS neural carregado (alta qualidade)", SpeechStatus.READY)
             return True
         
-        # Fallback para sistema padrão
+        # Fallback para Windows SAPI
+        if self._init_windows_sapi():
+            self.current_engine_type = EngineType.WINDOWS_SAPI
+            self.set_status("✅ Windows SAPI TTS carregado (fallback)", SpeechStatus.READY)
+            return True
+        
+        # Fallback final para sistema padrão
         if self._init_system_default():
             self.current_engine_type = EngineType.SYSTEM_DEFAULT
-            self.set_status("✅ Sistema TTS padrão carregado", SpeechStatus.READY)
+            self.set_status("✅ Sistema TTS padrão carregado (fallback)", SpeechStatus.READY)
             return True
         
         self.set_status("❌ Nenhum sistema TTS disponível", SpeechStatus.ERROR)
         return False
+    
+    def _init_piper(self) -> bool:
+        """Inicializa Piper TTS (neural de alta qualidade)."""
+        try:
+            from astra.modules.speech.piper_engine import PiperTTSEngine
+            
+            self.piper_engine = PiperTTSEngine()
+            
+            # Verificar se tem modelos disponíveis
+            models = self.piper_engine.get_available_models()
+            
+            # Se não houver modelos, tentar baixar um
+            if not models:
+                logger.info("Nenhum modelo Piper encontrado. Tentando baixar...")
+                if self.piper_engine.download_model("pt_BR-faber-medium"):
+                    models = self.piper_engine.get_available_models()
+            
+            # Inicializar com modelo disponível
+            if models:
+                if self.piper_engine.initialize(models[0]):
+                    self.tts_engine = self.piper_engine  # Usar Piper como engine principal
+                    logger.info(f"✅ Piper TTS inicializado com modelo: {models[0]}")
+                    return True
+            
+            logger.warning("Piper TTS: Nenhum modelo disponível")
+            return False
+            
+        except ImportError:
+            logger.info("Piper TTS não instalado (pip install piper-tts)")
+            return False
+        except Exception as e:
+            logger.warning(f"Não foi possível inicializar Piper TTS: {e}")
+            return False
     
     def _init_windows_sapi(self) -> bool:
         """Inicializa Windows SAPI TTS."""
@@ -171,6 +212,11 @@ class SpeechEngine:
             return False
         
         try:
+            # Se estiver usando Piper, usar método direto
+            if self.current_engine_type == EngineType.PIPER and self.piper_engine:
+                return self._speak_piper(clean_text, blocking)
+            
+            # Caso contrário, usar método tradicional (pyttsx3)
             if blocking:
                 return self._speak_blocking(clean_text)
             else:
@@ -179,6 +225,35 @@ class SpeechEngine:
         except Exception as e:
             self.set_status(f"❌ Erro na síntese de fala: {e}", SpeechStatus.ERROR)
             logger.error(f"Erro na síntese: {e}")
+            return False
+    
+    def _speak_piper(self, text: str, blocking: bool = True) -> bool:
+        """Fala texto usando Piper TTS."""
+        try:
+            self.is_speaking = True
+            self.set_status(f"🗣️ Falando (Piper): {text[:50]}...", SpeechStatus.SPEAKING)
+            
+            success = self.piper_engine.speak(text, blocking=blocking)
+            
+            if not blocking:
+                # Para modo assíncrono, criar thread
+                def speak_thread():
+                    self.piper_engine.speak(text, blocking=True)
+                    self.is_speaking = False
+                    self.set_status("✅ Fala concluída", SpeechStatus.READY)
+                
+                import threading
+                self.speech_thread = threading.Thread(target=speak_thread, daemon=True)
+                self.speech_thread.start()
+            else:
+                self.is_speaking = False
+                self.set_status("✅ Fala concluída", SpeechStatus.READY)
+            
+            return success
+            
+        except Exception as e:
+            logger.error(f"Erro ao falar com Piper: {e}")
+            self.is_speaking = False
             return False
     
     def _clean_text(self, text: str) -> str:
@@ -235,10 +310,14 @@ class SpeechEngine:
     def stop_speaking(self):
         """Para a fala atual."""
         try:
-            if self.tts_engine and self.is_speaking:
+            # Parar Piper se estiver ativo
+            if self.current_engine_type == EngineType.PIPER and self.piper_engine:
+                self.piper_engine.stop()
+            # Parar pyttsx3 se estiver ativo
+            elif self.tts_engine and self.is_speaking:
                 self.tts_engine.stop()
-                self.set_status("🚫 Fala interrompida", SpeechStatus.READY)
-                
+            
+            self.set_status("🚫 Fala interrompida", SpeechStatus.READY)
             self.is_speaking = False
             
         except Exception as e:
@@ -252,16 +331,29 @@ class SpeechEngine:
             return voices_info
         
         try:
-            voices = self.tts_engine.getProperty('voices')
-            
-            for i, voice in enumerate(voices):
-                voices_info.append({
-                    'index': i,
-                    'id': voice.id,
-                    'name': voice.name,
-                    'languages': getattr(voice, 'languages', []),
-                    'gender': getattr(voice, 'gender', 'unknown')
-                })
+            # Se for Piper, listar modelos Piper
+            if self.current_engine_type == EngineType.PIPER and self.piper_engine:
+                models = self.piper_engine.get_available_models()
+                for i, model in enumerate(models):
+                    voices_info.append({
+                        'index': i,
+                        'id': model,
+                        'name': f"Piper - {model}",
+                        'languages': ['pt-BR'] if 'pt_BR' in model else ['en'],
+                        'gender': 'unknown'
+                    })
+            else:
+                # Para pyttsx3
+                voices = self.tts_engine.getProperty('voices')
+                
+                for i, voice in enumerate(voices):
+                    voices_info.append({
+                        'index': i,
+                        'id': voice.id,
+                        'name': voice.name,
+                        'languages': getattr(voice, 'languages', []),
+                        'gender': getattr(voice, 'gender', 'unknown')
+                    })
                 
         except Exception as e:
             logger.error(f"Erro ao obter vozes: {e}")
