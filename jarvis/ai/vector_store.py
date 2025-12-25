@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Vector Store
+ALEX/Astra - Vector Store
 Sistema de armazenamento de embeddings com ChromaDB.
 """
 
@@ -56,7 +56,7 @@ class VectorStore:
             # Criar ou obter coleção
             self.collection = self.client.get_or_create_collection(
                 name="alex_memory",
-                metadata={"description": "ALEX/JARVIS memory embeddings"}
+                metadata={"description": "ALEX/Astra memory embeddings"}
             )
             
             logger.info(f"✅ VectorStore inicializado: {self.collection.count()} documentos")
@@ -216,3 +216,4 @@ def get_vector_store() -> VectorStore:
     if _vector_store is None:
         _vector_store = VectorStore()
     return _vector_store
+

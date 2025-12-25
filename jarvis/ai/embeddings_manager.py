@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Embeddings Manager
+ALEX/Astra - Embeddings Manager
 Geração e gerenciamento de embeddings para RAG.
 """
 
@@ -136,3 +136,4 @@ def get_embeddings_manager() -> EmbeddingsManager:
     if _embeddings_manager is None:
         _embeddings_manager = EmbeddingsManager()
     return _embeddings_manager
+

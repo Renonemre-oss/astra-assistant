@@ -1,5 +1,5 @@
 """
-Jarvis AI Assistant - Sistema de Logging Avançado
+Astra AI Assistant - Sistema de Logging Avançado
 
 Sistema de logging centralizado com múltiplos handlers, formatadores customizados,
 rotação automática e integração com sistemas de monitoramento.
@@ -16,10 +16,10 @@ from typing import Dict, Any, Optional
 import structlog
 from pythonjsonlogger import jsonlogger
 
-class JarvisLogger:
-    """Sistema de logging avançado para Jarvis AI Assistant."""
+class AstraLogger:
+    """Sistema de logging avançado para Astra AI Assistant."""
     
-    def __init__(self, name: str = "jarvis", config: Optional[Dict[str, Any]] = None):
+    def __init__(self, name: str = "Astra", config: Optional[Dict[str, Any]] = None):
         self.name = name
         self.config = config or self._default_config()
         self.logger = self._setup_logger()
@@ -38,7 +38,7 @@ class JarvisLogger:
                 "file": {
                     "enabled": True,
                     "level": "DEBUG",
-                    "filename": "logs/app/jarvis.log",
+                    "filename": "logs/app/Astra.log",
                     "max_bytes": 10 * 1024 * 1024,  # 10MB
                     "backup_count": 10
                 },
@@ -52,7 +52,7 @@ class JarvisLogger:
                 "json_file": {
                     "enabled": True,
                     "level": "INFO",
-                    "filename": "logs/app/jarvis.json",
+                    "filename": "logs/app/Astra.json",
                     "max_bytes": 10 * 1024 * 1024,
                     "backup_count": 10
                 }
@@ -254,7 +254,7 @@ class ColoredFormatter(logging.Formatter):
 class StructuredLogger:
     """Logger estruturado usando structlog."""
     
-    def __init__(self, name: str = "jarvis"):
+    def __init__(self, name: str = "Astra"):
         self.logger = structlog.get_logger(name)
     
     def bind(self, **kwargs):
@@ -279,20 +279,20 @@ class StructuredLogger:
 
 
 # Instância global do logger
-jarvis_logger = JarvisLogger()
+Astra_logger = AstraLogger()
 
 # Funções de conveniência
 def debug(message: str, **kwargs):
-    jarvis_logger.debug(message, **kwargs)
+    Astra_logger.debug(message, **kwargs)
 
 def info(message: str, **kwargs):
-    jarvis_logger.info(message, **kwargs)
+    Astra_logger.info(message, **kwargs)
 
 def warning(message: str, **kwargs):
-    jarvis_logger.warning(message, **kwargs)
+    Astra_logger.warning(message, **kwargs)
 
 def error(message: str, **kwargs):
-    jarvis_logger.error(message, **kwargs)
+    Astra_logger.error(message, **kwargs)
 
 def critical(message: str, **kwargs):
-    jarvis_logger.critical(message, **kwargs)
+    Astra_logger.critical(message, **kwargs)

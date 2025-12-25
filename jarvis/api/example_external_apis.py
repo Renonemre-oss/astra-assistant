@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Exemplo de uso das novas integrações com APIs externas no Jarvis.
+Exemplo de uso das novas integrações com APIs externas no Astra.
 Este arquivo demonstra como usar as funcionalidades de:
 - Notícias (RSS/NewsAPI)
 - Calendário (Google/Outlook) 
@@ -133,10 +133,10 @@ def exemplo_social():
 
 def main():
     """Função principal para testar todas as APIs"""
-    print("🚀 JARVIS - Teste de APIs Externas")
+    print("🚀 Astra - Teste de APIs Externas")
     print("=" * 50)
     print("Este teste verifica a configuração e conectividade")
-    print("das APIs externas integradas ao Jarvis.\n")
+    print("das APIs externas integradas ao Astra.\n")
     
     try:
         exemplo_news()

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Smart Cache System
+ALEX/Astra - Smart Cache System
 Sistema de cache inteligente com Redis e fallback local.
 """
 
@@ -92,7 +92,7 @@ class SmartCache:
         else:
             logger.info("🧠 Cache: Memória apenas")
     
-    def _make_key(self, key: str, prefix: str = "jarvis") -> str:
+    def _make_key(self, key: str, prefix: str = "Astra") -> str:
         """Cria chave de cache com prefixo."""
         return f"{prefix}:{key}"
     
@@ -339,3 +339,4 @@ def cached(ttl: int = 3600, key_prefix: str = "func"):
         
         return wrapper
     return decorator
+

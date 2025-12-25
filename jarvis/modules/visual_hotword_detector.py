@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-JARVIS - Visual Hotword Detector
+Astra - Visual Hotword Detector
 Sistema integrado que combina detecção de hotword com visualização de áudio em tempo real.
 Durante o modo de escuta, mostra animações visuais que reagem às vibrações sonoras.
 
@@ -341,9 +341,9 @@ def create_visual_hotword_detector(
         detector.set_visual_mode(visual_mode)
         detector.set_visualization_mode(visualization_mode)
         
-        # Cores tema Jarvis
-        jarvis_colors = ["#00ff41", "#41ff00", "#00ffff", "#0080ff", "#ffffff"]
-        detector.set_colors(jarvis_colors)
+        # Cores tema Astra
+        Astra_colors = ["#00ff41", "#41ff00", "#00ffff", "#0080ff", "#ffffff"]
+        detector.set_colors(Astra_colors)
         
         # Sensibilidade padrão
         detector.set_sensitivity(1.5)
@@ -359,7 +359,7 @@ if __name__ == "__main__":
     def on_detection(word):
         print(f"🎯 WAKE WORD DETECTADO VISUALMENTE: {word}")
     
-    print("=== JARVIS Visual Hotword Detector Test ===")
+    print("=== Astra Visual Hotword Detector Test ===")
     print("Sistema integrado de detecção visual de hotword...")
     
     if not MODULES_AVAILABLE:
@@ -382,7 +382,7 @@ if __name__ == "__main__":
     print(f"  - Status: {detector.get_status_info()}")
     
     print("\nIniciando escuta visual...")
-    print("Diga 'Jarvis', 'Alex' ou outra wake word.")
+    print("Diga 'Astra', 'Alex' ou outra wake word.")
     print("Você verá animações reagindo ao som!")
     print("Pressione Ctrl+C para sair.")
     
@@ -411,4 +411,4 @@ if __name__ == "__main__":
         print("\n\nParando sistema visual...")
         detector.shutdown()
         print("✅ Sistema visual parado com sucesso!")
-        print("🎨 Obrigado por testar as animações do Jarvis!")
+        print("🎨 Obrigado por testar as animações do Astra!")

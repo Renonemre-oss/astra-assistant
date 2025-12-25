@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Memory System Tests
+ALEX/Astra - Memory System Tests
 Comprehensive unit tests for the memory system
 """
 
@@ -381,3 +381,4 @@ class TestPatternRecognizer:
         
         assert "topic_preferences" in patterns
         assert "frequency_patterns" in patterns
+

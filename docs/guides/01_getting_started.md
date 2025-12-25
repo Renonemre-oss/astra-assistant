@@ -1,6 +1,6 @@
-# 🚀 Getting Started - Jarvis AI Assistant
+# 🚀 Getting Started - Astra AI Assistant
 
-Bem-vindo ao Jarvis! Este guia vai te ajudar a configurar e executar o Jarvis em poucos minutos.
+Bem-vindo ao Astra! Este guia vai te ajudar a configurar e executar o Astra em poucos minutos.
 
 ## 📋 Pré-requisitos
 
@@ -14,8 +14,8 @@ Bem-vindo ao Jarvis! Este guia vai te ajudar a configurar e executar o Jarvis em
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/Renonemre-oss/jarvis-ai-assistant.git
-cd jarvis-ai-assistant
+git clone https://github.com/Renonemre-oss/Astra-ai-assistant.git
+cd Astra-ai-assistant
 ```
 
 ### 2. Crie um Ambiente Virtual
@@ -72,7 +72,7 @@ Você tem duas opções principais:
    ollama list
    ```
 
-4. Configure `jarvis/config/ai_config.yaml`:
+4. Configure `Astra/config/ai_config.yaml`:
    ```yaml
    default_provider: ollama
    
@@ -110,7 +110,7 @@ Você tem duas opções principais:
    $env:OPENAI_API_KEY="sk-...sua-chave..."
    ```
 
-4. Configure `jarvis/config/ai_config.yaml`:
+4. Configure `Astra/config/ai_config.yaml`:
    ```yaml
    default_provider: openai
    
@@ -123,7 +123,7 @@ Você tem duas opções principais:
 
 ### 5. Configure as Skills (Opcional)
 
-Edite `jarvis/config/skills_config.yaml`:
+Edite `Astra/config/skills_config.yaml`:
 
 ```yaml
 builtin_skills:
@@ -134,16 +134,16 @@ builtin_skills:
       default_city: "Lisboa"   # Sua cidade
 ```
 
-### 6. Execute o Jarvis!
+### 6. Execute o Astra!
 
 ```bash
-cd jarvis
+cd Astra
 python main.py
 ```
 
 Você deverá ver algo como:
 ```
-🤖 JARVIS - Assistente Pessoal Inteligente
+🤖 Astra - Assistente Pessoal Inteligente
 📁 Nova estrutura organizada carregada!
 --------------------------------------------------
 AI Engine inicializado. Provedor padrão: ollama
@@ -234,7 +234,7 @@ export OPENAI_API_KEY=sua-chave
 
 ## 📚 Próximos Passos
 
-Agora que o Jarvis está funcionando:
+Agora que o Astra está funcionando:
 
 1. **[Configure Provedores de IA](04_ai_providers.md)** - Aprenda mais sobre Ollama, OpenAI e outros
 2. **[Crie sua Primeira Skill](03_creating_skills.md)** - Adicione novas capacidades
@@ -244,9 +244,10 @@ Agora que o Jarvis está funcionando:
 ## 🆘 Precisa de Ajuda?
 
 - **Documentação:** [docs/](../)
-- **Issues:** [GitHub Issues](https://github.com/Renonemre-oss/jarvis-ai-assistant/issues)
+- **Issues:** [GitHub Issues](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)
 - **Exemplos:** [examples/](../../examples/)
 
 ---
 
-**✨ Parabéns! Você configurou o Jarvis com sucesso! ✨**
+**✨ Parabéns! Você configurou o Astra com sucesso! ✨**
+

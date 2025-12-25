@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🧪 TESTES INTENSIVOS DO JARVIS
+🧪 TESTES INTENSIVOS DO Astra
 Suite completa de testes para validar todos os componentes do sistema
 """
 
@@ -386,7 +386,7 @@ def run_intensive_tests():
     """Executa todos os testes intensivos"""
     
     print("\n" + "="*80)
-    print("🧪 SUITE DE TESTES INTENSIVOS DO JARVIS")
+    print("🧪 SUITE DE TESTES INTENSIVOS DO Astra")
     print("="*80 + "\n")
     
     # Criar test suite
@@ -438,3 +438,4 @@ def run_intensive_tests():
 if __name__ == "__main__":
     success = run_intensive_tests()
     sys.exit(0 if success else 1)
+

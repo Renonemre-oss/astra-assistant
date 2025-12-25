@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - AI Module
+ALEX/Astra - AI Module
 Sistema de inteligência artificial com RAG e AI Engine unificado.
 """
 
@@ -43,3 +43,4 @@ __all__ = [
     'OllamaProvider',
     'OpenAIProvider',
 ]
+

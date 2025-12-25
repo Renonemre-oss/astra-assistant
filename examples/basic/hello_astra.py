@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Hello World Example
-Exemplo mais simples possível de uso do Jarvis.
+Astra AI Assistant - Hello World Example
+Exemplo mais simples possível de uso do Astra.
 """
 
 import sys
 from pathlib import Path
 
-# Adicionar jarvis ao path
-jarvis_path = Path(__file__).parent.parent.parent / "jarvis"
-sys.path.insert(0, str(jarvis_path))
+# Adicionar Astra ao path
+Astra_path = Path(__file__).parent.parent.parent / "Astra"
+sys.path.insert(0, str(Astra_path))
 
 # Importações
 from ai import AIEngine
@@ -158,10 +158,10 @@ def exemplo_integracao():
 def main():
     """Função principal."""
     print("\n" + "🎯" * 30)
-    print("🤖 JARVIS AI ASSISTANT - HELLO WORLD")
+    print("🤖 Astra AI ASSISTANT - HELLO WORLD")
     print("🎯" * 30)
     
-    print("\n📖 Este script demonstra os componentes básicos do Jarvis:")
+    print("\n📖 Este script demonstra os componentes básicos do Astra:")
     print("   1. AI Engine - Motor de IA unificado")
     print("   2. Skills System - Sistema modular de capacidades")
     print("   3. Integração - Como tudo funciona junto")
@@ -186,7 +186,7 @@ def main():
     print("   1. Leia docs/guides/01_getting_started.md")
     print("   2. Configure config/ai_config.yaml")
     print("   3. Experimente criar sua própria skill!")
-    print("\n🆘 Precisa de ajuda? https://github.com/Renonemre-oss/jarvis-ai-assistant/issues")
+    print("\n🆘 Precisa de ajuda? https://github.com/Renonemre-oss/Astra-ai-assistant/issues")
     print()
 
 
@@ -199,3 +199,4 @@ if __name__ == "__main__":
         print(f"\n❌ Erro inesperado: {e}")
         import traceback
         traceback.print_exc()
+

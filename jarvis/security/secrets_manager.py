@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Secrets Manager
+ALEX/Astra - Secrets Manager
 Sistema seguro para gestão de API keys, tokens e credenciais.
 """
 
@@ -42,7 +42,7 @@ class SecretMetadata:
 
 
 class SecretManager:
-    """Gestor seguro de secrets para o ALEX/JARVIS."""
+    """Gestor seguro de secrets para o ALEX/Astra."""
     
     def __init__(self, env_file: Optional[Path] = None):
         self.env_file = env_file or Path(__file__).parent.parent.parent / '.env'
@@ -62,7 +62,7 @@ class SecretManager:
             kdf = PBKDF2HMAC(
                 algorithm=hashes.SHA256(),
                 length=32,
-                salt=b'alex_jarvis_2024',
+                salt=b'alex_Astra_2024',
                 iterations=100000,
             )
             key = base64.urlsafe_b64encode(kdf.derive(b'alex_master_key'))
@@ -92,7 +92,7 @@ class SecretManager:
         if 'OLLAMA_API_URL' not in self._secrets:
             self._store_secret('OLLAMA_API_URL', 'http://localhost:11434', True)
         if 'DATABASE_PATH' not in self._secrets:
-            self._store_secret('DATABASE_PATH', 'data/jarvis.db', True)
+            self._store_secret('DATABASE_PATH', 'data/Astra.db', True)
         if 'JWT_SECRET_KEY' not in self._secrets:
             import secrets
             self._store_secret('JWT_SECRET_KEY', secrets.token_urlsafe(32), True)
@@ -170,3 +170,4 @@ def get_secret_manager() -> SecretManager:
 
 def get_secret(name: str, default: Optional[str] = None) -> Optional[str]:
     return get_secret_manager().get(name, default)
+

@@ -3,7 +3,7 @@
 
 """
 ALEX - Sistema de Detecção de Hotword (Wake Word)
-Sistema para detectar palavras de ativação como "Jarvis", "Alex", etc.
+Sistema para detectar palavras de ativação como "Astra", "Alex", etc.
 
 Funcionalidades:
 - Detecção contínua de wake words
@@ -55,7 +55,7 @@ class HotwordDetector:
         
         # Palavras de ativação padrão
         self.wake_words = [
-            "jarvis", "alex", "assistente", "hey alex", "ola alex",
+            "Astra", "alex", "assistente", "hey alex", "ola alex",
             "ei alex", "alex ajuda", "alex preciso"
         ]
         
@@ -120,7 +120,7 @@ class HotwordDetector:
             
             # Selecionar palavras-chave disponíveis
             selected_keywords = []
-            for keyword in ['computer', 'alexa', 'jarvis']:
+            for keyword in ['computer', 'alexa', 'Astra']:
                 if keyword in available_keywords:
                     selected_keywords.append(keyword)
             
@@ -399,7 +399,7 @@ def create_hotword_detector(status_callback: Optional[Callable[[str], None]] = N
     
     # Adicionar wake words específicas do ALEX
     wake_words_alex = [
-        "jarvis", "alex", "hey alex", "ola alex", "ei alex",
+        "Astra", "alex", "hey alex", "ola alex", "ei alex",
         "alex ajuda", "alex preciso", "assistente"
     ]
     
@@ -421,7 +421,7 @@ if __name__ == "__main__":
     detector.set_detection_callback(on_detection)
     
     print("Iniciando teste de detecção de hotword...")
-    print("Diga 'Jarvis', 'Alex' ou outra wake word.")
+    print("Diga 'Astra', 'Alex' ou outra wake word.")
     print("Pressione Ctrl+C para sair.")
     
     detector.start_listening()

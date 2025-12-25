@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Optimized RAG System
+ALEX/Astra - Optimized RAG System
 Sistema RAG otimizado com cache e lazy loading.
 """
 
@@ -258,3 +258,4 @@ def get_optimized_rag() -> OptimizedRAGSystem:
     if _optimized_rag is None:
         _optimized_rag = OptimizedRAGSystem()
     return _optimized_rag
+

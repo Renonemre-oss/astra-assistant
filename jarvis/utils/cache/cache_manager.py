@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Cache Manager
+ALEX/Astra - Cache Manager
 Intelligent caching system with multiple strategies.
 """
 
@@ -169,3 +169,4 @@ cache_manager = CacheManager()
 def cached(ttl: Optional[int] = None):
     """Global cache decorator."""
     return cache_manager.cached(ttl)
+

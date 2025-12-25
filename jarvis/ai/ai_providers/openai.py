@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - OpenAI Provider
+Astra AI Assistant - OpenAI Provider
 Provedor para modelos OpenAI (GPT-3.5, GPT-4, etc).
 """
 
@@ -304,3 +304,4 @@ class OpenAIProvider(AIProviderBase):
             logger.error(error_msg)
             self.set_status(ProviderStatus.ERROR, error_msg)
             yield f"[Erro: {error_msg}]"
+

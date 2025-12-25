@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Encryption System
+ALEX/Astra - Encryption System
 Sistema de encriptação para dados sensíveis.
 """
 
@@ -39,7 +39,7 @@ class DataEncryptor:
         logger.info("🔐 Encriptação inicializada")
     
     @classmethod
-    def from_password(cls, password: str, salt: bytes = b'alex_jarvis_salt'):
+    def from_password(cls, password: str, salt: bytes = b'alex_Astra_salt'):
         """Cria encriptação a partir de password."""
         if not CRYPTO_AVAILABLE:
             return cls(None)
@@ -105,3 +105,4 @@ def encrypt_data(data: Union[str, bytes]) -> Optional[str]:
 def decrypt_data(encrypted: str) -> Optional[str]:
     """Atalho para decriptar."""
     return get_encryptor().decrypt(encrypted)
+

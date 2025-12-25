@@ -1,7 +1,7 @@
 # ============================================================================
-# Configuração do AI Engine - Jarvis AI Assistant
+# Configuração do AI Engine - Astra AI Assistant
 # ============================================================================
-# Este arquivo controla como o Jarvis usa IA para gerar respostas.
+# Este arquivo controla como o Astra usa IA para gerar respostas.
 # Você pode configurar múltiplos provedores e o sistema fará fallback
 # automático se um provedor falhar.
 
@@ -69,7 +69,7 @@ defaults:
   temperature: 0.7      # Criatividade (0.0 = mais determinístico, 1.0 = mais criativo)
   max_tokens: null      # Limite de tokens (null = sem limite)
   system_prompt: |
-    Você é o Jarvis, um assistente de IA inteligente e prestativo.
+    Você é o Astra, um assistente de IA inteligente e prestativo.
     Responda de forma clara, concisa e útil.
     Seja educado e profissional.
 
@@ -104,3 +104,4 @@ advanced:
 # 5. Adicione 'openai' ao fallback_chain se desejar
 #
 # ============================================================================
+

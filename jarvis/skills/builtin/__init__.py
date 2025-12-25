@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Built-in Skills
-Skills nativas do Jarvis.
+Astra AI Assistant - Built-in Skills
+Skills nativas do Astra.
 """
 
 from .weather_skill import WeatherSkill
@@ -11,3 +11,4 @@ from .weather_skill import WeatherSkill
 __all__ = [
     'WeatherSkill',
 ]
+

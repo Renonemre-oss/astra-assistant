@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Base AI Provider
+Astra AI Assistant - Base AI Provider
 Classe base abstrata para todos os provedores de IA.
 """
 
@@ -219,3 +219,4 @@ class AIProviderBase(ABC):
     
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} status={self.status.value}>"
+

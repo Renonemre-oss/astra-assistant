@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Teste simples do sistema de visualização visual do Jarvis
+Teste simples do sistema de visualização visual do Astra
 """
 
 import time
@@ -154,7 +154,7 @@ def main():
         print("\nPróximos passos:")
         print("1. Execute: python modules/audio_visualizer.py")
         print("2. Execute: python modules/visual_hotword_detector.py")
-        print("3. Integre no seu launcher principal do Jarvis")
+        print("3. Integre no seu launcher principal do Astra")
     else:
         print("⚠️ Alguns testes falharam. Verifique os erros acima.")
     

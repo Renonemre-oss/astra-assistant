@@ -130,7 +130,7 @@ class VoiceSystemSetup:
         config = {
             "hotword": {
                 "enabled": True,
-                "wake_words": ["jarvis", "alex", "assistente", "hey alex"],
+                "wake_words": ["Astra", "alex", "assistente", "hey alex"],
                 "sensitivity": 0.7,
                 "engine": "auto"  # auto, porcupine, vosk, simple_stt
             },
@@ -224,7 +224,7 @@ class VoiceSystemSetup:
         self.test_system()
         
         logger.info("🎉 Setup do sistema de voz concluído!")
-        logger.info("💡 Agora você pode usar: 'Jarvis' ou 'Alex' para ativar o assistente")
+        logger.info("💡 Agora você pode usar: 'Astra' ou 'Alex' para ativar o assistente")
     
     def interactive_setup(self):
         """Setup interativo."""

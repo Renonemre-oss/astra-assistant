@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Teste da Integração do Sistema de Visualização com o Jarvis
+Teste da Integração do Sistema de Visualização com o Astra
 """
 
 import time
@@ -216,7 +216,7 @@ def main():
         print("\n📝 PRÓXIMOS PASSOS:")
         print("1. Execute: python run_alex.py")
         print("2. Clique no botão de microfone")  
-        print("3. Diga 'Alex' ou 'Jarvis' para ativar")
+        print("3. Diga 'Alex' ou 'Astra' para ativar")
         print("4. Observe o feedback visual durante a escuta!")
         print("\n🎮 COMANDOS DISPONÍVEIS:")
         print("• 'Alex, alterar modo visual'")

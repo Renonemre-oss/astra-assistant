@@ -1,10 +1,10 @@
-# 🤖 AI Providers - Jarvis AI Assistant
+# 🤖 AI Providers - Astra AI Assistant
 
-Este guia explica como configurar e usar diferentes provedores de IA com o Jarvis.
+Este guia explica como configurar e usar diferentes provedores de IA com o Astra.
 
 ## 📋 Visão Geral
 
-O Jarvis suporta múltiplos provedores de IA através do **AI Engine**, permitindo:
+O Astra suporta múltiplos provedores de IA através do **AI Engine**, permitindo:
 
 - ✅ Usar IA local (Ollama) ou remota (OpenAI)
 - ✅ Fallback automático entre provedores
@@ -96,7 +96,7 @@ providers:
 ### Testar
 
 ```python
-from jarvis.ai import AIEngine
+from Astra.ai import AIEngine
 import yaml
 
 with open('config/ai_config.yaml') as f:
@@ -274,7 +274,7 @@ fallback_chain:
 
 ### Como Funciona
 
-1. Jarvis tenta primeiro o `default_provider` (Ollama)
+1. Astra tenta primeiro o `default_provider` (Ollama)
 2. Se falhar (modelo não encontrado, servidor offline, etc.)
 3. Automaticamente tenta o próximo na `fallback_chain` (OpenAI)
 4. Se todos falharem, retorna erro
@@ -327,7 +327,7 @@ Define comportamento da IA:
 ```yaml
 defaults:
   system_prompt: |
-    Você é o Jarvis, um assistente técnico especializado.
+    Você é o Astra, um assistente técnico especializado.
     Responda sempre em português de Portugal.
     Seja conciso e direto ao ponto.
 ```
@@ -392,8 +392,9 @@ fallback_chain:
 
 - **Documentação Ollama**: [ollama.ai/docs](https://ollama.ai/docs)
 - **Documentação OpenAI**: [platform.openai.com/docs](https://platform.openai.com/docs)
-- **Issues**: [GitHub Issues](https://github.com/Renonemre-oss/jarvis-ai-assistant/issues)
+- **Issues**: [GitHub Issues](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)
 
 ---
 
 **💡 Dica Final**: Comece com Ollama para aprender e testar. Quando estiver confortável, adicione OpenAI como fallback para máxima confiabilidade!
+

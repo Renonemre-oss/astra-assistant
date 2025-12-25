@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - AI Providers
-Provedores de IA disponíveis para o Jarvis.
+Astra AI Assistant - AI Providers
+Provedores de IA disponíveis para o Astra.
 """
 
 from .base import AIProviderBase, AIResponse, AIMessage, ProviderStatus
@@ -18,3 +18,4 @@ __all__ = [
     'OllamaProvider',
     'OpenAIProvider',
 ]
+

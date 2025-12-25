@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX - Modo Jarvis (Voice-Only)
+ALEX - Modo Astra (Voice-Only)
 Executa o assistente em modo somente voz, sem interface gráfica.
-Sistema fica sempre escutando por "Jarvis" automaticamente.
+Sistema fica sempre escutando por "Astra" automaticamente.
 
 Uso:
-    python jarvis_voice_mode.py
+    python Astra_voice_mode.py
 
 Comandos especiais:
-    - "Jarvis, sair" ou "Jarvis, desligar" -> Encerra o programa
-    - "Jarvis, ajuda" -> Mostra comandos disponíveis
+    - "Astra, sair" ou "Astra, desligar" -> Encerra o programa
+    - "Astra, ajuda" -> Mostra comandos disponíveis
 """
 
 import sys
@@ -69,14 +69,14 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/jarvis_voice.log'),
+        logging.FileHandler('logs/Astra_voice.log'),
         logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
 
 
-class JarvisVoiceMode:
+class AstraVoiceMode:
     """
     Modo de voz do ALEX - funciona apenas com comandos de voz.
     """
@@ -96,7 +96,7 @@ class JarvisVoiceMode:
         # Histórico simples
         self.conversation_history = []
         
-        print("🤖 ALEX - Modo Jarvis (Somente Voz)")
+        print("🤖 ALEX - Modo Astra (Somente Voz)")
         print("=" * 40)
     
     def initialize_systems(self):
@@ -131,7 +131,7 @@ class JarvisVoiceMode:
             try:
                 self.hotword_detector = create_hotword_detector(self.on_status_update)
                 self.hotword_detector.set_detection_callback(self.on_wake_word_detected)
-                print("✅ Sistema Jarvis inicializado")
+                print("✅ Sistema Astra inicializado")
             except Exception as e:
                 print(f"❌ Erro no Hotword: {e}")
                 return False
@@ -161,7 +161,7 @@ class JarvisVoiceMode:
         logger.info(f"Status: {message}")
     
     def on_wake_word_detected(self, wake_word):
-        """Callback quando Jarvis é detectado."""
+        """Callback quando Astra é detectado."""
         print(f"\n🎯 '{wake_word.upper()}' DETECTADO!")
         self.speak(f"Sim, estou escutando.")
         
@@ -341,16 +341,16 @@ Utilizador: {command}"""
             print("❌ Falha na inicialização!")
             return
         
-        print("\n🎯 MODO JARVIS ATIVO!")
-        print("💡 Diga 'Jarvis' seguido do seu comando")
+        print("\n🎯 MODO Astra ATIVO!")
+        print("💡 Diga 'Astra' seguido do seu comando")
         print("💡 Exemplos:")
-        print("   - Jarvis, que horas são?")
-        print("   - Jarvis, como está o tempo?")
-        print("   - Jarvis, conte-me uma piada")
-        print("   - Jarvis, sair")
+        print("   - Astra, que horas são?")
+        print("   - Astra, como está o tempo?")
+        print("   - Astra, conte-me uma piada")
+        print("   - Astra, sair")
         print("\n⏳ Aguardando comando...")
         
-        self.speak("Sistema Jarvis ativo. Como posso ajudá-lo?")
+        self.speak("Sistema Astra ativo. Como posso ajudá-lo?")
         
         # Iniciar detecção de hotword
         if self.hotword_detector.start_listening():
@@ -387,14 +387,14 @@ Utilizador: {command}"""
 def signal_handler(signum, frame):
     """Handler para sinais do sistema."""
     print("\n🛑 Sinal de encerramento recebido...")
-    global jarvis
-    if jarvis:
-        jarvis.shutdown_requested = True
+    global Astra
+    if Astra:
+        Astra.shutdown_requested = True
 
 
 def main():
     """Função principal."""
-    global jarvis
+    global Astra
     
     # Configurar handler de sinais
     signal.signal(signal.SIGINT, signal_handler)
@@ -407,9 +407,9 @@ def main():
         print("  python scripts/setup_voice_system.py auto")
         return
     
-    # Iniciar modo Jarvis
-    jarvis = JarvisVoiceMode()
-    jarvis.start()
+    # Iniciar modo Astra
+    Astra = AstraVoiceMode()
+    Astra.start()
 
 
 if __name__ == "__main__":

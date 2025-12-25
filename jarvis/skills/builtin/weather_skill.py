@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Weather Skill
+Astra AI Assistant - Weather Skill
 Skill para obter previsão do tempo.
 """
 
@@ -32,7 +32,7 @@ class WeatherSkill(BaseSkill):
             name="Weather",
             version="1.0.0",
             description="Obt\u00e9m informa\u00e7\u00f5es sobre clima e previs\u00e3o do tempo",
-            author="Jarvis Team",
+            author="Astra Team",
             dependencies=["requests"],
             requires_api_keys=["openweather_api_key"],
             keywords=[
@@ -238,3 +238,4 @@ class WeatherSkill(BaseSkill):
         response += f"• Pressão: {data['pressure']} hPa"
         
         return response
+

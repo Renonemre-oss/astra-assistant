@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-JARVIS - AI Systems Module
+Astra - AI Systems Module
 Módulo de sistemas de IA avançada incluindo:
 - Análise comportamental
 - Previsão de necessidades  
@@ -28,4 +28,4 @@ __all__ = [
 ]
 
 __version__ = "1.0.0"
-__author__ = "JARVIS AI Assistant"
+__author__ = "Astra AI Assistant"

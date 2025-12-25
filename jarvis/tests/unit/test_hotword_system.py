@@ -77,7 +77,7 @@ def test_interactive_hotword():
         detector.set_detection_callback(detection_callback)
         
         print("🚀 Iniciando detector...")
-        print("💡 Diga uma das palavras: jarvis, alex, hey alex, assistente")
+        print("💡 Diga uma das palavras: Astra, alex, hey alex, assistente")
         print("⏳ Aguardando wake word...\n")
         
         # Iniciar escuta

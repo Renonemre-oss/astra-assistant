@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Skills Module
+Astra AI Assistant - Skills Module
 Sistema de skills modular e extensível.
 """
 
@@ -26,3 +26,4 @@ __all__ = [
 ]
 
 __version__ = '1.0.0'
+

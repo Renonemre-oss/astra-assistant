@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - AI Engine
+Astra AI Assistant - AI Engine
 Motor principal de IA que gerencia múltiplos provedores, fallback e cache.
 """
 
@@ -43,7 +43,7 @@ class CacheEntry:
 
 class AIEngine:
     """
-    Motor principal de IA do Jarvis.
+    Motor principal de IA do Astra.
     
     Responsável por:
     - Gerenciar múltiplos provedores de IA
@@ -448,3 +448,4 @@ class AIEngine:
         """Destrutor: persiste cache antes de finalizar."""
         if self.cache_enabled and self.cache:
             self._persist_cache()
+

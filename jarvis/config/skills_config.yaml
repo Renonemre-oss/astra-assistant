@@ -1,5 +1,5 @@
 # ============================================================================
-# Configuração de Skills - Jarvis AI Assistant
+# Configuração de Skills - Astra AI Assistant
 # ============================================================================
 # Este arquivo controla quais skills estão ativas e suas configurações.
 
@@ -78,7 +78,7 @@ settings:
 # Guia Rápido - Como Adicionar uma Nova Skill
 # ============================================================================
 #
-# 1. Criar arquivo da skill em jarvis/skills/custom/
+# 1. Criar arquivo da skill em Astra/skills/custom/
 # 2. Herdar de BaseSkill e implementar métodos abstratos
 # 3. Adicionar configuração aqui em custom_skills
 # 4. Ativar a skill (enabled: true)
@@ -96,3 +96,4 @@ settings:
 # ---
 #
 # ============================================================================
+

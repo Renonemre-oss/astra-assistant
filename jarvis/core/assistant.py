@@ -960,7 +960,7 @@ Utilizador: {comando}"""
                         detection_callback=self.on_hotword_detected
                     )
                     self.hotword_mode = True
-                    self.ui_updater.set_status_signal.emit("🎨 Modo visual ativo - Diga 'Alex' ou 'Jarvis'...")
+                    self.ui_updater.set_status_signal.emit("🎨 Modo visual ativo - Diga 'Alex' ou 'Astra'...")
                     logging.info("✨ Sistema de visualização integrado ativo")
                 except Exception as e:
                     logging.error(f"Erro ao inicializar sistema visual: {e}")
@@ -971,7 +971,7 @@ Utilizador: {comando}"""
                             self.hotword_detector = create_hotword_detector(self.ui_updater.set_status_signal.emit)
                             self.hotword_detector.set_detection_callback(self.on_hotword_detected)
                             self.hotword_mode = True
-                            self.ui_updater.set_status_signal.emit("🎤️ Modo Jarvis ativo - Diga 'Jarvis' ou 'Alex'...")
+                            self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'Alex'...")
                         except Exception as e2:
                             logging.error(f"Erro no fallback básico: {e2}")
                             self.hotword_mode = False
@@ -985,7 +985,7 @@ Utilizador: {comando}"""
                     self.hotword_detector = create_hotword_detector(self.ui_updater.set_status_signal.emit)
                     self.hotword_detector.set_detection_callback(self.on_hotword_detected)
                     self.hotword_mode = True
-                    self.ui_updater.set_status_signal.emit("🎤️ Modo Jarvis ativo - Diga 'Jarvis' ou 'Alex'...")
+                    self.ui_updater.set_status_signal.emit("🎤️ Modo Astra ativo - Diga 'Astra' ou 'Alex'...")
                 except Exception as e:
                     logging.error(f"Erro ao inicializar hotword: {e}")
                     self.hotword_mode = False
@@ -1078,7 +1078,7 @@ Utilizador: {comando}"""
         finally:
             # Voltar ao modo de escuta de hotword
             if self.microfone_ativo:
-                self.ui_updater.set_status_signal.emit("🎙️ Voltando à escuta de 'Jarvis'...")
+                self.ui_updater.set_status_signal.emit("🎙️ Voltando à escuta de 'Astra'...")
     
     def processar_comando_voz(self, comando: str):
         """Processa comando de voz detectado."""
@@ -1298,7 +1298,7 @@ Utilizador: {comando}"""
     def auto_iniciar_hotword(self):
         """Inicia automaticamente o sistema de hotword detection."""
         try:
-            self.ui_updater.set_status_signal.emit("🔄 Inicializando modo Jarvis automático...")
+            self.ui_updater.set_status_signal.emit("🔄 Inicializando modo Astra automático...")
             
             # Inicializar hotword detector se disponível
             if create_hotword_detector and not self.hotword_detector:
@@ -1310,16 +1310,16 @@ Utilizador: {comando}"""
                     # Iniciar escuta automaticamente
                     if self.hotword_detector.start_listening():
                         self.microfone_ativo = True
-                        self.ui_updater.set_status_signal.emit("🎯 JARVIS ATIVO - Diga 'Jarvis' para ativar!")
-                        logging.info("🎤 Sistema Jarvis iniciado automaticamente")
+                        self.ui_updater.set_status_signal.emit("🎯 Astra ATIVO - Diga 'Astra' para ativar!")
+                        logging.info("🎤 Sistema Astra iniciado automaticamente")
                     else:
-                        self.ui_updater.set_status_signal.emit("❌ Falha ao iniciar modo Jarvis")
+                        self.ui_updater.set_status_signal.emit("❌ Falha ao iniciar modo Astra")
                         
                 except Exception as e:
                     logging.error(f"Erro ao inicializar hotword automático: {e}")
-                    self.ui_updater.set_status_signal.emit("⚠️ Modo Jarvis indisponível - use botão 🎙️")
+                    self.ui_updater.set_status_signal.emit("⚠️ Modo Astra indisponível - use botão 🎙️")
             else:
-                self.ui_updater.set_status_signal.emit("⚠️ Sistema Jarvis não disponível - instale dependências")
+                self.ui_updater.set_status_signal.emit("⚠️ Sistema Astra não disponível - instale dependências")
                 
         except Exception as e:
             logging.error(f"Erro na inicialização automática: {e}")

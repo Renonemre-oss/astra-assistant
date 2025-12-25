@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Benchmark System
+ALEX/Astra - Benchmark System
 Sistema de benchmarks para medir performance.
 """
 
@@ -382,3 +382,4 @@ def get_benchmark_system() -> BenchmarkSystem:
     if _benchmark_system is None:
         _benchmark_system = BenchmarkSystem()
     return _benchmark_system
+

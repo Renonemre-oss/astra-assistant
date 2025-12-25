@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - API Migration Script
+ALEX/Astra - API Migration Script
 Script para consolidar api_integration_hub.py em modules/external_apis/
 
 Este script:
@@ -29,7 +29,7 @@ def create_compatibility_layer():
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - API Integration Hub Compatibility Layer
+ALEX/Astra - API Integration Hub Compatibility Layer
 Camada de compatibilidade para código antigo que usa api.api_integration_hub
 
 Este módulo mantém compatibilidade retroativa enquanto usa o novo sistema modular.
@@ -173,7 +173,7 @@ logger.info("Migre para: modules.external_apis.api_manager.APIManager")
 logger.info("=" * 60)
 '''
     
-    output_path = project_root / 'jarvis' / 'api' / '__init__.py'
+    output_path = project_root / 'Astra' / 'api' / '__init__.py'
     
     # Criar diretório se não existir
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -186,14 +186,14 @@ logger.info("=" * 60)
 
 def backup_old_file():
     """Criar backup do arquivo antigo"""
-    old_file = project_root / 'jarvis' / 'api' / 'api_integration_hub.py'
+    old_file = project_root / 'Astra' / 'api' / 'api_integration_hub.py'
     
     if not old_file.exists():
         print("ℹ️  api_integration_hub.py não encontrado, pulando backup")
         return
     
     # Criar diretório de backup
-    backup_dir = project_root / 'jarvis' / 'api' / 'backup'
+    backup_dir = project_root / 'Astra' / 'api' / 'backup'
     backup_dir.mkdir(parents=True, exist_ok=True)
     
     # Nome do backup com timestamp
@@ -214,7 +214,7 @@ def update_imports():
     files_to_update = []
     
     # Buscar arquivos que importam de api.api_integration_hub
-    for py_file in (project_root / 'jarvis').rglob('*.py'):
+    for py_file in (project_root / 'Astra').rglob('*.py'):
         try:
             content = py_file.read_text(encoding='utf-8')
             
@@ -241,7 +241,7 @@ def main():
     """Executar migração completa"""
     
     print("=" * 60)
-    print("🚀 ALEX/JARVIS - Migração de Sistema de APIs")
+    print("🚀 ALEX/Astra - Migração de Sistema de APIs")
     print("=" * 60)
     print()
     
@@ -290,3 +290,4 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
         sys.exit(1)
+

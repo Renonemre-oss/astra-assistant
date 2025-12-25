@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Ollama Provider
+Astra AI Assistant - Ollama Provider
 Provedor para modelos de IA local via Ollama.
 """
 
@@ -332,3 +332,4 @@ class OllamaProvider(AIProviderBase):
             logger.error(error_msg)
             self.set_status(ProviderStatus.ERROR, error_msg)
             yield f"[Erro: {error_msg}]"
+

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-API Integration Hub - Jarvis
+API Integration Hub - Astra
 Sistema unificado para integração de múltiplas APIs:
 - Notícias (Newsdata.io)
 - Clima (OpenWeatherMap)
@@ -673,7 +673,7 @@ class UnifiedDashboard:
     def display_dashboard(self):
         """Exibir dashboard completo"""
         print("\n" + "="*80)
-        print("🚀 JARVIS API INTEGRATION HUB - DASHBOARD")
+        print("🚀 Astra API INTEGRATION HUB - DASHBOARD")
         print("="*80)
         
         # Seção de Notícias
@@ -884,3 +884,4 @@ if __name__ == "__main__":
         print("\n\n👋 Programa interrompido pelo usuário")
     except Exception as e:
         print(f"\n❌ Erro inesperado: {e}")
+

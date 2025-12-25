@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Jarvis AI Assistant - Base Skill
-Classe base abstrata para todas as skills do Jarvis.
+Astra AI Assistant - Base Skill
+Classe base abstrata para todas as skills do Astra.
 """
 
 from abc import ABC, abstractmethod
@@ -38,7 +38,7 @@ class SkillMetadata:
     name: str
     version: str
     description: str
-    author: str = "Jarvis Team"
+    author: str = "Astra Team"
     dependencies: List[str] = field(default_factory=list)
     requires_api_keys: List[str] = field(default_factory=list)
     keywords: List[str] = field(default_factory=list)
@@ -76,7 +76,7 @@ class SkillResponse:
 
 class BaseSkill(ABC):
     """
-    Classe base abstrata para todas as skills do Jarvis.
+    Classe base abstrata para todas as skills do Astra.
     
     Uma skill é uma capacidade específica do assistente, como:
     - Obter previsão do tempo
@@ -298,3 +298,4 @@ Status: {self.status.value}
             f"name='{self.metadata.name}' "
             f"status={self.status.value}>"
         )
+

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-JARVIS - Audio Visualizer with Manim
+Astra - Audio Visualizer with Manim
 Sistema de visualização de áudio em tempo real que reage às vibrações sonoras
 durante o modo de escuta do assistente usando animações Manim.
 
@@ -541,9 +541,9 @@ def create_audio_visualizer(status_callback: Optional[Callable[[str], None]] = N
     visualizer = AudioVisualizer(status_callback)
     visualizer.set_mode(mode)
     
-    # Cores tema Jarvis/Matrix
-    jarvis_colors = ["#00ff41", "#41ff00", "#00ffff", "#0080ff", "#4000ff"]
-    visualizer.set_colors(jarvis_colors)
+    # Cores tema Astra/Matrix
+    Astra_colors = ["#00ff41", "#41ff00", "#00ffff", "#0080ff", "#4000ff"]
+    visualizer.set_colors(Astra_colors)
     
     return visualizer
 
@@ -553,7 +553,7 @@ if __name__ == "__main__":
     def on_status(message):
         print(f"Status: {message}")
     
-    print("=== JARVIS Audio Visualizer Test ===")
+    print("=== Astra Audio Visualizer Test ===")
     print("Testando sistema de visualização de áudio...")
     
     visualizer = create_audio_visualizer(on_status, VisualizationMode.PULSE)

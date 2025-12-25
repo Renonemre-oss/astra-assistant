@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Personality Engine Tests
+ALEX/Astra - Personality Engine Tests
 Comprehensive unit tests for the personality system
 """
 
@@ -181,3 +181,4 @@ class TestPersonalityEngine:
         )
         assert isinstance(response, str)
         assert len(response) > 0
+

@@ -1,5 +1,5 @@
 """
-Jarvis AI Assistant - Assistente de IA Avançado
+Astra AI Assistant - Assistente de IA Avançado
 
 Um assistente de IA com capacidades multimodais incluindo:
 - Reconhecimento de voz
@@ -16,7 +16,7 @@ Licença: MIT
 __version__ = "2.0.0"
 __author__ = "António Pereira"
 __email__ = "your.email@example.com"
-__description__ = "Jarvis AI Assistant - Assistente de IA Avançado"
+__description__ = "Astra AI Assistant - Assistente de IA Avançado"
 
 # Importações principais
 try:
@@ -31,3 +31,4 @@ __all__ = [
     'Config',
     '__version__',
 ]
+

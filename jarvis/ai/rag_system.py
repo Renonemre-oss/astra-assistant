@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - RAG System
+ALEX/Astra - RAG System
 Sistema completo de Retrieval-Augmented Generation.
 """
 
@@ -254,3 +254,4 @@ def get_rag_system() -> RAGSystem:
     if _rag_system is None:
         _rag_system = RAGSystem()
     return _rag_system
+

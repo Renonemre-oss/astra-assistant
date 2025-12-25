@@ -1,5 +1,5 @@
 """
-ALEX/JARVIS - Security Module
+ALEX/Astra - Security Module
 Sistema completo de segurança.
 """
 
@@ -23,3 +23,4 @@ __all__ = [
     'encrypt_data',
     'decrypt_data',
 ]
+

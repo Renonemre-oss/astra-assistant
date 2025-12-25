@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Teste seguro do sistema de visualização visual do Jarvis
+Teste seguro do sistema de visualização visual do Astra
 Evita travamentos testando apenas funcionalidade básica
 """
 
@@ -165,7 +165,7 @@ def main():
         
         print("\n📝 Próximos passos:")
         print("1. Para testar visualização: python modules/audio_visualizer.py")
-        print("2. Para integrar no Jarvis: use create_visual_hotword_detector()")
+        print("2. Para integrar no Astra: use create_visual_hotword_detector()")
         print("3. Para usar apenas visualização: use create_audio_visualizer()")
         
     else:

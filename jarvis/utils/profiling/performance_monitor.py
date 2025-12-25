@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-ALEX/JARVIS - Performance Monitor
+ALEX/Astra - Performance Monitor
 Real-time performance monitoring and profiling.
 """
 
@@ -199,3 +199,4 @@ performance_monitor = PerformanceMonitor()
 def profile(func: Callable) -> Callable:
     """Global profiling decorator."""
     return performance_monitor.profile_function(func)
+

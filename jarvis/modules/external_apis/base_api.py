@@ -34,7 +34,7 @@ class BaseAPI:
         self.session = requests.Session()
         self.default_timeout = 15
         self.default_headers: Dict[str, str] = {
-            "User-Agent": f"Jarvis/{self.name}",
+            "User-Agent": f"Astra/{self.name}",
             "Accept": "application/json",
         }
 
@@ -88,3 +88,4 @@ class BaseAPI:
         except requests.RequestException as e:
             logger.error(f"Erro POST {self.name} {url}: {e}")
             return None
+

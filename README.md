@@ -1,4 +1,4 @@
-# 🤖 Jarvis AI Assistant
+# 🤖 Astra AI Assistant
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -7,11 +7,11 @@
 
 > **Um assistente de IA modular, extensível e poderoso com suporte para múltiplos provedores de IA e sistema de skills plug-and-play.**
 
-Jarvis é mais do que um simples assistente - é uma plataforma completa para construir experiências de IA personalizadas com privacidade, flexibilidade e poder.
+Astra é mais do que um simples assistente - é uma plataforma completa para construir experiências de IA personalizadas com privacidade, flexibilidade e poder.
 
 ---
 
-## ✨ Por que Jarvis?
+## ✨ Por que Astra?
 
 - **🔌 Modular**: Sistema de skills extensível - adicione novas capacidades sem modificar o core
 - **🤖 Multi-IA**: Suporte para Ollama (local), OpenAI, e mais - com fallback automático
@@ -28,8 +28,8 @@ Jarvis é mais do que um simples assistente - é uma plataforma completa para co
 
 ```bash
 # Clone o repositório
-git clone https://github.com/Renonemre-oss/jarvis-ai-assistant.git
-cd jarvis-ai-assistant
+git clone https://github.com/Renonemre-oss/Astra-ai-assistant.git
+cd Astra-ai-assistant
 
 # Crie ambiente virtual
 python -m venv .venv
@@ -64,7 +64,7 @@ default_provider: openai
 ### 3. Execute
 
 ```bash
-python jarvis/main.py
+python Astra/main.py
 ```
 
 Pronto! 🎉
@@ -74,7 +74,7 @@ Pronto! 🎉
 ## 📚 Arquitetura
 
 ```
-jarvis/
+Astra/
 ├── ai/                    # 🧠 Motor de IA Unificado
 │   ├── ai_core_engine.py  # Gerenciador de provedores + fallback + cache
 │   └── ai_providers/      # Ollama, OpenAI, etc.
@@ -133,7 +133,7 @@ jarvis/
 ### Exemplo Básico
 
 ```python
-from jarvis.ai import AIEngine
+from Astra.ai import AIEngine
 import yaml
 
 # Carregar configuração
@@ -151,7 +151,7 @@ print(response.content)
 ### Criar uma Skill Customizada
 
 ```python
-from jarvis.skills import BaseSkill, SkillMetadata, SkillResponse
+from Astra.skills import BaseSkill, SkillMetadata, SkillResponse
 
 class MinhaSkill(BaseSkill):
     def get_metadata(self):
@@ -302,8 +302,9 @@ Este projeto está sob a licença MIT. Veja [LICENSE](LICENSE) para detalhes.
 
 **⭐ Se este projeto foi útil, considere dar uma estrela! ⭐**
 
-**📧 Dúvidas? Abra uma [issue](https://github.com/Renonemre-oss/jarvis-ai-assistant/issues)**
+**📧 Dúvidas? Abra uma [issue](https://github.com/Renonemre-oss/Astra-ai-assistant/issues)**
 
 **🚀 Happy coding!**
 
 </div>
+

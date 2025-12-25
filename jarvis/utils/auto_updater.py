@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🔄 JARVIS AUTO-UPDATER
+🔄 Astra AUTO-UPDATER
 Sistema de atualização automática com verificação de versões e download seguro
 """
 
@@ -62,11 +62,11 @@ class Version:
         return self > other or self == other
 
 
-class JarvisUpdater:
-    """Sistema de atualização automática do Jarvis"""
+class AstraUpdater:
+    """Sistema de atualização automática do Astra"""
     
     # URLs de atualização (configurar com seu repositório)
-    UPDATE_SERVER = "https://api.github.com/repos/YOUR_USERNAME/jarvis"
+    UPDATE_SERVER = "https://api.github.com/repos/YOUR_USERNAME/Astra"
     RELEASES_URL = f"{UPDATE_SERVER}/releases/latest"
     
     def __init__(self, current_version: str = "2.0.0"):
@@ -74,7 +74,7 @@ class JarvisUpdater:
         Inicializa o atualizador.
         
         Args:
-            current_version: Versão atual do Jarvis
+            current_version: Versão atual do Astra
         """
         self.current_version = Version(current_version)
         self.project_root = Path(__file__).parent.parent
@@ -175,7 +175,7 @@ class JarvisUpdater:
                 logger.info(f"✨ Nova versão disponível: {latest_version}")
                 return update_info
             else:
-                logger.info(f"✅ Jarvis está atualizado (v{self.current_version})")
+                logger.info(f"✅ Astra está atualizado (v{self.current_version})")
                 return None
                 
         except requests.RequestException as e:
@@ -246,7 +246,7 @@ class JarvisUpdater:
             response.raise_for_status()
             
             # Nome do arquivo
-            filename = f"jarvis_v{update_info['version']}.zip"
+            filename = f"Astra_v{update_info['version']}.zip"
             download_path = self.update_dir / filename
             
             # Tamanho total
@@ -294,7 +294,7 @@ class JarvisUpdater:
         
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            backup_name = f"jarvis_backup_v{self.current_version}_{timestamp}.zip"
+            backup_name = f"Astra_backup_v{self.current_version}_{timestamp}.zip"
             backup_path = self.backup_dir / backup_name
             
             # Criar zip do projeto
@@ -326,7 +326,7 @@ class JarvisUpdater:
         """Remove backups antigos, mantendo apenas os mais recentes"""
         try:
             backups = sorted(
-                self.backup_dir.glob("jarvis_backup_*.zip"),
+                self.backup_dir.glob("Astra_backup_*.zip"),
                 key=lambda p: p.stat().st_mtime,
                 reverse=True
             )
@@ -378,7 +378,7 @@ class JarvisUpdater:
                 self._copy_update_files(source_dir, self.project_root)
             
             logger.info("✅ Atualização instalada com sucesso!")
-            logger.info("🔄 Reinicie o Jarvis para aplicar as mudanças")
+            logger.info("🔄 Reinicie o Astra para aplicar as mudanças")
             
             return True
             
@@ -481,16 +481,16 @@ class JarvisUpdater:
         return self.install_update(update_file)
 
 
-def get_updater() -> JarvisUpdater:
+def get_updater() -> AstraUpdater:
     """Retorna instância do updater"""
     # Ler versão atual do __init__.py
     try:
-        from jarvis import __version__
+        from Astra import __version__
         version = __version__
     except:
         version = "2.0.0"
     
-    return JarvisUpdater(version)
+    return AstraUpdater(version)
 
 
 if __name__ == "__main__":
@@ -499,7 +499,7 @@ if __name__ == "__main__":
     
     updater = get_updater()
     
-    print("🔄 JARVIS AUTO-UPDATER")
+    print("🔄 Astra AUTO-UPDATER")
     print("=" * 50)
     print(f"Versão atual: {updater.current_version}")
     print()
@@ -514,4 +514,5 @@ if __name__ == "__main__":
         print(f"\n📋 Notas da versão:")
         print(update['release_notes'][:500])
     else:
-        print("\n✅ Jarvis está atualizado!")
+        print("\n✅ Astra está atualizado!")
+
