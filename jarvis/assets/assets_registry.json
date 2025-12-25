@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-09-20",
+    "description": "Registry de assets do ALEX"
+  },
+  "assets": [
+    {
+      "name": "alex_logo_main",
+      "type": "logo",
+      "format": "png",
+      "path": "assets/logos/alex_logo_main.png",
+      "size": [
+        512,
+        512
+      ],
+      "description": "Logo principal do ALEX - versão quadrada alta resolução",
+      "tags": [
+        "main",
+        "primary",
+        "high-res"
+      ]
+    },
+    {
+      "name": "alex_logo_horizontal",
+      "type": "logo",
+      "format": "png",
+      "path": "assets/logos/alex_logo_horizontal.png",
+      "size": [
+        800,
+        300
+      ],
+      "description": "Logo horizontal do ALEX para interfaces largas",
+      "tags": [
+        "horizontal",
+        "interface",
+        "wide"
+      ]
+    },
+    {
+      "name": "alex_favicon",
+      "type": "favicon",
+      "format": "ico",
+      "path": "assets/favicons/alex_favicon.ico",
+      "size": [
+        32,
+        32
+      ],
+      "description": "Favicon do ALEX para navegadores e aplicações",
+      "tags": [
+        "favicon",
+        "browser",
+        "small"
+      ]
+    },
+    {
+      "name": "alex_app_icon",
+      "type": "icon",
+      "format": "ico",
+      "path": "assets/icons/alex_app_icon.ico",
+      "size": [
+        256,
+        256
+      ],
+      "description": "Ícone da aplicação ALEX para Windows",
+      "tags": [
+        "application",
+        "windows",
+        "desktop"
+      ]
+    }
+  ]
+}

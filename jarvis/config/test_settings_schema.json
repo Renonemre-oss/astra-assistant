@@ -1,0 +1,270 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ALEX Test Settings Schema",
+  "description": "Schema para validação de configurações do framework de testes",
+  "type": "object",
+  "properties": {
+    "test_framework": {
+      "type": "object",
+      "properties": {
+        "logging_level": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+          "default": "INFO",
+          "description": "Nível de logging para testes"
+        },
+        "temp_cleanup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Se deve limpar arquivos temporários após testes"
+        },
+        "skip_unavailable_modules": {
+          "type": "boolean",
+          "default": true,
+          "description": "Se deve pular testes de módulos indisponíveis"
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 300,
+          "default": 30,
+          "description": "Timeout padrão para operações de teste"
+        },
+        "performance_thresholds": {
+          "type": "object",
+          "properties": {
+            "write_time_max": {
+              "type": "number",
+              "minimum": 0.1,
+              "maximum": 10.0,
+              "default": 1.0,
+              "description": "Tempo máximo para operações de escrita (segundos)"
+            },
+            "read_time_max": {
+              "type": "number",
+              "minimum": 0.1,
+              "maximum": 10.0,
+              "default": 1.0,
+              "description": "Tempo máximo para operações de leitura (segundos)"
+            },
+            "memory_usage_max": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 1000,
+              "default": 100,
+              "description": "Uso máximo de memória (MB)"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": ["logging_level", "temp_cleanup"],
+      "additionalProperties": false
+    },
+    "mock_settings": {
+      "type": "object",
+      "properties": {
+        "performance_manager": {
+          "type": "object",
+          "properties": {
+            "cpu_percent": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0,
+              "default": 25.0,
+              "description": "Percentual de CPU simulado"
+            },
+            "memory_percent": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0,
+              "default": 45.0,
+              "description": "Percentual de memória simulado"
+            },
+            "memory_rss": {
+              "type": "integer",
+              "minimum": 1000000,
+              "maximum": 1000000000,
+              "default": 104857600,
+              "description": "Memória RSS simulada (bytes)"
+            },
+            "num_threads": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 5,
+              "description": "Número de threads simuladas"
+            },
+            "max_workers": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20,
+              "default": 2,
+              "description": "Máximo de workers para testes"
+            },
+            "cache_size": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 1000,
+              "default": 100,
+              "description": "Tamanho do cache para testes"
+            },
+            "cache_ttl": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3600,
+              "default": 1,
+              "description": "TTL do cache (segundos)"
+            }
+          },
+          "additionalProperties": false
+        },
+        "audio_manager": {
+          "type": "object",
+          "properties": {
+            "tts_loaded": {
+              "type": "boolean",
+              "default": false,
+              "description": "Se TTS deve ser simulado como carregado"
+            },
+            "dependencies": {
+              "type": "object",
+              "properties": {
+                "TTS": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "simpleaudio": {
+                  "type": "boolean",
+                  "default": false
+                }
+              },
+              "additionalProperties": {
+                "type": "boolean"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "validation_tests": {
+          "type": "object",
+          "properties": {
+            "test_string": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "default": "test",
+              "description": "String padrão para testes"
+            },
+            "test_field": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 50,
+              "default": "test_field",
+              "description": "Nome de campo padrão para testes"
+            },
+            "test_value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "default": "test_value",
+              "description": "Valor padrão para testes"
+            },
+            "min_length": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 1,
+              "description": "Comprimento mínimo para testes de string"
+            },
+            "max_length": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 10,
+              "description": "Comprimento máximo para testes de string"
+            },
+            "numeric_min": {
+              "type": "number",
+              "default": 0,
+              "description": "Valor numérico mínimo para testes"
+            },
+            "numeric_max": {
+              "type": "number",
+              "default": 10,
+              "description": "Valor numérico máximo para testes"
+            },
+            "numeric_test": {
+              "type": "number",
+              "default": 5,
+              "description": "Valor numérico válido para testes"
+            },
+            "numeric_fail": {
+              "type": "number",
+              "default": 15,
+              "description": "Valor numérico inválido para testes"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "test_suites": {
+      "type": "object",
+      "properties": {
+        "unit_tests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Test[A-Za-z0-9]+$"
+          },
+          "description": "Lista de classes de testes unitários"
+        },
+        "integration_tests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+Test$"
+          },
+          "description": "Lista de classes de testes de integração"
+        },
+        "performance_tests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Performance[A-Za-z0-9]+$"
+          },
+          "description": "Lista de classes de testes de performance"
+        }
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "file_patterns": {
+      "type": "object",
+      "properties": {
+        "temp_files": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_.-]+\\.(json|txt|log|xml|yaml|yml)$"
+          },
+          "description": "Padrões de arquivos temporários"
+        }
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["test_framework"],
+  "additionalProperties": false
+}

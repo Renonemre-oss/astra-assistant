@@ -1,0 +1,9 @@
+{
+    "auto_check": true,
+    "auto_download": false,
+    "auto_install": false,
+    "check_interval_hours": 24,
+    "update_channel": "stable",
+    "last_check": null,
+    "skip_version": null
+}

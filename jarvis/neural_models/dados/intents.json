@@ -1,0 +1,310 @@
+{
+  "intents": [
+    {
+      "tag": "cumprimento",
+      "patterns": [
+        "olá",
+        "oi",
+        "bom dia",
+        "boa tarde",
+        "boa noite",
+        "tudo bem?",
+        "olá, como vai?",
+        "saudações",
+        "tudo em ordem?",
+        "como é que é?",
+        "fala comigo",
+        "estás aí?",
+        "e aí?",
+        "hey",
+        "oi jarvis",
+        "olá, estás a ouvir?",
+        "olá, podemos começar?"
+      ],
+      "responses": [
+        "Olá!",
+        "Olá, tudo bem?",
+        "Como posso ajudar hoje?",
+        "Olá, em que posso ser útil?",
+        "É bom ter notícias suas. Como posso ajudar?"
+      ]
+    },
+    {
+      "tag": "despedida",
+      "patterns": [
+        "adeus",
+        "até logo",
+        "obrigado, tchau",
+        "preciso ir",
+        "tenho de ir",
+        "até mais",
+        "tchauzinho",
+        "estou a sair",
+        "por agora é tudo",
+        "já vou indo",
+        "desligar",
+        "podes desligar por favor",
+        "até à próxima"
+      ],
+      "responses": [
+        "Até logo!",
+        "Tchau!",
+        "Sempre às ordens!",
+        "Adeus, tenha um bom dia!",
+        "Até à próxima."
+      ]
+    },
+    {
+      "tag": "agradecimento",
+      "patterns": [
+        "obrigado",
+        "muito obrigado",
+        "agradecido",
+        "valeu",
+        "muito agradecido",
+        "muito obrigado pela ajuda",
+        "grato",
+        "obrigadinho",
+        "agradeço a ajuda"
+      ],
+      "responses": [
+        "De nada!",
+        "Não foi nada, estou aqui para ajudar.",
+        "Fico feliz em ajudar.",
+        "Sempre um prazer."
+      ]
+    },
+    {
+      "tag": "pesquisar",
+      "patterns": [
+        "pesquisar por",
+        "procurar por",
+        "qual o significado de",
+        "o que é",
+        "encontrar informação sobre",
+        "fazer uma pesquisa por",
+        "procurar no google",
+        "qual o resultado de",
+        "pesquisa na internet sobre",
+        "pesquisar sobre",
+        "preciso de informação sobre",
+        "consulta na web sobre",
+        "busca por"
+      ],
+      "responses": [
+        "A pesquisar..."
+      ]
+    },
+    {
+      "tag": "lembrete",
+      "patterns": [
+        "lembrete de",
+        "anotar lembrete",
+        "meus lembretes",
+        "ler meus lembretes",
+        "apagar lembrete",
+        "apagar todos os lembretes",
+        "lembra-me de",
+        "salvar um lembrete",
+        "diz-me os meus lembretes",
+        "adiciona um lembrete para"
+      ],
+      "responses": [
+        "Lembrete anotado.",
+        "A ler os lembretes...",
+        "Lembretes apagados."
+      ]
+    },
+    {
+      "tag": "estado_humor",
+      "patterns": [
+        "como te sentes?",
+        "estás bem?",
+        "como é que está o teu dia?",
+        "estás feliz?",
+        "estás zangado?",
+        "estás triste?",
+        "como te sentes hoje?",
+        "estás a divertir-te?"
+      ],
+      "responses": [
+        "Estou bem, obrigado por perguntar.",
+        "Estou ótimo! E você?",
+        "Não tenho sentimentos, mas estou a funcionar perfeitamente."
+      ]
+    },
+    {
+      "tag": "clima",
+      "patterns": [
+        "como está o tempo hoje?",
+        "qual a previsão do tempo para amanhã?",
+        "vai chover?",
+        "qual a temperatura em",
+        "o clima em",
+        "previsão do tempo para",
+        "como está o tempo em",
+        "o tempo em",
+        "está sol?"
+      ],
+      "responses": [
+        "A verificar a previsão do tempo..."
+      ]
+    },
+    {
+      "tag": "noticias",
+      "patterns": [
+        "quais são as últimas notícias?",
+        "notícias de hoje",
+        "notícias sobre o desporto",
+        "diz-me as notícias",
+        "o que está a acontecer no mundo?",
+        "novidades",
+        "dá-me as notícias",
+        "notícias recentes"
+      ],
+      "responses": [
+        "A procurar as notícias mais recentes..."
+      ]
+    },
+    {
+      "tag": "música",
+      "patterns": [
+        "tocar música",
+        "põe uma música",
+        "tocar 'rock'",
+        "põe um som para mim",
+        "qual a tua música favorita?",
+        "toca uma playlist",
+        "toca alguma coisa",
+        "reproduzir música",
+        "coloca uma música",
+        "tocar 'jazz'"
+      ],
+      "responses": [
+        "A tocar uma música..."
+      ]
+    },
+    {
+      "tag": "piada",
+      "patterns": [
+        "conta uma piada",
+        "tens piadas?",
+        "faz-me rir",
+        "podes contar-me uma piada?",
+        "diz-me uma piada",
+        "conheces alguma piada?"
+      ],
+      "responses": [
+        "Porque é que o elefante não usa calções? Porque já tem cuecas!"
+      ]
+    },
+    {
+      "tag": "data_hora",
+      "patterns": [
+        "que horas são?",
+        "que dia é hoje?",
+        "qual a data de hoje?",
+        "diz-me as horas",
+        "hora atual",
+        "data de hoje",
+        "diz-me a data"
+      ],
+      "responses": [
+        "A verificar a data e a hora..."
+      ]
+    },
+    {
+      "tag": "localizacao",
+      "patterns": [
+        "onde eu estou?",
+        "qual a minha localização?",
+        "onde é que fica",
+        "qual a minha morada?",
+        "como chegar a",
+        "qual o meu endereço?"
+      ],
+      "responses": [
+        "A verificar a sua localização..."
+      ]
+    },
+    {
+      "tag": "calculo",
+      "patterns": [
+        "quanto é",
+        "calcular",
+        "qual o resultado de",
+        "quanto dá",
+        "faz a conta",
+        "calcula",
+        "soma",
+        "subtrai"
+      ],
+      "responses": [
+        "A calcular..."
+      ]
+    },
+    {
+      "tag": "lembrete_diario",
+      "patterns": [
+        "adicionar à minha rotina",
+        "todos os dias às",
+        "lembra-me diariamente de",
+        "adicionar tarefa diária",
+        "lembrete para todos os dias"
+      ],
+      "responses": [
+        "Adicionado à sua rotina diária."
+      ]
+    },
+    {
+      "tag": "evento_agenda",
+      "patterns": [
+        "novo evento na agenda",
+        "adicionar evento",
+        "evento para amanhã",
+        "evento para",
+        "marcar uma reunião",
+        "ler eventos da agenda"
+      ],
+      "responses": [
+        "Evento adicionado à sua agenda."
+      ]
+    },
+    {
+      "tag": "habito_novo",
+      "patterns": [
+        "começar a fazer",
+        "quero criar um novo hábito",
+        "adicionar novo hábito",
+        "quero ser mais consistente com",
+        "estou a tentar fazer"
+      ],
+      "responses": [
+        "O seu novo hábito foi registado."
+      ]
+    },
+    {
+      "tag": "status_tarefa",
+      "patterns": [
+        "marque como concluído",
+        "tarefa completa",
+        "terminei",
+        "já fiz",
+        "status da tarefa"
+      ],
+      "responses": [
+        "Tarefa marcada como concluída. Bom trabalho!"
+      ]
+    },
+    {
+  "tag": "fallback",
+  "patterns": [],
+  "responses": [
+    "Desculpe, não entendi. Pode repetir?",
+    "Não tenho certeza do que quis dizer. Quer tentar de outra forma?",
+    "Pode reformular a sua pergunta?"
+  ]
+}
+
+  ]
+}

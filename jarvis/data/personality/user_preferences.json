@@ -1,0 +1,12 @@
+{
+  "música": {
+    "rock": 4,
+    "jazz": 2
+  },
+  "comida": {
+    "pizza": 4
+  },
+  "personalidade": {
+    "casual": 6
+  }
+}

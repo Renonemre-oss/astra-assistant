@@ -1,0 +1,68 @@
+{
+  "_comment": "Template de Configuração para Módulos ALEX",
+  "_version": "1.0.0",
+  "_created": "2025-09-27",
+  
+  "module_info": {
+    "name": "ModuleTemplate",
+    "version": "1.0.0",
+    "author": "SEU_NOME",
+    "description": "Descrição do módulo",
+    "category": "general"
+  },
+  
+  "settings": {
+    "debug": true,
+    "timeout": 30,
+    "max_retries": 3,
+    "log_level": "INFO"
+  },
+  
+  "features": {
+    "feature_1": {
+      "enabled": true,
+      "config": {
+        "param1": "valor1",
+        "param2": 42
+      }
+    },
+    "feature_2": {
+      "enabled": false,
+      "config": {}
+    }
+  },
+  
+  "api": {
+    "base_url": "",
+    "api_key": "",
+    "endpoints": {
+      "main": "/api/v1",
+      "health": "/health"
+    }
+  },
+  
+  "database": {
+    "type": "sqlite",
+    "path": "data/module.db",
+    "tables": []
+  },
+  
+  "resources": {
+    "max_memory_mb": 256,
+    "max_cpu_percent": 50,
+    "temp_dir": "temp/",
+    "cache_size": 100
+  },
+  
+  "notifications": {
+    "on_error": true,
+    "on_success": false,
+    "channels": ["log", "console"]
+  },
+  
+  "advanced": {
+    "async_mode": false,
+    "thread_pool_size": 4,
+    "custom_params": {}
+  }
+}

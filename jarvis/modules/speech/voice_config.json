@@ -1,0 +1,29 @@
+{
+  "hotword": {
+    "enabled": true,
+    "wake_words": [
+      "jarvis",
+      "alex",
+      "assistente",
+      "hey alex"
+    ],
+    "sensitivity": 0.7,
+    "engine": "auto"
+  },
+  "vosk": {
+    "model_path": "C:\\Users\\antop\\Desktop\\jarvis\\models\\vosk-model-small-pt-0.3",
+    "sample_rate": 16000
+  },
+  "porcupine": {
+    "keywords": [
+      "computer",
+      "alexa"
+    ],
+    "sensitivity": 0.7
+  },
+  "tts": {
+    "engine": "auto",
+    "voice_rate": 180,
+    "voice_volume": 0.9
+  }
+}

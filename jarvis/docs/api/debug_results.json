@@ -1,0 +1,342 @@
+{
+  "timestamp": "2025-09-28T15:03:58.228391",
+  "execution_time": 4.003652334213257,
+  "summary": {
+    "overall_health": "FAIR",
+    "critical_issues": 1,
+    "warnings": 5,
+    "recommendations_count": 1
+  },
+  "structure": {
+    "directories": {
+      "core": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "modules": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "utils": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "audio": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "database": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "ui": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "data": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "neural_models": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "tests": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      },
+      "docs": {
+        "exists": false,
+        "files_count": 0,
+        "size_mb": 0
+      }
+    },
+    "files": {
+      "main.py": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      },
+      "config.py": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      },
+      "requirements.txt": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      },
+      "README.md": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      }
+    },
+    "imports": {
+      "internal_modules": [
+        "config",
+        ".test_config",
+        ".test_config",
+        ".test_factories",
+        "config",
+        ".test_config",
+        ".test_config",
+        ".test_config",
+        ".test_factories",
+        ".test_framework"
+      ],
+      "external_packages": [
+        "vosk",
+        "traceback",
+        "requests",
+        "platform",
+        "argparse",
+        "subprocess",
+        "multi_user_manager",
+        "json",
+        "database",
+        "database_manager",
+        "mysql",
+        "modules",
+        "enum",
+        "core",
+        "abc",
+        "test_factories",
+        "unittest",
+        "speech_recognition",
+        "sys",
+        "joblib",
+        "re",
+        "shutil",
+        "datetime",
+        "pathlib",
+        "pvporcupine",
+        "typing",
+        "test_config",
+        "audio",
+        "utils",
+        "coverage",
+        "psutil",
+        "[module_path]",
+        "config",
+        "pyttsx3",
+        "random",
+        "os",
+        "importlib",
+        "collections",
+        "dataclasses",
+        "voice",
+        "people_manager",
+        "tempfile",
+        "logging",
+        "jsonschema",
+        "pyaudio",
+        "time"
+      ],
+      "circular_imports": [],
+      "missing_imports": []
+    },
+    "issues": []
+  },
+  "dependencies": {
+    "python_version": "3.10.11",
+    "platform": "Windows",
+    "installed_packages": {
+      "PyQt6": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "requests": {
+        "version": "2.32.4",
+        "status": "OK"
+      },
+      "speechrecognition": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "pyttsx3": {
+        "version": "unknown",
+        "status": "OK"
+      },
+      "opencv-python": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "pillow": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "numpy": {
+        "version": "1.22.0",
+        "status": "OK"
+      },
+      "joblib": {
+        "version": "1.5.2",
+        "status": "OK"
+      },
+      "mysql-connector-python": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "duckduckgo-search": {
+        "version": "8.1.1",
+        "status": "OK"
+      },
+      "psutil": {
+        "version": "7.0.0",
+        "status": "OK"
+      }
+    },
+    "missing_packages": [
+      "PyQt6",
+      "speechrecognition",
+      "opencv-python",
+      "pillow",
+      "mysql-connector-python"
+    ],
+    "outdated_packages": [],
+    "services": {
+      "ollama": {
+        "status": "ONLINE",
+        "response_time": 0.01858,
+        "models": [
+          {
+            "name": "gemma3n:e4b",
+            "model": "gemma3n:e4b",
+            "modified_at": "2025-06-27T12:26:13.8165262+01:00",
+            "size": 7547589116,
+            "digest": "15cb39fd9394fd2549f6df9081cfc84dd134ecf2c9c5be911e5629920489ac32",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "gemma3n",
+              "families": [
+                "gemma3n"
+              ],
+              "parameter_size": "6.9B",
+              "quantization_level": "Q4_K_M"
+            }
+          }
+        ]
+      },
+      "mysql": {
+        "status": "OFFLINE",
+        "error": "2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: No connection could be made because the target machine actively refused it)"
+      }
+    },
+    "environment": {
+      "working_directory": "C:\\Users\\antop\\Desktop\\jarvis\\tests",
+      "python_path": "C:\\Users\\antop\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\python.exe",
+      "memory_available": "52.0 GB",
+      "cpu_count": 32,
+      "disk_free": "1358.5 GB"
+    }
+  },
+  "functionality": {
+    "core_modules": {
+      "config": {
+        "status": "ERROR",
+        "error": "No module named 'config'"
+      },
+      "assistente": {
+        "status": "ERROR",
+        "error": "No module named 'core'"
+      }
+    },
+    "neural_models": {
+      "model_file": {
+        "exists": false,
+        "size_mb": 0
+      },
+      "intents_file": {
+        "exists": false,
+        "size_kb": 0
+      }
+    },
+    "database": {
+      "mysql": {
+        "connection": "ERROR",
+        "error": "No module named 'database'"
+      }
+    },
+    "audio": {
+      "tts": {
+        "status": "OK",
+        "voices_available": 2,
+        "engine": "pyttsx3"
+      },
+      "stt": {
+        "status": "OK",
+        "microphones": 64,
+        "engine": "speech_recognition"
+      }
+    },
+    "ui_components": {},
+    "utilities": {
+      "text_processor": {
+        "status": "ERROR",
+        "error": "No module named 'utils'"
+      },
+      "general_utils": {
+        "status": "ERROR",
+        "error": "No module named 'utils'"
+      }
+    }
+  },
+  "performance": {
+    "system_resources": {
+      "cpu_percent": 2.3,
+      "memory_percent": 18.6,
+      "disk_usage_percent": 27.0,
+      "processes_count": 259
+    },
+    "file_sizes": {},
+    "load_times": {
+      "config": -1,
+      "utils.utils": -1,
+      "datetime": 0.0,
+      "json": 0.0
+    },
+    "memory_usage": {}
+  },
+  "logs": {
+    "log_files": {},
+    "error_patterns": {},
+    "logging_config": {
+      "level": 30,
+      "handlers_count": 0,
+      "effective_level": 30
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "component": "DEPENDENCIES",
+      "action": "Instalar pacotes faltando: pip install PyQt6 speechrecognition opencv-python pillow mysql-connector-python"
+    }
+  ],
+  "issues": [
+    {
+      "type": "CRITICAL",
+      "component": "STRUCTURE",
+      "message": "Diretório core não encontrado"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "WARNING",
+      "component": "DEPENDENCIES",
+      "message": "Pacotes faltando: PyQt6, speechrecognition, opencv-python, pillow, mysql-connector-python"
+    }
+  ]
+}

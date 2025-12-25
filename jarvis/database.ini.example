@@ -1,0 +1,12 @@
+[sqlite]
+database_path = alex_assistant.db
+
+# Configurações adicionais
+check_same_thread = false
+timeout = 30.0
+foreign_keys = true
+
+# Instruções:
+# 1. Renomeie este arquivo para 'database.ini' e mova para a pasta 'config'
+# 2. Ajuste o caminho do arquivo da base de dados se necessário
+# 3. Reinicie o ALEX

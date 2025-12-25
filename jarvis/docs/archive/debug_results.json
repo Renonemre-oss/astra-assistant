@@ -1,0 +1,389 @@
+{
+  "timestamp": "2025-09-20T10:43:07.441901",
+  "execution_time": 7.50916600227356,
+  "summary": {
+    "overall_health": "GOOD",
+    "critical_issues": 0,
+    "warnings": 5,
+    "recommendations_count": 1
+  },
+  "structure": {
+    "directories": {
+      "core": {
+        "exists": true,
+        "files_count": 1,
+        "size_mb": 0.11
+      },
+      "modules": {
+        "exists": true,
+        "files_count": 6,
+        "size_mb": 0.21
+      },
+      "utils": {
+        "exists": true,
+        "files_count": 7,
+        "size_mb": 0.18
+      },
+      "audio": {
+        "exists": true,
+        "files_count": 2,
+        "size_mb": 0.05
+      },
+      "database": {
+        "exists": true,
+        "files_count": 4,
+        "size_mb": 0.09
+      },
+      "ui": {
+        "exists": true,
+        "files_count": 1,
+        "size_mb": 0.03
+      },
+      "data": {
+        "exists": true,
+        "files_count": 0,
+        "size_mb": 0.08
+      },
+      "neural_models": {
+        "exists": true,
+        "files_count": 3,
+        "size_mb": 0.06
+      },
+      "tests": {
+        "exists": true,
+        "files_count": 8,
+        "size_mb": 0.07
+      },
+      "docs": {
+        "exists": true,
+        "files_count": 0,
+        "size_mb": 0.04
+      }
+    },
+    "files": {
+      "main.py": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      },
+      "config.py": {
+        "exists": false,
+        "size_kb": 0,
+        "last_modified": null
+      },
+      "requirements.txt": {
+        "exists": true,
+        "size_kb": 1.16796875,
+        "last_modified": 1758296378.8332028
+      },
+      "README.md": {
+        "exists": true,
+        "size_kb": 7.48828125,
+        "last_modified": 1758298312.9579325
+      }
+    },
+    "imports": {
+      "internal_modules": [
+        "config"
+      ],
+      "external_packages": [
+        "numbers",
+        "pyreadline3",
+        "annotationlib",
+        "_socket",
+        "io",
+        "database",
+        "profile",
+        "subprocess",
+        "json",
+        "asyncio",
+        "enum",
+        "_soundfile_data",
+        "speech_recognition",
+        "operator",
+        "types",
+        "_soundfile",
+        "_sounddevice_data",
+        "time",
+        "__init__",
+        "tests",
+        "core",
+        "typing",
+        "traceback",
+        "datetime",
+        "numpy",
+        "warnings",
+        "requests",
+        "Cython",
+        "sympy",
+        "ui",
+        "pyttsx3",
+        "collections",
+        "re",
+        "keyword",
+        "errno",
+        "contextlib",
+        "matplotlib",
+        "_cffi_backend",
+        "__future__",
+        "IPython",
+        "pyodide_js",
+        "ctypes",
+        "locale",
+        "absl",
+        "struct",
+        "faulthandler",
+        "mysql",
+        "_sounddevice",
+        "pathlib",
+        "platform",
+        "threading",
+        "abc",
+        "cProfile",
+        "itertools",
+        "atexit",
+        "config",
+        "importlib",
+        "logging",
+        "textwrap",
+        "builtins",
+        "StringIO",
+        "argparse",
+        "sys",
+        "joblib",
+        "psutil",
+        "typing_extensions",
+        "functools",
+        "utils",
+        "os",
+        "inspect",
+        "pdb"
+      ],
+      "circular_imports": [],
+      "missing_imports": []
+    },
+    "issues": []
+  },
+  "dependencies": {
+    "python_version": "3.10.11",
+    "platform": "Windows",
+    "installed_packages": {
+      "PyQt6": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "requests": {
+        "version": "2.32.4",
+        "status": "OK"
+      },
+      "speechrecognition": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "pyttsx3": {
+        "version": "unknown",
+        "status": "OK"
+      },
+      "opencv-python": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "pillow": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "numpy": {
+        "version": "1.22.0",
+        "status": "OK"
+      },
+      "joblib": {
+        "version": "1.5.2",
+        "status": "OK"
+      },
+      "mysql-connector-python": {
+        "version": null,
+        "status": "MISSING"
+      },
+      "duckduckgo-search": {
+        "version": "8.1.1",
+        "status": "OK"
+      },
+      "psutil": {
+        "version": "7.0.0",
+        "status": "OK"
+      }
+    },
+    "missing_packages": [
+      "PyQt6",
+      "speechrecognition",
+      "opencv-python",
+      "pillow",
+      "mysql-connector-python"
+    ],
+    "outdated_packages": [],
+    "services": {
+      "ollama": {
+        "status": "ONLINE",
+        "response_time": 0.003878,
+        "models": [
+          {
+            "name": "gemma3n:e4b",
+            "model": "gemma3n:e4b",
+            "modified_at": "2025-06-27T12:26:13.8165262+01:00",
+            "size": 7547589116,
+            "digest": "15cb39fd9394fd2549f6df9081cfc84dd134ecf2c9c5be911e5629920489ac32",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "gemma3n",
+              "families": [
+                "gemma3n"
+              ],
+              "parameter_size": "6.9B",
+              "quantization_level": "Q4_K_M"
+            }
+          }
+        ]
+      },
+      "mysql": {
+        "status": "ONLINE",
+        "version": "5.5.5-10.4.32-MariaDB"
+      }
+    },
+    "environment": {
+      "working_directory": "C:\\Users\\antop\\Desktop\\jarvis",
+      "python_path": "C:\\Users\\antop\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\python.exe",
+      "memory_available": "48.9 GB",
+      "cpu_count": 32,
+      "disk_free": "1356.4 GB"
+    }
+  },
+  "functionality": {
+    "core_modules": {
+      "config": {
+        "status": "OK",
+        "database_available": false,
+        "config_keys": 13,
+        "ui_styles": 1
+      },
+      "assistente": {
+        "status": "ERROR",
+        "error": "No module named 'user_profile'"
+      }
+    },
+    "neural_models": {
+      "model_file": {
+        "exists": true,
+        "size_mb": 0.053200721740722656
+      },
+      "intents_file": {
+        "exists": true,
+        "size_kb": 7.2939453125
+      },
+      "model_loading": {
+        "status": "OK",
+        "load_time": 0.002,
+        "model_type": "MultinomialNB",
+        "vectorizer_type": "TfidfVectorizer"
+      },
+      "predictions_test": {
+        "status": "OK",
+        "test_results": {
+          "que horas são": "data_hora",
+          "olá": "cumprimento",
+          "tchau": "despedida"
+        }
+      }
+    },
+    "database": {
+      "local_files": {
+        "count": 5,
+        "files": [
+          "conversation_history.json",
+          "people.json",
+          "personal_facts.json",
+          "users.json",
+          "user_profile.json"
+        ],
+        "total_size_mb": 0.039299964904785156
+      },
+      "mysql": {
+        "connection": "OK",
+        "database": "alex_assistant"
+      }
+    },
+    "audio": {
+      "tts": {
+        "status": "OK",
+        "voices_available": 2,
+        "engine": "pyttsx3"
+      },
+      "stt": {
+        "status": "OK",
+        "microphones": 64,
+        "engine": "speech_recognition"
+      }
+    },
+    "ui_components": {},
+    "utilities": {
+      "text_processor": {
+        "status": "OK",
+        "test_passed": true
+      },
+      "general_utils": {
+        "status": "OK",
+        "emoji_removal": true,
+        "services_check": true
+      }
+    }
+  },
+  "performance": {
+    "system_resources": {
+      "cpu_percent": 5.0,
+      "memory_percent": 24.1,
+      "disk_usage_percent": 27.2,
+      "processes_count": 294
+    },
+    "file_sizes": {
+      "neural_models/modelo.pkl": 54.48,
+      "data/conversation_history.json": 3.89,
+      "core/assistente.py": 39.56
+    },
+    "load_times": {
+      "config": 0.0,
+      "utils.utils": 0.0,
+      "datetime": 0.0,
+      "json": 0.0
+    },
+    "memory_usage": {}
+  },
+  "logs": {
+    "log_files": {
+      "alex_assistant.log": {
+        "size_kb": 17.978515625,
+        "last_modified": "2025-09-20T10:38:04.164860"
+      }
+    },
+    "error_patterns": {},
+    "logging_config": {
+      "level": 20,
+      "handlers_count": 1,
+      "effective_level": 20
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "component": "DEPENDENCIES",
+      "action": "Instalar pacotes faltando: pip install PyQt6 speechrecognition opencv-python pillow mysql-connector-python"
+    }
+  ],
+  "issues": [],
+  "warnings": [
+    {
+      "type": "WARNING",
+      "component": "DEPENDENCIES",
+      "message": "Pacotes faltando: PyQt6, speechrecognition, opencv-python, pillow, mysql-connector-python"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+version: '3.8'
+
+# ================================
+# ALEX/JARVIS - Docker Compose
+# Complete stack configuration
+# ================================
+
+services:
+  # ================================
+  # Main Application
+  # ================================
+  alex-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alex-assistant
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OLLAMA_URL=http://ollama:11434
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_PATH=/app/data/alex_assistant.db
+    volumes:
+      - ./jarvis:/app/jarvis
+      - alex-data:/app/data
+      - alex-logs:/app/logs
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - ollama
+    networks:
+      - alex-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ================================
+  # API Server (FastAPI)
+  # ================================
+  alex-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alex-api
+    restart: unless-stopped
+    command: ["uvicorn", "api_server.main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_PATH=/app/data/alex_assistant.db
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./jarvis:/app/jarvis
+      - alex-data:/app/data
+      - alex-logs:/app/logs
+    ports:
+      - "8001:8001"
+    depends_on:
+      - redis
+      - alex-app
+    networks:
+      - alex-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/api/v1/system/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ================================
+  # Redis Cache
+  # ================================
+  redis:
+    image: redis:7-alpine
+    container_name: alex-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - alex-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ================================
+  # Ollama (Local LLM)
+  # ================================
+  ollama:
+    image: ollama/ollama:latest
+    container_name: alex-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama-data:/root/.ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - alex-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ================================
+  # Dashboard (Future)
+  # ================================
+  # alex-dashboard:
+  #   build:
+  #     context: ./dashboard/frontend
+  #     dockerfile: Dockerfile
+  #   container_name: alex-dashboard
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - REACT_APP_API_URL=http://localhost:8001
+  #   depends_on:
+  #     - alex-api
+  #   networks:
+  #     - alex-network
+
+# ================================
+# Networks
+# ================================
+networks:
+  alex-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ================================
+# Volumes
+# ================================
+volumes:
+  alex-data:
+    driver: local
+  alex-logs:
+    driver: local
+  redis-data:
+    driver: local
+  ollama-data:
+    driver: local

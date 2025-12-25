@@ -1,0 +1,10 @@
+{
+  "current_voice": "coqui_tts_models_multilingual_multi_dataset_xtts_v2",
+  "settings": {
+    "speed": 1.0,
+    "pitch": 0.0,
+    "volume": 1.0,
+    "pause_between_sentences": 0.2,
+    "enable_ssml": false
+  }
+}

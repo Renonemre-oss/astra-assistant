@@ -1,0 +1,143 @@
+{
+  "Minha": {
+    "name": "Minha",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.502045",
+    "updated_at": "2025-09-19T15:10:13.502045"
+  },
+  "Irmã": {
+    "name": "Irmã",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.510552",
+    "updated_at": "2025-09-19T15:10:13.510552"
+  },
+  "Maria": {
+    "name": "Maria",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.517060",
+    "updated_at": "2025-09-19T15:10:13.517060"
+  },
+  "Gosta": {
+    "name": "Gosta",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.523568",
+    "updated_at": "2025-09-19T15:10:13.523568"
+  },
+  "Comer": {
+    "name": "Comer",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.531074",
+    "updated_at": "2025-09-19T15:10:13.531074"
+  },
+  "Pizza": {
+    "name": "Pizza",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.537080",
+    "updated_at": "2025-09-19T15:10:13.537080"
+  },
+  "Ouvir": {
+    "name": "Ouvir",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.543099",
+    "updated_at": "2025-09-19T15:10:13.543099"
+  },
+  "Rock": {
+    "name": "Rock",
+    "relationship": null,
+    "mentioned_as": null,
+    "source_text": "a minha irmã maria gosta de comer pizza e ouvir rock",
+    "personality_traits": "gosta de comer pizza e ouvir rock",
+    "interests": "pizza e ouvir rock",
+    "gender": "feminino",
+    "favorite_foods": "pizza",
+    "created_at": "2025-09-19T15:10:13.549320",
+    "updated_at": "2025-09-19T15:10:13.549320"
+  },
+  "irmã": {
+    "name": null,
+    "relationship": "irmã",
+    "mentioned_as": "a irmã",
+    "source_text": "a minha irmã ana tem 25 anos e trabalha como professora. ela gosta muito de ler livros e ouvir música clássica.",
+    "profession": "professora.",
+    "age": 25,
+    "gender": "feminino",
+    "created_at": "2025-09-19T15:14:30.620970",
+    "updated_at": "2025-09-19T15:14:30.620970"
+  },
+  "professor": {
+    "name": null,
+    "relationship": "professor",
+    "mentioned_as": "o professor",
+    "source_text": "a minha irmã ana tem 25 anos e trabalha como professora. ela gosta muito de ler livros e ouvir música clássica.",
+    "profession": "professora.",
+    "age": 25,
+    "gender": "feminino",
+    "created_at": "2025-09-19T15:14:30.627973",
+    "updated_at": "2025-09-19T15:14:30.627973"
+  },
+  "amigo": {
+    "name": null,
+    "relationship": "amigo",
+    "mentioned_as": "meu amigo",
+    "source_text": "o meu amigo joão é muito engraçado e adora jogar futebol. a comida favorita dele é lasanha.",
+    "personality_traits": "é muito engraçado; adora jogar futebol. a comida favorita dele é lasanha.",
+    "interests": "futebol. a comida favorita dele é lasanha.; lasanha.",
+    "profession": "muito",
+    "gender": "feminino",
+    "favorite_foods": "jogar",
+    "created_at": "2025-09-19T15:14:30.645235",
+    "updated_at": "2025-09-19T15:14:30.645235"
+  },
+  "colega": {
+    "name": null,
+    "relationship": "colega",
+    "mentioned_as": "minha colega",
+    "source_text": "a minha colega sofia é super inteligente e está sempre a beber café. ela é engenheira de software.",
+    "profession": "super",
+    "gender": "feminino",
+    "created_at": "2025-09-19T15:14:30.669252",
+    "updated_at": "2025-09-19T15:14:30.669252"
+  }
+}

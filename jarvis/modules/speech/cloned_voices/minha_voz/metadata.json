@@ -1,0 +1,7 @@
+{
+  "name": "minha_voz",
+  "created_at": 1758448335.6803098,
+  "model_used": "tts_models/multilingual/multi-dataset/xtts_v2",
+  "sample_rate": 22050,
+  "reference_file": "reference.wav"
+}

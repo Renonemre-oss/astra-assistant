@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEX - Logo Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2d1810 0%, #3d2820 100%);
+            color: #f5f0e6;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #007bff, #ffc107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .logo-card {
+            background: rgba(60, 30, 20, 0.8);
+            border: 2px solid rgba(220, 160, 100, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-card:hover {
+            border-color: rgba(255, 193, 7, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-card img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .logo-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffc107;
+        }
+
+        .logo-card p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .format-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .format-tag {
+            background: rgba(0, 123, 255, 0.3);
+            border: 1px solid rgba(0, 123, 255, 0.5);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .usage-examples {
+            background: rgba(45, 24, 16, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .usage-examples h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ffc107;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .example-item {
+            background: rgba(60, 30, 20, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .example-item img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .example-item h4 {
+            color: #dcaa64;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: rgba(0, 123, 255, 0.1);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+            display: block;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(220, 160, 100, 0.3);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 ALEX Logo Showcase</h1>
+            <p>Sistema completo de identidade visual para o Assistente Pessoal ALEX</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Arquivos Gerados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Variantes de Logo</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Formatos (PNG/ICO/SVG)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo-grid">
+            <div class="logo-card">
+                <img src="../assets/logos/alex_logo_main.png" alt="Logo Principal ALEX" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-size: 4rem;">🤖</div>
+                <h3>Logo Principal</h3>
+                <p>Versão quadrada de alta resolução para uso geral</p>
+                <div class="format-tags">
+                    <span class="format-tag">PNG</span>
+                    <span class="format-tag">ICO</span>
+                </div>
+            </div>
+
+            <div class="logo-card">
+                <img src="../assets/logos/alex_logo_horizontal.png" alt="Logo Horizontal ALEX" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-size: 4rem;">📱</div>
+                <h3>Logo Horizontal</h3>
+                <p>Versão alargada para interfaces e banners</p>
+                <div class="format-tags">
+                    <span class="format-tag">PNG</span>
+                </div>
+            </div>
+
+            <div class="logo-card">
+                <img src="../assets/favicons/alex_favicon.png" alt="Favicon ALEX" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-size: 4rem;">🌐</div>
+                <h3>Favicon</h3>
+                <p>Ícone pequeno para navegadores e aplicações web</p>
+                <div class="format-tags">
+                    <span class="format-tag">PNG</span>
+                    <span class="format-tag">ICO</span>
+                </div>
+            </div>
+
+            <div class="logo-card">
+                <img src="../assets/icons/alex_app_icon.png" alt="Ícone da Aplicação ALEX" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; font-size: 4rem;">💻</div>
+                <h3>Ícone da Aplicação</h3>
+                <p>Ícone para sistema operacional Windows</p>
+                <div class="format-tags">
+                    <span class="format-tag">PNG</span>
+                    <span class="format-tag">ICO</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="usage-examples">
+            <h2>🚀 Exemplos de Uso</h2>
+            <div class="example-grid">
+                <div class="example-item">
+                    <img src="../assets/logos/alex_logo_main.png" alt="Interface" onerror="this.innerHTML='<div style=\\'font-size:3rem\\'>🖥️</div>'">
+                    <h4>Interface Principal</h4>
+                    <p>Logo no cabeçalho da aplicação desktop</p>
+                </div>
+
+                <div class="example-item">
+                    <img src="../assets/favicons/alex_favicon.png" alt="Web" onerror="this.innerHTML='<div style=\\'font-size:3rem\\'>🌐</div>'">
+                    <h4>Interface Web</h4>
+                    <p>Favicon em páginas web e documentação</p>
+                </div>
+
+                <div class="example-item">
+                    <img src="../assets/icons/alex_app_icon.png" alt="Sistema" onerror="this.innerHTML='<div style=\\'font-size:3rem\\'>🖱️</div>'">
+                    <h4>Sistema Operacional</h4>
+                    <p>Ícone na área de trabalho e barra de tarefas</p>
+                </div>
+
+                <div class="example-item">
+                    <img src="../assets/logos/alex_logo_horizontal.png" alt="Splash" onerror="this.innerHTML='<div style=\\'font-size:3rem\\'>✨</div>'">
+                    <h4>Splash Screen</h4>
+                    <p>Tela de carregamento do sistema</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🤖 ALEX - Assistente Pessoal Inteligente | Sistema de Assets v2.0</p>
+            <p>Logos gerados automaticamente • Design moderno e responsivo</p>
+        </div>
+    </div>
+
+    <script>
+        // Animações suaves ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.logo-card, .example-item');
+            
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 150);
+            });
+
+            // Contador animado
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalValue = parseInt(stat.textContent);
+                let currentValue = 0;
+                const increment = finalValue / 30;
+                
+                const counter = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = finalValue;
+                        clearInterval(counter);
+                    } else {
+                        stat.textContent = Math.floor(currentValue);
+                    }
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+# ALEX/JARVIS - Git Ignore
+
+# ======================
+# SECURITY & SECRETS
+# ======================
+.env
+.env.local
+.env.production
+*.key
+*.pem
+secrets/
+*.secret
+
+# ======================
+# PYTHON
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+.venv/
+ENV/
+env/
+
+# ======================
+# DATABASES
+# ======================
+*.db
+*.sqlite
+*.sqlite3
+data/jarvis.db
+data/*.db
+
+# ======================
+# LOGS
+# ======================
+logs/
+*.log
+jarvis/logs/
+
+# ======================
+# IDE
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ======================
+# MODELS & DATA
+# ======================
+neural_models/*.pth
+neural_models/*.pt
+neural_models/*.bin
+models/
+checkpoints/
+*.pkl
+*.joblib
+
+# ======================
+# TEMPORARY
+# ======================
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# ======================
+# DOCKER
+# ======================
+docker-compose.override.yml
+
+# ======================
+# PYTEST
+# ======================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/

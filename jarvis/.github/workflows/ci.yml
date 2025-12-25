@@ -1,0 +1,424 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '18'
+
+jobs:
+  # =============================================================================
+  # Code Quality Checks
+  # =============================================================================
+  quality:
+    name: Code Quality & Linting
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ruff black isort mypy pre-commit
+        pip install -e ".[dev]"
+    
+    - name: Cache pre-commit
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
+    
+    - name: Run pre-commit
+      run: pre-commit run --all-files --show-diff-on-failure
+    
+    - name: Run ruff
+      run: ruff check . --output-format=github
+      
+    - name: Run black
+      run: black . --check --diff
+      
+    - name: Run isort
+      run: isort . --check-only --diff
+      
+    - name: Run mypy
+      run: mypy . --ignore-missing-imports
+
+  # =============================================================================
+  # Unit Tests
+  # =============================================================================
+  test:
+    name: Tests
+    needs: quality
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        exclude:
+          # Skip some combinations to reduce CI time
+          - os: windows-latest
+            python-version: '3.8'
+          - os: windows-latest
+            python-version: '3.9'
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+    
+    # Linux/macOS dependencies
+    - name: Install system dependencies (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y portaudio19-dev python3-dev
+        # Mock display for PyQt6 tests
+        sudo apt-get install -y xvfb
+    
+    # Windows dependencies
+    - name: Install system dependencies (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        # Add any Windows-specific dependencies here
+        echo "Setting up Windows environment"
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov pytest-mock pytest-xvfb
+        pip install -e ".[dev]"
+    
+    - name: Create test environment
+      run: |
+        mkdir -p data logs tests/fixtures
+        echo '{"test": true}' > data/test_config.json
+    
+    - name: Run unit tests
+      env:
+        # Skip GUI tests in CI
+        ALEX_TEST_MODE: "1"
+        ALEX_SKIP_GUI: "1"
+        DISPLAY: ":99"
+      run: |
+        # Ubuntu: Use virtual display
+        if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+          xvfb-run -a pytest tests/ -m "unit" --cov=. --cov-report=xml --cov-report=term-missing -v
+        else
+          pytest tests/ -m "unit" --cov=. --cov-report=xml --cov-report=term-missing -v
+        fi
+      shell: bash
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  # =============================================================================
+  # Integration Tests (Only on main OS)
+  # =============================================================================
+  integration:
+    name: Integration Tests
+    needs: quality
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: test_password
+          MYSQL_DATABASE: alex_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y portaudio19-dev python3-dev xvfb
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Set up test database
+      env:
+        MYSQL_HOST: localhost
+        MYSQL_PORT: 3306
+        MYSQL_USER: root
+        MYSQL_PASSWORD: test_password
+        MYSQL_DATABASE: alex_test
+      run: |
+        # Create test MySQL config
+        cat > mysql_config.ini << EOF
+        [mysql]
+        host = localhost
+        port = 3306
+        user = root
+        password = test_password
+        database = alex_test
+        charset = utf8mb4
+        collation = utf8mb4_unicode_ci
+        EOF
+    
+    - name: Run integration tests
+      env:
+        ALEX_TEST_MODE: "1"
+        ALEX_SKIP_GUI: "1"
+        DISPLAY: ":99"
+      run: |
+        xvfb-run -a pytest tests/ -m "integration" --cov=. --cov-report=xml -v
+    
+    - name: Upload integration coverage
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: integration
+        name: codecov-integration
+
+  # =============================================================================
+  # Security Scan
+  # =============================================================================
+  security:
+    name: Security Scan
+    needs: quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install security tools
+      run: |
+        python -m pip install bandit[toml] safety
+    
+    - name: Run Bandit security scan
+      run: bandit -c build/pyproject.toml -r . -f json -o bandit-report.json
+      continue-on-error: true
+    
+    - name: Run Safety check
+      run: safety check --json --output safety-report.json
+      continue-on-error: true
+    
+    - name: Upload security reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          safety-report.json
+
+  # =============================================================================
+  # Build Windows Executable
+  # =============================================================================
+  build-windows:
+    name: Build Windows Executable
+    needs: [quality, test]
+    runs-on: windows-latest
+    if: github.event_name == 'release' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install -e ".[extra]"
+    
+    - name: Create application icon
+      run: |
+        # Create a simple icon if not exists
+        if (!(Test-Path "assets")) { New-Item -ItemType Directory "assets" }
+        if (!(Test-Path "assets/icon.ico")) {
+          echo "Creating placeholder icon..."
+          # In real scenario, you'd have a proper icon file
+        }
+      shell: pwsh
+    
+    - name: Build executable
+      run: |
+        # Create PyInstaller spec
+        pyi-makespec --onedir --windowed --name="ALEX" --clean run_alex.py
+        
+        # Customize spec file for better packaging
+        $specContent = @"
+        # -*- mode: python ; coding: utf-8 -*-
+        
+        block_cipher = None
+        
+        a = Analysis(
+            ['run_alex.py'],
+            pathex=[],
+            binaries=[],
+            datas=[
+                ('data', 'data'),
+                ('neural_models', 'neural_models'),
+                ('config', 'config'),
+                ('README.md', '.'),
+                ('requirements.txt', '.'),
+            ],
+            hiddenimports=[
+                'PyQt6.QtCore',
+                'PyQt6.QtGui', 
+                'PyQt6.QtWidgets',
+                'PyQt6.QtWebEngineWidgets',
+                'sqlalchemy.ext.baked',
+            ],
+            hookspath=[],
+            hooksconfig={},
+            runtime_hooks=[],
+            excludes=[],
+            win_no_prefer_redirects=False,
+            win_private_assemblies=False,
+            cipher=block_cipher,
+            noarchive=False,
+        )
+        pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+        
+        exe = EXE(
+            pyz,
+            a.scripts,
+            [],
+            exclude_binaries=True,
+            name='ALEX',
+            debug=False,
+            bootloader_ignore_signals=False,
+            strip=False,
+            upx=True,
+            console=False,
+            disable_windowed_traceback=False,
+            argv_emulation=False,
+            target_arch=None,
+            codesign_identity=None,
+            entitlements_file=None,
+        )
+        coll = COLLECT(
+            exe,
+            a.binaries,
+            a.zipfiles,
+            a.datas,
+            strip=False,
+            upx=True,
+            upx_exclude=[],
+            name='ALEX',
+        )
+        "@
+        
+        $specContent | Out-File -FilePath "ALEX.spec" -Encoding utf8
+        
+        # Build the executable
+        pyinstaller ALEX.spec --clean --noconfirm
+      shell: pwsh
+    
+    - name: Create release archive
+      run: |
+        $version = if ($env:GITHUB_REF -match "refs/tags/v(.+)") { $matches[1] } else { "latest" }
+        $archiveName = "ALEX-v$version-Windows.zip"
+        
+        Compress-Archive -Path "dist/ALEX/*" -DestinationPath $archiveName
+        echo "ARCHIVE_NAME=$archiveName" >> $env:GITHUB_ENV
+      shell: pwsh
+    
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ALEX-Windows
+        path: ${{ env.ARCHIVE_NAME }}
+        retention-days: 30
+    
+    # Upload to release if this is a release event
+    - name: Upload to release
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ${{ env.ARCHIVE_NAME }}
+        asset_name: ${{ env.ARCHIVE_NAME }}
+        asset_content_type: application/zip
+
+  # =============================================================================
+  # Documentation Deploy
+  # =============================================================================
+  docs:
+    name: Deploy Documentation
+    needs: quality
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Generate documentation
+      run: |
+        # Create documentation from README and docs/
+        mkdir -p site
+        cp README.md site/index.md
+        cp -r docs/* site/
+        
+        # Create a simple index page
+        echo "# ALEX Documentation" > site/README.md
+        echo "- [Main README](index.md)" >> site/README.md
+        echo "- [WARP Guide](WARP.md)" >> site/README.md
+        echo "- [Multi-User System](SISTEMA_MULTIUSER_CONTEXTUAL_README.md)" >> site/README.md
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site

@@ -1,0 +1,65 @@
+{
+  "test_framework": {
+    "logging_level": "INFO",
+    "temp_cleanup": true,
+    "skip_unavailable_modules": true,
+    "timeout_seconds": 30,
+    "performance_thresholds": {
+      "write_time_max": 1.0,
+      "read_time_max": 1.0,
+      "memory_usage_max": 100
+    }
+  },
+  "mock_settings": {
+    "performance_manager": {
+      "cpu_percent": 25.0,
+      "memory_percent": 45.0,
+      "memory_rss": 104857600,
+      "num_threads": 5,
+      "max_workers": 2,
+      "cache_size": 100,
+      "cache_ttl": 1
+    },
+    "audio_manager": {
+      "tts_loaded": false,
+      "dependencies": {
+        "TTS": false,
+        "simpleaudio": false
+      }
+    },
+    "validation_tests": {
+      "test_string": "test",
+      "test_field": "test_field",
+      "test_value": "test_value",
+      "min_length": 1,
+      "max_length": 10,
+      "numeric_min": 0,
+      "numeric_max": 10,
+      "numeric_test": 5,
+      "numeric_fail": 15
+    }
+  },
+  "test_suites": {
+    "unit_tests": [
+      "TestSystemDiagnostics",
+      "TestPerformanceManager",
+      "TestErrorHandler",
+      "TestAudioManager",
+      "TestPersonalProfile",
+      "TestDatabaseModels",
+      "TestConfigSystem"
+    ],
+    "integration_tests": [
+      "IntegrationTest"
+    ],
+    "performance_tests": [
+      "PerformanceTest"
+    ]
+  },
+  "file_patterns": {
+    "temp_files": [
+      "performance_test.json",
+      "personal_facts.json"
+    ]
+  }
+}

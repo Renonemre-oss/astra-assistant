@@ -1,0 +1,161 @@
+# ================================
+# ALEX/JARVIS - Dependencies
+# Organized by category
+# ================================
+
+# ================================
+# CORE DEPENDENCIES
+# ================================
+python>=3.10,<3.13
+
+# ================================
+# WEB FRAMEWORK & API
+# ================================
+fastapi==0.115.5  # Latest stable
+uvicorn[standard]==0.32.1  # Latest with performance improvements
+pydantic==2.10.3  # Latest v2
+pydantic-settings==2.6.1
+python-multipart==0.0.19
+
+# ================================
+# UI & INTERFACE
+# ================================
+PyQt6==6.7.1  # Latest stable
+PyQt6-WebEngine==6.7.0
+
+# ================================
+# AI & ML
+# ================================
+requests==2.32.3  # Latest
+numpy==2.2.0  # Latest major version
+scikit-learn==1.6.0  # Latest
+joblib==1.4.2
+
+# RAG - Retrieval Augmented Generation
+chromadb==0.5.23  # Vector database
+sentence-transformers==3.3.1  # Embeddings
+PyPDF2==3.0.1  # PDF processing
+
+# ================================
+# NATURAL LANGUAGE
+# ================================
+nltk==3.9.1  # Latest
+
+# ================================
+# SPEECH & AUDIO
+# ================================
+pyttsx3==2.98  # Latest
+SpeechRecognition==3.11.0  # Latest
+pyaudio==0.2.14  # Still latest
+
+# TTS Advanced (optional)
+TTS==0.22.0  # Latest stable (Coqui)
+
+# ================================
+# DATABASE
+# ================================
+# SQLite is built-in
+sqlalchemy==2.0.36  # Latest 2.0 series
+
+# ================================
+# IMAGE PROCESSING
+# ================================
+Pillow==11.0.0  # Latest major version
+pytesseract==0.3.13  # Latest
+
+# ================================
+# SEARCH
+# ================================
+duckduckgo-search==7.1.0  # Latest
+
+# ================================
+# API INTEGRATIONS
+# ================================
+schedule==1.2.2  # Latest
+
+# ================================
+# TESTING
+# ================================
+pytest==8.3.4  # Latest
+pytest-cov==6.0.0  # Latest
+pytest-mock==3.14.0  # Latest
+pytest-asyncio==0.24.0  # Latest
+faker==33.1.0  # Latest
+
+# ================================
+# CODE QUALITY
+# ================================
+mypy==1.13.0  # Latest
+ruff==0.8.4  # Latest
+black==24.10.0  # Latest
+
+# ================================
+# MONITORING & LOGGING
+# ================================
+sentry-sdk==2.19.2  # Latest (error tracking optional)
+psutil==6.1.1  # System monitoring
+
+# ================================
+# UTILITIES
+# ================================
+python-dotenv==1.0.1  # Latest
+# pathlib is built-in since Python 3.4
+
+# ================================
+# DEVELOPMENT TOOLS
+# ================================
+ipython==8.31.0  # Latest
+jupyter==1.1.1  # Latest
+
+# ================================
+# DOCUMENTATION
+# ================================
+mkdocs==1.6.1  # Latest
+mkdocs-material==9.5.48  # Latest
+
+# ================================
+# PERFORMANCE
+# ================================
+# cProfile is built-in
+memory-profiler==0.61.0  # Still latest
+py-spy==0.3.14  # Still latest
+
+# ================================
+# CACHING & PERFORMANCE
+# ================================
+redis==5.2.1  # Latest - High-performance cache
+diskcache==5.6.3  # Still latest - Local disk cache
+
+# ================================
+# SECURITY
+# ================================
+pyjwt==2.9.0  # Latest JWT tokens
+cryptography==44.0.0  # Latest encryption
+python-dotenv==1.0.1  # Latest environment variables
+passlib[bcrypt]==1.7.4  # Still latest password hashing
+
+# ================================
+# HTTP & WEBSOCKETS
+# ================================
+httpx==0.28.1  # Latest async HTTP
+websockets==14.1  # Latest
+
+# ================================
+# DATA VALIDATION
+# ================================
+email-validator==2.2.0  # Latest
+
+# ================================
+# RATE LIMITING
+# ================================
+slowapi==0.1.9  # Still latest
+
+# ================================
+# CORS
+# ================================
+# Included in fastapi
+
+# ================================
+# ENVIRONMENT
+# ================================
+typing-extensions==4.12.2  # Latest

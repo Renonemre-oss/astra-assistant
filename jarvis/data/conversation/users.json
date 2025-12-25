@@ -1,0 +1,2968 @@
+{
+  "users": {
+    "096ae04c1703": {
+      "name": "António",
+      "created_at": "2025-09-19T15:25:06.350960",
+      "last_seen": "2025-09-28T15:02:31.852088",
+      "conversation_count": 66,
+      "common_words": [
+        "antónio",
+        "pontos",
+        "bom",
+        "adoro",
+        "trabalho",
+        "sempre",
+        "com",
+        "e",
+        "hoje!",
+        "de",
+        "exclamações!",
+        "sou",
+        "como",
+        "designer.",
+        "olá,",
+        "programador.",
+        "que",
+        "design!",
+        "eu",
+        "o",
+        "é",
+        "dia",
+        "usar",
+        "uso",
+        "exclamação!",
+        "fantástico",
+        "trabalhar"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.058823529411764705,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.058823529411764705,
+        "avg_word_length": 3.5
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "designer",
+      "location": ""
+    },
+    "6394293cf8a3": {
+      "name": "Maria",
+      "created_at": "2025-09-19T15:25:06.352374",
+      "last_seen": "2025-09-28T15:02:35.998555",
+      "conversation_count": 121,
+      "common_words": [
+        "médica",
+        "vou",
+        "chamo-me",
+        "5",
+        "maria",
+        "de",
+        "oi!",
+        "laboratoriais",
+        "adoro",
+        "tempo",
+        "precisa",
+        "acabei",
+        "esta",
+        "lisboa.",
+        "olá,",
+        "acompanhamento",
+        "difícil.",
+        "anos.",
+        "em",
+        "consultas",
+        "vivo",
+        "verificar",
+        "como",
+        "os",
+        "tarde",
+        "eu",
+        "marcadas",
+        "hospital",
+        "no",
+        "e",
+        "oi,",
+        "programar.",
+        "ler",
+        "exames",
+        "para",
+        "trabalho",
+        "paciente",
+        "lisboa",
+        "do",
+        "está",
+        "a",
+        "sou",
+        "tenho",
+        "porto?",
+        "já",
+        "professora",
+        "engenheiro",
+        "há",
+        "204",
+        "quarto",
+        "livros.",
+        "professora.",
+        "o"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.02702702702702703,
+        "avg_word_length": 6.6
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "médica no hospital",
+      "location": ""
+    },
+    "6a4298be257e": {
+      "name": "Pedro",
+      "created_at": "2025-09-19T15:25:06.354595",
+      "last_seen": "2025-09-28T15:02:31.564539",
+      "conversation_count": 12,
+      "common_words": [
+        "sou",
+        "estás?",
+        "como",
+        "aqui",
+        "eu",
+        "o",
+        "é",
+        "pedro",
+        "olá,",
+        "pedro."
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.037037037037037035,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.037037037037037035,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.1111111111111111,
+        "avg_word_length": 3.6666666666666665
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "e215f7ddd245": {
+      "name": "João",
+      "created_at": "2025-09-19T15:25:06.362826",
+      "last_seen": "2025-09-28T15:02:34.285726",
+      "conversation_count": 285,
+      "common_words": [
+        "frustração,",
+        "tenho",
+        "está",
+        "hey!",
+        "bola",
+        "para",
+        "técnicos",
+        "futebol.",
+        "funciona",
+        "a",
+        "reunião",
+        "gosto",
+        "estudar",
+        "e",
+        "muito",
+        "fins",
+        "mano,",
+        "onde",
+        "feliz",
+        "em",
+        "olá,",
+        "hoje...",
+        "o",
+        "noite?",
+        "implementação",
+        "engenheiro",
+        "por",
+        "joão.",
+        "foram",
+        "fixe,",
+        "esqueci",
+        "mano!",
+        "de",
+        "atualizados",
+        "trabalho",
+        "joão",
+        "semana!",
+        "hahaha",
+        "cancelada",
+        "como",
+        "amanhã",
+        "pronto",
+        "adiada",
+        "técnico",
+        "relatório",
+        "preciso",
+        "conforme",
+        "eu",
+        "gozar",
+        "chaves",
+        "hoje",
+        "ir",
+        "comigo?",
+        "vamos",
+        "solicitado",
+        "à",
+        "tás",
+        "refatoração",
+        "estou",
+        "urgente",
+        "joão,",
+        "vou",
+        "bug!",
+        "aqui",
+        "sair",
+        "requisitos",
+        "futebol",
+        "carro...",
+        "nada",
+        "foi",
+        "precisa",
+        "na",
+        "pus",
+        "os",
+        "do",
+        "discutido",
+        "porto.",
+        "pizza?",
+        "código",
+        "incrível!",
+        "com",
+        "sou",
+        "bora",
+        "que",
+        "confirme",
+        "nos",
+        "jogar",
+        "cara,",
+        "resultados!",
+        "conseguimos",
+        "programar.",
+        "fixe!",
+        "resolver",
+        "favor",
+        "anterior",
+        "estudante",
+        "biblioteca",
+        "adoro",
+        "jantar",
+        "as"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.05405405405405406,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.24324324324324326,
+        "avg_word_length": 6.6
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "engenheiro em porto",
+      "location": ""
+    },
+    "7b82bbdec1c3": {
+      "name": "Ana",
+      "created_at": "2025-09-19T15:25:06.363827",
+      "last_seen": "2025-09-28T15:02:33.977718",
+      "conversation_count": 76,
+      "common_words": [
+        "médica.",
+        "de",
+        "às",
+        "saber",
+        "trabalho",
+        "tenho",
+        "acesso",
+        "logs",
+        "sou",
+        "sobre",
+        "chamo-me",
+        "ana",
+        "obrigada",
+        "como",
+        "15h",
+        "pode",
+        "para",
+        "uma",
+        "favor,",
+        "enviar-me",
+        "preciso",
+        "pela",
+        "gostaria",
+        "reunião",
+        "a",
+        "eu",
+        "informações",
+        "software",
+        "relatório",
+        "e",
+        "técnico?",
+        "hoje",
+        "análise",
+        "aos",
+        "olá,",
+        "o",
+        "por",
+        "do",
+        "projeto",
+        "sistema",
+        "engenheira",
+        "colaboração."
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.02,
+        "avg_word_length": 4.666666666666667
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "engenheira de software",
+      "location": ""
+    },
+    "dddb68a8bdbe": {
+      "name": "Sofia",
+      "created_at": "2025-09-19T15:25:06.387922",
+      "last_seen": "2025-09-28T15:02:31.969970",
+      "conversation_count": 88,
+      "common_words": [
+        "muita",
+        "os",
+        "cuidado",
+        "nisso!",
+        "maravilhoso!",
+        "sofia",
+        "precisão",
+        "design",
+        "trabalho",
+        "incrível!",
+        "manter",
+        "com",
+        "números",
+        "e",
+        "projeto",
+        "adorei",
+        "de",
+        "preciso",
+        "todos",
+        "escrever",
+        "revisar",
+        "sou",
+        "pontuação",
+        "fantástico!",
+        "exige",
+        "sem",
+        "dias",
+        "que",
+        "uma",
+        "coisas",
+        "as",
+        "gosto",
+        "chamo-me",
+        "prefiro",
+        "é",
+        "profissão",
+        "contabilista.",
+        "simples",
+        "trabalhar"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.06060606060606061,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.06060606060606061,
+        "avg_word_length": 7.5
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "87e027ad4b87": {
+      "name": "Miguel",
+      "created_at": "2025-09-19T15:25:06.400438",
+      "last_seen": "2025-09-28T15:02:32.003475",
+      "conversation_count": 13,
+      "common_words": [
+        "sou",
+        "como",
+        "medico",
+        "miguel",
+        "oi",
+        "coimbra.",
+        "olaa",
+        "trabalho",
+        "eu",
+        "o",
+        "e",
+        "em",
+        "médico",
+        ","
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.02,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.06,
+        "avg_word_length": 4.1
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "médico em coimbra",
+      "location": ""
+    },
+    "2b30dd1996a2": {
+      "name": "Carla",
+      "created_at": "2025-09-19T15:25:06.401441",
+      "last_seen": "2025-09-28T15:02:32.077495",
+      "conversation_count": 55,
+      "common_words": [
+        "está",
+        "hospital.",
+        "porto",
+        "porto.",
+        "para",
+        "hoje",
+        "tive",
+        "e",
+        "em",
+        "preciso",
+        "carla",
+        "advogada",
+        "coimbra",
+        "no",
+        "sou",
+        "como",
+        "preparar",
+        "complicada",
+        "tribunal",
+        "cirurgia",
+        "uma",
+        "tempo",
+        "caso",
+        "amanhã.",
+        "hoje?",
+        "trânsito",
+        "chamo-me",
+        "o",
+        "horrível."
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.029411764705882353,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.058823529411764705,
+        "avg_word_length": 4.833333333333333
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "ee42f718c967": {
+      "name": "Admin",
+      "created_at": "2025-09-19T15:25:06.413462",
+      "last_seen": "2025-09-28T15:02:32.108507",
+      "conversation_count": 12,
+      "common_words": [
+        "sou",
+        "eu",
+        "boa",
+        "controlo",
+        "o",
+        "e",
+        "sistema.",
+        "noite",
+        "admin"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.027777777777777776,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.05555555555555555,
+        "avg_word_length": 3.625
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "dd6a34c68829": {
+      "name": "Teste",
+      "created_at": "2025-09-19T15:25:06.415465",
+      "last_seen": "2025-09-19T15:25:06.415465",
+      "conversation_count": 0,
+      "common_words": [],
+      "typical_phrases": [],
+      "punctuation_style": {},
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "79b0c06fbe57": {
+      "name": "Carlos",
+      "created_at": "2025-09-19T15:25:06.425974",
+      "last_seen": "2025-09-28T15:02:32.172160",
+      "conversation_count": 33,
+      "common_words": [
+        "futebol",
+        "fins",
+        "semana.",
+        "ver",
+        "lisboa",
+        "trabalho",
+        "minha",
+        "com",
+        "nos",
+        "e",
+        "em",
+        "de",
+        "família.",
+        "a",
+        "sou",
+        "vivo",
+        "como",
+        "gestor.",
+        "gosto",
+        "eu",
+        "o",
+        "carlos",
+        "olá!"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.025,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.025,
+        "avg_word_length": 4.125
+      },
+      "known_relationships": [
+        "família"
+      ],
+      "interests": [],
+      "profession": "gestor",
+      "location": ""
+    },
+    "3237037f4773": {
+      "name": "Isabel",
+      "created_at": "2025-09-19T15:25:06.429981",
+      "last_seen": "2025-09-28T15:02:32.218076",
+      "conversation_count": 33,
+      "common_words": [
+        "oi,",
+        "a",
+        "sou",
+        "no",
+        "cozinhar",
+        "enfermeira.",
+        "lisboa.",
+        "adoro",
+        "para",
+        "isabel",
+        "trabalho",
+        "chamo-me",
+        "e",
+        "de",
+        "família.",
+        "hospital"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.03333333333333333,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.03333333333333333,
+        "avg_word_length": 5.2
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "775d2faf0308": {
+      "name": "Beatriz",
+      "created_at": "2025-09-19T15:25:06.433988",
+      "last_seen": "2025-09-28T15:02:32.307838",
+      "conversation_count": 66,
+      "common_words": [
+        "esta",
+        "quero",
+        "foi",
+        "ingredientes",
+        "adoro",
+        "para",
+        "design",
+        "estudar",
+        "comprar",
+        "secundário",
+        "incrível!",
+        "do",
+        "jogo",
+        "e",
+        "jantar.",
+        "música!",
+        "preciso",
+        "benfica",
+        "a",
+        "sou",
+        "no",
+        "fantástico!",
+        "tenho",
+        "gráfico!",
+        "anos!",
+        "música",
+        "16",
+        "eu",
+        "o",
+        "é",
+        "estou",
+        "adoro!!!",
+        "beatriz"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.125,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.0625,
+        "avg_word_length": 5.6
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "037ce31e8055": {
+      "name": "Professor",
+      "created_at": "2025-09-19T15:53:14.177454",
+      "last_seen": "2025-09-28T15:02:35.937363",
+      "conversation_count": 45,
+      "common_words": [
+        "universidade",
+        "bom",
+        "vou",
+        "programação",
+        "de",
+        "trabalhos",
+        "da",
+        "tiago",
+        "preciso",
+        "semana",
+        "o",
+        "porto",
+        "dia!",
+        "as",
+        "os",
+        "corrigir",
+        "professor",
+        "exame",
+        "para",
+        "do",
+        "joão",
+        "sou",
+        "próxima",
+        "alunos",
+        "aulas",
+        "preparar",
+        "na",
+        "amanhã",
+        "têm"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.025,
+        "avg_word_length": 5.833333333333333
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "5249a87a6e71": {
+      "name": "Tiago",
+      "created_at": "2025-09-19T15:53:14.205482",
+      "last_seen": "2025-09-28T15:02:36.246575",
+      "conversation_count": 176,
+      "common_words": [
+        "não",
+        "médica",
+        "celebrar",
+        "de",
+        "didático",
+        "por",
+        "teve",
+        "mcdonald's?",
+        "e",
+        "email",
+        "livro",
+        "algoritmos",
+        "próxima",
+        "que",
+        "aulas?",
+        "casa...",
+        "histórico",
+        "enviar",
+        "vou",
+        "amigos",
+        "as",
+        "sobre",
+        "dos",
+        "seca,",
+        "será",
+        "ao",
+        "das",
+        "tou",
+        "a",
+        "teste!",
+        "fixe!",
+        "204",
+        "o",
+        "depois",
+        "nada!",
+        "material",
+        "aqui",
+        "com",
+        "matemática!",
+        "verificar",
+        "hey!",
+        "teste",
+        "manhã",
+        "exame",
+        "bar",
+        "paciente",
+        "sou",
+        "está",
+        "mano,",
+        "bora",
+        "alunos",
+        "na",
+        "amanhã",
+        "tiago,",
+        "estudei",
+        "seca",
+        "notas",
+        "jogar",
+        "esqueci-me",
+        "cara,",
+        "preciso",
+        "faculdade",
+        "melhor",
+        "medicação",
+        "em",
+        "passei",
+        "os",
+        "futebol",
+        "hoje",
+        "no",
+        "atualizar",
+        "alta",
+        "dar",
+        "do",
+        "tenho",
+        "aula",
+        "clínico",
+        "aulas",
+        "preparar"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.030303030303030304,
+        "avg_word_length": 3.857142857142857
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    },
+    "ebbc6c6ee9a3": {
+      "name": "Alex",
+      "created_at": "2025-09-20T15:54:13.300897",
+      "last_seen": "2025-09-20T15:54:41.363960",
+      "conversation_count": 2,
+      "common_words": [
+        "e",
+        "eu",
+        "alex",
+        "amigo",
+        "ola",
+        "assistente",
+        "o",
+        ",",
+        "oii",
+        "teu",
+        "sou"
+      ],
+      "typical_phrases": [],
+      "punctuation_style": {
+        "periods": 0.0,
+        "commas": 0.0,
+        "exclamations": 0.0,
+        "questions": 0.0,
+        "ellipsis": 0.0,
+        "uppercase_ratio": 0.0,
+        "avg_word_length": 3.0
+      },
+      "known_relationships": [],
+      "interests": [],
+      "profession": "",
+      "location": ""
+    }
+  },
+  "conversation_history": {
+    "096ae04c1703": [
+      {
+        "timestamp": "2025-09-20T16:08:53.759381",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.767755",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.687164",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.840699",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.848204",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.856706",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.864709",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.873214",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.040433",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.213106",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.222614",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.232626",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.241134",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.251643",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.174774",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.377005",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.387513",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.398025",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.408535",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.419042",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:16.934000",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.164485",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.177647",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.191551",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.204507",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.217680",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.086396",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.309615",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.322644",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.335157",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.347664",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.360667",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.503018",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.738962",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.752481",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.765994",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.779503",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.792514",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:06.888576",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.134276",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.148786",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.162796",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.177319",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.190614",
+        "text": "Que bom dia hoje!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.548132",
+        "text": "Olá, eu sou o António e trabalho como programador."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.809037",
+        "text": "Eu sou o António e trabalho como designer."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.823039",
+        "text": "Adoro usar exclamações!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.837546",
+        "text": "Sempre uso pontos de exclamação!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.852088",
+        "text": "É fantástico trabalhar com design!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.866090",
+        "text": "Que bom dia hoje!"
+      }
+    ],
+    "6394293cf8a3": [
+      {
+        "timestamp": "2025-09-26T11:27:16.946032",
+        "text": "Oi, chamo-me Maria e sou professora em Lisboa."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.072703",
+        "text": "Oi! Eu sou a Maria e sou professora."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.085214",
+        "text": "Vivo em Lisboa há 5 anos."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.097921",
+        "text": "Adoro ler livros."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.111151",
+        "text": "Já acabei de programar."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.122648",
+        "text": "O trabalho de engenheiro está difícil."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.211114",
+        "text": "Olá, eu sou a Maria e trabalho como médica no hospital"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.226250",
+        "text": "Tenho consultas marcadas para esta tarde"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.239947",
+        "text": "O paciente do quarto 204 precisa de acompanhamento"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.252686",
+        "text": "Vou verificar os exames laboratoriais"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.098904",
+        "text": "Oi, chamo-me Maria e sou professora em Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.220042",
+        "text": "Oi! Eu sou a Maria e sou professora."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.232549",
+        "text": "Vivo em Lisboa há 5 anos."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.244564",
+        "text": "Adoro ler livros."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.257579",
+        "text": "Já acabei de programar."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.269586",
+        "text": "O trabalho de engenheiro está difícil."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.307075",
+        "text": "Olá, eu sou a Maria e trabalho como médica no hospital"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.320085",
+        "text": "Tenho consultas marcadas para esta tarde"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.334099",
+        "text": "O paciente do quarto 204 precisa de acompanhamento"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.346609",
+        "text": "Vou verificar os exames laboratoriais"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.516533",
+        "text": "Oi, chamo-me Maria e sou professora em Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.642572",
+        "text": "Oi! Eu sou a Maria e sou professora."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.656911",
+        "text": "Vivo em Lisboa há 5 anos."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.669733",
+        "text": "Adoro ler livros."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.683748",
+        "text": "Já acabei de programar."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.697259",
+        "text": "O trabalho de engenheiro está difícil."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.810098",
+        "text": "Olá, eu sou a Maria e trabalho como médica no hospital"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.825123",
+        "text": "Tenho consultas marcadas para esta tarde"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.839631",
+        "text": "O paciente do quarto 204 precisa de acompanhamento"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.853895",
+        "text": "Vou verificar os exames laboratoriais"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:06.903743",
+        "text": "Oi, chamo-me Maria e sou professora em Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.033543",
+        "text": "Oi! Eu sou a Maria e sou professora."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.047289",
+        "text": "Vivo em Lisboa há 5 anos."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.061602",
+        "text": "Adoro ler livros."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.076128",
+        "text": "Já acabei de programar."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.090225",
+        "text": "O trabalho de engenheiro está difícil."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.251511",
+        "text": "Olá, eu sou a Maria e trabalho como médica no hospital"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.267526",
+        "text": "Tenho consultas marcadas para esta tarde"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.281603",
+        "text": "O paciente do quarto 204 precisa de acompanhamento"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.296654",
+        "text": "Vou verificar os exames laboratoriais"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.563539",
+        "text": "Oi, chamo-me Maria e sou professora em Lisboa."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.704200",
+        "text": "Oi! Eu sou a Maria e sou professora."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.719204",
+        "text": "Vivo em Lisboa há 5 anos."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.733709",
+        "text": "Adoro ler livros."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.748710",
+        "text": "Já acabei de programar."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.762711",
+        "text": "O trabalho de engenheiro está difícil."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.967399",
+        "text": "Olá, eu sou a Maria e trabalho como médica no hospital"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.981399",
+        "text": "Tenho consultas marcadas para esta tarde"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.997555",
+        "text": "O paciente do quarto 204 precisa de acompanhamento"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.013060",
+        "text": "Vou verificar os exames laboratoriais"
+      }
+    ],
+    "6a4298be257e": [],
+    "e215f7ddd245": [
+      {
+        "timestamp": "2025-09-27T11:20:28.094425",
+        "text": "Reunião adiada para amanhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:28.108935",
+        "text": "Estou muito feliz com os resultados!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:28.121971",
+        "text": "Que frustração, nada funciona hoje..."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:28.135988",
+        "text": "O relatório está pronto conforme solicitado"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:06.946883",
+        "text": "Eu sou o João e gosto de futebol."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:06.991926",
+        "text": "Olá, eu sou o João."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.005442",
+        "text": "Trabalho como engenheiro em Porto."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.019952",
+        "text": "Gosto muito de programar."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.306635",
+        "text": "Hey! Sou o João, estudante aqui"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.321153",
+        "text": "Cara, adoro jogar futebol nos fins de semana!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.335171",
+        "text": "Mano, esqueci onde pus as chaves do carro..."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.350052",
+        "text": "Que fixe! Vamos sair hoje à noite?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.365068",
+        "text": "Tás a gozar comigo? hahaha"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.379587",
+        "text": "Preciso do relatório técnico urgente"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.393601",
+        "text": "Vou jogar à bola hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.408572",
+        "text": "A reunião foi cancelada"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.423760",
+        "text": "Que fixe, mano!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.439774",
+        "text": "Conforme discutido na reunião anterior"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.454293",
+        "text": "Os requisitos técnicos foram atualizados"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.468755",
+        "text": "Por favor confirme a implementação"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.484274",
+        "text": "Tenho de ir à biblioteca estudar"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.499591",
+        "text": "O código precisa de refatoração"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.513606",
+        "text": "Bora jantar pizza?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.528625",
+        "text": "Reunião adiada para amanhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.542636",
+        "text": "Estou muito feliz com os resultados!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.557152",
+        "text": "Que frustração, nada funciona hoje..."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.571165",
+        "text": "O relatório está pronto conforme solicitado"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.615557",
+        "text": "Eu sou o João e gosto de futebol."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.660691",
+        "text": "Olá, eu sou o João."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.674694",
+        "text": "Trabalho como engenheiro em Porto."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.689200",
+        "text": "Gosto muito de programar."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.007864",
+        "text": "Hey! Sou o João, estudante aqui"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.022866",
+        "text": "Cara, adoro jogar futebol nos fins de semana!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.037376",
+        "text": "Mano, esqueci onde pus as chaves do carro..."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.052882",
+        "text": "Que fixe! Vamos sair hoje à noite?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.067882",
+        "text": "Tás a gozar comigo? hahaha"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.082884",
+        "text": "Preciso do relatório técnico urgente"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.098403",
+        "text": "Vou jogar à bola hoje"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.112909",
+        "text": "A reunião foi cancelada"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.128912",
+        "text": "Que fixe, mano!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.147189",
+        "text": "Conforme discutido na reunião anterior"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.162200",
+        "text": "Os requisitos técnicos foram atualizados"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.177200",
+        "text": "Por favor confirme a implementação"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.193705",
+        "text": "Tenho de ir à biblioteca estudar"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.208707",
+        "text": "O código precisa de refatoração"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.223707",
+        "text": "Bora jantar pizza?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.238710",
+        "text": "Reunião adiada para amanhã"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.254218",
+        "text": "Estou muito feliz com os resultados!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.269224",
+        "text": "Que frustração, nada funciona hoje..."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:34.285726",
+        "text": "O relatório está pronto conforme solicitado"
+      }
+    ],
+    "7b82bbdec1c3": [
+      {
+        "timestamp": "2025-09-20T15:43:35.710492",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:35.715998",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:35.721999",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:35.726997",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:35.732998",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:55.350381",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:55.357407",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:55.364913",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:55.372993",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:55.380346",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:33.402179",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:33.411181",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:33.420684",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:33.429687",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:33.438686",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:04.954726",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:04.965236",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:04.975748",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:04.985766",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:04.995274",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:29.141020",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:29.153030",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:29.165539",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:29.177047",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:29.187561",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:19.210404",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:19.222378",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:19.235161",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:19.247591",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:19.260105",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:56.345155",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:56.358663",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:56.372675",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:56.385193",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:56.398700",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:27.808661",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:27.823555",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:27.837066",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:27.851592",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:27.866113",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.233860",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.248875",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.262888",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.277410",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:09.291618",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:33.929932",
+        "text": "Olá, eu sou a Ana e trabalho como engenheira de software"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:33.945437",
+        "text": "Gostaria de saber informações sobre o projeto de hoje"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:33.961438",
+        "text": "Por favor, pode enviar-me o relatório técnico?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:33.976440",
+        "text": "Obrigada pela colaboração. Tenho uma reunião às 15h"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:33.992368",
+        "text": "Preciso de acesso aos logs do sistema para análise"
+      }
+    ],
+    "dddb68a8bdbe": [
+      {
+        "timestamp": "2025-09-20T16:26:31.928721",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.261150",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.270657",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.280165",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.289672",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.298682",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.308692",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.318200",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.430551",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.440562",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.451067",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.462080",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.474094",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.485602",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.496307",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.231073",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.244222",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.255957",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.269161",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.282050",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.294541",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.307077",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.373177",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.386194",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.399700",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.412713",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.425231",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.437744",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.451252",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.806530",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.820040",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.833061",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.847080",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.860353",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.874784",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.887787",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.205132",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.219145",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.233689",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.246702",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.260712",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.275527",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.289034",
+        "text": "Preciso revisar os números com cuidado"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.880597",
+        "text": "Chamo-me Sofia e sou contabilista."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.895018",
+        "text": "Prefiro escrever sem muita pontuação"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.910030",
+        "text": "Trabalho com números todos os dias"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.924112",
+        "text": "É uma profissão que exige precisão"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.938617",
+        "text": "Gosto de manter as coisas simples"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.953617",
+        "text": "Que projeto fantástico! Adorei trabalhar nisso!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:31.968970",
+        "text": "Preciso revisar os números com cuidado"
+      }
+    ],
+    "87e027ad4b87": [
+      {
+        "timestamp": "2025-09-19T15:25:06.401441",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.324040",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.845297",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-20T16:09:08.074052",
+        "text": "olaa"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.961229",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.354730",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.532340",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.347659",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.491864",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.932926",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.332573",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.017478",
+        "text": "Eu sou o Miguel e trabalho como médico em Coimbra."
+      }
+    ],
+    "2b30dd1996a2": [
+      {
+        "timestamp": "2025-09-19T15:25:06.403445",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.404445",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.405445",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.406449",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.329042",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.334040",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.338043",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.343043",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.853182",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.859187",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.866187",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.873187",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.968733",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.977733",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.985733",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:31.994736",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.364238",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.374746",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.384253",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.394761",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.543847",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.554358",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.565871",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.577380",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.359170",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.371571",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.383589",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.396610",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.504387",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.517402",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.530909",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.542919",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.947438",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.961956",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.975976",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:25.989483",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.347086",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.361095",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.375369",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.389878",
+        "text": "Como está o tempo em Coimbra hoje?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.032492",
+        "text": "Chamo-me Carla e sou advogada no Porto."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.047492",
+        "text": "Hoje tive uma cirurgia complicada no hospital."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.062492",
+        "text": "Preciso preparar o caso para tribunal amanhã."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.077495",
+        "text": "Como está o tempo em Coimbra hoje?"
+      }
+    ],
+    "ee42f718c967": [
+      {
+        "timestamp": "2025-09-19T15:25:06.414465",
+        "text": "Eu sou o Admin e controlo o sistema."
+      }
+    ],
+    "dd6a34c68829": [],
+    "79b0c06fbe57": [
+      {
+        "timestamp": "2025-09-19T15:25:06.427975",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.428975",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.429981",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.386061",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.391060",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.395063",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.926360",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.933361",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.940364",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.049496",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.057998",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.066835",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.452815",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.464322",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.474335",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.645328",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.655836",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.667848",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.469191",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.481209",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.493854",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.615419",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.628432",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.642442",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.064252",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.077763",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.092548",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.470389",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.485889",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.499904",
+        "text": "Gosto de ver futebol nos fins de semana."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.156525",
+        "text": "Olá! Eu sou o Carlos e trabalho como gestor."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.171161",
+        "text": "Vivo em Lisboa com a minha família."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.186665",
+        "text": "Gosto de ver futebol nos fins de semana."
+      }
+    ],
+    "3237037f4773": [
+      {
+        "timestamp": "2025-09-19T15:25:06.431988",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.432989",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-19T15:25:06.433988",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.400063",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.405063",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.409569",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.948364",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.954869",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.961888",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.075835",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.083837",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.093343",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.485357",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.494864",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.505374",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.679366",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.690377",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.701884",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.505362",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.520349",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.534055",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.655955",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.669111",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.682618",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.105565",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.119578",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.132589",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.513875",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.529014",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.543695",
+        "text": "Adoro cozinhar para a família."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.202073",
+        "text": "Oi, chamo-me Isabel e sou enfermeira."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.217075",
+        "text": "Trabalho no hospital de Lisboa."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.232585",
+        "text": "Adoro cozinhar para a família."
+      }
+    ],
+    "775d2faf0308": [
+      {
+        "timestamp": "2025-09-20T15:43:34.414959",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.419960",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.424959",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.429960",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:34.434963",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.969280",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.975787",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.983787",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.991617",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:53.998616",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.101345",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.109850",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.118355",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.127355",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:32.136355",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.515387",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.524893",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.535404",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.545911",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:03.555420",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.712899",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.724912",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.736434",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.747956",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:27.759039",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.548578",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.562088",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.574614",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.589132",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:17.602147",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.695136",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.708643",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.721155",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.735169",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:54.748676",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.147413",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.160921",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.174942",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.188453",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:26.202995",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.558203",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.571216",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.585733",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.600241",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:07.613759",
+        "text": "Preciso comprar ingredientes para o jantar."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.247756",
+        "text": "Eu sou a Beatriz e tenho 16 anos!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.262759",
+        "text": "Estou no secundário e adoro música!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.277265",
+        "text": "Quero estudar design gráfico!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.291770",
+        "text": "O jogo do Benfica foi fantástico!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:32.306837",
+        "text": "Preciso comprar ingredientes para o jantar."
+      }
+    ],
+    "037ce31e8055": [
+      {
+        "timestamp": "2025-09-19T15:53:14.184961",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-19T15:53:14.188466",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-19T15:53:14.190971",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-19T15:53:14.193974",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:37.115132",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:37.120474",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:37.126985",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-20T15:43:37.131986",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:56.941627",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:56.950043",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:56.958635",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-20T16:08:56.966638",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:34.885990",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:34.895990",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:34.904991",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-20T16:26:34.914990",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:06.596281",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:06.606290",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:06.617302",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-21T09:37:06.627811",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:30.805510",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:30.817019",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:30.829033",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-26T11:15:30.841047",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.156113",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.168910",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.182631",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-26T11:27:21.195497",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.253526",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.266538",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.280554",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.293566",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.752829",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.766885",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.781393",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.795590",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.193956",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.208467",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.223478",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.237499",
+        "text": "Vou corrigir os trabalhos de programação"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.905352",
+        "text": "Bom dia! Sou o Professor João da Universidade do Porto"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.921362",
+        "text": "Preciso de preparar as aulas para amanhã"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.936362",
+        "text": "Os alunos têm exame na próxima semana"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:35.951365",
+        "text": "Vou corrigir os trabalhos de programação"
+      }
+    ],
+    "5249a87a6e71": [
+      {
+        "timestamp": "2025-09-27T11:17:58.496758",
+        "text": "Vou enviar as notas dos alunos por email"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.509765",
+        "text": "O paciente do 204 teve alta médica"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.523827",
+        "text": "Fixe! Passei no exame de matemática!"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.536337",
+        "text": "A próxima aula será sobre algoritmos"
+      },
+      {
+        "timestamp": "2025-09-27T11:17:58.549844",
+        "text": "Preciso atualizar o histórico clínico"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.867909",
+        "text": "Hey! Sou o Tiago, tou aqui na faculdade"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.882507",
+        "text": "Cara, tenho teste amanhã e não estudei nada!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.896021",
+        "text": "Bora jogar futebol depois das aulas?"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.910533",
+        "text": "Que seca, esqueci-me do livro em casa..."
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.926827",
+        "text": "Tenho de dar aulas amanhã de manhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.941570",
+        "text": "O paciente está melhor hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.956088",
+        "text": "Mano, que seca de teste!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.969615",
+        "text": "Preciso de preparar material didático"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.983629",
+        "text": "Vou verificar a medicação"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:29.998139",
+        "text": "Bora ao McDonald's?"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:30.013566",
+        "text": "Vou enviar as notas dos alunos por email"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:30.027082",
+        "text": "O paciente do 204 teve alta médica"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:30.040589",
+        "text": "Fixe! Passei no exame de matemática!"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:30.056101",
+        "text": "A próxima aula será sobre algoritmos"
+      },
+      {
+        "timestamp": "2025-09-27T11:20:30.070182",
+        "text": "Preciso atualizar o histórico clínico"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.311162",
+        "text": "Hey! Sou o Tiago, tou aqui na faculdade"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.325683",
+        "text": "Cara, tenho teste amanhã e não estudei nada!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.340955",
+        "text": "Bora jogar futebol depois das aulas?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.355977",
+        "text": "Que seca, esqueci-me do livro em casa..."
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.372987",
+        "text": "Tenho de dar aulas amanhã de manhã"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.388012",
+        "text": "O paciente está melhor hoje"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.402988",
+        "text": "Mano, que seca de teste!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.417970",
+        "text": "Preciso de preparar material didático"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.431983",
+        "text": "Vou verificar a medicação"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.446999",
+        "text": "Bora ao McDonald's?"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.461522",
+        "text": "Vou enviar as notas dos alunos por email"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.476539",
+        "text": "O paciente do 204 teve alta médica"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.492060",
+        "text": "Fixe! Passei no exame de matemática!"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.507077",
+        "text": "A próxima aula será sobre algoritmos"
+      },
+      {
+        "timestamp": "2025-09-27T11:22:11.520585",
+        "text": "Preciso atualizar o histórico clínico"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.028062",
+        "text": "Hey! Sou o Tiago, tou aqui na faculdade"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.042570",
+        "text": "Cara, tenho teste amanhã e não estudei nada!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.058076",
+        "text": "Bora jogar futebol depois das aulas?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.073076",
+        "text": "Que seca, esqueci-me do livro em casa..."
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.090584",
+        "text": "Tenho de dar aulas amanhã de manhã"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.106633",
+        "text": "O paciente está melhor hoje"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.122633",
+        "text": "Mano, que seca de teste!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.138124",
+        "text": "Preciso de preparar material didático"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.153129",
+        "text": "Vou verificar a medicação"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.167645",
+        "text": "Bora ao McDonald's?"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.183754",
+        "text": "Vou enviar as notas dos alunos por email"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.198757",
+        "text": "O paciente do 204 teve alta médica"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.214261",
+        "text": "Fixe! Passei no exame de matemática!"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.230569",
+        "text": "A próxima aula será sobre algoritmos"
+      },
+      {
+        "timestamp": "2025-09-28T15:02:36.245574",
+        "text": "Preciso atualizar o histórico clínico"
+      }
+    ],
+    "ebbc6c6ee9a3": [
+      {
+        "timestamp": "2025-09-20T15:54:13.309896",
+        "text": "ola , eu sou o ALEX o teu assistente e amigo"
+      }
+    ]
+  },
+  "last_updated": "2025-09-28T15:02:36.257074"
+}
