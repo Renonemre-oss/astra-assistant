@@ -135,11 +135,13 @@ class SpeechEngine:
             logger.warning("Piper TTS: Nenhum modelo disponível")
             return False
             
-        except ImportError:
-            logger.info("Piper TTS não instalado (pip install piper-tts)")
+        except ImportError as e:
+            logger.info(f"Piper TTS não instalado: {e}")
             return False
         except Exception as e:
             logger.warning(f"Não foi possível inicializar Piper TTS: {e}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return False
     
     def _init_windows_sapi(self) -> bool:
