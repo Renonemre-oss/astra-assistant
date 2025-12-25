@@ -14,10 +14,10 @@ from typing import Optional, Callable
 from pathlib import Path
 
 # Import error handling system
-from utils.error_handler import handle_errors, ErrorLevel, ErrorCategory
+from astra.utils.error_handler import handle_errors, ErrorLevel, ErrorCategory
 
 # Import the SpeechEngine
-from modules.speech.speech_engine import SpeechEngine, SpeechStatus
+from astra.modules.speech.speech_engine import SpeechEngine, SpeechStatus
 
 # Configure logger
 logger = logging.getLogger(__name__)
