@@ -42,7 +42,7 @@ class PiperTTSEngine:
         
         logger.info("Piper TTS Engine criado")
     
-    def initialize(self, model_name: str = "pt_BR-faber-medium") -> bool:
+    def initialize(self, model_name: str = "pt_PT-tugao-medium") -> bool:
         """
         Inicializa o Piper com um modelo específico.
         
@@ -261,13 +261,12 @@ class PiperTTSEngine:
             bool: True se baixado com sucesso
         """
         try:
-            import urllib.request
-            
             # URL base dos modelos Piper no Hugging Face
             base_url = "https://huggingface.co/rhasspy/piper-voices/resolve/main"
             
-            # Modelos disponíveis em português brasileiro
+            # Modelos disponíveis em português
             pt_models = {
+                # Português Brasileiro
                 "pt_BR-faber-medium": {
                     "path": "pt/pt_BR/faber/medium",
                     "file": "pt_BR-faber-medium.onnx"
@@ -275,6 +274,11 @@ class PiperTTSEngine:
                 "pt_BR-cadu-medium": {
                     "path": "pt/pt_BR/cadu/medium",
                     "file": "pt_BR-cadu-medium.onnx"
+                },
+                # Português de Portugal
+                "pt_PT-tugao-medium": {
+                    "path": "pt/pt_PT/tug%C3%A3o/medium",
+                    "file": "pt_PT-tug%C3%A3o-medium.onnx"  # Nome real do arquivo com til encodado
                 },
             }
             
@@ -297,18 +301,63 @@ class PiperTTSEngine:
             logger.info(f"📥 Baixando modelo Piper: {model_name}...")
             logger.info(f"URL: {model_url}")
             
-            # Baixar modelo .onnx
-            logger.info("Baixando arquivo .onnx (pode levar alguns minutos)...")
-            urllib.request.urlretrieve(model_url, model_path)
-            
-            # Baixar arquivo de configuração JSON
-            logger.info("Baixando arquivo de configuração .json...")
+            # Tentar usar requests primeiro (melhor suporte a Unicode)
             try:
-                urllib.request.urlretrieve(json_url, json_path)
-            except Exception as e:
-                logger.warning(f"Arquivo de configuração JSON não encontrado: {e}")
+                import requests
+                
+                # Baixar modelo .onnx
+                logger.info("Baixando arquivo .onnx (pode levar alguns minutos)...")
+                response = requests.get(model_url, stream=True)
+                response.raise_for_status()
+                
+                with open(model_path, 'wb') as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                
+                # Baixar arquivo de configuração JSON
+                logger.info("Baixando arquivo de configuração .json...")
+                try:
+                    json_response = requests.get(json_url)
+                    json_response.raise_for_status()
+                    with open(json_path, 'wb') as f:
+                        f.write(json_response.content)
+                except Exception as e:
+                    logger.warning(f"Arquivo de configuração JSON não encontrado: {e}")
+                    
+            except ImportError:
+                # Fallback para urllib
+                import urllib.request
+                logger.info("Usando urllib (requests não disponível)")
+                
+                # Baixar modelo .onnx
+                logger.info("Baixando arquivo .onnx (pode levar alguns minutos)...")
+                urllib.request.urlretrieve(model_url, model_path)
+                
+                # Baixar arquivo de configuração JSON
+                logger.info("Baixando arquivo de configuração .json...")
+                try:
+                    urllib.request.urlretrieve(json_url, json_path)
+                except Exception as e:
+                    logger.warning(f"Arquivo de configuração JSON não encontrado: {e}")
             
             logger.info(f"✅ Modelo baixado com sucesso: {model_path}")
+            
+            # Renomear arquivo se tiver caracteres encodados no nome
+            if "%" in model_filename:
+                # Criar nome sem encoding
+                clean_filename = model_filename.replace("%C3%A3", "a")  # ã -> a
+                clean_path = self.models_dir / clean_filename
+                clean_json_path = self.models_dir / f"{clean_filename}.json"
+                
+                try:
+                    import shutil
+                    shutil.move(str(model_path), str(clean_path))
+                    if json_path.exists():
+                        shutil.move(str(json_path), str(clean_json_path))
+                    logger.info(f"Arquivo renomeado para: {clean_path}")
+                except Exception as e:
+                    logger.warning(f"Não foi possível renomear arquivo: {e}")
+            
             return True
             
         except Exception as e:

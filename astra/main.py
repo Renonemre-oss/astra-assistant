@@ -13,21 +13,21 @@ import os
 from pathlib import Path
 
 # Adicionar o diretório raiz ao Python path
-project_root = Path(__file__).parent
+project_root = Path(__file__).parent.parent  # Diretório jarvis_organized
 sys.path.insert(0, str(project_root))
 
 # Importar e executar __init__ para configurar paths
-import __init__
+import astra
 
 # Configurar logging
-from config.settings.main_config import configure_logging
+from astra.config.settings.main_config import configure_logging
 configure_logging()
 
 def main():
     """Função principal para executar o ASTRA."""
     try:
         # Importar o assistente principal
-        from core.assistant import main as assistente_main
+        from astra.core.assistant import main as assistente_main
         
         print("🤖 ASTRA - Assistente Pessoal Inteligente")
         print("📁 Nova estrutura organizada carregada!")
@@ -56,7 +56,7 @@ def main():
 def run_tests():
     """Executa os testes do sistema."""
     try:
-        from tests.test_framework import run_tests as framework_run_tests
+        from astra.tests.test_framework import run_tests as framework_run_tests
         print("🧪 Executando framework de testes do ASTRA...")
         result = framework_run_tests(verbosity=2)
         return result.wasSuccessful()
@@ -125,7 +125,7 @@ def run_cleanup():
 def run_diagnostics():
     """Executa diagnóstico completo do sistema."""
     try:
-        from utils.system_diagnostics import SystemDiagnostics
+        from astra.utils.system_diagnostics import SystemDiagnostics
         print("🔍 Executando diagnóstico do sistema ASTRA...")
         
         diagnostics = SystemDiagnostics()
@@ -148,7 +148,7 @@ def run_diagnostics():
 def run_profile_manager():
     """Executa interface de gestão de perfil."""
     try:
-        from ui.profile_manager_ui import main as profile_main
+        from astra.ui.profile_manager_ui import main as profile_main
         print("📄 Abrindo interface de gestão de perfil...")
         profile_main()
     except ImportError:
@@ -158,7 +158,7 @@ def run_profile_manager():
 def run_performance_report():
     """Mostra relatório de performance."""
     try:
-        from utils.profiling.performance_monitor import performance_monitor as pm
+        from astra.utils.profiling.performance_monitor import performance_monitor as pm
         
         print("📈 Relatório de Performance ASTRA")
         print("=" * 40)

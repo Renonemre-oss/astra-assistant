@@ -62,5 +62,21 @@
   {
     "role": "assistant",
     "content": "Com carinho, Oi! 😊 Que bom te ver por aqui. Tudo bem por aí? Já está na hora de relaxar e se preparar para uma boa noite de sono? Se precisar de alguma coisa, ou só quiser bater um papo, pode contar comigo. 😉❤️ ❤️"
+  },
+  {
+    "role": "user",
+    "content": "aloo"
+  },
+  {
+    "role": "assistant",
+    "content": "Com carinho, Aiii, alô! 😊 Tudo tranquilo por aqui, tentando manter a calma e o ritmo para a noite. E por aí, tudo em ordem? Alguma coisa te trouxe por aqui nesse momento? Se precisar de algo, ou só quiser conversar um pouco antes de dormir, estou à disposição. 😉✨."
+  },
+  {
+    "role": "user",
+    "content": "alo astra"
+  },
+  {
+    "role": "assistant",
+    "content": "Meu bem, Olá! 😊 A Astra aqui, pronta para o que precisar. 😉 Tudo bem por aí? Já está na hora de relaxar? Se quiser conversar, contar algo ou simplesmente ter companhia, pode contar comigo. Estou aqui para o que precisar, sem pressa e com calma. ✨ ❤️"
   }
 ]

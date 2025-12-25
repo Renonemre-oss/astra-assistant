@@ -2,12 +2,12 @@
   "current_companion_type": "caring_assistant",
   "user_preferences": {},
   "relationship_metrics": {
-    "trust_level": 0.56,
+    "trust_level": 0.5800000000000001,
     "intimacy_level": 0.3,
     "shared_experiences": 0,
-    "positive_interactions": 6,
-    "total_conversations": 6,
-    "last_interaction": "2025-12-25T21:32:24.015462",
+    "positive_interactions": 8,
+    "total_conversations": 8,
+    "last_interaction": "2025-12-25T21:52:02.837654",
     "favorite_topics": {},
     "conversation_style": "balanced"
   },
