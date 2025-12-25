@@ -252,3 +252,4 @@ Agora que o Astra está funcionando:
 **✨ Parabéns! Você configurou o Astra com sucesso! ✨**
 
 
+
