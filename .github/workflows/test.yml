@@ -37,12 +37,12 @@ jobs:
     
     - name: Run tests
       run: |
-        cd jarvis
-        pytest tests/ -v --cov=. --cov-report=xml --cov-report=html
+        pytest tests/ -v --cov=astra --cov-report=xml --cov-report=html
     
     - name: Upload coverage
       uses: codecov/codecov-action@v3
       with:
-        file: ./jarvis/coverage.xml
+        file: ./coverage.xml
         flags: unittests
         name: codecov-umbrella
+      continue-on-error: true
