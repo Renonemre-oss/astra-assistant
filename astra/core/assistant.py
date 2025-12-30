@@ -606,92 +606,39 @@ class AssistenteGUI(QtWidgets.QWidget):
             threading.Thread(target=self.executar_assistente_texto, args=(comando, self.stop_signal), daemon=True).start()
 
     def executar_assistente_texto(self, comando, stop_signal):
-        """Decide qual ação executar com base no comando."""
+        """
+        Processa comando do utilizador e gera resposta.
+        
+        Args:
+            comando: Comando do utilizador
+            stop_signal: Signal para interromper processamento
+        """
         try:
             comando_lower = remover_emojis(comando).lower().strip()
-            resposta = ""
             response_start_time = time.time()
-            response_time = 0
             
-            # Salvar mensagem do utilizador na base de dados
+            # Salvar mensagem na base de dados e histórico
             self.save_user_message(comando)
-            
             self.history.append({"role": "user", "content": comando})
             
-            # ANÁLISE ÉTICA E SISTEMA DE OPINIÃO (nova funcionalidade)
-            if OPINION_SYSTEM_AVAILABLE and opinion_system:
-                try:
-                    opinion_response, should_decline = opinion_system.analyze_and_respond(
-                        comando, 
-                        context={"history": self.history[-5:]},  # Últimas 5 mensagens como contexto
-                        personality=self.personalidade
-                    )
-                    
-                    if opinion_response:
-                        logging.info("Sistema de opinião ativado")
-                        
-                        # Se deve declinar, não processar mais nada
-                        if should_decline:
-                            response_time = time.time() - response_start_time
-                            self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {opinion_response}")
-                            self.save_assistant_message(opinion_response, response_time, "ethical_refusal")
-                            self.history.append({"role": "assistant", "content": opinion_response})
-                            self.audio_manager.text_to_speech(limpar_texto_tts(opinion_response))
-                            self.ui_updater.enable_buttons_signal.emit(True)
-                            self.ui_updater.set_status_signal.emit("Pronto")
-                            return
-                        else:
-                            # Expressar opinião mas continuar processando
-                            resposta = opinion_response
-                except Exception as e:
-                    logging.error(f"Erro no sistema de opinião: {e}")
+            # Processar com sistema de opinião ética
+            opinion_result = self._process_opinion_system(comando, response_start_time)
+            if opinion_result and opinion_result.get('should_return'):
+                return
             
-            # Verificar primeiro se são comandos especiais do CompanionEngine
+            resposta = opinion_result.get('response', '') if opinion_result else ''
+            
+            # Tentar comandos especiais do CompanionEngine
             if not resposta:
                 resposta = self._handle_companion_commands(comando_lower)
             
+            # Tentar responder com informações pessoais
             if not resposta:
-                # Verificar se é informação pessoal
-                resposta = self.personal_profile.process_user_input(comando_lower)
-                
-                # Processar informações sobre pessoas (paralelo ao perfil pessoal)
-                people_result = self.people_manager.process_user_input(comando, comando_lower)
-                
-                # Se encontrou resposta sobre pessoas, usar essa
-                if people_result.get('response_suggestions') and not resposta:
-                    resposta = people_result['response_suggestions'][0]
+                resposta = self._process_personal_info(comando, comando_lower)
             
-            if resposta:
-                # Processou informação pessoal ou sobre pessoas
-                pass
-            else:
-                # VERIFICAÇÃO DIRETA para comandos de data/hora (prioridade alta)
-                if any(palavra in comando_lower for palavra in ["horas", "hora", "data", "dia"]):
-                    if any(frase in comando_lower for frase in [
-                        "que horas", "diz-me as horas", "hora atual", "são as horas",
-                        "me dizer as horas", "podes me dizer as horas", "ASTRA podes me dizer as horas",
-                        "que dia", "qual a data", "data de hoje", "dia é hoje"
-                    ]):
-                        # Obter data e hora atuais
-                        agora = datetime.now()
-                        
-                        if any(palavra in comando_lower for palavra in ["horas", "hora"]):
-                            # Perguntas sobre hora
-                            resposta = f"🕐 Agora são {agora.strftime('%H:%M')}."
-                        elif any(palavra in comando_lower for palavra in ["data", "dia"]):
-                            # Perguntas sobre data
-                            dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
-                            meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
-                            dia_semana = dias_semana[agora.weekday()]
-                            mes = meses[agora.month - 1]
-                            resposta = f"📅 Hoje é {dia_semana}, {agora.day} de {mes} de {agora.year}."
-                        else:
-                            # Pergunta geral sobre data e hora
-                            dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
-                            meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
-                            dia_semana = dias_semana[agora.weekday()]
-                            mes = meses[agora.month - 1]
-                            resposta = f"🕐 Agora são {agora.strftime('%H:%M')} de {dia_semana}, {agora.day} de {mes} de {agora.year}."
+            # Tentar responder com data/hora
+            if not resposta:
+                resposta = self._handle_datetime_queries(comando_lower)
                 
                 if not resposta:
                     # Usar classificação por rede neural ou Ollama
@@ -1223,6 +1170,93 @@ Utilizador: {comando}"""
     # ==========================
     # MÉTODOS AUXILIARES
     # ==========================
+    def _process_opinion_system(self, comando: str, response_start_time: float) -> Optional[Dict[str, Any]]:
+        """
+        Processa comando com sistema de opinião ética.
+        
+        Returns:
+            Dict com 'response', 'should_return' se deve retornar imediatamente
+        """
+        if not (OPINION_SYSTEM_AVAILABLE and opinion_system):
+            return None
+        
+        try:
+            opinion_response, should_decline = opinion_system.analyze_and_respond(
+                comando,
+                context={"history": self.history[-5:]},
+                personality=self.personalidade
+            )
+            
+            if opinion_response:
+                logging.info("✅ Sistema de opinião ativado")
+                
+                if should_decline:
+                    response_time = time.time() - response_start_time
+                    self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {opinion_response}")
+                    self.save_assistant_message(opinion_response, response_time, "ethical_refusal")
+                    self.history.append({"role": "assistant", "content": opinion_response})
+                    self.audio_manager.text_to_speech(limpar_texto_tts(opinion_response))
+                    self.ui_updater.enable_buttons_signal.emit(True)
+                    self.ui_updater.set_status_signal.emit("Pronto")
+                    return {'should_return': True, 'response': opinion_response}
+                else:
+                    return {'should_return': False, 'response': opinion_response}
+        except Exception as e:
+            logging.error(f"❌ Erro no sistema de opinião: {e}")
+        
+        return None
+    
+    def _process_personal_info(self, comando: str, comando_lower: str) -> str:
+        """
+        Processa informações pessoais e sobre pessoas.
+        
+        Returns:
+            Resposta se encontrou informação, string vazia caso contrário
+        """
+        # Verificar informação pessoal
+        resposta = self.personal_profile.process_user_input(comando_lower)
+        
+        # Processar informações sobre pessoas
+        people_result = self.people_manager.process_user_input(comando, comando_lower)
+        
+        if people_result.get('response_suggestions') and not resposta:
+            resposta = people_result['response_suggestions'][0]
+        
+        return resposta or ''
+    
+    def _handle_datetime_queries(self, comando_lower: str) -> str:
+        """
+        Processa queries de data e hora.
+        
+        Returns:
+            Resposta formatada com data/hora, ou string vazia
+        """
+        if not any(palavra in comando_lower for palavra in ["horas", "hora", "data", "dia"]):
+            return ''
+        
+        if not any(frase in comando_lower for frase in [
+            "que horas", "diz-me as horas", "hora atual", "são as horas",
+            "me dizer as horas", "podes me dizer as horas", "ASTRA podes me dizer as horas",
+            "que dia", "qual a data", "data de hoje", "dia é hoje"
+        ]):
+            return ''
+        
+        agora = datetime.now()
+        dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 
+                       'sexta-feira', 'sábado', 'domingo']
+        meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+                 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+        
+        dia_semana = dias_semana[agora.weekday()]
+        mes = meses[agora.month - 1]
+        
+        if any(palavra in comando_lower for palavra in ["horas", "hora"]):
+            return f"🕐 Agora são {agora.strftime('%H:%M')}."
+        elif any(palavra in comando_lower for palavra in ["data", "dia"]):
+            return f"📅 Hoje é {dia_semana}, {agora.day} de {mes} de {agora.year}."
+        else:
+            return f"🕐 Agora são {agora.strftime('%H:%M')} de {dia_semana}, {agora.day} de {mes} de {agora.year}."
+    
     def _determine_context_type(self, comando: str) -> str:
         """
         Determina o tipo de contexto baseado no comando do utilizador.
