@@ -14,7 +14,7 @@ import logging
 from datetime import datetime
 from typing import Dict, Optional
 from pathlib import Path
-from config import CONFIG, DATABASE_AVAILABLE
+from ..config import CONFIG, DATABASE_AVAILABLE
 
 logger = logging.getLogger(__name__)
 

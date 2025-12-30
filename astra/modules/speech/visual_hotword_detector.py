@@ -8,9 +8,9 @@ Sistema que combina detecção de wake words com feedback visual imersivo.
 
 import logging
 from typing import Optional, Callable
-from modules.speech.hotword_detector import HotwordDetector, HotwordStatus
-from modules.visual_hotword_detector import create_visual_hotword_detector, VisualMode
-from modules.audio_visualizer import VisualizationMode
+from ..modules.speech.hotword_detector import HotwordDetector, HotwordStatus
+from ..modules.visual_hotword_detector import create_visual_hotword_detector, VisualMode
+from ..modules.audio_visualizer import VisualizationMode
 from config.visual_config import get_visual_config
 
 logger = logging.getLogger(__name__)

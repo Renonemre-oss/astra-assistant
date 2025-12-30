@@ -1,0 +1,48 @@
+# ================================
+# ASTRA AI ENGINE CONFIGURATION
+# ================================
+
+# Default AI provider to use
+default_provider: ollama
+
+# AI Provider Configurations
+providers:
+  # Ollama - Local AI (Recommended)
+  ollama:
+    enabled: true
+    model: gemma3n:e4b  # Current model being used
+    url: http://localhost:11434
+    timeout: 120
+    max_retries: 3
+    temperature: 0.7
+    stream: true
+  
+  # OpenAI - Cloud AI (Optional)
+  openai:
+    enabled: false
+    model: gpt-3.5-turbo
+    api_key: ${OPENAI_API_KEY}  # Load from environment variable
+    timeout: 60
+    max_retries: 3
+    temperature: 0.7
+
+# Fallback chain - order of providers to try if one fails
+fallback_chain:
+  - ollama
+  # Uncomment to enable OpenAI as fallback:
+  # - openai
+
+# Cache Configuration
+cache_enabled: true
+cache_ttl: 3600  # Time to live in seconds (1 hour)
+
+# Conversation Settings
+conversation:
+  history_size: 3  # Number of previous messages to include in context
+  max_tokens: 2048  # Maximum tokens per response
+  
+# System Behavior
+system:
+  graceful_degradation: true  # Continue with basic functions if AI fails
+  log_requests: true  # Log all AI requests for debugging
+  log_responses: false  # Don't log full responses (privacy)

@@ -11,7 +11,7 @@ Funções para OCR, processamento de imagens e análise de texto.
 import logging
 from pathlib import Path
 from typing import Optional, List, Dict
-from config import TESSERACT_AVAILABLE, DEPENDENCIES
+from ..config import TESSERACT_AVAILABLE, DEPENDENCIES
 
 logger = logging.getLogger(__name__)
 

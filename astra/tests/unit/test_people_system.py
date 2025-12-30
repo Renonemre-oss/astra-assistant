@@ -18,7 +18,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from modules.people_manager import PeopleManager
 from database.database_manager import DatabaseManager, DatabaseConfig
-from config import DATABASE_AVAILABLE
+from ..config import DATABASE_AVAILABLE
 
 # Configurar logging mais limpo para o teste
 logging.basicConfig(

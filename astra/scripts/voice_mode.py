@@ -26,7 +26,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 # Imports do projeto
-from config import CONFIG
+from ..config import CONFIG
 from utils.utils import perguntar_ollama
 from audio.audio_manager import AudioManager
 

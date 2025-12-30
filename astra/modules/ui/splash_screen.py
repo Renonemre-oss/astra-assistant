@@ -25,7 +25,7 @@ except ImportError:
     print("PyQt6 não encontrado. Splash screen não disponível.")
     sys.exit(1)
 
-from utils.asset_manager import get_asset_manager
+from ..utils.asset_manager import get_asset_manager
 
 class SplashScreen(QWidget):
     """Tela de splash moderna com logo do ASTRA."""

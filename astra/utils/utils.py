@@ -14,7 +14,7 @@ import json
 import time
 import logging
 from typing import Optional, List, Dict, Any
-from config import CONFIG, DEPENDENCIES
+from ..config import CONFIG, DEPENDENCIES
 
 logger = logging.getLogger(__name__)
 

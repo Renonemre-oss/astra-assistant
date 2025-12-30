@@ -15,8 +15,8 @@ import re
 from datetime import datetime, date
 from typing import Dict, Optional, List, Any
 from pathlib import Path
-from config import CONFIG, DATABASE_AVAILABLE
-from utils.user_profile import UserProfile
+from ..config import CONFIG, DATABASE_AVAILABLE
+from ..utils.user_profile import UserProfile
 
 logger = logging.getLogger(__name__)
 

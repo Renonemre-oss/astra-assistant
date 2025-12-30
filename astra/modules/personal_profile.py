@@ -13,8 +13,8 @@ import logging
 from datetime import datetime
 from typing import Dict, Optional, List
 from pathlib import Path
-from config import CONFIG, DATABASE_AVAILABLE
-from utils.utils import salvar_historico, carregar_historico
+from ..config import CONFIG, DATABASE_AVAILABLE
+from ..utils.utils import salvar_historico, carregar_historico
 
 logger = logging.getLogger(__name__)
 

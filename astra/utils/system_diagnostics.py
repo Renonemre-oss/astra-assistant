@@ -19,7 +19,7 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Tuple, Any
 from datetime import datetime
-from config import CONFIG, DEPENDENCIES, DATABASE_AVAILABLE, TESSERACT_AVAILABLE
+from ..config import CONFIG, DEPENDENCIES, DATABASE_AVAILABLE, TESSERACT_AVAILABLE
 
 logger = logging.getLogger(__name__)
 

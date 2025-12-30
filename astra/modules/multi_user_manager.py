@@ -16,7 +16,7 @@ import numpy as np
 from datetime import datetime
 from typing import Dict, Optional, List, Any, Tuple
 from pathlib import Path
-from config import CONFIG, DATABASE_AVAILABLE
+from ..config import CONFIG, DATABASE_AVAILABLE
 import re
 
 # Configurar logger primeiro

@@ -30,7 +30,7 @@ from pathlib import Path
 import random
 
 # Importar sistema de personalidade existente
-from modules.personality_engine import PersonalityEngine, MoodType, PersonalityMode, TimeContext
+from ..modules.personality_engine import PersonalityEngine, MoodType, PersonalityMode, TimeContext
 
 logger = logging.getLogger(__name__)
 
