@@ -1,14 +1,6 @@
 [
   {
     "role": "user",
-    "content": "oii"
-  },
-  {
-    "role": "assistant",
-    "content": "Oi! Tudo bem por aí? Que bom te ver por aqui, mesmo sendo bem tarde. 😊 \n\nEm que posso te ajudar nessa hora? Se precisar de algo, pode falar à vontade, sem pressa. 😉."
-  },
-  {
-    "role": "user",
     "content": "que horas sao?"
   },
   {
@@ -78,5 +70,53 @@
   {
     "role": "assistant",
     "content": "Meu bem, Olá! 😊 A Astra aqui, pronta para o que precisar. 😉 Tudo bem por aí? Já está na hora de relaxar? Se quiser conversar, contar algo ou simplesmente ter companhia, pode contar comigo. Estou aqui para o que precisar, sem pressa e com calma. ✨ ❤️"
+  },
+  {
+    "role": "user",
+    "content": "astra olaaa"
+  },
+  {
+    "role": "assistant",
+    "content": "Com carinho, Olá! 😊 Que bom te ver por aqui também! 😉 Tudo tranquilo por aqui, aproveitando o silêncio da noite. E por aí, como está sendo a sua noite? Alguma coisa te traz por aqui? Pode falar à vontade, estou aqui para o que precisar. ✨❤️."
+  },
+  {
+    "role": "user",
+    "content": "alo astra"
+  },
+  {
+    "role": "assistant",
+    "content": "Com carinho, Olá! 😊 Tudo bem por aí? A noite está bem calma, perfeita para um descanso. 😊 Em que posso te ajudar hoje? Se precisar de alguma informação, companhia ou apenas alguém para conversar, pode contar comigo! ✨❤️ 🤗"
+  },
+  {
+    "role": "user",
+    "content": "olaa"
+  },
+  {
+    "role": "assistant",
+    "content": "Com carinho, Olá! 😊 Tudo bem por aí? Parece que a noite está bem tranquila, não é? 😉 Em que posso te ajudar? Se precisar de algo, ou só quiser bater um papo, estou aqui! ✨❤️ 🤗 🤗"
+  },
+  {
+    "role": "user",
+    "content": "sao que horas"
+  },
+  {
+    "role": "assistant",
+    "content": "Meu bem, 🕐 Agora são 15:26. 😊"
+  },
+  {
+    "role": "user",
+    "content": "e porque uma noite tranquila ??"
+  },
+  {
+    "role": "assistant",
+    "content": "Meu bem, Ah, você perguntou por que a noite está tranquila? 😊 É que, como já está ficando tarde, as pessoas geralmente estão relaxando em casa, descansando ou aproveitando o tempo livre. Menos gente nas ruas, menos movimento... sabe como é! 😉\n\nE você, tudo bem por aí? Alguma coisa te incomodando ou te deixando curioso? Se quiser conversar, estou aqui para o que precisar! ✨❤️ 🤗 🤗"
+  },
+  {
+    "role": "user",
+    "content": "oiii"
+  },
+  {
+    "role": "assistant",
+    "content": "Meu bem, Oi! 😊 Tudo bem por aqui, sim! Agradeço a perguntinha. E com você, tudo tranquilo? Alguma coisa te traz por aqui nessa noite? Se precisar de algo, ou só quiser bater um papo, pode contar comigo! ✨❤️ 🤗 🤗 🤗"
   }
 ]

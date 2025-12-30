@@ -20,12 +20,12 @@ from typing import List
 import configparser
 
 # Imports dos módulos organizados
-from config import CONFIG, DATABASE_AVAILABLE, UI_STYLES
-from modules.audio.audio_manager import AudioManager
-from utils.text_processor import processar_imagem, formatar_resposta
-from modules.personal_profile import PersonalProfile
-from modules.people_manager import PeopleManager
-from utils.utils import (
+from ..config import CONFIG, DATABASE_AVAILABLE, UI_STYLES
+from ..modules.audio.audio_manager import AudioManager
+from ..utils.text_processor import processar_imagem, formatar_resposta
+from ..modules.personal_profile import PersonalProfile
+from ..modules.people_manager import PeopleManager
+from ..utils.utils import (
     remover_emojis, pesquisar_internet, perguntar_ollama, 
     carregar_historico, salvar_historico, verificar_servicos, limpar_texto_tts
 )
@@ -33,7 +33,7 @@ from utils.utils import (
 # Imports do sistema de base de dados com tratamento de erro
 if DATABASE_AVAILABLE:
     try:
-        from modules.database.database_manager import DatabaseManager, DatabaseConfig, generate_session_id
+        from ..modules.database.database_manager import DatabaseManager, DatabaseConfig, generate_session_id
     except ImportError as e:
         logging.warning(f"⚠️ Sistema de base de dados não disponível: {e}")
         DATABASE_AVAILABLE = False
@@ -60,14 +60,14 @@ except ImportError:
 
 # Sistema de hotword detection
 try:
-    from modules.speech.hotword_detector import create_hotword_detector
+    from ..modules.speech.hotword_detector import create_hotword_detector
 except ImportError:
     logging.warning("Sistema de hotword não disponível")
     create_hotword_detector = None
 
 # Sistema de visualização integrado
 try:
-    from modules.visual_hotword_detector import create_visual_hotword_system
+    from ..modules.visual_hotword_detector import create_visual_hotword_system
     VISUAL_SYSTEM_AVAILABLE = True
 except ImportError:
     logging.warning("Sistema de visualização não disponível")
@@ -76,28 +76,28 @@ except ImportError:
 
 # Sistema de personalidade dinâmica
 try:
-    from modules.personality_engine import PersonalityEngine
+    from ..modules.personality_engine import PersonalityEngine
 except ImportError:
     logging.warning("Sistema de personalidade não disponível")
     PersonalityEngine = None
 
 # Sistema de companhia inteligente
 try:
-    from modules.companion_engine import CompanionEngine
+    from ..modules.companion_engine import CompanionEngine
 except ImportError:
     logging.warning("Sistema de companhia inteligente não disponível")
     CompanionEngine = None
 
 # Sistema de memória inteligente
 try:
-    from modules.memory_system import MemorySystem
+    from ..modules.memory_system import MemorySystem
 except ImportError:
     logging.warning("Sistema de memória não disponível")
     MemorySystem = None
 
 # Sistema de opinião e análise ética
 try:
-    from modules.opinion_system import opinion_system
+    from ..modules.opinion_system import opinion_system
     OPINION_SYSTEM_AVAILABLE = True
 except ImportError:
     logging.warning("Sistema de opinião não disponível")
@@ -106,7 +106,7 @@ except ImportError:
 
 # Sistema de Hub de APIs - Notícias, Clima, etc.
 try:
-    from api.api_integration_hub import ApiIntegrationHub, NewsAPI, WeatherAPI, CryptoAPI
+    from ..api.api_integration_hub import ApiIntegrationHub, NewsAPI, WeatherAPI, CryptoAPI
     API_HUB_AVAILABLE = True
 except ImportError:
     logging.warning("Hub de APIs não disponível")
