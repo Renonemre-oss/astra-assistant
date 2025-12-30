@@ -16,7 +16,7 @@ import time
 import logging
 from pathlib import Path
 from datetime import datetime
-from typing import List
+from typing import List, Optional, Dict, Any
 import configparser
 
 # Imports dos módulos organizados
@@ -422,26 +422,41 @@ class AssistenteGUI(QtWidgets.QWidget):
             logging.error(f"❌ Erro ao inicializar conversa: {e}")
             self.conversation_id = None
 
-    def _load_conversation_history(self):
-        """Carrega o histórico da conversa da base de dados."""
+    def _load_conversation_history(self, limit: Optional[int] = None, offset: int = 0):
+        """
+        Carrega o histórico da conversa da base de dados com paginação.
+        
+        Args:
+            limit: Número máximo de mensagens (None = usar CONFIG)
+            offset: Offset para paginação (0 = mais recentes)
+        """
         if not self.db_manager or not self.conversation_id:
             return
-            
+        
+        # Usar limite configurado ou padrão
+        max_messages = limit if limit is not None else CONFIG.get("conversation_history_size", 50)
+        
+        # Limitar a um máximo razoável para evitar sobrecarga
+        max_messages = min(max_messages, 100)
+        
         try:
             messages = self.db_manager.get_conversation_history(
                 self.conversation_id, 
-                limit=CONFIG["conversation_history_size"]
+                limit=max_messages,
+                offset=offset
             )
             
             # Converter para formato do histórico local
-            self.history = []
+            if offset == 0:
+                self.history = []
+            
             for msg in messages:
                 if msg['message_type'] == 'user':
                     self.history.append({'role': 'user', 'content': msg['content']})
                 elif msg['message_type'] == 'assistant':
                     self.history.append({'role': 'assistant', 'content': msg['content']})
             
-            logging.info(f"📃 Histórico carregado: {len(messages)} mensagens")
+            logging.info(f"📃 Histórico carregado: {len(messages)} mensagens (limite: {max_messages})")
             
         except Exception as e:
             logging.error(f"❌ Erro ao carregar histórico: {e}")
