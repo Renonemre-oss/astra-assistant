@@ -179,8 +179,11 @@ class PiperTTSEngine:
         Returns:
             bool: True se sucesso
         """
+        import platform
+        import subprocess
+        
         try:
-            # Tentar usar pygame primeiro (melhor compatibilidade)
+            # Tentar usar pygame primeiro (melhor compatibilidade multiplataforma)
             try:
                 import pygame
                 pygame.mixer.init()
@@ -203,19 +206,54 @@ class PiperTTSEngine:
             except ImportError:
                 pass
             
+            # Fallback específico para Linux
+            if platform.system() == 'Linux':
+                # Tentar aplay (ALSA - mais comum)
+                try:
+                    if blocking:
+                        subprocess.run(['aplay', '-q', audio_file], check=True)
+                    else:
+                        subprocess.Popen(['aplay', '-q', audio_file])
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
+                
+                # Tentar paplay (PulseAudio)
+                try:
+                    if blocking:
+                        subprocess.run(['paplay', audio_file], check=True)
+                    else:
+                        subprocess.Popen(['paplay', audio_file])
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
+                
+                # Tentar ffplay (ffmpeg)
+                try:
+                    cmd = ['ffplay', '-nodisp', '-autoexit', '-loglevel', 'quiet', audio_file]
+                    if blocking:
+                        subprocess.run(cmd, check=True)
+                    else:
+                        subprocess.Popen(cmd)
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
+            
             # Fallback para winsound (Windows only)
-            try:
-                import winsound
-                if blocking:
-                    winsound.PlaySound(audio_file, winsound.SND_FILENAME)
-                else:
-                    winsound.PlaySound(audio_file, winsound.SND_FILENAME | winsound.SND_ASYNC)
-                return True
-            except ImportError:
-                pass
+            elif platform.system() == 'Windows':
+                try:
+                    import winsound
+                    if blocking:
+                        winsound.PlaySound(audio_file, winsound.SND_FILENAME)
+                    else:
+                        winsound.PlaySound(audio_file, winsound.SND_FILENAME | winsound.SND_ASYNC)
+                    return True
+                except ImportError:
+                    pass
             
             logger.error("Nenhum sistema de reprodução de áudio disponível")
-            logger.info("Instale pygame: pip install pygame")
+            logger.info("Linux: Instale aplay (alsa-utils), paplay (pulseaudio-utils) ou ffplay (ffmpeg)")
+            logger.info("Ou instale pygame: pip install pygame")
             return False
             
         except Exception as e:

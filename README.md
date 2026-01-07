@@ -26,36 +26,68 @@ Astra é mais do que um simples assistente - é uma plataforma completa para con
 
 ### 1. Instalação
 
+**Linux/macOS:**
 ```bash
+# Clone o repositório
+git clone https://github.com/Renonemre-oss/astra-assistant.git
+cd astra-assistant
+
+# Instale dependências do sistema (Linux)
+sudo apt install -y python3-venv python3-dev espeak-ng alsa-utils portaudio19-dev
+
+# Crie ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Instale dependências Python
+pip install -r requirements.txt
+```
+
+**Windows:**
+```pwsh
 # Clone o repositório
 git clone https://github.com/Renonemre-oss/astra-assistant.git
 cd astra-assistant
 
 # Crie ambiente virtual
 python -m venv .venv
-source .venv/bin/activate  # Linux/Mac
-# ou
-.venv\\Scripts\\activate  # Windows
+.venv\\Scripts\\activate
 
 # Instale dependências
 pip install -r requirements.txt
 ```
 
+> 🐧 **Linux:** Veja o guia completo em [`INSTALL_LINUX.md`](INSTALL_LINUX.md)
+
 ### 2. Configure a IA
 
 **Opção A: Ollama (Local - Recomendado)**
+
+*Linux/macOS:*
 ```bash
-# Instale Ollama: https://ollama.ai
+# Instale Ollama
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Baixe modelo
 ollama pull llama3.2
 
 # Configure em config/ai_config.yaml
 default_provider: ollama
 ```
 
+*Windows:*
+```pwsh
+# Baixe e instale de: https://ollama.ai
+# Depois:
+ollama pull llama3.2
+```
+
 **Opção B: OpenAI (Remoto)**
 ```bash
 # Configure API key
-export OPENAI_API_KEY=sua-chave-aqui
+export OPENAI_API_KEY=sua-chave-aqui  # Linux/macOS
+# ou
+$env:OPENAI_API_KEY="sua-chave-aqui"  # Windows
 
 # Configure em config/ai_config.yaml
 default_provider: openai
@@ -64,7 +96,11 @@ default_provider: openai
 ### 3. Execute
 
 ```bash
-python Astra/main.py
+# Linux/macOS
+python astra/main.py
+
+# Windows
+python astra\\main.py
 ```
 
 Pronto! 🎉

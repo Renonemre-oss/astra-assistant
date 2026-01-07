@@ -12,10 +12,12 @@ Astra AI Assistant is a modular, extensible AI assistant platform with support f
 ## Development Setup
 
 ### Initial Setup
+
+**Windows (PowerShell):**
 ```pwsh
 # Create and activate virtual environment
 python -m venv .venv
-.venv\Scripts\activate
+.venv\\Scripts\\activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -25,27 +27,61 @@ pip install -r requirements.txt
 ollama pull llama3.2
 ```
 
+**Linux/macOS (Bash):**
+```bash
+# Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install system dependencies (Linux)
+sudo apt install -y espeak-ng alsa-utils portaudio19-dev  # Ubuntu/Debian
+# or
+sudo dnf install -y espeak-ng alsa-utils portaudio-devel  # Fedora
+
+# Install Ollama for local AI
+curl -fsSL https://ollama.ai/install.sh | sh
+ollama pull llama3.2
+```
+
+**Quick Start:** See `INSTALL_LINUX.md` for detailed Linux setup instructions.
+
 ### Running the Application
 
 **Main ASTRA application (PyQt6 GUI):**
-```pwsh
-python astra\main.py
+```bash
+# Windows
+python astra\\main.py
+
+# Linux/macOS
+python astra/main.py
 ```
 
 **Available launcher commands:**
-```pwsh
-python astra\main.py test          # Run test suite
-python astra\main.py structure     # Show project structure
-python astra\main.py clean         # Clean up generated files
-python astra\main.py diag          # Run system diagnostics
-python astra\main.py profile       # Open profile manager UI
-python astra\main.py perf          # Show performance report
+```bash
+# Windows
+python astra\\main.py test          # Run test suite
+python astra\\main.py structure     # Show project structure
+python astra\\main.py clean         # Clean up generated files
+python astra\\main.py diag          # Run system diagnostics
+python astra\\main.py profile       # Open profile manager UI
+python astra\\main.py perf          # Show performance report
+
+# Linux/macOS (same commands, different path separator)
+python astra/main.py test
+python astra/main.py structure
+python astra/main.py clean
+python astra/main.py diag
+python astra/main.py profile
+python astra/main.py perf
 ```
 
 ## Testing
 
 ### Running Tests
-```pwsh
+```bash
 # All tests
 pytest tests/ -v --cov=. --cov-report=html --cov-report=term
 
@@ -53,10 +89,13 @@ pytest tests/ -v --cov=. --cov-report=html --cov-report=term
 pytest tests/unit/ -v                    # Unit tests only
 pytest tests/integration/ -v             # Integration tests only
 
-# From launcher
-python astra\main.py test
+# From launcher (Windows)
+python astra\\main.py test
 
-# Using Makefile (in astra/ directory)
+# From launcher (Linux/macOS)
+python astra/main.py test
+
+# Using Makefile (in astra/ directory, Linux/macOS only)
 cd astra
 make test                                # All tests with coverage
 make test-unit                           # Unit tests only
@@ -71,7 +110,7 @@ make test-integration                    # Integration tests only
 ## Code Quality
 
 ### Linting and Formatting
-```pwsh
+```bash
 # Linting
 ruff check jarvis/
 mypy jarvis/
@@ -207,7 +246,8 @@ Similar to skills but with broader capabilities:
 ### Key Modules (ASTRA)
 
 **Audio/Voice:** `astra/audio/`, `astra/modules/speech/`
-- TTS via Piper (preferred) or Windows SAPI (fallback)
+- TTS via Piper (preferred) or platform-specific engines (Windows SAPI, Linux espeak, macOS nsss)
+- Cross-platform audio playback (pygame, aplay, paplay, ffplay, winsound)
 - Speech recognition with hotword detection
 - Audio playback management
 
@@ -245,9 +285,13 @@ Similar to skills but with broader capabilities:
 
 ## Database Setup
 
-```pwsh
+```bash
 # SQLite (default)
-python astra\scripts\setup\setup_database.py
+# Windows
+python astra\\scripts\\setup\\setup_database.py
+
+# Linux/macOS
+python astra/scripts/setup/setup_database.py
 
 # Configuration in astra/config/database.ini:
 # [sqlite]
@@ -257,7 +301,7 @@ python astra\scripts\setup\setup_database.py
 ## API Integration
 
 **FastAPI Server:** `api_server/`
-```pwsh
+```bash
 # Start API server
 uvicorn api_server.main:app --reload
 ```
@@ -282,10 +326,19 @@ Configure API keys in `config/` files or environment variables.
 - Try-import pattern for optional features
 - Error tracking with error_handler utility
 
-### TTS Preference
-**User Preference:** Piper TTS over Windows SAPI
-- Piper offers better voice quality
-- Fallback to Windows SAPI if Piper unavailable
+### TTS System
+**Priority Order:**
+1. Piper TTS (best quality, cross-platform)
+2. Platform-specific:
+   - **Windows:** SAPI5 via pyttsx3
+   - **Linux:** espeak-ng via pyttsx3
+   - **macOS:** nsss via pyttsx3
+
+**Audio Playback (cross-platform):**
+- pygame (preferred, all platforms)
+- Linux: aplay (ALSA), paplay (PulseAudio), ffplay (ffmpeg)
+- Windows: winsound
+- macOS: built-in audio
 
 ### Async/Await
 - FastAPI endpoints use async
@@ -295,7 +348,7 @@ Configure API keys in `config/` files or environment variables.
 ## Git Workflow
 
 **Important:** After any significant changes, push to GitHub:
-```pwsh
+```bash
 git add .
 git commit -m "feat: description"
 
@@ -342,7 +395,7 @@ Key dependencies:
 ### Updating Dependencies
 Reference `MIGRATION_V3.md` for version migration guidance.
 
-```pwsh
+```bash
 pip install -r requirements.txt --upgrade
 ```
 
@@ -373,9 +426,33 @@ Structure:
 
 **Windows-Specific:**
 - Use `pwsh` (PowerShell) for commands
-- Path separators: backslashes (`\`)
-- Virtual environment activation: `.venv\Scripts\activate`
+- Path separators: backslashes (`\\`)
+- Virtual environment activation: `.venv\\Scripts\\activate`
+- TTS: Windows SAPI5 (built-in)
+- Audio: winsound (built-in)
 - Some Unix-specific Makefile commands may not work directly
+
+**Linux-Specific:**
+- Use `bash` for commands
+- Path separators: forward slashes (`/`)
+- Virtual environment activation: `source .venv/bin/activate`
+- TTS: espeak-ng (install via apt/dnf)
+- Audio: aplay (ALSA), paplay (PulseAudio), or ffplay (ffmpeg)
+- System dependencies required: `portaudio19-dev`, `python3-dev`, `build-essential`
+- See `INSTALL_LINUX.md` for complete setup guide
+
+**macOS-Specific:**
+- Use `bash` or `zsh` for commands
+- Path separators: forward slashes (`/`)
+- Virtual environment activation: `source .venv/bin/activate`
+- TTS: nsss (built-in)
+- May require Xcode Command Line Tools
+
+**Cross-Platform Considerations:**
+- Use `pathlib.Path` for file paths
+- Test on target platforms
+- Audio/TTS compatibility varies by platform
+- Piper TTS works on all platforms (best option)
 
 **Cross-Platform Considerations:**
 - Use `pathlib.Path` for file paths

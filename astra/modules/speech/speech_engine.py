@@ -146,6 +146,13 @@ class SpeechEngine:
     
     def _init_windows_sapi(self) -> bool:
         """Inicializa Windows SAPI TTS."""
+        import platform
+        
+        # SAPI5 só funciona no Windows
+        if platform.system() != 'Windows':
+            logger.debug("SAPI5 não disponível fora do Windows")
+            return False
+            
         try:
             import pyttsx3
             
@@ -171,10 +178,14 @@ class SpeechEngine:
             return False
     
     def _init_system_default(self) -> bool:
-        """Inicializa TTS padrão do sistema."""
+        """Inicializa TTS padrão do sistema (Linux: espeak, macOS: nsss)."""
         try:
             import pyttsx3
+            import platform
             
+            # No Linux, pyttsx3 usará espeak automaticamente
+            # No macOS, usará nsss
+            # No Windows, já tentamos SAPI5 antes
             self.tts_engine = pyttsx3.init()
             
             if not self.tts_engine:
@@ -183,7 +194,19 @@ class SpeechEngine:
             self.tts_engine.setProperty('rate', self.voice_rate)
             self.tts_engine.setProperty('volume', self.voice_volume)
             
-            logger.info("Sistema TTS padrão inicializado")
+            # No Linux, tentar configurar voz em português se disponível
+            if platform.system() == 'Linux':
+                try:
+                    voices = self.tts_engine.getProperty('voices')
+                    for voice in voices:
+                        if 'pt' in voice.id.lower() or 'brazil' in voice.id.lower():
+                            self.tts_engine.setProperty('voice', voice.id)
+                            logger.info(f"Voz portuguesa selecionada: {voice.id}")
+                            break
+                except:
+                    pass
+            
+            logger.info(f"Sistema TTS padrão inicializado ({platform.system()})")
             return True
             
         except Exception as e:

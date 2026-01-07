@@ -73,15 +73,23 @@ class AstraTTS:
     
     def _init_pyttsx3(self) -> bool:
         """Inicializa pyttsx3 como fallback."""
+        import platform
+        
         try:
             import pyttsx3
             
-            self.pyttsx3_engine = pyttsx3.init("sapi5")
+            # No Windows, usar SAPI5. No Linux/Mac, usar padrão (espeak/nsss)
+            if platform.system() == 'Windows':
+                self.pyttsx3_engine = pyttsx3.init("sapi5")
+            else:
+                self.pyttsx3_engine = pyttsx3.init()
             
-            # Tentar usar voz portuguesa (Maria)
+            # Tentar usar voz portuguesa
             voices = self.pyttsx3_engine.getProperty("voices")
             for v in voices:
-                if "Maria" in v.name or "Portuguese" in v.name:
+                # Windows: procurar Maria
+                # Linux: procurar pt ou brazil
+                if "Maria" in v.name or "Portuguese" in v.name or "pt" in v.id.lower() or "brazil" in v.id.lower():
                     self.pyttsx3_engine.setProperty("voice", v.id)
                     logger.info(f"Voz selecionada: {v.name}")
                     break
@@ -91,7 +99,7 @@ class AstraTTS:
             self.pyttsx3_engine.setProperty("volume", 1.0)
             
             self.current_engine = "pyttsx3"
-            logger.info("✅ pyttsx3 inicializado como fallback")
+            logger.info(f"✅ pyttsx3 inicializado como fallback ({platform.system()})")
             return True
             
         except Exception as e:
@@ -183,8 +191,11 @@ class AstraTTS:
     
     def _play_audio(self, audio_file: str, blocking: bool) -> bool:
         """Reproduz arquivo de áudio."""
+        import platform
+        import subprocess
+        
         try:
-            # Tentar pygame primeiro
+            # Tentar pygame primeiro (multiplataforma)
             try:
                 import pygame
                 pygame.mixer.init()
@@ -199,14 +210,53 @@ class AstraTTS:
             except ImportError:
                 pass
             
-            # Fallback winsound (Windows)
-            import winsound
-            if blocking:
-                winsound.PlaySound(audio_file, winsound.SND_FILENAME)
-            else:
-                winsound.PlaySound(audio_file, winsound.SND_FILENAME | winsound.SND_ASYNC)
+            # Fallback específico para Linux
+            if platform.system() == 'Linux':
+                # Tentar aplay (ALSA)
+                try:
+                    if blocking:
+                        subprocess.run(['aplay', '-q', audio_file], check=True)
+                    else:
+                        subprocess.Popen(['aplay', '-q', audio_file])
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
+                
+                # Tentar paplay (PulseAudio)
+                try:
+                    if blocking:
+                        subprocess.run(['paplay', audio_file], check=True)
+                    else:
+                        subprocess.Popen(['paplay', audio_file])
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
+                
+                # Tentar ffplay (ffmpeg)
+                try:
+                    cmd = ['ffplay', '-nodisp', '-autoexit', '-loglevel', 'quiet', audio_file]
+                    if blocking:
+                        subprocess.run(cmd, check=True)
+                    else:
+                        subprocess.Popen(cmd)
+                    return True
+                except (FileNotFoundError, subprocess.CalledProcessError):
+                    pass
             
-            return True
+            # Fallback winsound (Windows)
+            elif platform.system() == 'Windows':
+                try:
+                    import winsound
+                    if blocking:
+                        winsound.PlaySound(audio_file, winsound.SND_FILENAME)
+                    else:
+                        winsound.PlaySound(audio_file, winsound.SND_FILENAME | winsound.SND_ASYNC)
+                    return True
+                except ImportError:
+                    pass
+            
+            logger.error("Nenhum sistema de reprodução de áudio disponível")
+            return False
             
         except Exception as e:
             logger.error(f"Erro ao reproduzir áudio: {e}")
