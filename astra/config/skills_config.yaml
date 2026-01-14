@@ -1,99 +1,102 @@
-# ============================================================================
-# Configuração de Skills - Astra AI Assistant
-# ============================================================================
-# Este arquivo controla quais skills estão ativas e suas configurações.
+# ================================
+# ASTRA SKILLS CONFIGURATION
+# ================================
 
-# Skills Nativas (Built-in)
+# Built-in Skills Configuration
 builtin_skills:
-  # Weather Skill - Previsão do tempo
+  # Echo Skill - Basic test skill that repeats input
+  echo:
+    enabled: false  # Disable in production, useful for testing
+    description: "Repeats what you say (test skill)"
+  
+  # Time/Date Skill - Provides current time and date information
+  time:
+    enabled: true
+    description: "Informs current time, date, and day of week"
+    timezone: "Europe/Lisbon"  # Default timezone
+    format_24h: true  # Use 24-hour format
+  
+  # System Info Skill - Provides system status information
+  system_info:
+    enabled: true
+    description: "Provides CPU, memory, and system information"
+    include_details: true  # Include detailed system specs
+  
+  # Weather Skill - Weather information from API
   weather:
     enabled: true
+    description: "Provides weather forecasts and current conditions"
     config:
-      openweather_api_key: ${OPENWEATHER_API_KEY}  # Variável de ambiente ou substitua aqui
-      default_city: "São Paulo"
-    description: "Obter informações sobre clima e previsão do tempo"
-
-  # News Skill - Notícias (a implementar)
+      default_city: "Lisboa"
+      default_country: "PT"
+      api_key: ${OPENWEATHER_API_KEY}  # Load from environment
+      units: "metric"  # metric, imperial, or standard
+      language: "pt"
+  
+  # News Skill - Latest news from various sources
   news:
-    enabled: false
+    enabled: false  # Disabled by default - requires API configuration
+    description: "Fetches latest news headlines"
     config:
-      newsapi_key: ${NEWSAPI_KEY}
-      default_country: "br"
-      default_category: "general"
-    description: "Buscar e apresentar notícias recentes"
-
-  # Memory Skill - Sistema de memória (a implementar)
+      default_category: "general"  # general, business, tech, sports, etc.
+      max_articles: 5
+      language: "pt"
+  
+  # Memory Skill - Contextual memory system
   memory:
-    enabled: false
+    enabled: true
+    description: "Remembers conversation context and user preferences"
     config:
-      storage_path: "data/memory"
-      max_memories: 1000
-    description: "Gerenciar e recuperar memórias do usuário"
-
-  # Calculator Skill - Cálculos matemáticos (a implementar)
+      short_term_size: 10  # Number of recent interactions to remember
+      enable_long_term: true  # Save important facts long-term
+  
+  # Calculator Skill - Mathematical calculations
   calculator:
-    enabled: false
-    config: {}
-    description: "Realizar cálculos matemáticos complexos"
-
-  # Timer Skill - Temporizadores e alarmes (a implementar)
+    enabled: true
+    description: "Performs mathematical calculations"
+    config:
+      precision: 10  # Decimal places
+      allow_complex: false  # Complex numbers support
+  
+  # Timer/Alarm Skill - Timers and reminders
   timer:
-    enabled: false
-    config: {}
-    description: "Gerenciar temporizadores e alarmes"
+    enabled: false  # Implement in future phases
+    description: "Sets timers, alarms, and reminders"
 
-# Skills Customizadas (Custom)
-# Adicione aqui suas próprias skills
+# Custom Skills Configuration
+# Add your own custom skills here
 custom_skills:
-  # exemplo_skill:
-  #   enabled: false
-  #   module: "skills.custom.exemplo_skill"
-  #   class: "ExemploSkill"
+  # Example:
+  # my_custom_skill:
+  #   enabled: true
+  #   module: "skills.custom.my_skill"
+  #   class: "MySkill"
   #   config:
-  #     param1: "value1"
+  #     custom_param: "value"
 
-# Configurações Globais de Skills
-settings:
-  # Auto-descoberta de skills
+# Global Skills Settings
+global_settings:
+  # Auto-discovery of skills
   auto_discover: true
-  discover_paths:
-    - "skills/builtin"
-    - "skills/custom"
   
-  # Prioridade de execução
-  # Skills são executadas por ordem de prioridade (maior primeiro)
-  use_priority: true
-  
-  # Timeout para execução de skills (segundos)
+  # Skill execution timeout (seconds)
   execution_timeout: 30
   
-  # Permitir skills concorrentes
-  allow_concurrent: false
+  # Priority order (higher priority skills are checked first)
+  priority_order:
+    - memory      # Always check memory first
+    - time        # Time queries are common
+    - weather     # Weather queries
+    - calculator  # Math queries
+    - system_info # System status
+    - echo        # Test skill (lowest priority)
   
-  # Logging de skills
-  log_execution: true
-  log_level: "INFO"
-
-# ============================================================================
-# Guia Rápido - Como Adicionar uma Nova Skill
-# ============================================================================
-#
-# 1. Criar arquivo da skill em Astra/skills/custom/
-# 2. Herdar de BaseSkill e implementar métodos abstratos
-# 3. Adicionar configuração aqui em custom_skills
-# 4. Ativar a skill (enabled: true)
-#
-# Exemplo:
-# ---
-# custom_skills:
-#   minha_skill:
-#     enabled: true
-#     module: "skills.custom.minha_skill"
-#     class: "MinhaSkill"
-#     config:
-#       api_key: "minha-chave"
-#       param: "valor"
-# ---
-#
-# ============================================================================
-
+  # Error handling
+  error_handling:
+    retry_on_failure: true
+    max_retries: 2
+    fallback_to_ai: true  # If skill fails, ask AI engine
+  
+  # Logging
+  log_skill_usage: true
+  log_execution_time: true

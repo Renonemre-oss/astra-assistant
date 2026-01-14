@@ -1,109 +1,48 @@
-# ============================================================================
-# Configuração do AI Engine - Astra AI Assistant
-# ============================================================================
-# Este arquivo controla como o Astra usa IA para gerar respostas.
-# Você pode configurar múltiplos provedores e o sistema fará fallback
-# automático se um provedor falhar.
+# ================================
+# ASTRA AI ENGINE CONFIGURATION
+# ================================
 
-# Provedor padrão a usar
+# Default AI provider to use
 default_provider: ollama
 
-# Configurações de cada provedor
+# AI Provider Configurations
 providers:
-  # Ollama - IA Local (recomendado para privacidade)
+  # Ollama - Local AI (Recommended)
   ollama:
     enabled: true
-    model: llama3.2
+    model: gemma3n:e4b  # Current model being used
     url: http://localhost:11434
-    timeout: 60
+    timeout: 120
     max_retries: 3
-    description: |
-      Ollama é um servidor de IA local que roda modelos como Llama, Mistral, etc.
-      Requer instalação do Ollama: https://ollama.ai
-      Modelos populares: llama3.2, mistral, codellama, phi
-
-  # OpenAI - IA Remota (requer API key e créditos)
+    temperature: 0.7
+    stream: true
+  
+  # OpenAI - Cloud AI (Optional)
   openai:
     enabled: false
     model: gpt-3.5-turbo
-    api_key: ${OPENAI_API_KEY}  # Use variável de ambiente ou substitua aqui
+    api_key: ${OPENAI_API_KEY}  # Load from environment variable
     timeout: 60
     max_retries: 3
-    description: |
-      API OpenAI para usar GPT-3.5, GPT-4, etc.
-      Requer conta e API key: https://platform.openai.com
-      Modelos disponíveis: gpt-3.5-turbo, gpt-4, gpt-4-turbo
-      ATENÇÃO: Tem custo por uso!
+    temperature: 0.7
 
-  # Anthropic Claude - IA Remota (futuro)
-  # anthropic:
-  #   enabled: false
-  #   model: claude-3-sonnet
-  #   api_key: ${ANTHROPIC_API_KEY}
-  #   timeout: 60
-  #   max_retries: 3
-
-  # Google Gemini - IA Remota (futuro)
-  # google:
-  #   enabled: false
-  #   model: gemini-pro
-  #   api_key: ${GOOGLE_API_KEY}
-  #   timeout: 60
-  #   max_retries: 3
-
-# Cadeia de fallback - ordem de provedores a tentar se um falhar
-# O sistema tentará cada provedor nesta ordem até obter sucesso
+# Fallback chain - order of providers to try if one fails
 fallback_chain:
   - ollama
-  # - openai    # Descomente para usar OpenAI como fallback
+  # Uncomment to enable OpenAI as fallback:
+  # - openai
 
-# Configurações de Cache
-# O cache armazena respostas para evitar requisições duplicadas
+# Cache Configuration
 cache_enabled: true
-cache_ttl: 3600  # Tempo de vida do cache em segundos (1 hora)
-cache_dir: data/ai_cache
+cache_ttl: 3600  # Time to live in seconds (1 hour)
 
-# Parâmetros padrão para geração
-# Estes valores são usados se não forem especificados na requisição
-defaults:
-  temperature: 0.7      # Criatividade (0.0 = mais determinístico, 1.0 = mais criativo)
-  max_tokens: null      # Limite de tokens (null = sem limite)
-  system_prompt: |
-    És o Astra, um assistente de IA inteligente e prestativo.
-    Responde sempre em Português de Portugal (pt-PT).
-    Usa expressões portuguesas e evita brasileirismos.
-    Responde de forma clara, concisa e útil.
-    Sê educado e profissional.
-
-# Configurações avançadas
-advanced:
-  # Logging de requisições
-  log_requests: true
-  log_responses: false  # CUIDADO: pode gerar logs grandes
+# Conversation Settings
+conversation:
+  history_size: 3  # Number of previous messages to include in context
+  max_tokens: 2048  # Maximum tokens per response
   
-  # Métricas e estatísticas
-  enable_stats: true
-  stats_file: logs/ai_stats.json
-  
-  # Retry strategy
-  retry_delay: 1.0  # Segundos entre tentativas
-  exponential_backoff: true
-
-# ============================================================================
-# Guia Rápido
-# ============================================================================
-# 
-# Para usar Ollama (local):
-# 1. Instale: https://ollama.ai
-# 2. Baixe um modelo: ollama pull llama3.2
-# 3. Configure providers.ollama.enabled: true
-# 
-# Para usar OpenAI (remoto):
-# 1. Crie conta em: https://platform.openai.com
-# 2. Obtenha API key
-# 3. Configure a variável de ambiente: OPENAI_API_KEY=sua-chave
-# 4. Configure providers.openai.enabled: true
-# 5. Adicione 'openai' ao fallback_chain se desejar
-#
-# ============================================================================
-
+# System Behavior
+system:
+  graceful_degradation: true  # Continue with basic functions if AI fails
+  log_requests: true  # Log all AI requests for debugging
+  log_responses: false  # Don't log full responses (privacy)
