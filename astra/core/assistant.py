@@ -100,6 +100,17 @@ except ImportError:
     EventType = None
     AFFECTIVE_ENGINE_AVAILABLE = False
 
+# Sistema de decisão interna (CORE - sempre ativo)
+try:
+    from ..modules.decision_engine import DecisionEngine, DecisionType
+    DECISION_ENGINE_AVAILABLE = True
+    logging.info("🧠 Decision Engine disponível")
+except ImportError:
+    logging.warning("⚠️ Decision Engine não disponível")
+    DecisionEngine = None
+    DecisionType = None
+    DECISION_ENGINE_AVAILABLE = False
+
 # Sistema de personalidade dinâmica (BÁSICO)
 if ENABLE_BASIC_PERSONALITY:
     try:
@@ -323,6 +334,15 @@ class AssistenteGUI(QtWidgets.QWidget):
                 logging.info(f"Estados iniciais:\n{self.affective_engine.get_state_summary()}")
             except Exception as e:
                 logging.error(f"Erro ao inicializar Affective Engine: {e}")
+        
+        # Sistema de decisão interna (CORE)
+        self.decision_engine = None
+        if DECISION_ENGINE_AVAILABLE and self.affective_engine:
+            try:
+                self.decision_engine = DecisionEngine(affective_engine=self.affective_engine)
+                logging.info("🧠 Decision Engine ativado (conectado ao Affective Engine)")
+            except Exception as e:
+                logging.error(f"Erro ao inicializar Decision Engine: {e}")
         
         # Sistema de Hub de APIs (Notícias, Clima, etc.)
         self.api_hub = None
@@ -689,6 +709,34 @@ class AssistenteGUI(QtWidgets.QWidget):
             
             # Detectar eventos afetivos antes de processar
             self._detect_affective_events(comando)
+            
+            # DECISION ENGINE: Processo de decisão interna
+            decision_result = None
+            explicit_response = None
+            if self.decision_engine:
+                try:
+                    # Construir contexto para Decision Engine
+                    decision_context = {
+                        'has_helped_recently': len(self.history) > 2,  # Simplificado
+                        'helped_recently_count': min(len(self.history) // 2, 5)
+                    }
+                    
+                    # Processar fluxo completo: Event → Meaning → Conflict → Decision → Expression
+                    decision_result, explicit_response = self.decision_engine.process_full_decision_flow(
+                        comando,
+                        context=decision_context
+                    )
+                    
+                    # Se Decision Engine gerou resposta explícita, usar e retornar
+                    if explicit_response:
+                        logging.info(f"🧠 Decision Engine: usando resposta explícita ({decision_result.decision_type.value})")
+                        self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {explicit_response}")
+                        self.audio_manager.text_to_speech(explicit_response)
+                        self.ui_updater.enable_buttons_signal.emit(True)
+                        return
+                    
+                except Exception as e:
+                    logging.error(f"Erro no Decision Engine: {e}")
             
             # Salvar mensagem na base de dados e histórico
             self.save_user_message(comando)
