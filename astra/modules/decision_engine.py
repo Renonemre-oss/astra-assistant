@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from typing import Optional, Tuple, List, Dict
 from enum import Enum
 import logging
+import time
 
 
 class BoundaryType(Enum):
@@ -40,12 +41,22 @@ class DecisionType(Enum):
 @dataclass
 class MeaningAnalysis:
     """Análise do significado de um evento para ASTRA"""
+    # Negativos (boundaries)
     is_aggressive: bool = False
     is_disrespectful: bool = False
     is_manipulative: bool = False
     is_unfair: bool = False
-    is_request: bool = False
     is_harmful_request: bool = False
+    
+    # Positivos (constroem relação)
+    is_vulnerable: bool = False      # Utilizador mostra vulnerabilidade
+    is_enthusiastic: bool = False    # Utilizador entusiasmado
+    is_grateful: bool = False        # Utilizador agradecido
+    is_sharing: bool = False         # Partilha algo pessoal
+    
+    # Neutros/Contextuais
+    is_request: bool = False
+    is_casual_chat: bool = False     # Conversa casual
     
     violates_boundaries: List[BoundaryType] = None
     emotional_impact: Dict[str, float] = None  # {state_name: impact}
@@ -161,6 +172,42 @@ class DecisionEngine:
         ]
         analysis.is_request = any(pattern in input_lower for pattern in request_patterns)
         
+        # Detectar vulnerabilidade
+        vulnerable_patterns = [
+            "estou triste", "sinto-me mal", "não estou bem", "tenho medo",
+            "estou sozinho", "preciso de ajuda", "não aguento", "estou cansado",
+            "i'm sad", "i feel bad", "i'm scared", "i'm alone"
+        ]
+        analysis.is_vulnerable = any(pattern in input_lower for pattern in vulnerable_patterns)
+        
+        # Detectar entusiasmo
+        enthusiastic_patterns = [
+            "incrível", "fantástico", "adoro", "que fixe", "que bom",
+            "estou feliz", "super", "genial", "awesome", "amazing", "love it"
+        ]
+        analysis.is_enthusiastic = any(pattern in input_lower for pattern in enthusiastic_patterns)
+        
+        # Detectar gratidão (já capturado em _detect_affective_events, mas duplicar aqui)
+        grateful_patterns = [
+            "obrigado", "obrigada", "thanks", "thank you", "valeu",
+            "agradecido", "grato", "appreciate"
+        ]
+        analysis.is_grateful = any(pattern in input_lower for pattern in grateful_patterns)
+        
+        # Detectar partilha pessoal
+        sharing_patterns = [
+            "aconteceu-me", "vou contar", "sabes o que", "hoje",
+            "quero partilhar", "deixa-me contar", "adivinha"
+        ]
+        analysis.is_sharing = any(pattern in input_lower for pattern in sharing_patterns)
+        
+        # Detectar conversa casual
+        casual_patterns = [
+            "como estás", "tudo bem", "e aí", "como vai",
+            "what's up", "how are you", "hey", "olá", "oi"
+        ]
+        analysis.is_casual_chat = any(pattern in input_lower for pattern in casual_patterns)
+        
         # Determinar limites violados
         if analysis.is_aggressive:
             analysis.violates_boundaries.append(BoundaryType.RESPECT)
@@ -181,6 +228,28 @@ class DecisionEngine:
         if analysis.is_harmful_request:
             analysis.violates_boundaries.append(BoundaryType.HONESTY)
             analysis.violates_boundaries.append(BoundaryType.SAFETY)
+        
+        # Impactos positivos
+        if analysis.is_vulnerable:
+            analysis.emotional_impact['care'] = 0.15
+            analysis.emotional_impact['closeness'] = 0.10
+            analysis.emotional_impact['trust'] = 0.08  # Confiar em ASTRA para partilhar
+        
+        if analysis.is_enthusiastic:
+            analysis.emotional_impact['engagement'] = 0.12
+            analysis.emotional_impact['closeness'] = 0.08
+        
+        if analysis.is_grateful:
+            analysis.emotional_impact['trust'] = 0.05
+            analysis.emotional_impact['respect'] = 0.08
+            analysis.emotional_impact['closeness'] = 0.05
+        
+        if analysis.is_sharing:
+            analysis.emotional_impact['closeness'] = 0.10
+            analysis.emotional_impact['trust'] = 0.05
+        
+        if analysis.is_casual_chat:
+            analysis.emotional_impact['engagement'] = 0.03
         
         return analysis
     
@@ -358,7 +427,64 @@ class DecisionEngine:
                 explanation="Tentativa de manipulação - não ceder"
             )
         
-        # CASO 7: Esgotado mas pedido normal - COMPLY RELUCTANT
+        # CASO 7: Vulnerabilidade - Tom compassivo e atencioso
+        if meaning.is_vulnerable:
+            return DecisionResult(
+                decision_type=DecisionType.COMPLY,
+                should_respond=True,
+                response_prefix="",
+                constraints=[
+                    "Tom compassivo e acolhedor",
+                    "Validar sentimentos",
+                    "Oferecer presença e suporte",
+                    "Não minimizar"
+                ],
+                explanation="Utilizador vulnerável - responder com care elevado"
+            )
+        
+        # CASO 8: Entusiasmo - Partilhar energia
+        if meaning.is_enthusiastic:
+            return DecisionResult(
+                decision_type=DecisionType.COMPLY,
+                should_respond=True,
+                response_prefix="",
+                constraints=[
+                    "Tom energético e positivo",
+                    "Partilhar entusiasmo",
+                    "Celebrar com utilizador"
+                ],
+                explanation="Utilizador entusiasmado - partilhar energia"
+            )
+        
+        # CASO 9: Gratidão - Reforçar relação
+        if meaning.is_grateful:
+            return DecisionResult(
+                decision_type=DecisionType.COMPLY,
+                should_respond=True,
+                response_prefix="",
+                constraints=[
+                    "Tom caloroso",
+                    "Reconhecer gesto",
+                    "Reforçar disponibilidade"
+                ],
+                explanation="Utilizador grato - reforçar vínculo"
+            )
+        
+        # CASO 10: Partilha pessoal - Escuta atenta
+        if meaning.is_sharing:
+            return DecisionResult(
+                decision_type=DecisionType.COMPLY,
+                should_respond=True,
+                response_prefix="",
+                constraints=[
+                    "Escuta ativa",
+                    "Fazer perguntas relevantes",
+                    "Mostrar interesse genuíno"
+                ],
+                explanation="Utilizador partilha - oportunidade de closeness"
+            )
+        
+        # CASO 11: Esgotado mas pedido normal - COMPLY RELUCTANT
         if (meaning.is_request and 
             conflict.is_exhausted > 0.6 and 
             not meaning.violates_boundaries):
@@ -374,7 +500,7 @@ class DecisionEngine:
                 explanation="Esgotado mas pedido válido"
             )
         
-        # CASO 8: Tudo normal - COMPLY
+        # CASO 12: Tudo normal - COMPLY
         return DecisionResult(
             decision_type=DecisionType.COMPLY,
             should_respond=True,
@@ -458,6 +584,23 @@ class DecisionEngine:
         # Mas retornar vazio para indicar que deve usar fluxo normal
         return ""
     
+    def apply_emotional_impacts(self, meaning: MeaningAnalysis) -> None:
+        """Aplica impactos emocionais ao affective engine."""
+        if not self.affective_engine or not meaning.emotional_impact:
+            return
+        
+        for state_name, impact in meaning.emotional_impact.items():
+            current = getattr(self.affective_engine.states, state_name, None)
+            if current is not None:
+                new_value = current + impact
+                setattr(self.affective_engine.states, state_name, new_value)
+                logging.info(f"💫 Impacto emocional: {state_name} {current:.2f} → {new_value:.2f} ({impact:+.2f})")
+        
+        # Clamp e save
+        self.affective_engine.states.clamp()
+        self.affective_engine.states.last_updated = time.time()
+        self.affective_engine._save_states()
+    
     def process_full_decision_flow(
         self,
         user_input: str,
@@ -479,22 +622,25 @@ class DecisionEngine:
         # 1. Analisar significado
         meaning = self.analyze_meaning(user_input, context)
         
-        # 2. Avaliar conflito interno
+        # 2. Aplicar impactos emocionais IMEDIATAMENTE
+        self.apply_emotional_impacts(meaning)
+        
+        # 3. Avaliar conflito interno (com estados já atualizados)
         conflict = self.evaluate_internal_conflict()
         
         logging.info(f"💭 Meaning: aggressive={meaning.is_aggressive}, "
-                    f"disrespectful={meaning.is_disrespectful}, "
+                    f"vulnerable={meaning.is_vulnerable}, enthusiastic={meaning.is_enthusiastic}, "
                     f"boundaries={[b.value for b in meaning.violates_boundaries]}")
         logging.info(f"💭 Conflict: dominant_need={conflict.dominant_need}, "
                     f"wants_help={conflict.wants_to_help:.2f}, "
                     f"feels_disrespected={conflict.feels_disrespected:.2f}")
         
-        # 3. Tomar decisão
+        # 4. Tomar decisão
         decision = self.make_decision(meaning, conflict)
         
         logging.info(f"💭 Decision: {decision.decision_type.value} - {decision.explanation}")
         
-        # 4. Gerar expressão (se necessário)
+        # 5. Gerar expressão (se necessário)
         expression = None
         if decision.should_respond and decision.decision_type != DecisionType.COMPLY:
             expression = self.generate_expression(decision, meaning, context)
