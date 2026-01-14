@@ -89,6 +89,17 @@ except ImportError:
     ENABLE_BASIC_MEMORY = True
     ENABLE_OPINION_SYSTEM = False
 
+# Sistema de estados afetivos (CORE - sempre ativo)
+try:
+    from ..modules.affective_state_engine import AffectiveStateEngine, EventType
+    AFFECTIVE_ENGINE_AVAILABLE = True
+    logging.info("💫 Affective State Engine disponível")
+except ImportError:
+    logging.warning("⚠️ Affective State Engine não disponível")
+    AffectiveStateEngine = None
+    EventType = None
+    AFFECTIVE_ENGINE_AVAILABLE = False
+
 # Sistema de personalidade dinâmica (BÁSICO)
 if ENABLE_BASIC_PERSONALITY:
     try:
@@ -302,6 +313,16 @@ class AssistenteGUI(QtWidgets.QWidget):
                 logging.info("🧠 Sistema de memória ativado")
             except Exception as e:
                 logging.error(f"Erro ao inicializar memória: {e}")
+        
+        # Sistema de estados afetivos (CORE)
+        self.affective_engine = None
+        if AFFECTIVE_ENGINE_AVAILABLE:
+            try:
+                self.affective_engine = AffectiveStateEngine(user_id="default")
+                logging.info("💫 Affective State Engine ativado")
+                logging.info(f"Estados iniciais:\n{self.affective_engine.get_state_summary()}")
+            except Exception as e:
+                logging.error(f"Erro ao inicializar Affective Engine: {e}")
         
         # Sistema de Hub de APIs (Notícias, Clima, etc.)
         self.api_hub = None
@@ -666,6 +687,9 @@ class AssistenteGUI(QtWidgets.QWidget):
             comando_lower = remover_emojis(comando).lower().strip()
             response_start_time = time.time()
             
+            # Detectar eventos afetivos antes de processar
+            self._detect_affective_events(comando)
+            
             # Salvar mensagem na base de dados e histórico
             self.save_user_message(comando)
             self.history.append({"role": "user", "content": comando})
@@ -826,6 +850,13 @@ class AssistenteGUI(QtWidgets.QWidget):
                         if self.memory_system:
                             memory_context = self.memory_system.get_relevant_context(comando, max_memories=3)
                         
+                        # Obter tom de resposta baseado em estados afetivos
+                        affective_tone = ""
+                        if self.affective_engine:
+                            tone = self.affective_engine.get_response_tone()
+                            affective_tone = tone.to_prompt()
+                            logging.info(f"💫 Estado afetivo: {tone.description}")
+                        
                         context_parts = []
                         if perfil_info:
                             context_parts.append(perfil_info)
@@ -835,6 +866,8 @@ class AssistenteGUI(QtWidgets.QWidget):
                             context_parts.append(personality_context)
                         if memory_context:
                             context_parts.append(memory_context)
+                        if affective_tone:
+                            context_parts.append(affective_tone)
                         
                         context_info = "\n\n".join(context_parts) if context_parts else ""
                         
@@ -862,6 +895,17 @@ Utilizador: {comando}"""
             
             # Calcular tempo de resposta
             response_time = time.time() - response_start_time
+            
+            # Registrar interação no Affective Engine
+            if self.affective_engine and resposta:
+                try:
+                    # Registrar interação positiva por padrão
+                    self.affective_engine.trigger_event(
+                        EventType.POSITIVE_INTERACTION,
+                        context=f"User: {comando[:50]}..."
+                    )
+                except Exception as e:
+                    logging.error(f"Erro ao registrar evento afetivo: {e}")
             
             # Aplicar sistema de companhia inteligente se disponível
             companion_metadata = {}
@@ -1381,6 +1425,10 @@ Utilizador: {comando}"""
         """Interrompe o processo atual."""
         self.stop_signal.set()
         self.microfone_ativo = False
+        
+        # Registrar interrupção no Affective Engine
+        self._handle_interruption()
+        
         self.ui_updater.set_status_signal.emit("🚫 Processo interrompido.")
 
     # ==========================
@@ -1733,6 +1781,90 @@ Utilizador: {comando}"""
         except Exception as e:
             logging.error(f"Erro ao processar comando de crypto: {e}")
             return f"❌ Erro interno ao consultar criptomoedas: {str(e)}"
+    
+    # ==========================
+    # MÉTODOS DE AFFECTIVE ENGINE
+    # ==========================
+    def _detect_affective_events(self, comando: str) -> None:
+        """Detecta e registra eventos afetivos baseados no comando do utilizador."""
+        if not self.affective_engine:
+            return
+        
+        comando_lower = comando.lower()
+        
+        try:
+            # Detectar agressividade verbal
+            aggressive_words = [
+                "idiota", "estúpido", "burro", "inútil", "merda", 
+                "caralho", "porra", "foda-se", "vai para o inferno",
+                "cala-te", "cala a boca", "shut up"
+            ]
+            if any(word in comando_lower for word in aggressive_words):
+                self.affective_engine.trigger_event(
+                    EventType.VERBAL_AGGRESSION,
+                    context=f"Agressão detectada: {comando[:50]}..."
+                )
+                logging.warning("💥 Evento afetivo: VERBAL_AGGRESSION")
+                return
+            
+            # Detectar desculpas
+            apology_words = [
+                "desculpa", "desculpe", "perdão", "foi mal", "me perdoa",
+                "sorry", "my bad", "perdão", "lamento"
+            ]
+            if any(word in comando_lower for word in apology_words):
+                self.affective_engine.trigger_event(
+                    EventType.USER_APOLOGY,
+                    context=f"Desculpa: {comando[:50]}..."
+                )
+                logging.info("💔 Evento afetivo: USER_APOLOGY")
+                return
+            
+            # Detectar pedido de ajuda genuíno
+            help_phrases = [
+                "preciso de ajuda", "podes ajudar", "help me", "me ajuda",
+                "não sei", "estou perdido", "can you help"
+            ]
+            if any(phrase in comando_lower for phrase in help_phrases):
+                self.affective_engine.trigger_event(
+                    EventType.GENUINE_HELP,
+                    context=f"Pedido de ajuda: {comando[:50]}..."
+                )
+                logging.info("🤝 Evento afetivo: GENUINE_HELP")
+                return
+            
+            # Detectar respeito consistente
+            respectful_words = [
+                "obrigado", "obrigada", "thank you", "thanks", "valeu",
+                "por favor", "please", "se não for incómodo"
+            ]
+            if any(word in comando_lower for word in respectful_words):
+                self.affective_engine.trigger_event(
+                    EventType.CONSISTENT_RESPECT,
+                    context=f"Respeito: {comando[:50]}..."
+                )
+                logging.info("👍 Evento afetivo: CONSISTENT_RESPECT")
+                return
+            
+        except Exception as e:
+            logging.error(f"Erro ao detectar eventos afetivos: {e}")
+    
+    def _handle_interruption(self) -> None:
+        """Registra interrupção quando o botão 'Parar' é pressionado."""
+        if not self.affective_engine:
+            return
+        
+        try:
+            # Contar interrupções recentes (nos últimos 10 minutos)
+            # Nota: isso seria melhor com um tracker de tempo, mas por agora usamos factor fixo
+            self.affective_engine.trigger_event(
+                EventType.INTERRUPTION,
+                context="Utilizador pressionou botão parar",
+                accumulation_factor=1.0
+            )
+            logging.info("✋ Evento afetivo: INTERRUPTION")
+        except Exception as e:
+            logging.error(f"Erro ao registrar interrupção: {e}")
     
     # ==========================
     # CLEANUP E ENCERRAMENTO
