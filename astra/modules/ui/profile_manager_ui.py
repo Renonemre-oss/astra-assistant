@@ -33,9 +33,9 @@ except ImportError:
     print("PyQt6 não encontrado. Interface de perfil não disponível.")
     sys.exit(1)
 
-from ..config import CONFIG, UI_STYLES, PERSONALITIES
-from ..modules.personal_profile import PersonalProfile
-from ..modules.people_manager import PeopleManager
+from astra.config import CONFIG, UI_STYLES, PERSONALITIES
+from astra.modules.personal_profile import PersonalProfile
+from astra.modules.people_manager import PeopleManager
 
 logger = logging.getLogger(__name__)
 

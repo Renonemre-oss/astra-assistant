@@ -112,7 +112,16 @@ class HotwordDetector:
             import pvporcupine
             
             # Verificar palavras-chave disponíveis no Porcupine
-            available_keywords = list(pvporcupine.KEYWORDS.keys()) if hasattr(pvporcupine, 'KEYWORDS') else []
+            if hasattr(pvporcupine, 'KEYWORDS'):
+                # KEYWORDS pode ser um dict ou um set dependendo da versão
+                if isinstance(pvporcupine.KEYWORDS, dict):
+                    available_keywords = list(pvporcupine.KEYWORDS.keys())
+                elif isinstance(pvporcupine.KEYWORDS, set):
+                    available_keywords = list(pvporcupine.KEYWORDS)
+                else:
+                    available_keywords = list(pvporcupine.KEYWORDS)
+            else:
+                available_keywords = []
             
             if not available_keywords:
                 logger.info("Nenhuma palavra-chave Porcupine disponível")
@@ -120,7 +129,7 @@ class HotwordDetector:
             
             # Selecionar palavras-chave disponíveis
             selected_keywords = []
-            for keyword in ['computer', 'ASTRAa', 'Astra']:
+            for keyword in ['computer', 'jarvis', 'alexa']:
                 if keyword in available_keywords:
                     selected_keywords.append(keyword)
             

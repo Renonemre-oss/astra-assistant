@@ -62,7 +62,7 @@ def configure_logging():
 # ==========================
 CONFIG = {
     # Modelo Ollama
-    "ollama_model": "gemma3n:e4b",
+    "ollama_model": "llama3.2",
     "ollama_url": "http://localhost:11434/api/generate",
     
     # Conversação

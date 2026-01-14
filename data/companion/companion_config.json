@@ -1,15 +1,15 @@
 {
-  "current_companion_type": "caring_assistant",
+  "current_companion_type": "friend",
   "user_preferences": {},
   "relationship_metrics": {
-    "trust_level": 0.6400000000000001,
+    "trust_level": 0.7500000000000002,
     "intimacy_level": 0.3,
     "shared_experiences": 0,
-    "positive_interactions": 14,
-    "total_conversations": 14,
-    "last_interaction": "2025-12-28T15:30:03.768271",
+    "positive_interactions": 25,
+    "total_conversations": 25,
+    "last_interaction": "2026-01-12T15:52:26.889037",
     "favorite_topics": {},
     "conversation_style": "balanced"
   },
-  "relationship_level": "friend"
+  "relationship_level": "close_friend"
 }

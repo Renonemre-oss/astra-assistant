@@ -59,13 +59,25 @@ class MemoryEntry:
         self.memory_type = memory_type
         self.importance = importance
         self.tags = tags or []
+        
+        # 💡 REGRA: Emoção NUNCA armazenada sozinha!
+        # Emoções só existem com contexto obrigatório
+        self._validate_emotional_memory(emotions, context)
         self.emotions = emotions or []
         self.context = context or {}
+        
         self.timestamp = datetime.now().isoformat()
         self.access_count = 0
         self.last_accessed = self.timestamp
         self.associations = []  # IDs de memórias relacionadas
-        self.decay_factor = 1.0  # Fator de esquecimento
+        
+        # Decay agressivo para memórias emocionais
+        if self.emotions:
+            self.decay_factor = 1.0  # Inicia em 1.0
+            self.emotional_decay_rate = 0.15  # 15% decay por dia (AGRESSIVO)
+        else:
+            self.decay_factor = 1.0
+            self.emotional_decay_rate = 0.05  # 5% decay por dia (normal)
         
     def _generate_id(self, content: str) -> str:
         """Gera ID único para a memória."""
@@ -73,12 +85,48 @@ class MemoryEntry:
         timestamp_hash = hashlib.md5(str(datetime.now()).encode()).hexdigest()[:4]
         return f"{content_hash}_{timestamp_hash}"
     
+    def _validate_emotional_memory(self, emotions: List[str], context: Dict):
+        """
+        Valida que memórias emocionais SEMPRE têm contexto.
+        
+        REGRA CRÍTICA: Emoção NUNCA existe sozinha!
+        - Precisa de evento (o que aconteceu)
+        - Precisa de pessoa (com quem foi)
+        - Precisa de contexto temporal (quando foi)
+        """
+        if not emotions or len(emotions) == 0:
+            return  # Sem emoções, sem validação necessária
+        
+        if not context:
+            raise ValueError(
+                "❌ ERRO: Memória emocional sem contexto! "
+                "Emoções devem estar associadas a evento, pessoa ou contexto temporal."
+            )
+        
+        # Verificar se tem pelo menos UM dos contextos obrigatórios
+        required_context_keys = ['event', 'person', 'people', 'temporal_context', 'time_context']
+        has_required_context = any(key in context for key in required_context_keys)
+        
+        if not has_required_context:
+            logger.warning(
+                f"⚠️ Memória emocional sem contexto adequado. "
+                f"Emoções: {emotions}. Contexto: {list(context.keys())}"
+            )
+            # Adicionar contexto temporal mínimo como fallback
+            context['temporal_context'] = datetime.now().isoformat()
+    
     def access(self):
         """Marca que a memória foi acessada."""
         self.access_count += 1
         self.last_accessed = datetime.now().isoformat()
-        # Reforça a memória (reduz decay)
-        self.decay_factor = min(1.0, self.decay_factor + 0.1)
+        
+        # Reforça a memória diferentemente baseado no tipo
+        if self.emotions:
+            # Emocionais: reforço menor (evita "ressentimento")
+            self.decay_factor = min(1.0, self.decay_factor + 0.05)
+        else:
+            # Normais: reforço padrão
+            self.decay_factor = min(1.0, self.decay_factor + 0.1)
     
     def get_relevance_score(self, query_terms: List[str], current_time: datetime = None) -> float:
         """
@@ -120,10 +168,21 @@ class MemoryEntry:
                     tag_score += 1
         tag_score = min(1.0, tag_score / len(self.tags)) if self.tags else 0
         
-        # Score temporal (memórias recentes são mais relevantes)
+        # Score temporal com decay diferenciado
         memory_time = datetime.fromisoformat(self.timestamp.replace('Z', '+00:00').replace('+00:00', ''))
         hours_ago = (current_time - memory_time).total_seconds() / 3600
-        temporal_score = math.exp(-hours_ago / 168) * self.decay_factor  # Decay ao longo de 1 semana
+        days_ago = hours_ago / 24
+        
+        # Aplicar decay acumulado desde criação
+        accumulated_decay = self.decay_factor * (1 - self.emotional_decay_rate) ** days_ago
+        
+        if self.emotions:
+            # Memórias emocionais: decay MUITO mais agressivo
+            # Meia-vida de ~5 dias (vs 7 dias para memórias normais)
+            temporal_score = math.exp(-hours_ago / 120) * accumulated_decay
+        else:
+            # Memórias normais: decay padrão (7 dias)
+            temporal_score = math.exp(-hours_ago / 168) * accumulated_decay
         
         # Score por frequência de acesso
         access_score = min(1.0, self.access_count / 10)  # Normaliza até 10 acessos
@@ -153,7 +212,8 @@ class MemoryEntry:
             'access_count': self.access_count,
             'last_accessed': self.last_accessed,
             'associations': self.associations,
-            'decay_factor': self.decay_factor
+            'decay_factor': self.decay_factor,
+            'emotional_decay_rate': getattr(self, 'emotional_decay_rate', 0.05)
         }
     
     @classmethod
@@ -173,6 +233,7 @@ class MemoryEntry:
         entry.last_accessed = data.get('last_accessed', entry.timestamp)
         entry.associations = data.get('associations', [])
         entry.decay_factor = data.get('decay_factor', 1.0)
+        entry.emotional_decay_rate = data.get('emotional_decay_rate', 0.15 if entry.emotions else 0.05)
         return entry
 
 class PatternRecognizer:
@@ -434,6 +495,15 @@ class MemorySystem:
         user_importance = self._determine_importance(user_input, user_emotions)
         assistant_importance = MemoryImportance.MEDIUM
         
+        # 💡 Enriquecer contexto se houver emoções (OBRIGATÓRIO!)
+        enriched_context = dict(context or {})
+        if user_emotions and len(user_emotions) > 0:
+            enriched_context = self._enrich_emotional_context(
+                user_input, 
+                user_emotions, 
+                enriched_context
+            )
+        
         # Armazenar memória do usuário
         user_memory_id = self.store_memory(
             content=f"Usuário disse: {user_input}",
@@ -441,7 +511,7 @@ class MemorySystem:
             importance=user_importance,
             tags=user_tags,
             emotions=user_emotions or [],
-            context=context or {}
+            context=enriched_context
         )
         
         # Armazenar memória do assistente
@@ -458,6 +528,72 @@ class MemorySystem:
         self._create_association(user_memory_id, assistant_memory_id)
         
         return user_memory_id, assistant_memory_id
+    
+    def store_emotional_memory(self, content: str, emotions: List[str], 
+                                event: str, person: str = None, 
+                                importance: MemoryImportance = MemoryImportance.HIGH) -> str:
+        """
+        Armazena uma memória emocional com validação obrigatória de contexto.
+        
+        💡 USO CORRETO DE MEMÓRIAS EMOCIONAIS:
+        - SEMPRE associar emoção a evento específico
+        - SEMPRE incluir pessoa envolvida (se aplicável)
+        - Decay AGRESSIVO automático para evitar "ressentimento"
+        
+        Args:
+            content: Conteúdo da memória
+            emotions: Lista de emoções (ex: ['happy', 'excited'])
+            event: Evento específico (OBRIGATÓRIO)
+            person: Pessoa envolvida (opcional mas recomendado)
+            importance: Importância da memória
+            
+        Returns:
+            str: ID da memória criada
+            
+        Example:
+            >>> memory_system.store_emotional_memory(
+            ...     content="Usuário me agradeceu muito",
+            ...     emotions=['happy', 'grateful'],
+            ...     event="Ajudei com problema urgente",
+            ...     person="João"
+            ... )
+        """
+        if not emotions or len(emotions) == 0:
+            raise ValueError("❌ Memória emocional precisa de pelo menos uma emoção!")
+        
+        if not event:
+            raise ValueError(
+                "❌ Memória emocional DEVE ter evento associado! "
+                "Emoção nunca existe sozinha."
+            )
+        
+        # Construir contexto rico obrigatório
+        context = {
+            'event': event,
+            'temporal_context': datetime.now().isoformat(),
+            'memory_category': 'emotional'
+        }
+        
+        if person:
+            context['person'] = person
+        
+        # Extrair tags do evento
+        tags = self._extract_tags(event)
+        tags.extend(['emocional', 'importante'])
+        
+        logger.info(
+            f"💛 Armazenando memória emocional: {emotions} "
+            f"| Evento: {event} | Pessoa: {person or 'N/A'}"
+        )
+        
+        return self.store_memory(
+            content=content,
+            memory_type=MemoryType.EMOTIONAL,
+            importance=importance,
+            tags=tags,
+            emotions=emotions,
+            context=context
+        )
     
     def learn_fact(self, fact: str, category: str = "geral", 
                    importance: MemoryImportance = MemoryImportance.MEDIUM) -> str:
@@ -693,6 +829,85 @@ class MemorySystem:
         self.stats['last_cleanup'] = datetime.now().isoformat()
         logger.info(f"Limpeza de memória: {len(memories_to_remove)} memórias removidas")
     
+    def _enrich_emotional_context(self, user_input: str, emotions: List[str], 
+                                   base_context: Dict) -> Dict:
+        """
+        Enriquece contexto para memórias emocionais.
+        
+        Garante que toda emoção tenha:
+        - Evento (o que aconteceu)
+        - Contexto temporal (quando foi)
+        - Pessoa (se identificável)
+        """
+        enriched = dict(base_context)
+        
+        # Garantir contexto temporal
+        if 'temporal_context' not in enriched and 'time_context' not in enriched:
+            enriched['temporal_context'] = datetime.now().isoformat()
+        
+        # Tentar extrair evento do input se não houver
+        if 'event' not in enriched:
+            # Usar o próprio input como evento se for suficientemente descritivo
+            if len(user_input) > 10:
+                enriched['event'] = user_input[:100]  # Limitar tamanho
+            else:
+                enriched['event'] = f"Conversa com emoção {emotions[0]}"
+        
+        # Marcar como emocional
+        enriched['has_emotions'] = True
+        enriched['emotion_count'] = len(emotions)
+        
+        return enriched
+    
+    def cleanup_old_emotional_memories(self, days_threshold: int = 7):
+        """
+        Remove memórias emocionais antigas para evitar "ressentimento".
+        
+        🚨 Memórias emocionais têm vida útil curta de propósito!
+        Isto evita que o ASTRA acumule "bagagem emocional" de bugs ou mal-entendidos.
+        
+        Args:
+            days_threshold: Remover emocionais com mais de X dias
+        """
+        current_time = datetime.now()
+        removed_count = 0
+        
+        emotional_memories = [
+            (mem_id, mem) for mem_id, mem in self.memories.items()
+            if mem.emotions and len(mem.emotions) > 0
+        ]
+        
+        for mem_id, memory in emotional_memories:
+            try:
+                mem_time = datetime.fromisoformat(
+                    memory.timestamp.replace('Z', '+00:00').replace('+00:00', '')
+                )
+                days_old = (current_time - mem_time).days
+                
+                # Remover emocionais antigas (threshold agressivo)
+                if days_old > days_threshold:
+                    del self.memories[mem_id]
+                    removed_count += 1
+                    logger.debug(
+                        f"🧼 Removida memória emocional antiga: {mem_id} "
+                        f"({days_old} dias, emoções: {memory.emotions})"
+                    )
+            except Exception as e:
+                logger.warning(f"Erro ao processar memória {mem_id}: {e}")
+        
+        if removed_count > 0:
+            # Reconstruir índices
+            self.memory_index.clear()
+            for memory in self.memories.values():
+                self._update_indexes(memory)
+            
+            logger.info(
+                f"✨ Limpeza emocional: {removed_count} memórias removidas "
+                f"(threshold: {days_threshold} dias)"
+            )
+        
+        return removed_count
+    
     def _assess_memory_health(self) -> Dict:
         """Avalia a 'saúde' do sistema de memória."""
         total_memories = len(self.memories)
@@ -701,8 +916,11 @@ class MemorySystem:
         
         # Distribuição por importância
         importance_distribution = defaultdict(int)
+        emotional_count = 0
         for memory in self.memories.values():
             importance_distribution[memory.importance.value] += 1
+            if memory.emotions:
+                emotional_count += 1
         
         # Score de saúde baseado na distribuição e acesso
         health_score = 0
@@ -722,7 +940,12 @@ class MemorySystem:
         type_diversity = len(set(memory.memory_type for memory in self.memories.values()))
         health_score += type_diversity * 5
         
-        health_score = min(100, health_score)
+        # PENALIDADE por excesso de memórias emocionais (evita "ressentimento")
+        emotional_ratio = emotional_count / total_memories if total_memories > 0 else 0
+        if emotional_ratio > 0.3:  # Mais de 30% emocionais é problemático
+            health_score -= (emotional_ratio - 0.3) * 100
+        
+        health_score = max(0, min(100, health_score))
         
         status = "excellent" if health_score > 80 else \
                 "good" if health_score > 60 else \
@@ -733,6 +956,8 @@ class MemorySystem:
             "status": status,
             "score": round(health_score, 1),
             "total_memories": total_memories,
+            "emotional_memories": emotional_count,
+            "emotional_ratio": round(emotional_ratio, 2),
             "avg_accesses": round(avg_accesses, 2),
             "important_ratio": round(important_ratio, 2)
         }

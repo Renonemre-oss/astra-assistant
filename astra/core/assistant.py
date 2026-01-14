@@ -685,12 +685,22 @@ class AssistenteGUI(QtWidgets.QWidget):
                     if intencao == "cumprimento" and any(palavra in comando_lower for palavra in ["ólá", "oi", "bom dia", "boa tarde", "boa noite", "hey"]):
                         self.personalidade = "amigável"
                         import random
+                        
+                        # Determinar cumprimento baseado na hora
+                        hora_atual = datetime.now().hour
+                        if hora_atual < 12:
+                            saudacao_hora = "Bom dia"
+                        elif hora_atual < 19:
+                            saudacao_hora = "Boa tarde"
+                        else:
+                            saudacao_hora = "Boa noite"
+                        
                         cumprimentos = [
-                            "Ey! Tudo bem?",
-                            "Olá! Como estás?",
-                            "Hey! Em que posso ajudar?",
-                            "Oi! Que tal?",
-                            "E aí! Como vai?"
+                            f"{saudacao_hora}! Tudo bem?",
+                            f"Ey! {saudacao_hora}! Como estás?",
+                            f"Olá! {saudacao_hora}!",
+                            f"{saudacao_hora}! Em que posso ajudar?",
+                            f"Hey! {saudacao_hora}! Que tal?"
                         ]
                         resposta = random.choice(cumprimentos)
 
@@ -704,6 +714,8 @@ class AssistenteGUI(QtWidgets.QWidget):
                         ]
                         resposta = random.choice(despedidas)
                         self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta}")
+                        # Parar qualquer áudio em reprodução antes de falar
+                        self.audio_manager.stop_speech()
                         self.audio_manager.text_to_speech(resposta)
                         QtCore.QTimer.singleShot(1000, self.close)
                         return
@@ -894,6 +906,8 @@ Utilizador: {comando}"""
             if not stop_signal.is_set():
                 resposta_formatada = formatar_resposta(resposta)
                 self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta_formatada}")
+                # Parar qualquer áudio em reprodução antes de falar
+                self.audio_manager.stop_speech()
                 self.audio_manager.text_to_speech(resposta)
 
         except Exception as e:
@@ -1210,6 +1224,8 @@ Utilizador: {comando}"""
                     self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {opinion_response}")
                     self.save_assistant_message(opinion_response, response_time, "ethical_refusal")
                     self.history.append({"role": "assistant", "content": opinion_response})
+                    # Parar qualquer áudio em reprodução antes de falar
+                    self.audio_manager.stop_speech()
                     self.audio_manager.text_to_speech(limpar_texto_tts(opinion_response))
                     self.ui_updater.enable_buttons_signal.emit(True)
                     self.ui_updater.set_status_signal.emit("Pronto")

@@ -148,11 +148,12 @@ def run_diagnostics():
 def run_profile_manager():
     """Executa interface de gestão de perfil."""
     try:
-        from astra.ui.profile_manager_ui import main as profile_main
+        from astra.modules.ui.profile_manager_ui import main as profile_main
         print("📄 Abrindo interface de gestão de perfil...")
         profile_main()
-    except ImportError:
+    except ImportError as e:
         print("⚠️  Interface de perfil não disponível")
+        print(f"  Erro: {e}")
         print("  Verifique se PyQt6 está instalado: pip install PyQt6")
 
 def run_performance_report():

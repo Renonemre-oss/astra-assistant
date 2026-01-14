@@ -237,6 +237,43 @@ class PersonalProfile:
         
         return local_success and db_success
     
+    def save_multiple_facts(self, facts: Dict[str, any]) -> bool:
+        """
+        Salva múltiplas preferências de uma vez.
+        
+        Args:
+            facts: Dicionário com chave-valor das preferências
+            
+        Returns:
+            bool: True se salvou com sucesso
+        """
+        try:
+            success_count = 0
+            total_count = 0
+            
+            for key, value in facts.items():
+                # Ignorar valores None ou vazios
+                if value is None or (isinstance(value, str) and not value.strip()):
+                    continue
+                
+                # Converter valores booleanos para string
+                if isinstance(value, bool):
+                    value = str(value)
+                # Converter valores numéricos para string
+                elif isinstance(value, (int, float)):
+                    value = str(value)
+                
+                total_count += 1
+                if self.save_preference(key, value):
+                    success_count += 1
+            
+            logger.info(f"Fatos salvos: {success_count}/{total_count}")
+            return success_count > 0
+            
+        except Exception as e:
+            logger.error(f"Erro ao salvar múltiplos fatos: {e}")
+            return False
+    
     def get_preference(self, key: str) -> Optional[str]:
         """
         Obtém uma preferência, priorizando a base de dados.

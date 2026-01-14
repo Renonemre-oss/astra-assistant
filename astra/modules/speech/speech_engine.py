@@ -254,11 +254,14 @@ class SpeechEngine:
     
     def _speak_piper(self, text: str, blocking: bool = True) -> bool:
         """Fala texto usando Piper TTS."""
+        # Prevenir múltiplas reproduções simultâneas
+        if self.is_speaking:
+            logger.warning("Piper já está falando - ignorando nova requisição")
+            return False
+            
         try:
             self.is_speaking = True
             self.set_status(f"🗣️ Falando (Piper): {text[:50]}...", SpeechStatus.SPEAKING)
-            
-            success = self.piper_engine.speak(text, blocking=blocking)
             
             if not blocking:
                 # Para modo assíncrono, criar thread
@@ -270,11 +273,13 @@ class SpeechEngine:
                 import threading
                 self.speech_thread = threading.Thread(target=speak_thread, daemon=True)
                 self.speech_thread.start()
+                return True
             else:
+                # Modo síncrono
+                success = self.piper_engine.speak(text, blocking=True)
                 self.is_speaking = False
                 self.set_status("✅ Fala concluída", SpeechStatus.READY)
-            
-            return success
+                return success
             
         except Exception as e:
             logger.error(f"Erro ao falar com Piper: {e}")
@@ -317,8 +322,10 @@ class SpeechEngine:
     
     def _speak_async(self, text: str) -> bool:
         """Fala texto de forma assíncrona."""
+        # Se já está falando, ignorar nova requisição
         if self.is_speaking:
-            self.stop_speaking()
+            logger.warning("Já está falando - ignorando nova requisição")
+            return False
         
         def speak_thread():
             self._speak_blocking(text)
@@ -335,15 +342,30 @@ class SpeechEngine:
     def stop_speaking(self):
         """Para a fala atual."""
         try:
+            # Marcar como não falando imediatamente
+            self.is_speaking = False
+            
             # Parar Piper se estiver ativo
             if self.current_engine_type == EngineType.PIPER and self.piper_engine:
                 self.piper_engine.stop()
+            
             # Parar pyttsx3 se estiver ativo
-            elif self.tts_engine and self.is_speaking:
-                self.tts_engine.stop()
+            if self.tts_engine:
+                try:
+                    self.tts_engine.stop()
+                except:
+                    pass
+            
+            # Tentar parar pygame se estiver tocando
+            try:
+                import pygame
+                if pygame.mixer.get_init():
+                    pygame.mixer.music.stop()
+                    pygame.mixer.stop()
+            except:
+                pass
             
             self.set_status("🚫 Fala interrompida", SpeechStatus.READY)
-            self.is_speaking = False
             
         except Exception as e:
             logger.error(f"Erro ao parar fala: {e}")
