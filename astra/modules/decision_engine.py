@@ -16,6 +16,15 @@ from enum import Enum
 import logging
 import time
 
+try:
+    from .emotional_authenticity import EmotionalAuthenticitySystem, AuthenticityScore
+    AUTHENTICITY_AVAILABLE = True
+except ImportError:
+    EmotionalAuthenticitySystem = None
+    AuthenticityScore = None
+    AUTHENTICITY_AVAILABLE = False
+    logging.warning("⚠️ Emotional Authenticity System não disponível")
+
 
 class BoundaryType(Enum):
     """Tipos de limites que ASTRA tem"""
@@ -111,6 +120,12 @@ class DecisionEngine:
             affective_engine: Referência ao AffectiveStateEngine
         """
         self.affective_engine = affective_engine
+        
+        # Sistema de autenticidade emocional
+        self.authenticity_system = None
+        if AUTHENTICITY_AVAILABLE:
+            self.authenticity_system = EmotionalAuthenticitySystem()
+            logging.info("🔍 Emotional Authenticity System ativado")
     
     def analyze_meaning(self, user_input: str, context: Dict = None) -> MeaningAnalysis:
         """
@@ -584,17 +599,37 @@ class DecisionEngine:
         # Mas retornar vazio para indicar que deve usar fluxo normal
         return ""
     
-    def apply_emotional_impacts(self, meaning: MeaningAnalysis) -> None:
-        """Aplica impactos emocionais ao affective engine."""
+    def apply_emotional_impacts(
+        self, 
+        meaning: MeaningAnalysis, 
+        authenticity_score: Optional[AuthenticityScore] = None,
+        user_id: str = "default"
+    ) -> None:
+        """Aplica impactos emocionais ao affective engine, moderados por autenticidade."""
         if not self.affective_engine or not meaning.emotional_impact:
             return
+        
+        # Fator de moderação baseado em autenticidade
+        moderation_factor = 1.0
+        
+        if authenticity_score and not authenticity_score.is_authentic:
+            # Reduzir impactos emocionais se não autêntico
+            moderation_factor = authenticity_score.confidence
+            logging.warning(f"🔍 Autenticidade suspeita: moderação {moderation_factor:.2f} - {authenticity_score.reasoning}")
         
         for state_name, impact in meaning.emotional_impact.items():
             current = getattr(self.affective_engine.states, state_name, None)
             if current is not None:
-                new_value = current + impact
+                # Moderar impacto se autenticidade baixa
+                moderated_impact = impact * moderation_factor
+                new_value = current + moderated_impact
                 setattr(self.affective_engine.states, state_name, new_value)
-                logging.info(f"💫 Impacto emocional: {state_name} {current:.2f} → {new_value:.2f} ({impact:+.2f})")
+                
+                if moderation_factor < 1.0:
+                    logging.info(f"💫 Impacto MODERADO: {state_name} {current:.2f} → {new_value:.2f} "
+                                f"({impact:+.2f} * {moderation_factor:.2f} = {moderated_impact:+.2f})")
+                else:
+                    logging.info(f"💫 Impacto emocional: {state_name} {current:.2f} → {new_value:.2f} ({impact:+.2f})")
         
         # Clamp e save
         self.affective_engine.states.clamp()
@@ -622,10 +657,28 @@ class DecisionEngine:
         # 1. Analisar significado
         meaning = self.analyze_meaning(user_input, context)
         
-        # 2. Aplicar impactos emocionais IMEDIATAMENTE
-        self.apply_emotional_impacts(meaning)
+        # 2. Verificar autenticidade emocional (se disponível)
+        authenticity_score = None
+        user_id = context.get('user_id', 'default') if context else 'default'
         
-        # 3. Avaliar conflito interno (com estados já atualizados)
+        if self.authenticity_system:
+            # Determinar emoção dominante para verificar
+            if meaning.is_vulnerable:
+                authenticity_score = self.authenticity_system.evaluate_authenticity(
+                    user_id, user_input, "vulnerable", intensity=0.8
+                )
+                logging.info(f"🔍 Authenticity: {authenticity_score.is_authentic} "
+                            f"(confidence: {authenticity_score.confidence:.2f})")
+            
+            elif meaning.is_enthusiastic:
+                authenticity_score = self.authenticity_system.evaluate_authenticity(
+                    user_id, user_input, "enthusiastic", intensity=0.7
+                )
+        
+        # 3. Aplicar impactos emocionais MODERADOS por autenticidade
+        self.apply_emotional_impacts(meaning, authenticity_score, user_id)
+        
+        # 4. Avaliar conflito interno (com estados já atualizados)
         conflict = self.evaluate_internal_conflict()
         
         logging.info(f"💭 Meaning: aggressive={meaning.is_aggressive}, "
