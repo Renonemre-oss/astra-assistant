@@ -74,35 +74,69 @@ except ImportError:
     create_visual_hotword_system = None
     VISUAL_SYSTEM_AVAILABLE = False
 
-# Sistema de personalidade dinâmica
+# Importar feature flags
 try:
-    from ..modules.personality_engine import PersonalityEngine
+    from ..config.constants import (
+        ENABLE_BASIC_PERSONALITY,
+        ENABLE_COMPANION_ENGINE,
+        ENABLE_BASIC_MEMORY,
+        ENABLE_OPINION_SYSTEM
+    )
 except ImportError:
-    logging.warning("Sistema de personalidade não disponível")
+    # Fallback se constants.py não tiver as flags
+    ENABLE_BASIC_PERSONALITY = True
+    ENABLE_COMPANION_ENGINE = False
+    ENABLE_BASIC_MEMORY = True
+    ENABLE_OPINION_SYSTEM = False
+
+# Sistema de personalidade dinâmica (BÁSICO)
+if ENABLE_BASIC_PERSONALITY:
+    try:
+        from ..modules.personality_engine import PersonalityEngine
+    except ImportError:
+        logging.warning("⚠️ Sistema de personalidade não disponível")
+        PersonalityEngine = None
+else:
     PersonalityEngine = None
+    logging.info("🚫 Personalidade básica desabilitada (ENABLE_BASIC_PERSONALITY=False)")
 
-# Sistema de companhia inteligente
-try:
-    from ..modules.companion_engine import CompanionEngine
-except ImportError:
-    logging.warning("Sistema de companhia inteligente não disponível")
+# Sistema de companhia inteligente (EXPERIMENTAL - DESABILITADO)
+if ENABLE_COMPANION_ENGINE:
+    try:
+        from ..modules.experimental.companion_engine import CompanionEngine
+        logging.info("⚠️ Companion Engine EXPERIMENTAL habilitado")
+    except ImportError:
+        logging.warning("⚠️ Companion Engine não disponível")
+        CompanionEngine = None
+else:
     CompanionEngine = None
+    logging.info("✅ Companion Engine desabilitado (modo simplificado)")
 
-# Sistema de memória inteligente
-try:
-    from ..modules.memory_system import MemorySystem
-except ImportError:
-    logging.warning("Sistema de memória não disponível")
+# Sistema de memória inteligente (BÁSICO)
+if ENABLE_BASIC_MEMORY:
+    try:
+        from ..modules.memory_system import MemorySystem
+    except ImportError:
+        logging.warning("⚠️ Sistema de memória não disponível")
+        MemorySystem = None
+else:
     MemorySystem = None
+    logging.info("🚫 Memória básica desabilitada (ENABLE_BASIC_MEMORY=False)")
 
-# Sistema de opinião e análise ética
-try:
-    from ..modules.opinion_system import opinion_system
-    OPINION_SYSTEM_AVAILABLE = True
-except ImportError:
-    logging.warning("Sistema de opinião não disponível")
+# Sistema de opinião e análise ética (EXPERIMENTAL - DESABILITADO)
+if ENABLE_OPINION_SYSTEM:
+    try:
+        from ..modules.experimental.opinion_system import opinion_system
+        OPINION_SYSTEM_AVAILABLE = True
+        logging.info("⚠️ Opinion System EXPERIMENTAL habilitado")
+    except ImportError:
+        logging.warning("⚠️ Sistema de opinião não disponível")
+        opinion_system = None
+        OPINION_SYSTEM_AVAILABLE = False
+else:
     opinion_system = None
     OPINION_SYSTEM_AVAILABLE = False
+    logging.info("✅ Opinion System desabilitado (modo simplificado)")
 
 # Sistema de Hub de APIs - Notícias, Clima, etc.
 try:

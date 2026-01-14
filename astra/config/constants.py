@@ -192,11 +192,32 @@ URL_PATTERN = r'https?://(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{
 IPV4_PATTERN = r'^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
 
 # ==============================================================================
+# FEATURE FLAGS - MODO SIMPLIFICADO
+# ==============================================================================
+
+# Features Experimentais (DESABILITADAS por padrão)
+ENABLE_COMPANION_ENGINE = False      # Companion types complexos, relationship tracking
+ENABLE_BEHAVIORAL_ANALYZER = False   # Análise comportamental profunda
+ENABLE_NEEDS_PREDICTOR = False       # Predição de necessidades
+ENABLE_OPINION_SYSTEM = False        # Sistema de opiniões complexo
+ENABLE_ADVANCED_RAG = False          # RAG integration avançada
+ENABLE_MULTI_USER_ADVANCED = False   # Multi-user avançado
+ENABLE_ETHICAL_ANALYZER = False      # Análise ética profunda
+
+# Core Features (SEMPRE habilitados)
+ENABLE_VOICE_LOOP = True             # Sistema de voz (TTS + Recognition)
+ENABLE_SKILLS = True                 # Framework de skills
+ENABLE_BASIC_MEMORY = True           # Memória episódica + semântica
+ENABLE_BASIC_PERSONALITY = True      # Personalidade básica
+ENABLE_UI = True                     # Interface PyQt6
+ENABLE_OLLAMA = True                 # Integração Ollama
+
+# ==============================================================================
 # VERSÃO E METADADOS
 # ==============================================================================
 
-ASTRA_VERSION = "2.0.0"
-ASTRA_CODENAME = "Emotional Intelligence"
+ASTRA_VERSION = "2.0.0-simplified"
+ASTRA_CODENAME = "Emotional Intelligence - Core Mode"
 AUTHOR = "António Pereira"
 LICENSE = "MIT"
 GITHUB_REPO = "https://github.com/Renonemre-oss/astra-assistant"
