@@ -111,6 +111,17 @@ except ImportError:
     DecisionType = None
     DECISION_ENGINE_AVAILABLE = False
 
+# Sistema de expressão (CORE - sempre ativo)
+try:
+    from ..modules.expression_modulator import ExpressionModulator, ExpressionStyle
+    EXPRESSION_MODULATOR_AVAILABLE = True
+    logging.info("🎭 Expression Modulator disponível")
+except ImportError:
+    logging.warning("⚠️ Expression Modulator não disponível")
+    ExpressionModulator = None
+    ExpressionStyle = None
+    EXPRESSION_MODULATOR_AVAILABLE = False
+
 # Sistema de personalidade dinâmica (BÁSICO)
 if ENABLE_BASIC_PERSONALITY:
     try:
@@ -343,6 +354,15 @@ class AssistenteGUI(QtWidgets.QWidget):
                 logging.info("🧠 Decision Engine ativado (conectado ao Affective Engine)")
             except Exception as e:
                 logging.error(f"Erro ao inicializar Decision Engine: {e}")
+        
+        # Sistema de expressão (CORE)
+        self.expression_modulator = None
+        if EXPRESSION_MODULATOR_AVAILABLE and self.affective_engine:
+            try:
+                self.expression_modulator = ExpressionModulator(affective_engine=self.affective_engine)
+                logging.info("🎭 Expression Modulator ativado (conectado ao Affective Engine)")
+            except Exception as e:
+                logging.error(f"Erro ao inicializar Expression Modulator: {e}")
         
         # Sistema de Hub de APIs (Notícias, Clima, etc.)
         self.api_hub = None
@@ -1029,12 +1049,60 @@ Utilizador: {comando}"""
             # Salvar resposta do assistente na base de dados
             self.save_assistant_message(resposta, response_time)
 
+            # EXPRESSION MODULATOR: Traduzir estados em expressão
+            expression_style = None
+            if self.expression_modulator and resposta:
+                try:
+                    # Calcular estilo de expressão baseado em estados afetivos
+                    expression_style = self.expression_modulator.calculate_expression_style()
+                    
+                    logging.info(f"🎭 Expressão: {expression_style.description}")
+                    
+                    # Aplicar estilo ao texto
+                    resposta_original = resposta
+                    resposta = self.expression_modulator.apply_style_to_text(resposta, expression_style)
+                    
+                    # Se silencio for preferência, não responder
+                    if expression_style.prefer_silence:
+                        logging.info("🔇 ASTRA escolheu silêncio como resposta")
+                        self.ui_updater.set_status_signal.emit("🔇 ...")
+                        self.ui_updater.enable_buttons_signal.emit(True)
+                        return
+                    
+                    # Se houver delay intencional, esperar
+                    if expression_style.use_intentional_delay:
+                        logging.info(f"⏱️ Delay intencional: {expression_style.delay_seconds:.0f}s")
+                        self.ui_updater.set_status_signal.emit("💭 ...")
+                        time.sleep(expression_style.delay_seconds)
+                    
+                    if resposta != resposta_original:
+                        logging.info(f"✏️ Texto modificado por expressão")
+                        logging.debug(f"Original: {resposta_original[:100]}...")
+                        logging.debug(f"Modificado: {resposta[:100]}...")
+                        
+                except Exception as e:
+                    logging.error(f"Erro ao aplicar Expression Modulator: {e}")
+                    # Continuar com resposta original se houver erro
+
             if not stop_signal.is_set():
                 resposta_formatada = formatar_resposta(resposta)
                 self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta_formatada}")
                 # Parar qualquer áudio em reprodução antes de falar
                 self.audio_manager.stop_speech()
-                self.audio_manager.text_to_speech(resposta)
+                
+                # Se Expression Modulator ativo, passar parâmetros de prosódia para TTS
+                if expression_style:
+                    try:
+                        prosody_params = self.expression_modulator.get_prosody_params(expression_style)
+                        logging.info(f"🎵 Prosódia: rate={prosody_params['rate']:.2f}, volume={prosody_params['volume']:.2f}")
+                        # TODO: Passar prosody_params para audio_manager.text_to_speech() quando implementado
+                        # Por enquanto, usar TTS normal
+                        self.audio_manager.text_to_speech(resposta)
+                    except Exception as e:
+                        logging.error(f"Erro ao aplicar prosódia: {e}")
+                        self.audio_manager.text_to_speech(resposta)
+                else:
+                    self.audio_manager.text_to_speech(resposta)
 
         except Exception as e:
             error_message = f"Ocorreu um erro no processamento: {e}"
