@@ -122,6 +122,17 @@ except ImportError:
     ExpressionStyle = None
     EXPRESSION_MODULATOR_AVAILABLE = False
 
+# Sistema de luto e closure (CORE - sempre ativo)
+try:
+    from ..modules.grief_closure_engine import GriefClosureEngine, SeparationType
+    GRIEF_CLOSURE_AVAILABLE = True
+    logging.info("🍂 Grief & Closure Engine disponível")
+except ImportError:
+    logging.warning("⚠️ Grief & Closure Engine não disponível")
+    GriefClosureEngine = None
+    SeparationType = None
+    GRIEF_CLOSURE_AVAILABLE = False
+
 # Sistema de personalidade dinâmica (BÁSICO)
 if ENABLE_BASIC_PERSONALITY:
     try:
@@ -363,6 +374,15 @@ class AssistenteGUI(QtWidgets.QWidget):
                 logging.info("🎭 Expression Modulator ativado (conectado ao Affective Engine)")
             except Exception as e:
                 logging.error(f"Erro ao inicializar Expression Modulator: {e}")
+        
+        # Sistema de luto e closure (CORE)
+        self.grief_closure_engine = None
+        if GRIEF_CLOSURE_AVAILABLE:
+            try:
+                self.grief_closure_engine = GriefClosureEngine(user_id="default")
+                logging.info("🍂 Grief & Closure Engine ativado")
+            except Exception as e:
+                logging.error(f"Erro ao inicializar Grief & Closure Engine: {e}")
         
         # Sistema de Hub de APIs (Notícias, Clima, etc.)
         self.api_hub = None
@@ -727,8 +747,63 @@ class AssistenteGUI(QtWidgets.QWidget):
             comando_lower = remover_emojis(comando).lower().strip()
             response_start_time = time.time()
             
+            # GRIEF & CLOSURE: Atualizar última interação
+            if self.grief_closure_engine:
+                self.grief_closure_engine.update_last_interaction()
+            
+            # GRIEF & CLOSURE: Verificar ausência prolongada no início
+            if self.grief_closure_engine and self.affective_engine:
+                absence_type = self.grief_closure_engine.check_absence_status(self.affective_engine.states)
+                if absence_type:
+                    # Utilizador retornou após ausência
+                    logging.info(f"🍂 Ausência detectada: {absence_type.value}")
+                    closure_response = self.grief_closure_engine.generate_closure_response(
+                        absence_type,
+                        self.affective_engine.states
+                    )
+                    
+                    # Aplicar ajustes afetivos
+                    if closure_response.affective_adjustments:
+                        for state, adjustment in closure_response.affective_adjustments.items():
+                            self.affective_engine.adjust_state(state, adjustment)
+                        logging.info(f"🔄 Estados ajustados por ausência")
+                    
+                    # Marcar retorno
+                    self.grief_closure_engine.mark_user_returned()
+            
             # Detectar eventos afetivos antes de processar
             self._detect_affective_events(comando)
+            
+            # GRIEF & CLOSURE: Detectar despedida/separação
+            if self.grief_closure_engine and self.affective_engine:
+                separation_type = self.grief_closure_engine.detect_separation_type(
+                    comando,
+                    self.affective_engine.states
+                )
+                
+                if separation_type:
+                    # É uma despedida - processar com Grief & Closure Engine
+                    logging.info(f"🍂 Separação detectada: {separation_type.value}")
+                    closure_response = self.grief_closure_engine.generate_closure_response(
+                        separation_type,
+                        self.affective_engine.states
+                    )
+                    
+                    # Aplicar ajustes afetivos
+                    if closure_response.affective_adjustments:
+                        for state, adjustment in closure_response.affective_adjustments.items():
+                            self.affective_engine.adjust_state(state, adjustment)
+                        logging.info(f"💔 Estados ajustados por separação: {closure_response.affective_adjustments}")
+                    
+                    # Usar mensagem de closure
+                    resposta = closure_response.message
+                    
+                    # Se for despedida permanente ou de conflito, responder e retornar
+                    if separation_type in [SeparationType.PERMANENT_GOODBYE, SeparationType.CONFLICT_DEPARTURE]:
+                        self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta}")
+                        self.audio_manager.text_to_speech(resposta)
+                        self.ui_updater.enable_buttons_signal.emit(True)
+                        return
             
             # DECISION ENGINE: Processo de decisão interna
             decision_result = None
