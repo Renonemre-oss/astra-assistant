@@ -62,7 +62,7 @@ def configure_logging():
 # ==========================
 CONFIG = {
     # Modelo Ollama
-    "ollama_model": "llama3.2",
+    "ollama_model": "hf.co/DavidAU/Llama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF:Q4_K_M",
     "ollama_url": "http://localhost:11434/api/generate",
     
     # Conversação
