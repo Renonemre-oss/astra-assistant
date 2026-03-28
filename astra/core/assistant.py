@@ -16,6 +16,12 @@ import time
 import logging
 from pathlib import Path
 from datetime import datetime
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo  # Python < 3.9 fallback
+
+_TIMEZONE = ZoneInfo("Europe/Lisbon")
 from typing import List, Optional, Dict, Any
 import configparser
 
@@ -30,20 +36,28 @@ from ..utils.utils import (
     carregar_historico, salvar_historico, verificar_servicos, limpar_texto_tts
 )
 
+# ✅ Corrigido: Definir generate_session_id sempre, independente de DATABASE_AVAILABLE
+def generate_session_id() -> str:
+    """Gera um ID de sessão único."""
+    return f"local_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
 # Imports do sistema de base de dados com tratamento de erro
 if DATABASE_AVAILABLE:
     try:
-        from ..modules.database.database_manager import DatabaseManager, DatabaseConfig, generate_session_id
+        from ..modules.database.database_manager import DatabaseManager, DatabaseConfig
+        # Sobrescrever com versão do database se disponível
+        try:
+            from ..modules.database.database_manager import generate_session_id
+        except ImportError:
+            pass  # Usar a função definida acima
     except ImportError as e:
         logging.warning(f"⚠️ Sistema de base de dados não disponível: {e}")
         DATABASE_AVAILABLE = False
         DatabaseManager = None
         DatabaseConfig = None
-        generate_session_id = lambda: f"local_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 else:
     DatabaseManager = None
     DatabaseConfig = None
-    generate_session_id = lambda: f"local_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
 # Imports opcionais
 try:
@@ -74,20 +88,36 @@ except ImportError:
     create_visual_hotword_system = None
     VISUAL_SYSTEM_AVAILABLE = False
 
-# Importar feature flags
+# ✅ Bug #18: Importar feature flags de constants.py como fonte única
 try:
     from ..config.constants import (
         ENABLE_BASIC_PERSONALITY,
         ENABLE_COMPANION_ENGINE,
         ENABLE_BASIC_MEMORY,
-        ENABLE_OPINION_SYSTEM
+        ENABLE_OPINION_SYSTEM,
+        ENABLE_BEHAVIORAL_ANALYZER,
+        ENABLE_NEEDS_PREDICTOR,
+        ENABLE_ETHICAL_ANALYZER,
+        ENABLE_VOICE_LOOP,
+        ENABLE_SKILLS,
+        ENABLE_UI,
+        ENABLE_OLLAMA
     )
-except ImportError:
-    # Fallback se constants.py não tiver as flags
+    logging.info("✅ Feature flags carregadas de constants.py")
+except ImportError as e:
+    # Fallback se constants.py não estiver disponível
+    logging.warning(f"⚠️ Feature flags não encontradas em constants.py: {e}")
     ENABLE_BASIC_PERSONALITY = True
     ENABLE_COMPANION_ENGINE = False
     ENABLE_BASIC_MEMORY = True
     ENABLE_OPINION_SYSTEM = False
+    ENABLE_BEHAVIORAL_ANALYZER = False
+    ENABLE_NEEDS_PREDICTOR = False
+    ENABLE_ETHICAL_ANALYZER = False
+    ENABLE_VOICE_LOOP = True
+    ENABLE_SKILLS = True
+    ENABLE_UI = True
+    ENABLE_OLLAMA = True
 
 # Sistema de estados afetivos (CORE - sempre ativo)
 try:
@@ -428,8 +458,17 @@ class AssistenteGUI(QtWidgets.QWidget):
         self.init_ui()
         self.set_buttons_enabled(True)
         
-        # Inicializar AudioManager após UI estar criada
-        self.audio_manager = AudioManager(status_callback=self.set_status_message)
+        # ✅ Bug #9: Inicializar AudioManager com tratamento de erro robusto
+        try:
+            self.audio_manager = AudioManager(status_callback=self.set_status_message)
+            logging.info("✅ AudioManager inicializado com sucesso")
+        except ImportError as e:
+            logging.error(f"❌ Erro ao importar AudioManager: {e}")
+            logging.warning("⚠️  Sistema de áudio desabilitado - verifique dependências TTS")
+            self.audio_manager = None
+        except Exception as e:
+            logging.error(f"❌ Erro ao inicializar AudioManager: {e}")
+            self.audio_manager = None
         
         # Inicializar componentes em threads separadas
         self.init_background_tasks()
@@ -442,8 +481,11 @@ class AssistenteGUI(QtWidgets.QWidget):
     # ==========================
     def init_background_tasks(self):
         """Inicializa tarefas em segundo plano."""
-        # Carregar modelo TTS
-        threading.Thread(target=self.audio_manager.load_tts_model, daemon=True).start()
+        # ✅ Bug #9: Carregar modelo TTS apenas se AudioManager disponível
+        if self.audio_manager:
+            threading.Thread(target=self.audio_manager.load_tts_model, daemon=True).start()
+        else:
+            logging.warning("⚠️  AudioManager não disponível - TTS desabilitado")
         
         # Inicializar armazenamento local
         threading.Thread(target=self.init_local_storage, daemon=True).start()
@@ -888,7 +930,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                         import random
                         
                         # Determinar cumprimento baseado na hora
-                        hora_atual = datetime.now().hour
+                        hora_atual = datetime.now(tz=_TIMEZONE).hour
                         if hora_atual < 12:
                             saudacao_hora = "Bom dia"
                         elif hora_atual < 19:
@@ -945,7 +987,7 @@ class AssistenteGUI(QtWidgets.QWidget):
 
                     elif intencao == "data_hora":
                         # Obter data e hora atuais
-                        agora = datetime.now()
+                        agora = datetime.now(tz=_TIMEZONE)
                         
                         if any(palavra in comando_lower for palavra in ["horas", "hora"]):
                             # Perguntas sobre hora
@@ -1541,7 +1583,7 @@ Utilizador: {comando}"""
         ]):
             return ''
         
-        agora = datetime.now()
+        agora = datetime.now(tz=_TIMEZONE)
         dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 
                        'sexta-feira', 'sábado', 'domingo']
         meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
