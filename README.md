@@ -10,6 +10,7 @@
 [![Ollama](https://img.shields.io/badge/LLM-Ollama%20%7C%20llama3.2-orange?style=for-the-badge)](https://ollama.ai)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=for-the-badge)](#compatibilidade)
 [![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](datalogs/LICENSE)
+[![Author](https://img.shields.io/badge/Author-Antonio%20Pereira-blue?style=for-the-badge)](https://github.com/Renonemre-oss)
 
 </div>
 
@@ -311,6 +312,7 @@ Compatibilidade                : Windows / Linux / macOS
 Distribuído sob a licença MIT. Consulta o ficheiro [`datalogs/LICENSE`](datalogs/LICENSE) para mais detalhes.
 
 ---
+
 
 <div align="center">
 
