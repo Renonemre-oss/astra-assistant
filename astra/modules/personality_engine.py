@@ -286,10 +286,9 @@ class PersonalityEngine:
         return base_response
     
     def _make_casual(self, response: str) -> str:
-        """Aplica tom casual à resposta."""
-        # Adicionar expressões casuais
-        casual_starters = ["Opa, ", "Então, ", "Bom, ", ""]
-        casual_enders = [" 😊", "!", " né?", ""]
+        """Aplica tom casual à resposta (Português de Portugal)."""
+        casual_starters = ["Olá, ", "Então, ", "Bom, ", ""]
+        casual_enders = [" 😊", "!", "", " 😉"]
         
         import random
         starter = random.choice(casual_starters)
@@ -344,10 +343,10 @@ class PersonalityEngine:
         return f"{response}{addition}"
     
     def _make_supportive(self, response: str) -> str:
-        """Aplica tom empático à resposta."""
+        """Aplica tom empático à resposta (Português de Portugal)."""
         supportive_starters = [
-            "Entendo como se sente. ",
-            "Eu te apoio. ",
+            "Entendo como te sentes. ",
+            "Estou aqui contigo. ",
             "Sei que pode ser difícil. ",
             ""
         ]

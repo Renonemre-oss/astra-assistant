@@ -1,4 +1,5 @@
 # Config module initialization
+# ✅ Bug #14: Garantir que DATABASE_AVAILABLE seja sempre atualizado corretamente
 
 # Importar todas as configurações do módulo config
 from .settings.main_config import (
@@ -12,20 +13,23 @@ from .settings.main_config import (
     NEURAL_DIR,
     configure_logging,
     check_dependencies,
+    get_database_available,
 )
 
-# Variáveis compatíveis
+# Variáveis de estado do sistema
 DATABASE_AVAILABLE = False
 TESSERACT_AVAILABLE = False
 DEPENDENCIES = {}
 
+# Verificar dependências no import
 try:
-    deps = check_dependencies()
-    DATABASE_AVAILABLE = deps.get('database', False)
-    TESSERACT_AVAILABLE = deps.get('tesseract', False)
-    DEPENDENCIES = deps
-except:
-    pass
+    DEPENDENCIES = check_dependencies()
+    DATABASE_AVAILABLE = get_database_available()  # ✅ Usar função dedicada
+    TESSERACT_AVAILABLE = DEPENDENCIES.get('pytesseract', False)
+except Exception as e:
+    import logging
+    logging.warning(f"Erro ao verificar dependências: {e}")
+    DEPENDENCIES = {}
 
 def setup_tesseract():
     """Setup tesseract OCR."""

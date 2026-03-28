@@ -18,14 +18,28 @@ logger = logging.getLogger(__name__)
 # ==========================
 # DIRETÓRIOS E PATHS
 # ==========================
-# O arquivo config.py está em config/, então o parent é a raiz do projeto
-PROJECT_ROOT = Path(__file__).parent.parent
+# ✅ Bug #8: Usar constants.py como fonte única
+try:
+    from ..constants import (
+        PROJECT_ROOT, ASTRA_ROOT, DATA_DIR, LOGS_DIR,
+        NEURAL_DIR, CONFIG_DIR, MODELS_DIR, CACHE_DIR
+    )
+except ImportError:
+    # Fallback se constants.py não estiver disponível
+    PROJECT_ROOT = Path(__file__).parent.parent.parent
+    ASTRA_ROOT = PROJECT_ROOT
+    DATA_DIR = PROJECT_ROOT / "data"
+    NEURAL_DIR = PROJECT_ROOT / "neural_models"
+    LOGS_DIR = PROJECT_ROOT / "logs"
+    CONFIG_DIR = PROJECT_ROOT / "config"
+    MODELS_DIR = DATA_DIR / "models"
+    CACHE_DIR = DATA_DIR / "cache"
+
 WORK_DIR = PROJECT_ROOT  # Manter compat. com código existente
-DATA_DIR = PROJECT_ROOT / "data"
-NEURAL_DIR = PROJECT_ROOT / "neural_models"
-LOGS_DIR = PROJECT_ROOT / "logs"
-DATA_DIR.mkdir(exist_ok=True)
-LOGS_DIR.mkdir(exist_ok=True)
+
+# Criar diretórios necessários
+for directory in [DATA_DIR, LOGS_DIR, MODELS_DIR, CACHE_DIR]:
+    directory.mkdir(parents=True, exist_ok=True)
 
 
 def configure_logging():
@@ -62,11 +76,11 @@ def configure_logging():
 # ==========================
 CONFIG = {
     # Modelo Ollama
-    "ollama_model": "hf.co/DavidAU/Llama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF:Q4_K_M",
+    "ollama_model": "llama3.2",  # ✅ Corrigido: Modelo padrão mais comum
     "ollama_url": "http://localhost:11434/api/generate",
     
     # Conversação
-    "conversation_history_size": 3,
+    "conversation_history_size": 10,
     "max_retries": 3,
     "request_timeout": 120,
     
@@ -398,7 +412,7 @@ def check_tesseract_installation():
 def get_database_available():
     """Verifica se o sistema de base de dados está disponível."""
     deps = check_dependencies()
-    return deps.get('mysql_connector', False) and deps.get('sqlalchemy', False)
+    return deps.get('sqlite3', False)  # ✅ Corrigido: SQLite em vez de MySQL
 
 def setup_tesseract():
     """Configura o Tesseract com paths automáticos e fallbacks."""
@@ -446,6 +460,68 @@ def get_system_info():
         'total_available': sum(1 for v in deps.values() if v),
         'total_dependencies': len(deps)
     }
+
+# ✅ Bug #15: Validar dependências críticas
+def validate_critical_dependencies() -> tuple[bool, list[str]]:
+    """
+    Valida dependências críticas e retorna status.
+    
+    Returns:
+        tuple: (todas_ok: bool, faltando: list[str])
+    """
+    system_info = get_system_info()
+    critical_missing = system_info['critical_missing']
+    
+    if critical_missing:
+        return False, critical_missing
+    return True, []
+
+def print_startup_diagnostics() -> bool:
+    """
+    Imprime diagnóstico de startup e retorna se deve continuar.
+    
+    Returns:
+        bool: True se deve continuar, False se deve abortar
+    """
+    system_info = get_system_info()
+    
+    print("\n" + "="*50)
+    print("🔧 ASTRA - Diagnóstico de Startup")
+    print("="*50)
+    
+    # Dependências disponíveis
+    total = system_info['total_dependencies']
+    available = system_info['total_available']
+    print(f"\n📊 Dependências: {available}/{total} disponíveis")
+    
+    # Críticas
+    critical_missing = system_info['critical_missing']
+    if critical_missing:
+        print(f"\n❌ DEPENDÊNCIAS CRÍTICAS FALTANDO:")
+        for dep in critical_missing:
+            print(f"   - {dep}")
+        print(f"\n⚠️  Execute: pip install {' '.join(critical_missing)}")
+        print("\n❌ Não é possível iniciar sem dependências críticas.")
+        print("="*50 + "\n")
+        return False
+    else:
+        print("✅ Todas as dependências críticas disponíveis")
+    
+    # Opcionais
+    optional_missing = system_info['optional_missing']
+    if optional_missing:
+        print(f"\n⚠️  Dependências opcionais faltando:")
+        for dep in optional_missing:
+            print(f"   - {dep}")
+        print(f"\n💡 Recomendado: pip install {' '.join(optional_missing[:3])}")
+    
+    # Status dos sistemas
+    print(f"\n💾 Database (SQLite): {'\u2705' if system_info['database_available'] else '❌'}")
+    print(f"🔍 Tesseract OCR: {'\u2705' if system_info['tesseract_available'] else '❌'}")
+    
+    print("\n✅ Sistema pronto para iniciar!")
+    print("="*50 + "\n")
+    return True
 
 # Inicializar verificação de dependências
 DEPENDENCIES = check_dependencies()

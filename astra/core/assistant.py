@@ -23,6 +23,56 @@ except ImportError:
 
 _TIMEZONE = ZoneInfo("Europe/Lisbon")
 from typing import List, Optional, Dict, Any
+
+
+def _get_periodo_dia(agora: datetime) -> str:
+    """
+    Determina o período do dia baseado na hora E na estação do ano.
+    Em Portugal, no verão às 20h ainda é dia, no inverno às 17:30 já é noite.
+    """
+    hora = agora.hour
+    mes = agora.month
+
+    # Determinar estação (hemisfério norte, Portugal)
+    if mes in (12, 1, 2):      # Inverno
+        inicio_noite = 18
+        inicio_manha = 8
+    elif mes in (3, 4, 5):     # Primavera
+        inicio_noite = 20
+        inicio_manha = 7
+    elif mes in (6, 7, 8):     # Verão
+        inicio_noite = 21
+        inicio_manha = 7
+    else:                       # Outono (9, 10, 11)
+        inicio_noite = 19
+        inicio_manha = 7
+    
+    logging.debug(f"\u23f0 Período do dia: hora={hora}, mes={mes}, inicio_noite={inicio_noite}")
+
+    if hora < 6:
+        return "madrugada"
+    elif hora < inicio_manha:
+        return "manhã cedo"
+    elif hora < 12:
+        return "manhã"
+    elif hora < 14:
+        return "hora de almoço"
+    elif hora < inicio_noite:
+        return "tarde"
+    else:
+        return "noite"
+
+
+def _get_saudacao(periodo: str) -> str:
+    """Retorna a saudação correta para o período do dia."""
+    if periodo in ("manhã", "manhã cedo"):
+        return "Bom dia"
+    elif periodo in ("tarde", "hora de almoço"):
+        return "Boa tarde"
+    elif periodo == "noite":
+        return "Boa noite"
+    else:  # madrugada
+        return "Olá"
 import configparser
 
 # Imports dos módulos organizados
@@ -924,19 +974,20 @@ class AssistenteGUI(QtWidgets.QWidget):
                             logging.error(f"Classificação de intenção falhou: {e}")
                             intencao = "desconhecido"
 
+                    # Detetar cumprimentos diretamente (independente do classificador)
+                    # Usar palavras do comando para evitar falsos positivos (ex: "escola" contém "ola")
+                    import re
+                    _greeting_patterns = [r'\bol[aá]\b', r'\boi\b', r'\bbom dia\b', r'\bboa tarde\b', r'\bboa noite\b', r'\bhey\b', r'\beai\b', r'\bfala\b']
+                    _is_greeting = any(re.search(p, comando_lower) for p in _greeting_patterns)
+                    
                     # Ações baseadas na intenção
-                    if intencao == "cumprimento" and any(palavra in comando_lower for palavra in ["ólá", "oi", "bom dia", "boa tarde", "boa noite", "hey"]):
+                    if _is_greeting:
                         self.personalidade = "amigável"
                         import random
                         
-                        # Determinar cumprimento baseado na hora
-                        hora_atual = datetime.now(tz=_TIMEZONE).hour
-                        if hora_atual < 12:
-                            saudacao_hora = "Bom dia"
-                        elif hora_atual < 19:
-                            saudacao_hora = "Boa tarde"
-                        else:
-                            saudacao_hora = "Boa noite"
+                        # Determinar cumprimento baseado na hora e estação
+                        agora_saudacao = datetime.now(tz=_TIMEZONE)
+                        saudacao_hora = _get_saudacao(_get_periodo_dia(agora_saudacao))
                         
                         cumprimentos = [
                             f"{saudacao_hora}! Tudo bem?",
@@ -1008,7 +1059,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                             resposta = f"🕐 Agora são {agora.strftime('%H:%M')} de {dia_semana}, {agora.day} de {mes} de {agora.year}."
 
                     # Para qualquer outra intenção ou quando confiança é baixa, usar Ollama
-                    if not resposta or intencao == "desconhecido" or intencao not in ["cumprimento", "despedida", "desligar", "pesquisar", "data_hora"]:
+                    if not resposta and not _is_greeting:
                         logging.info(f"Usando Ollama para responder (intenção: {intencao})")
                         self.ui_updater.set_status_signal.emit("🤔 A pensar...")
                         
@@ -1033,7 +1084,16 @@ class AssistenteGUI(QtWidgets.QWidget):
                         # Obter contexto de memória relevante
                         memory_context = ""
                         if self.memory_system:
-                            memory_context = self.memory_system.get_relevant_context(comando, max_memories=3)
+                            memory_context = self.memory_system.get_relevant_context(comando, max_memories=5)
+                            if memory_context:
+                                logging.info(f"🧠 Memória enviada ao LLM ({len(memory_context)} chars): {memory_context[:200]}...")
+                            else:
+                                logging.info("🧠 Nenhuma memória relevante encontrada")
+                        
+                        # Injetar memórias no histórico como conversa anterior
+                        memory_as_history = ""
+                        if memory_context:
+                            memory_as_history = f"[Sessões anteriores]\n{memory_context}\n[Sessão atual]\n"
                         
                         # Obter tom de resposta baseado em estados afetivos
                         affective_tone = ""
@@ -1049,34 +1109,54 @@ class AssistenteGUI(QtWidgets.QWidget):
                             context_parts.append(people_context)
                         if personality_context:
                             context_parts.append(personality_context)
-                        if memory_context:
-                            context_parts.append(memory_context)
+                        # memory_context vai no histórico, não aqui
                         if affective_tone:
                             context_parts.append(affective_tone)
                         
                         context_info = "\n\n".join(context_parts) if context_parts else ""
                         
+                        # Adicionar contexto temporal (ajustado por estação do ano)
+                        agora = datetime.now(tz=_TIMEZONE)
+                        periodo_dia = _get_periodo_dia(agora)
+                        saudacao_correta = _get_saudacao(periodo_dia)
+                        
+                        meses_estacao = {12: 'inverno', 1: 'inverno', 2: 'inverno',
+                                         3: 'primavera', 4: 'primavera', 5: 'primavera',
+                                         6: 'verão', 7: 'verão', 8: 'verão',
+                                         9: 'outono', 10: 'outono', 11: 'outono'}
+                        estacao = meses_estacao[agora.month]
+                        time_context = f"REGRA OBRIGATÓRIA: Agora são {agora.strftime('%H:%M')}, estamos de {periodo_dia} ({estacao}). A saudação correta é '{saudacao_correta}'. NÃO uses um período do dia diferente de '{periodo_dia}'."
+                        
+                        # Instrução de memória
+                        memory_instruction = ""
+                        if memory_context:
+                            memory_instruction = "\nTens MEMÓRIA de conversas anteriores (estão no histórico). NUNCA digas que não te lembras, que não há registos, ou que estamos a começar de novo. Refere-te às conversas anteriores naturalmente."
+                        
                         # Prompt melhorado com personalidade dinâmica
-                        base_instruction = "Tu és o ASTRA, um assistente virtual inteligente e adaptável."
+                        base_instruction = f"Tu és o ASTRA, um assistente virtual inteligente e adaptável. Respondes SEMPRE em português de Portugal (PT-PT), nunca em português do Brasil.\n{time_context}{memory_instruction}"
                         if personality_context:
                             full_prompt = f"""{base_instruction}
 {context_info}
 
 Histórico da conversa:
-{history_text}
+{memory_as_history}{history_text}
 
 Utilizador: {comando}"""
                         else:
                             # Fallback para comportamento casual se personalidade não disponível
-                            full_prompt = f"""Tu és o ASTRA, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem falaria. Evita ser muito formal.
+                            full_prompt = f"""Tu és o ASTRA, um assistente virtual descontraído e natural. Responde de forma casual, amigável e direta, como um amigo jovem português falaria. Usa sempre português de Portugal (PT-PT). Evita ser muito formal.
+{time_context}
 {context_info}
 
 Histórico da conversa:
-{history_text}
+{memory_as_history}{history_text}
 
 Utilizador: {comando}"""
                         
-                        resposta = perguntar_ollama(full_prompt, stop_signal)
+                        system_msg = time_context
+                        if memory_context:
+                            system_msg += " NUNCA digas que não te lembras ou que não há registos. Tens memória de conversas anteriores."
+                        resposta = perguntar_ollama(full_prompt, stop_signal, system_prompt=system_msg)
             
             # Calcular tempo de resposta
             response_time = time.time() - response_start_time
@@ -2125,6 +2205,14 @@ Utilizador: {comando}"""
         
         # Fazer cleanup das threads
         self._cleanup_threads()
+        
+        # Guardar memórias em disco
+        if hasattr(self, 'memory_system') and self.memory_system:
+            try:
+                self.memory_system.save_memories()
+                logging.info("🧠 Memórias guardadas em disco")
+            except Exception as e:
+                logging.error(f"Erro ao guardar memórias: {e}")
         
         # Fechar conexão da base de dados
         self._cleanup_database()

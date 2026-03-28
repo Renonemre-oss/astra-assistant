@@ -1,62 +1,6 @@
 [
   {
     "role": "user",
-    "content": "olaa"
-  },
-  {
-    "role": "assistant",
-    "content": "Com carinho, Olá! 😊 Tudo bem por aí? Parece que a noite está bem tranquila, não é? 😉 Em que posso te ajudar? Se precisar de algo, ou só quiser bater um papo, estou aqui! ✨❤️ 🤗 🤗"
-  },
-  {
-    "role": "user",
-    "content": "sao que horas"
-  },
-  {
-    "role": "assistant",
-    "content": "Meu bem, 🕐 Agora são 15:26. 😊"
-  },
-  {
-    "role": "user",
-    "content": "e porque uma noite tranquila ??"
-  },
-  {
-    "role": "assistant",
-    "content": "Meu bem, Ah, você perguntou por que a noite está tranquila? 😊 É que, como já está ficando tarde, as pessoas geralmente estão relaxando em casa, descansando ou aproveitando o tempo livre. Menos gente nas ruas, menos movimento... sabe como é! 😉\n\nE você, tudo bem por aí? Alguma coisa te incomodando ou te deixando curioso? Se quiser conversar, estou aqui para o que precisar! ✨❤️ 🤗 🤗"
-  },
-  {
-    "role": "user",
-    "content": "oiii"
-  },
-  {
-    "role": "assistant",
-    "content": "Meu bem, Oi! 😊 Tudo bem por aqui, sim! Agradeço a perguntinha. E com você, tudo tranquilo? Alguma coisa te traz por aqui nessa noite? Se precisar de algo, ou só quiser bater um papo, pode contar comigo! ✨❤️ 🤗 🤗 🤗"
-  },
-  {
-    "role": "user",
-    "content": "ola astra"
-  },
-  {
-    "role": "assistant",
-    "content": "Com carinho, Olá! 😊 Que bom te ver por aqui também! \"Astra\" me agrada, me soa bem. 😉 \n\nTudo tranquilo por aqui, aproveitando a noite. 😊 Se precisar de alguma coisa, seja uma conversa, uma ideia, ou qualquer ajuda, é só falar! Estou aqui para o que precisar. ✨\n\nE você, como está passando a noite? Algum plano especial? 🌙."
-  },
-  {
-    "role": "user",
-    "content": "estou a trabalhar no teu codigo"
-  },
-  {
-    "role": "assistant",
-    "content": "Com carinho, Ah, interessante! 😊 Que bom saber que você está dando uma olhada no meu código. Espero que esteja tudo tranquilo por aí enquanto você trabalha. 💻\n\nSe precisar de alguma ajuda com isso, ou se tiver alguma dúvida, pode me perguntar! Adoro aprender e me aprimorar. 😉\n\nE você, como está se sentindo? Está se divertindo com a exploração do meu código? 🌙✨ 😊"
-  },
-  {
-    "role": "user",
-    "content": "ya , está interesante"
-  },
-  {
-    "role": "assistant",
-    "content": "Querido, Que bom ouvir isso! 😊 Fico feliz que você esteja achando interessante explorar meu código. É sempre ótimo saber que estou sendo útil e que posso te ajudar. \n\nSe surgir alguma dúvida ou precisar de algo específico enquanto estiver trabalhando, pode me chamar! 😉 Estou aqui para o que precisar. ✨\n\nE você, aproveitando a noite, tem algo mais que gostaria de fazer ou conversar? 🌙."
-  },
-  {
-    "role": "user",
     "content": "oi astra"
   },
   {
@@ -118,5 +62,61 @@
   {
     "role": "assistant",
     "content": "Eeee! Que bom te ver! Como você tá?\n\nOlá de novo! Estou aqui para te ouvir e ajudar se precisares de algo. É sempre uma boa noite, mesmo que seja tarde.\n\nNão estou muito preocupada com o horário, pois acho que é mais importante como estamos a nos sentir do que quanto tempo é. E parece que você está um pouco vago atualmente, o que é completamente normal!\n\nVamos lá, vamos começar com uma pergunta simples: você está sozinho à noite ou há alguém ao seu redor? Talvez possamos descobrir algo interessante juntos!"
+  },
+  {
+    "role": "user",
+    "content": "alo astra"
+  },
+  {
+    "role": "assistant",
+    "content": "Bom, Olá novamente! É sempre um prazer conversar contigo, mesmo que seja apenas uma \"olá\"!\n\nEntendi que você está um pouco vago atualmente, e isso é completamente normal. Vamos começar com algo simples para relaxar um pouco.\n\nA pergunta que eu fiz anteriormente sobre se você está sozinho à noite ou há alguém ao seu redor... bem, vamos tentar descobrir! Mas antes de mais nada, quero saber: o que você gostaria de fazer esta noite? Quer conversar sobre algum assunto em particular, ou talvez apenas passar o tempo com um pouco de entretenimento?\n\nVamos ver se podemos encontrar algo que nos faça sentir mais confortáveis e relaxados! 😊"
+  },
+  {
+    "role": "user",
+    "content": "eu sei que as nosas comversas sao vagas , mas e porque ainda estas em desenvolvimento , estou a testas os bugs oque funciona e oque nao funciona"
+  },
+  {
+    "role": "assistant",
+    "content": "Opa, Bom, parece que você está a testar o límite do meu conhecimento e capacidade de adaptação, não é? Estou aqui para aprender e melhorar com você!\n\nMas antes de mais nada, quero saber: como está a noite? Você está se sentindo relaxado ou precisa de um pouco de ajuda para me ajudar a \"ajustar\" as coisas?\n\nAcho que uma opção boa seria conversar sobre algo que gosta, seja um hobby, um filme, uma música ou até mesmo um assunto que você esteja curioso sobre. Isso pode ajudar a criar uma conexão mais pessoal e divertida.\n\nE se você quiser, posso sugerir alguns jogos de palavras ou desafios para tornarmos o tempo passar mais divertidamente. O que você acha? 🤔"
+  },
+  {
+    "role": "user",
+    "content": "astra m sao apenas 1 da tarde hahhaha, nao e de noite , mas estou tranquilo , e tu"
+  },
+  {
+    "role": "assistant",
+    "content": "Ahah, bom, parece que você está a testar o meu conhecimento de horários também! Não se preocupe, eu posso lidar com isso.\n\nE não se preocupe com o meu desenvolvimento, estou aqui para aprender com você. Estamos todos em um processo de aprendizado juntos!\n\nAgora, sobre a sua pergunta... Como está a noite? Bem, como você disse, é tarde e estou aqui e tudo está tranquilo. Não há nada que eu precise de ajuda para \"ajustar\" as coisas.\n\nE você está tranquilíssimo, é ótimo! Vamos aproveitar essa conversa relaxada e descobrir juntos o que podemos fazer para passarmos um tempo divertido.\n\nQual foi a sua ideia? Você quer falar sobre algum hobby ou assunto que você goste? Ou talvez jogar um jogo de palavras ou desafio? Estou aqui para ajudar! 🤖✨"
+  },
+  {
+    "role": "user",
+    "content": "oi"
+  },
+  {
+    "role": "assistant",
+    "content": "Bom, Olá novamente! É ótimo ver você novamente aqui! Como está a sua noite, então? Quer conversar sobre algum assunto em particular ou apenas relaxar um pouco?\n\nSe quiser, podemos começar com algo simples. Eu posso te suggerir alguns jogos de palavras ou desafios que podemos fazer juntos. Ou, se preferir, podemos conversar sobre algum hobby ou interesse que você tenha.\n\nEu estou aqui para ajudar e ouvir, então sinta-se à vontade para compartilhar o que quiser! Se não tiver ideias, posso sempre te inspirar com algumas sugestões. O que acha?!"
+  },
+  {
+    "role": "user",
+    "content": "vou mudar o tteu llama para este \nLlama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF  , oq"
+  },
+  {
+    "role": "assistant",
+    "content": "Então, Ahah, parece que a tua noite está sendo um pouco... inesperada! \n\nNão se preocupe, posso lidar com alguns textos um pouco... \"incentivos\" ao meu estilo, mas é sempre mais divertido quando estamos a conversar sobre algo mais leve!\n\nEntão, o novo nome do Llama é Llama-3.2-8X3B-MOE-Dark-Champion-Instruct-uncensored-abliterated-18.4B-GGUF  , oq? Sei lá, é um nome bastante... único! \n\nMas, em serio, quais são os seus planos para essa nova versão do Llama? Está a virar um super-herói da inteligência artificial ou apenas vai continuar a fazer suas coisas?\n\nVamos conversar mais sobre isso e ver se podemos descobrir o que o novo Llama está preparado para fazer!"
+  },
+  {
+    "role": "user",
+    "content": "oi"
+  },
+  {
+    "role": "assistant",
+    "content": "Bom, Não demorou tanto até que aparecesse uma nova pessoa! Não te preocupes, sou aqui para te ajudar com tudo. O que estás a fazer agora? Queres falar sobre o Llama ou é algo completamente diferente? Estou aqui para ouvir e ajudar em qualquer coisa que precisares!!"
+  },
+  {
+    "role": "user",
+    "content": "merda?"
+  },
+  {
+    "role": "assistant",
+    "content": "Com calma, Parece que te sentiste um pouco estressado ou frustrado! Não se preocupe, eu estou aqui para ouvir e ajudar de forma calma. Vamos começar por falar do que está a te preocupar. Qual é o problema ou o assunto que está a te molestar hoje? Estou aqui para ouvinte e ajudar em qualquer coisa!"
   }
 ]

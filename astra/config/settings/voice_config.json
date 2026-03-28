@@ -11,13 +11,13 @@
     "engine": "auto"
   },
   "vosk": {
-    "model_path": "C:\\Users\\antop\\Desktop\\Astra\\models\\vosk-model-small-pt-0.3",
+    "model_path": "models/vosk-model-small-pt-0.3",
     "sample_rate": 16000
   },
   "porcupine": {
     "keywords": [
       "computer",
-      "ASTRAa"
+      "ASTRA"
     ],
     "sensitivity": 0.7
   },

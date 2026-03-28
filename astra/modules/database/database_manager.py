@@ -21,8 +21,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-# Configurar logging
-logging.basicConfig(level=logging.INFO)
+# ✅ Corrigido: Usar logger sem reconfigurar (centralizado em main_config)
 logger = logging.getLogger(__name__)
 
 @dataclass

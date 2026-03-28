@@ -504,9 +504,9 @@ class MemorySystem:
                 enriched_context
             )
         
-        # Armazenar memória do usuário
+        # Armazenar memória do utilizador
         user_memory_id = self.store_memory(
-            content=f"Usuário disse: {user_input}",
+            content=f"Utilizador disse: {user_input}",
             memory_type=MemoryType.EPISODIC,
             importance=user_importance,
             tags=user_tags,
@@ -526,6 +526,9 @@ class MemorySystem:
         
         # Criar associação entre as memórias
         self._create_association(user_memory_id, assistant_memory_id)
+        
+        # Persistir memórias em disco
+        self.save_memories()
         
         return user_memory_id, assistant_memory_id
     
@@ -621,34 +624,88 @@ class MemorySystem:
         Obtém contexto relevante para a conversa atual.
         
         Args:
-            current_input: Input atual do usuário
+            current_input: Input atual do utilizador
             max_memories: Máximo de memórias para incluir
             
         Returns:
             str: Contexto formatado para o LLM
         """
-        # Buscar memórias relevantes
-        relevant_memories = self.retrieve_memories(
+        # Buscar memórias relevantes por keywords (excluir respostas da ASTRA para evitar echo)
+        all_relevant = self.retrieve_memories(
             query=current_input,
             memory_types=[MemoryType.EPISODIC, MemoryType.SEMANTIC],
-            max_results=max_memories,
-            min_relevance=0.2
+            max_results=max_memories * 2,
+            min_relevance=0.3
         )
+        relevant_memories = [
+            m for m in all_relevant
+            if not m.content.startswith("ASTRA respondeu: ")
+        ][:max_memories]
+        
+        # Sempre incluir as memórias mais recentes do UTILIZADOR
+        # (não respostas da ASTRA, para evitar loop de repetição)
+        recent_ids = set(m.id for m in relevant_memories)
+        user_episodic = [
+            m for m in self.memories.values()
+            if m.memory_type == MemoryType.EPISODIC
+            and m.id not in recent_ids
+            and (m.content.startswith("Utilizador disse: ") or m.content.startswith("Usu\u00e1rio disse: "))
+        ]
+        user_episodic.sort(key=lambda m: m.timestamp, reverse=True)
+        for mem in user_episodic[:max_memories]:
+            relevant_memories.append(mem)
+            recent_ids.add(mem.id)
         
         if not relevant_memories:
             return ""
         
-        # Formatar contexto
-        context_parts = ["Contexto de memórias relevantes:"]
+        # Agrupar memórias por pares (utilizador → ASTRA) usando associações
+        seen_ids = set()
+        context_parts = ["TU LEMBRAS-TE destas conversas anteriores com o utilizador (usa-as naturalmente como se fossem as tuas próprias memórias, nunca digas que não te lembras se tens informação aqui):"]
+        
+        # Ordenar por data (mais recente primeiro)
+        relevant_memories.sort(key=lambda m: m.timestamp, reverse=True)
+        
         for memory in relevant_memories:
-            # Remover prefixos desnecessários
-            content = memory.content
-            if content.startswith("Usuário disse: "):
-                content = content[15:]
-            elif content.startswith("ASTRA respondeu: "):
-                content = content[16:]
+            if memory.id in seen_ids:
+                continue
+            seen_ids.add(memory.id)
             
-            context_parts.append(f"- {content}")
+            content = memory.content
+            # Normalizar prefixos para PT-PT
+            for prefix in ["Usu\u00e1rio disse: ", "Utilizador disse: "]:
+                if content.startswith(prefix):
+                    content = content[len(prefix):]
+                    break
+            if content != memory.content:  # Era mensagem do utilizador
+                # Tentar encontrar a resposta associada
+                paired_response = ""
+                for assoc_id in memory.associations:
+                    if assoc_id in self.memories and assoc_id not in seen_ids:
+                        assoc = self.memories[assoc_id]
+                        resp = assoc.content
+                        for resp_prefix in ["ASTRA respondeu: "]:
+                            if resp.startswith(resp_prefix):
+                                resp = resp[len(resp_prefix):]
+                                break
+                        paired_response = resp
+                        seen_ids.add(assoc_id)
+                        break
+                
+                try:
+                    mem_time = datetime.fromisoformat(memory.timestamp.replace('Z', '+00:00').replace('+00:00', ''))
+                    time_str = mem_time.strftime('%d/%m %H:%M')
+                except Exception:
+                    time_str = ""
+                if paired_response:
+                    context_parts.append(f"[{time_str}] Utilizador: {content} | ASTRA: {paired_response[:100]}")
+                else:
+                    context_parts.append(f"[{time_str}] Utilizador: {content}")
+            else:
+                # Memória semântica ou outra
+                if content.startswith("ASTRA respondeu: "):
+                    content = content[17:]
+                context_parts.append(f"- {content[:120]}")
         
         return "\n".join(context_parts)
     

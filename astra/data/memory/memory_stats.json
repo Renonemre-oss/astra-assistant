@@ -1,0 +1,11 @@
+{
+  "total_memories": 21,
+  "memories_by_type": {
+    "episodic": 21
+  },
+  "memories_by_importance": {
+    "medium": 20
+  },
+  "total_retrievals": 11,
+  "last_cleanup": null
+}
