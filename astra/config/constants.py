@@ -22,6 +22,8 @@ LOGS_DIR = ASTRA_ROOT / "logs"
 MODELS_DIR = DATA_DIR / "models"
 CACHE_DIR = DATA_DIR / "cache"
 
+NEURAL_DIR = ASTRA_ROOT / "neural_models"  # ✅ Fix: NEURAL_DIR centralizado aqui
+
 # Subdiretórios de dados
 MEMORY_DATA_DIR = DATA_DIR / "memory"
 PERSONALITY_DATA_DIR = DATA_DIR / "personality"

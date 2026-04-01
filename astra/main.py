@@ -39,9 +39,9 @@ def main():
     except ImportError as e:
         print(f"❌ Erro de importação: {e}")
         print("\n💡 Certifique-se de que todos os módulos estão nas pastas corretas:")
-        print("   - core/assistente.py")
-        print("   - modules/")
-        print("   - config/config.py")
+        print("   - astra/core/assistant.py")
+        print("   - astra/modules/")
+        print("   - astra/config/settings/main_config.py")
         print("   - etc...")
         
     except FileNotFoundError as e:

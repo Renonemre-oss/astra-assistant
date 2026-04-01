@@ -35,10 +35,6 @@ def setup_tesseract():
     """Setup tesseract OCR."""
     pass
 
-def get_database_available():
-    """Get database availability."""
-    return DATABASE_AVAILABLE
-
 __all__ = [
     'CONFIG',
     'UI_STYLES', 
