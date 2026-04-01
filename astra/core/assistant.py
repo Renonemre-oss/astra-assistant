@@ -388,6 +388,7 @@ class AssistenteGUI(QtWidgets.QWidget):
         self.stop_signal = threading.Event()
         self.microfone_ativo = False
         self.history = []
+        self._history_lock = threading.Lock()  # ✅ thread-safety para history
         self.personalidade = "neutra"
         self._threads = []  # Lista para gerir threads ativas
         self._shutdown = False  # Flag para shutdown controlado
@@ -727,12 +728,39 @@ class AssistenteGUI(QtWidgets.QWidget):
 
     def set_status_message(self, message):
         """Define a mensagem de status na UI."""
-        # Check if status_label exists (UI might not be initialized yet)
         if hasattr(self, 'status_label') and self.status_label:
             self.status_label.setText(message)
         else:
-            # If UI not ready, just log the message
             logging.info(f"Status (UI não pronta): {message}")
+
+    # ==========================
+    # HELPERS DE ÁUDIO (null-safe)
+    # ==========================
+    def _speak(self, text: str) -> bool:
+        """
+        Fala o texto de forma segura.
+        Retorna False silenciosamente se o AudioManager não estiver disponível.
+        """
+        if not self.audio_manager:
+            logging.debug("_speak: AudioManager não disponível, ignorando TTS")
+            return False
+        try:
+            return self.audio_manager.text_to_speech(text)
+        except Exception as e:
+            logging.error(f"_speak: erro ao sintetizar voz: {e}")
+            return False
+
+    def _stop_speech(self) -> None:
+        """
+        Para o áudio atual de forma segura.
+        Não levanta exceção se AudioManager não estiver disponível.
+        """
+        if not self.audio_manager:
+            return
+        try:
+            self.audio_manager.stop_speech()
+        except Exception as e:
+            logging.error(f"_stop_speech: erro ao parar fala: {e}")
 
     def init_ui(self):
         """Inicializa a interface de utilizador."""
@@ -830,11 +858,15 @@ class AssistenteGUI(QtWidgets.QWidget):
     def executar_assistente_texto(self, comando, stop_signal):
         """
         Processa comando do utilizador e gera resposta.
-        
+
         Args:
             comando: Comando do utilizador
             stop_signal: Signal para interromper processamento
         """
+        # ✅ Inicializar variáveis com defaults seguros antes de qualquer branch
+        context_type: str = "general"
+        personality_used = None
+
         try:
             comando_lower = remover_emojis(comando).lower().strip()
             response_start_time = time.time()
@@ -893,7 +925,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                     # Se for despedida permanente ou de conflito, responder e retornar
                     if separation_type in [SeparationType.PERMANENT_GOODBYE, SeparationType.CONFLICT_DEPARTURE]:
                         self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta}")
-                        self.audio_manager.text_to_speech(resposta)
+                        self._speak(resposta)  # ✅ null-safe
                         self.ui_updater.enable_buttons_signal.emit(True)
                         return
             
@@ -918,7 +950,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                     if explicit_response:
                         logging.info(f"🧠 Decision Engine: usando resposta explícita ({decision_result.decision_type.value})")
                         self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {explicit_response}")
-                        self.audio_manager.text_to_speech(explicit_response)
+                        self._speak(explicit_response)  # ✅ null-safe
                         self.ui_updater.enable_buttons_signal.emit(True)
                         return
                     
@@ -927,7 +959,8 @@ class AssistenteGUI(QtWidgets.QWidget):
             
             # Salvar mensagem na base de dados e histórico
             self.save_user_message(comando)
-            self.history.append({"role": "user", "content": comando})
+            with self._history_lock:  # ✅ thread-safe
+                self.history.append({"role": "user", "content": comando})
             
             # Processar com sistema de opinião ética
             opinion_result = self._process_opinion_system(comando, response_start_time)
@@ -976,8 +1009,8 @@ class AssistenteGUI(QtWidgets.QWidget):
 
                     # Detetar cumprimentos diretamente (independente do classificador)
                     # Usar palavras do comando para evitar falsos positivos (ex: "escola" contém "ola")
-                    import re
-                    _greeting_patterns = [r'\bol[aá]\b', r'\boi\b', r'\bbom dia\b', r'\bboa tarde\b', r'\bboa noite\b', r'\bhey\b', r'\beai\b', r'\bfala\b']
+                    # ✅ `re` já está importado no topo do ficheiro
+                    _greeting_patterns
                     _is_greeting = any(re.search(p, comando_lower) for p in _greeting_patterns)
                     
                     # Ações baseadas na intenção
@@ -1008,9 +1041,8 @@ class AssistenteGUI(QtWidgets.QWidget):
                         ]
                         resposta = random.choice(despedidas)
                         self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta}")
-                        # Parar qualquer áudio em reprodução antes de falar
-                        self.audio_manager.stop_speech()
-                        self.audio_manager.text_to_speech(resposta)
+                        self._stop_speech()   # ✅ null-safe
+                        self._speak(resposta)  # ✅ null-safe
                         QtCore.QTimer.singleShot(1000, self.close)
                         return
 
@@ -1228,7 +1260,9 @@ Utilizador: {comando}"""
                         })
                     else:
                         # Fallback para personalidade básica
-                        context_info_mem['personality_mode'] = personality_used.value if 'personality_used' in locals() else 'unknown'
+                        context_info_mem['personality_mode'] = (
+                            personality_used.value if personality_used is not None else 'unknown'
+                        )  # ✅ sem uso frágil de locals()
                     
                     self.memory_system.store_conversation_turn(
                         user_input=comando,
@@ -1240,7 +1274,8 @@ Utilizador: {comando}"""
                 except Exception as e:
                     logging.error(f"Erro ao armazenar na memória: {e}")
             
-            self.history.append({"role": "assistant", "content": resposta})
+            with self._history_lock:  # ✅ thread-safe
+                self.history.append({"role": "assistant", "content": resposta})
             salvar_historico(self.history)
             
             # Salvar resposta do assistente na base de dados
@@ -1284,22 +1319,20 @@ Utilizador: {comando}"""
             if not stop_signal.is_set():
                 resposta_formatada = formatar_resposta(resposta)
                 self.ui_updater.append_output_signal.emit(f"🤖 ASTRA: {resposta_formatada}")
-                # Parar qualquer áudio em reprodução antes de falar
-                self.audio_manager.stop_speech()
-                
+                self._stop_speech()  # ✅ null-safe
+
                 # Se Expression Modulator ativo, passar parâmetros de prosódia para TTS
                 if expression_style:
                     try:
                         prosody_params = self.expression_modulator.get_prosody_params(expression_style)
                         logging.info(f"🎵 Prosódia: rate={prosody_params['rate']:.2f}, volume={prosody_params['volume']:.2f}")
                         # TODO: Passar prosody_params para audio_manager.text_to_speech() quando implementado
-                        # Por enquanto, usar TTS normal
-                        self.audio_manager.text_to_speech(resposta)
+                        self._speak(resposta)  # ✅ null-safe
                     except Exception as e:
                         logging.error(f"Erro ao aplicar prosódia: {e}")
-                        self.audio_manager.text_to_speech(resposta)
+                        self._speak(resposta)  # ✅ null-safe
                 else:
-                    self.audio_manager.text_to_speech(resposta)
+                    self._speak(resposta)  # ✅ null-safe
 
         except Exception as e:
             error_message = f"Ocorreu um erro no processamento: {e}"

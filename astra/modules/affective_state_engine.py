@@ -535,6 +535,40 @@ class AffectiveStateEngine:
         
         return summary
     
+    def adjust_state(self, state_name: str, delta: float) -> None:
+        """
+        Ajustar manualmente um estado afetivo por um delta.
+        Utilizado por módulos externos (grief_closure_engine, etc.).
+
+        Args:
+            state_name: Nome do estado (ex: 'trust', 'irritation')
+            delta: Valor a adicionar (positivo ou negativo)
+        """
+        valid_states = [
+            'trust', 'closeness', 'respect', 'care',
+            'irritation', 'withdrawal', 'disappointment',
+            'engagement', 'patience'
+        ]
+        if state_name not in valid_states:
+            logging.warning(
+                f"adjust_state: estado '{state_name}' inválido. "
+                f"Válidos: {valid_states}"
+            )
+            return
+
+        current = getattr(self.states, state_name, 0.0)
+        setattr(self.states, state_name, current + delta)
+        self.states.clamp()
+
+        # Atualizar modo de proteção
+        self.states.protective_mode = (
+            self.states.irritation > 0.7 or
+            self.states.withdrawal > 0.8
+        )
+        self.states.last_updated = time.time()
+        self._save_states()
+        logging.debug(f"adjust_state: {state_name} {delta:+.3f} → {getattr(self.states, state_name):.3f}")
+
     def reset_to_defaults(self) -> None:
         """Resetar estados para valores padrão"""
         self.states = AffectiveStates()
