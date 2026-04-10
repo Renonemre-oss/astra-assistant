@@ -160,48 +160,79 @@ ASTRA responde
 
 ### Pré-requisitos
 
-- **Python 3.9+**
+- **Python 3.9+** → [python.org](https://www.python.org/downloads/)
 - **Ollama** com o modelo `llama3.2` → [ollama.ai](https://ollama.ai)
 - **Piper TTS** com modelo PT → [rhasspy/piper](https://github.com/rhasspy/piper)
 - **Tesseract OCR** *(opcional, para processamento de imagens)*
 
-### Passo a passo
+---
 
-**1. Clonar o repositório**
+### 📥 Opção A — Download direto (recomendado para quem não usa git)
+
+**1. Descarregar o projeto**
+
+Clica em **Code → Download ZIP** no topo desta página, ou usa o link direto:
+
+> [**⬇️ Download ZIP**](https://github.com/Renonemre-oss/astra-assistant/archive/refs/heads/main.zip)
+
+**2. Extrair a pasta**
+
+Extrai o ZIP para uma pasta à tua escolha, por exemplo `C:\ASTRA` ou `~/astra`.
+
+**3. Executar o script de instalação automática**
+
+```batch
+:: Windows — abre a pasta extraida e faz duplo-clique em:
+setup.bat
+```
+
+```bash
+# Linux / macOS — abre o terminal na pasta extraida e executa:
+chmod +x setup.sh && ./setup.sh
+```
+
+O script faz tudo automaticamente: cria o ambiente virtual, instala as dependências e configura o Ollama.
+
+**4. Iniciar o ASTRA**
+
+```batch
+:: Windows
+.venv\Scripts\activate
+python -m astra
+```
+
+```bash
+# Linux / macOS
+source .venv/bin/activate
+python -m astra
+```
+
+---
+
+### 🖥️ Opção B — Clonar com git (para desenvolvedores)
+
 ```bash
 git clone https://github.com/Renonemre-oss/astra-assistant.git
 cd astra-assistant
 ```
 
-**2. Criar ambiente virtual**
+Depois segue os passos da Opção A a partir do passo 3, ou corre o script diretamente:
+
+```batch
+:: Windows
+setup.bat
+```
+
 ```bash
 # Linux / macOS
-python3 -m venv .venv && source .venv/bin/activate
-
-# Windows (PowerShell)
-python -m venv .venv
-.venv\Scripts\Activate.ps1
+chmod +x setup.sh && ./setup.sh
 ```
 
-**3. Instalar dependências**
-```bash
-pip install -r astra/requirements.txt
-```
+---
 
-**4. Configurar o Ollama**
-```bash
-# Instalar Ollama em https://ollama.ai, depois:
-ollama pull llama3.2
-```
+***(Opcional)* Configurar modelo Vosk em Português**
 
-**5. *(Opcional)* Configurar modelo Vosk em Português**
-
-Descarrega `vosk-model-small-pt-0.3` de [alphacep.github.io/vosk](https://alphacephei.com/vosk/models) e coloca em `astra/models/vosk-model-small-pt-0.3`.
-
-**6. Executar**
-```bash
-python -m astra
-```
+Descarrega `vosk-model-small-pt-0.3` de [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models) e coloca em `astra/models/vosk-model-small-pt-0.3`.
 
 ---
 
