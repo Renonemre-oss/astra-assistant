@@ -83,6 +83,7 @@ import configparser
 
 # Imports dos módulos organizados
 from ..config import CONFIG, DATABASE_AVAILABLE, UI_STYLES
+from ..config.constants import MAX_TOKEN_LENGTH
 from ..modules.audio.audio_manager import AudioManager
 from ..utils.text_processor import processar_imagem, formatar_resposta
 from ..modules.personal_profile import PersonalProfile
@@ -850,16 +851,28 @@ class AssistenteGUI(QtWidgets.QWidget):
     # ==========================
     # MÉTODOS DE PROCESSAMENTO
     # ==========================
+    # Limite de caracteres por mensagem (aprox. 4 chars/token) — evita que um
+    # copy-paste grande (ex: um ficheiro de código) gere um prompt gigante
+    # para o Ollama e bloqueie a UI durante minutos.
+    MAX_COMANDO_CHARS = MAX_TOKEN_LENGTH * 4
+
     def enviar_mensagem(self):
         """Processa a mensagem do utilizador."""
         comando = self.caixa_input.text().strip()
         self.caixa_input.clear()
-        if comando:
-            self.stop_signal.clear()
-            self.ui_updater.enable_buttons_signal.emit(False)
-            self.ui_updater.append_input_signal.emit(f"💬 Você: {comando}")
-            self.ui_updater.set_status_signal.emit("Processando...")
-            threading.Thread(target=self.executar_assistente_texto, args=(comando, self.stop_signal), daemon=True).start()
+        if not comando:
+            return
+        if len(comando) > self.MAX_COMANDO_CHARS:
+            self.ui_updater.append_output_signal.emit(
+                f"❌ Mensagem muito longa ({len(comando)} caracteres, máximo "
+                f"{self.MAX_COMANDO_CHARS}). Encurta o texto ou envia por partes."
+            )
+            return
+        self.stop_signal.clear()
+        self.ui_updater.enable_buttons_signal.emit(False)
+        self.ui_updater.append_input_signal.emit(f"💬 Você: {comando}")
+        self.ui_updater.set_status_signal.emit("Processando...")
+        threading.Thread(target=self.executar_assistente_texto, args=(comando, self.stop_signal), daemon=True).start()
 
     def executar_assistente_texto(self, comando, stop_signal):
         """

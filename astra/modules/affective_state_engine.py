@@ -12,6 +12,7 @@ Author: Antonio Pereira
 
 import time
 import json
+import logging
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
