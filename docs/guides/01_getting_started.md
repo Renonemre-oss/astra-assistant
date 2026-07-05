@@ -62,7 +62,7 @@ Você tem duas opções principais:
 
 2. Baixe um modelo:
    ```bash
-   ollama pull llama3.2
+   ollama pull dolphin-llama3:8b
    # ou
    ollama pull mistral
    ```
@@ -79,7 +79,7 @@ Você tem duas opções principais:
    providers:
      ollama:
        enabled: true
-       model: llama3.2
+       model: dolphin-llama3:8b
        url: http://localhost:11434
    ```
 
@@ -205,11 +205,11 @@ ollama serve
 ollama list
 ```
 
-### Erro: "Modelo llama3.2 não encontrado"
+### Erro: "Modelo dolphin-llama3:8b não encontrado"
 
 **Solução:**
 ```bash
-ollama pull llama3.2
+ollama pull dolphin-llama3:8b
 ```
 
 ### Erro: "ModuleNotFoundError"

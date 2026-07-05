@@ -66,12 +66,12 @@ fi
 echo ""
 echo "  [4/4] A verificar Ollama..."
 if command -v ollama &>/dev/null; then
-    ok "Ollama encontrado. A descarregar modelo llama3.2..."
-    ollama pull llama3.2
+    ok "Ollama encontrado. A descarregar modelo dolphin-llama3:8b..."
+    ollama pull dolphin-llama3:8b
 else
     warn "Ollama não encontrado."
     echo "     Instala em: https://ollama.ai"
-    echo "     Depois executa: ollama pull llama3.2"
+    echo "     Depois executa: ollama pull dolphin-llama3:8b"
 fi
 
 echo ""

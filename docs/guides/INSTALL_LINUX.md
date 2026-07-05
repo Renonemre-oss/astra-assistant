@@ -81,7 +81,7 @@ pip install -r requirements.txt
 curl -fsSL https://ollama.ai/install.sh | sh
 
 # Baixar modelo de IA em português
-ollama pull llama3.2
+ollama pull dolphin-llama3:8b
 
 # Verificar se está rodando
 ollama list

@@ -87,7 +87,7 @@ from astra.config.settings.main_config import PROJECT_ROOT  # Use constants.py!
 ```python
 CONFIG = {
     # Modelo Ollama
-    "ollama_model": "llama3.2",  # Modelo padrão
+    "ollama_model": "dolphin-llama3:8b",  # Modelo padrão
     "ollama_url": "http://localhost:11434/api/generate",
     
     # Conversação

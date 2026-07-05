@@ -53,6 +53,7 @@ brew install ollama
 
 | Modelo | Tamanho | RAM Mín. | Descrição |
 |--------|---------|----------|-----------|
+| `dolphin-llama3:8b` | 4.7 GB | 8 GB | Padrão do ASTRA — companheiro sem filtros extra |
 | `llama3.2` | 2 GB | 8 GB | Versão leve e rápida |
 | `llama3.2:70b` | 40 GB | 64 GB | Versão completa |
 | `mistral` | 4 GB | 8 GB | Ótimo para código |
@@ -62,10 +63,11 @@ brew install ollama
 ### Baixar Modelos
 
 ```bash
-# Modelo recomendado
-ollama pull llama3.2
+# Modelo recomendado (padrão do ASTRA)
+ollama pull dolphin-llama3:8b
 
 # Outros modelos
+ollama pull llama3.2
 ollama pull mistral
 ollama pull codellama
 ollama pull phi
@@ -74,7 +76,7 @@ ollama pull phi
 ollama list
 
 # Remover modelo
-ollama rm llama3.2
+ollama rm dolphin-llama3:8b
 ```
 
 ### Configuração
@@ -87,7 +89,7 @@ default_provider: ollama
 providers:
   ollama:
     enabled: true
-    model: llama3.2          # Modelo a usar
+    model: dolphin-llama3:8b # Modelo a usar
     url: http://localhost:11434  # URL do servidor
     timeout: 60              # Timeout em segundos
     max_retries: 3           # Tentativas em caso de erro
@@ -118,7 +120,7 @@ ollama serve
 **Erro: "Model not found"**
 ```bash
 # Baixar o modelo
-ollama pull llama3.2
+ollama pull dolphin-llama3:8b
 ```
 
 **Resposta lenta:**
@@ -259,7 +261,7 @@ default_provider: ollama
 providers:
   ollama:
     enabled: true
-    model: llama3.2
+    model: dolphin-llama3:8b
   
   openai:
     enabled: true
@@ -365,7 +367,7 @@ config/skills_config.yaml
 
 ### Para Desenvolvimento
 
-**Recomendação**: Ollama (llama3.2)
+**Recomendação**: Ollama (dolphin-llama3:8b)
 - Grátis
 - Privado
 - Rápido para testar

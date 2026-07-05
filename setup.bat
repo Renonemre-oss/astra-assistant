@@ -62,10 +62,10 @@ ollama --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo  [AVISO] Ollama nao encontrado.
     echo  Instala em: https://ollama.ai
-    echo  Depois executa: ollama pull llama3.2
+    echo  Depois executa: ollama pull dolphin-llama3:8b
 ) else (
-    echo  [OK] Ollama encontrado. A descarregar modelo llama3.2...
-    ollama pull llama3.2
+    echo  [OK] Ollama encontrado. A descarregar modelo dolphin-llama3:8b...
+    ollama pull dolphin-llama3:8b
 )
 
 echo.

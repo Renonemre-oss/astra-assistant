@@ -76,7 +76,7 @@ def configure_logging():
 # ==========================
 CONFIG = {
     # Modelo Ollama
-    "ollama_model": "llama3.2",  # ✅ Corrigido: Modelo padrão mais comum
+    "ollama_model": "dolphin-llama3:8b",  # Companheiro de casa: sem filtros corporativos extra (o Decision Engine trata os limites)
     "ollama_url": "http://localhost:11434/api/generate",
     
     # Conversação

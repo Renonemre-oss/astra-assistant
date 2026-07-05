@@ -36,14 +36,14 @@ class OllamaProvider(AIProviderBase):
         Args:
             config: Configuração contendo:
                 - url: URL do servidor Ollama (padrão: http://localhost:11434)
-                - model: Nome do modelo a usar (padrão: llama3.2)
+                - model: Nome do modelo a usar (padrão: dolphin-llama3:8b)
                 - timeout: Timeout em segundos (padrão: 60)
                 - max_retries: Número máximo de tentativas (padrão: 3)
         """
         super().__init__(config)
-        
+
         self.url = self.get_config('url', 'http://localhost:11434')
-        self.model = self.get_config('model', 'llama3.2')
+        self.model = self.get_config('model', 'dolphin-llama3:8b')
         self.timeout = self.get_config('timeout', 60)
         self.max_retries = self.get_config('max_retries', 3)
         

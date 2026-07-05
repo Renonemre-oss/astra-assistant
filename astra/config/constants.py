@@ -98,8 +98,8 @@ EMOTION_INTENSITY_THRESHOLD = 0.5
 # ==============================================================================
 
 # Modelos
-DEFAULT_LLM_MODEL = "llama3.2"
-FALLBACK_LLM_MODEL = "llama3.1"
+DEFAULT_LLM_MODEL = "dolphin-llama3:8b"
+FALLBACK_LLM_MODEL = "llama3.1:8b"
 
 # Cache
 CACHE_ENABLED = True

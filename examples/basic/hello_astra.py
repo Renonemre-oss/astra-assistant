@@ -31,7 +31,7 @@ def exemplo_ai_engine():
         'providers': {
             'ollama': {
                 'enabled': True,
-                'model': 'llama3.2',
+                'model': 'dolphin-llama3:8b',
                 'url': 'http://localhost:11434',
                 'timeout': 30,
                 'max_retries': 2
@@ -70,7 +70,7 @@ def exemplo_ai_engine():
             print("\n💡 Dica: Certifique-se que o Ollama está rodando:")
             print("   1. Instale: https://ollama.ai")
             print("   2. Execute: ollama serve")
-            print("   3. Baixe modelo: ollama pull llama3.2")
+            print("   3. Baixe modelo: ollama pull dolphin-llama3:8b")
         
         # Estatísticas
         print(f"\n📊 Estatísticas do Engine:")

@@ -7,7 +7,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://python.org)
 [![PyQt6](https://img.shields.io/badge/UI-PyQt6-green?logo=qt&logoColor=white)](https://doc.qt.io/qtforpython/)
-[![Ollama](https://img.shields.io/badge/LLM-Ollama%20%7C%20llama3.2-orange)](https://ollama.ai)
+[![Ollama](https://img.shields.io/badge/LLM-Ollama%20%7C%20dolphin--llama3-orange)](https://ollama.ai)
 [![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
 
 </div>
@@ -132,7 +132,7 @@ ASTRA responde
 ### Pré-requisitos
 
 - **Python 3.9+** → [python.org](https://www.python.org/downloads/)
-- **Ollama** com o modelo `llama3.2` → [ollama.ai](https://ollama.ai)
+- **Ollama** com o modelo `dolphin-llama3:8b` → [ollama.ai](https://ollama.ai)
 - **Tesseract OCR** *(opcional, para OCR de imagens)*
 
 ### Opção A — Download direto
