@@ -1,4 +1,4 @@
-# ALEX/JARVIS - Git Ignore
+# ASTRA - Git Ignore
 
 # ======================
 # SECURITY & SECRETS
@@ -46,8 +46,23 @@ env/
 *.db
 *.sqlite
 *.sqlite3
-data/jarvis.db
-data/*.db
+
+# ======================
+# DADOS DE RUNTIME / PESSOAIS
+# ======================
+# Histórico de conversas, memórias, perfis e preferências —
+# gerados em execução, nunca devem ser commitados.
+data/
+astra/data/conversation/
+astra/data/memory/
+astra/data/personality/
+astra/data/user/
+astra/data/companion/emotional_memory.json
+astra/data/*.json
+astra/config/data/
+astra/config/logs/
+astra/modules/speech/recorded_audio/
+astra/modules/speech/cloned_voices/
 
 # ======================
 # LOGS

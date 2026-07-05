@@ -8,8 +8,7 @@ Caso contrário, são apenas números numa base de dados.
 
 O salto de "inteligente" para "vivo".
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass

@@ -24,5 +24,8 @@ try:
     ]
     
 except ImportError as e:
-    print(f"⚠️ Aviso: Nem todos os módulos de speech estão disponíveis: {e}")
+    import logging
+    logging.getLogger(__name__).warning(
+        "Nem todos os módulos de speech estão disponíveis: %s", e
+    )
     __all__ = []

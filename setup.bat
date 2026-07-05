@@ -48,7 +48,7 @@ python -m pip install --upgrade pip --quiet
 :: Instalar dependências
 echo.
 echo  [3/4] A instalar dependencias (pode demorar alguns minutos)...
-pip install -r astra\requirements.txt
+pip install -r requirements.txt
 if %errorlevel% neq 0 (
     echo  [AVISO] Algumas dependencias podem ter falhado.
     echo  Isto e normal - o ASTRA funcionara sem as funcionalidades opcionais.

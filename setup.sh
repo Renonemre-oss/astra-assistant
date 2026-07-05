@@ -56,7 +56,7 @@ ok "pip atualizado."
 # ── 3. Instalar dependências ─────────────────────────────────────
 echo ""
 echo "  [3/4] A instalar dependências (pode demorar alguns minutos)..."
-if pip install -r astra/requirements.txt; then
+if pip install -r requirements.txt; then
     ok "Dependências instaladas."
 else
     warn "Algumas dependências opcionais falharam. O ASTRA funcionará sem elas."

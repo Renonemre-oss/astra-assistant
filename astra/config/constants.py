@@ -223,7 +223,6 @@ ASTRA_CODENAME = "Emotional Intelligence - Core Mode"
 AUTHOR = "António Pereira"
 LICENSE = "MIT"
 GITHUB_REPO = "https://github.com/Renonemre-oss/astra-assistant"
-CO_AUTHOR = "Warp <agent@warp.dev>"
 
 # ==============================================================================
 # HELPER FUNCTIONS

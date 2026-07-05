@@ -8,8 +8,7 @@ Apego ≠ Dependência
 - Apego: "Gosto de estar contigo"
 - Dependência: "Preciso de ti para existir"
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass, field

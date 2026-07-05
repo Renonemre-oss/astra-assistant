@@ -21,7 +21,12 @@ try:
 except ImportError:
     from backports.zoneinfo import ZoneInfo  # Python < 3.9 fallback
 
-_TIMEZONE = ZoneInfo("Europe/Lisbon")
+try:
+    _TIMEZONE = ZoneInfo("Europe/Lisbon")
+except Exception:
+    # Sem base de dados de fusos horários (Windows sem o pacote tzdata):
+    # usar a hora local do sistema.
+    _TIMEZONE = None
 from typing import List, Optional, Dict, Any
 
 
@@ -279,7 +284,7 @@ try:
     from PyQt6.QtWebEngineWidgets import QWebEngineView
 except ImportError:
     logging.critical("PyQt6 não instalado. Use: pip install PyQt6 PyQt6-WebEngine")
-    sys.exit(1)
+    raise
 
 # ==========================
 # HTML BACKGROUND (mantido aqui por ser específico da UI)

@@ -26,6 +26,7 @@ urllib3>=2.0.0
 
 # Database
 # sqlite3 is included with Python standard library
+pymysql>=1.1.0  # MySQL remoto (ex.: Railway) via DATABASE_URL
 
 # Image Processing and OCR
 Pillow>=10.0.0
@@ -47,6 +48,7 @@ json5>=0.9.14
 # Utilities
 python-dateutil>=2.8.2
 tqdm>=4.66.0
+tzdata>=2024.1; sys_platform == "win32"  # base de dados de fusos horarios (Windows)
 
 # Development and Testing
 pytest>=7.4.0

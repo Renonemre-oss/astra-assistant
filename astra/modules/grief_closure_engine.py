@@ -7,8 +7,7 @@ do que foi construído.
 
 Não é sobre fazer o utilizador ficar. É sobre dar closure saudável.
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass

@@ -13,8 +13,7 @@ Limites rígidos:
 
 Não é spam. É presença autêntica com auto-controle.
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass

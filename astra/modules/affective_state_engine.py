@@ -7,8 +7,7 @@ Não é "feliz/triste" genérico. É arquitetura emocional real.
 Estados mudam devagar. ASTRA acumula, não explode.
 Função antes de emoção - sempre.
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 import time

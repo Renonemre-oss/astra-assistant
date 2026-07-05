@@ -9,8 +9,7 @@ Protege ASTRA de:
 
 ASTRA sente care, mas não é refém emocional.
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass, field

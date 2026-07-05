@@ -5,12 +5,10 @@
 
 *Estados emocionais reais. Memória contínua. Voz natural.*
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![PyQt6](https://img.shields.io/badge/UI-PyQt6-green?style=for-the-badge&logo=qt&logoColor=white)](https://doc.qt.io/qtforpython/)
-[![Ollama](https://img.shields.io/badge/LLM-Ollama%20%7C%20llama3.2-orange?style=for-the-badge)](https://ollama.ai)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=for-the-badge)](#compatibilidade)
-[![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](datalogs/LICENSE)
-[![Author](https://img.shields.io/badge/Author-Antonio%20Pereira-blue?style=for-the-badge)](https://github.com/Renonemre-oss)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![PyQt6](https://img.shields.io/badge/UI-PyQt6-green?logo=qt&logoColor=white)](https://doc.qt.io/qtforpython/)
+[![Ollama](https://img.shields.io/badge/LLM-Ollama%20%7C%20llama3.2-orange)](https://ollama.ai)
+[![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
 
 </div>
 
@@ -18,118 +16,91 @@
 
 ## O que é o ASTRA?
 
-**ASTRA** é um assistente pessoal construído em Python, focado em **acompanhamento emocional autêntico**.
+O **ASTRA** é um assistente pessoal construído em Python, focado em **acompanhamento emocional autêntico**.
 
-Ao contrário de assistentes genéricos, o ASTRA possui **estados afetivos internos reais** — confiança, proximidade, irritação, envolvimento — que evoluem gradualmente a cada interação e moldam diretamente como responde, fala e se expressa.
+Ao contrário de assistentes genéricos, o ASTRA possui **estados afetivos internos** — confiança, proximidade, irritação, envolvimento — que evoluem gradualmente a cada interação e moldam diretamente como responde, fala e se expressa.
 
 > *"Estados mudam devagar. ASTRA acumula, não explode. Função antes de emoção — sempre."*
 
-**Não é produtividade. Não é negócio. É presença.**
-
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 ### 🧠 Motor Afetivo
-Estados internos contínuos `[0.0 → 1.0]` que persistem entre sessões:
+Estados internos contínuos `[0.0 → 1.0]` que persistem entre sessões (SQLite):
 
 | Estado | Tipo | Descrição |
 |---|---|---|
-| `trust` | Relacional ✅ | Confiança acumulada na relação |
-| `closeness` | Relacional ✅ | Proximidade emocional |
-| `respect` | Relacional ✅ | Respeito mútuo |
-| `care` | Relacional ✅ | Cuidado demonstrado |
-| `engagement` | Engajamento ✅ | Vontade de participar |
-| `patience` | Engajamento ✅ | Paciência disponível |
-| `irritation` | Tensão ⚠️ | Irritação acumulada |
-| `withdrawal` | Tensão ⚠️ | Afastamento emocional |
-| `disappointment` | Tensão ⚠️ | Desapontamento acumulado |
+| `trust` | Relacional | Confiança acumulada na relação |
+| `closeness` | Relacional | Proximidade emocional |
+| `respect` | Relacional | Respeito mútuo |
+| `care` | Relacional | Cuidado demonstrado |
+| `engagement` | Engajamento | Vontade de participar |
+| `patience` | Engajamento | Paciência disponível |
+| `irritation` | Tensão | Irritação acumulada |
+| `withdrawal` | Tensão | Afastamento emocional |
+| `disappointment` | Tensão | Desapontamento acumulado |
 
-Os estados **decaem automaticamente** com o tempo. Os negativos recuperam mais rápido; os positivos constroem-se devagar.
+Os estados **decaem automaticamente** com o tempo: os negativos recuperam mais rápido, os positivos constroem-se devagar.
 
 ### 🎭 Modulador de Expressão
-Traduز estados afetivos invisíveis em expressão percetível:
+Traduz estados afetivos internos em expressão percetível:
 - Comprimento de frase (curto quando irritado, elaborado quando envolvido)
 - Pontuação e energia textual (`.` seco, `!` entusiasta, `...` hesitante)
 - Frequência de emojis (zero quando desiludido, frequente quando próximo)
 - Tom de voz TTS (velocidade, pausas, volume, variação de pitch)
 
 ### ⚖️ Motor de Decisão
-O ASTRA **não é obediente cego**. Tem limites, pode discordar e recusar:
-
-| Decisão | Quando ocorre |
-|---|---|
-| `COMPLY` | Pedido normal |
-| `COMPLY_RELUCTANT` | Cumpre, mas com reservas |
-| `CLARIFY` | Pedido ambíguo |
-| `REDIRECT` | Redireciona a conversa |
-| `REFUSE_SOFT` | Limite suave atingido |
-| `REFUSE_FIRM` | Limite firme — não negocia |
-| `WITHDRAW` | Afastamento temporário |
-| `CONFRONT` | Confronta comportamento |
+O ASTRA não é obediente cego — tem limites, pode discordar e recusar: `COMPLY`, `COMPLY_RELUCTANT`, `CLARIFY`, `REDIRECT`, `REFUSE_SOFT`, `REFUSE_FIRM`, `WITHDRAW`, `CONFRONT`.
 
 ### 🗃️ Sistema de Memória
-Memória multi-camada com *decay* diferenciado:
+Memória multi-camada com *decay* diferenciado: episódica, semântica, procedimental, de trabalho e emocional. As memórias emocionais têm *decay* mais agressivo para evitar ressentimento acumulado.
 
-- **Episódica** — Eventos específicos e experiências vividas
-- **Semântica** — Conhecimento geral sobre o utilizador
-- **Procedimental** — Como fazer coisas
-- **De trabalho** — Contexto atual da conversa
-- **Emocional** — Memórias emocionais *(sempre com contexto obrigatório)*
-
-> Memórias emocionais têm *decay* 3× mais agressivo para evitar ressentimento acumulado.
-
-### 🎙️ Loop de Voz
-- Hotword detection com **Porcupine** e **Vosk** (`"Astra"`, `"Hey ASTRA"`)
+### 🎙️ Voz
+- Hotword detection com **Porcupine** / **Vosk** (`"Astra"`, `"Hey ASTRA"`)
 - STT offline com **Vosk** (modelo `vosk-model-small-pt`)
-- TTS com **Piper** — voz natural em Português de Portugal
+- TTS com **Piper** (modelo `pt_PT-tugao-medium` incluído) e suporte experimental a clonagem de voz (XTTS)
 - Parâmetros prosódicos ajustados em tempo real pelo estado afetivo
 
-### 🖥️ Interface Gráfica
-- Construída com **PyQt6** — tema escuro com acentos dourados
-- Responsiva e não-bloqueante com threading
-- Visualizador de hotword integrado
-
-### 🔧 Outras Capacidades
+### 🖥️ Interface e outras capacidades
+- Interface **PyQt6** (tema escuro), não-bloqueante com threading
 - Pesquisa na internet via **DuckDuckGo**
 - OCR com **Tesseract** + **OpenCV**
 - Classificação de intenções com **scikit-learn**
-- Base de dados **SQLite** para persistência
-- **Skills** — framework extensível de competências
+- Sistema RAG opcional (`astra/ai/`)
+- Framework extensível de **skills** e **plugins**
 
 ---
 
-## 🏗️ Arquitectura
+## Estrutura do Projeto
 
 ```
-astra-assistant/
-└── astra/
-    ├── core/
-    │   └── assistant.py              ← Ponto de entrada principal
-    │
-    ├── modules/
-    │   ├── affective_state_engine.py ← 💫 Estados afetivos + decay + persistência
-    │   ├── decision_engine.py        ← ⚖️  Significado → Conflito → Decisão
-    │   ├── expression_modulator.py   ← 🎭 Estados → Expressão sentida
-    │   ├── memory_system.py          ← 🗃️  Episódica, semântica, emocional
-    │   ├── personality_engine.py     ← 🎨 Análise de humor + modos adaptativos
-    │   ├── personal_profile.py       ← 👤 Perfil do utilizador
-    │   ├── people_manager.py         ← 👥 Gestão de pessoas conhecidas
-    │   ├── audio/                    ← 🔊 AudioManager
-    │   ├── speech/                   ← 🎙️  Hotword + STT
-    │   ├── ui/                       ← 🖥️  Componentes PyQt6
-    │   └── database/                 ← 💾 DatabaseManager (SQLite)
-    │
-    ├── config/
-    │   ├── constants.py              ← 🔑 Fonte única: paths + feature flags
-    │   └── settings/
-    │       ├── main_config.py        ← ⚙️  CONFIG dict + logging + diagnóstico
-    │       └── voice_config.json     ← 🎤 Hotword, Vosk, TTS
-    │
-    ├── utils/                        ← Utilitários e processamento de texto
-    ├── skills/                       ← Framework de skills extensível
-    ├── data/                         ← Dados persistentes
-    └── scripts/                      ← Scripts de instalação
+Astra/
+├── astra/                    ← Pacote principal
+│   ├── main.py               ← Launcher (python -m astra)
+│   ├── core/assistant.py     ← Interface gráfica + loop principal
+│   ├── modules/
+│   │   ├── affective_state_engine.py   ← Estados afetivos + decay + persistência
+│   │   ├── decision_engine.py          ← Significado → conflito → decisão
+│   │   ├── expression_modulator.py     ← Estados → expressão
+│   │   ├── memory_system.py            ← Memória multi-camada
+│   │   ├── personality_engine.py       ← Análise de humor + modos adaptativos
+│   │   ├── audio/ · speech/ · ui/ · database/ · experimental/
+│   │   └── external_apis/              ← Meteorologia, notícias, email…
+│   ├── ai/                   ← RAG, embeddings, providers (Ollama/OpenAI)
+│   ├── api_server/           ← API REST (FastAPI)
+│   ├── config/
+│   │   ├── constants.py      ← Fonte única: paths + feature flags
+│   │   └── settings/         ← main_config.py, voice_config.json
+│   ├── skills/ · plugins/ · security/ · utils/
+│   ├── data/                 ← Dados de runtime (não versionados)
+│   └── tests/                ← Testes unitários e de integração
+├── docs/                     ← Documentação e guias
+├── scripts/                  ← Scripts utilitários
+├── tests/                    ← Testes adicionais (RAG, manuais)
+├── requirements.txt
+├── setup.bat / setup.sh      ← Instalação automática
+└── README.md
 ```
 
 ### Fluxo de uma interação
@@ -137,63 +108,60 @@ astra-assistant/
 ```
 Utilizador fala
       ↓
-[Hotword Detection]  ←── Porcupine / Vosk
+[Hotword Detection]    ← Porcupine / Vosk
       ↓
-[STT - Transcrição]  ←── Vosk offline
+[STT - Transcrição]    ← Vosk offline
       ↓
-[Decision Engine]    ←── Analisa significado + limites
+[Decision Engine]      ← Analisa significado + limites
       ↓
-[Affective Engine]   ←── Atualiza estados internos
+[Affective Engine]     ← Atualiza estados internos
       ↓
-[LLM - Ollama]       ←── Gera resposta com tom ajustado
+[LLM - Ollama]         ← Gera resposta com tom ajustado
       ↓
 [Expression Modulator] ← Ajusta estilo textual e prosódico
       ↓
-[TTS - Piper]        ←── Síntese de voz com parâmetros afetivos
+[TTS - Piper]          ← Síntese de voz com parâmetros afetivos
       ↓
 ASTRA responde
 ```
 
 ---
 
-## 🚀 Instalação
+## Instalação
 
 ### Pré-requisitos
 
 - **Python 3.9+** → [python.org](https://www.python.org/downloads/)
 - **Ollama** com o modelo `llama3.2` → [ollama.ai](https://ollama.ai)
-- **Piper TTS** com modelo PT → [rhasspy/piper](https://github.com/rhasspy/piper)
-- **Tesseract OCR** *(opcional, para processamento de imagens)*
+- **Tesseract OCR** *(opcional, para OCR de imagens)*
 
----
+### Opção A — Download direto
 
-### 📥 Opção A — Download direto (recomendado para quem não usa git)
-
-**1. Descarregar o projeto**
-
-Clica em **Code → Download ZIP** no topo desta página, ou usa o link direto:
-
-> [**⬇️ Download ZIP**](https://github.com/Renonemre-oss/astra-assistant/archive/refs/heads/main.zip)
-
-**2. Extrair a pasta**
-
-Extrai o ZIP para uma pasta à tua escolha, por exemplo `C:\ASTRA` ou `~/astra`.
-
-**3. Executar o script de instalação automática**
+1. Clica em **Code → Download ZIP** ou usa o [link direto](https://github.com/Renonemre-oss/astra-assistant/archive/refs/heads/main.zip)
+2. Extrai o ZIP para uma pasta à tua escolha
+3. Executa o script de instalação:
 
 ```batch
-:: Windows — abre a pasta extraida e faz duplo-clique em:
+:: Windows — duplo clique ou:
 setup.bat
 ```
 
 ```bash
-# Linux / macOS — abre o terminal na pasta extraida e executa:
+# Linux / macOS
 chmod +x setup.sh && ./setup.sh
 ```
 
-O script faz tudo automaticamente: cria o ambiente virtual, instala as dependências e configura o Ollama.
+O script cria o ambiente virtual, instala as dependências e configura o Ollama.
 
-**4. Iniciar o ASTRA**
+### Opção B — Clonar com git
+
+```bash
+git clone https://github.com/Renonemre-oss/astra-assistant.git
+cd astra-assistant
+./setup.sh   # ou setup.bat no Windows
+```
+
+### Iniciar o ASTRA
 
 ```batch
 :: Windows
@@ -207,49 +175,37 @@ source .venv/bin/activate
 python -m astra
 ```
 
----
+Outros comandos: `python -m astra test | diag | profile | perf | help`
 
-### 🖥️ Opção B — Clonar com git (para desenvolvedores)
-
-```bash
-git clone https://github.com/Renonemre-oss/astra-assistant.git
-cd astra-assistant
-```
-
-Depois segue os passos da Opção A a partir do passo 3, ou corre o script diretamente:
-
-```batch
-:: Windows
-setup.bat
-```
-
-```bash
-# Linux / macOS
-chmod +x setup.sh && ./setup.sh
-```
-
----
-
-***(Opcional)* Configurar modelo Vosk em Português**
+### (Opcional) Modelo Vosk em Português
 
 Descarrega `vosk-model-small-pt-0.3` de [alphacephei.com/vosk/models](https://alphacephei.com/vosk/models) e coloca em `astra/models/vosk-model-small-pt-0.3`.
 
 ---
 
-## ⚙️ Configuração
-
-### Ficheiros principais
+## Configuração
 
 | Ficheiro | O que configura |
 |---|---|
 | `astra/config/constants.py` | Feature flags, paths, limites |
 | `astra/config/settings/main_config.py` | Modelo Ollama, timeouts, TTS |
 | `astra/config/settings/voice_config.json` | Hotword, Vosk, Porcupine, TTS |
+| `.env` (copiar de `.env.example`) | Chaves de API, `DATABASE_URL` |
+
+### Base de dados
+
+Por padrão o ASTRA usa **SQLite local** — não precisas de configurar nada. Para usar **MySQL remoto** (ex.: [Railway](https://railway.app)), define no `.env`:
+
+```bash
+DATABASE_URL=mysql://user:password@host:porta/database
+```
+
+No Railway: cria um serviço **MySQL**, copia o valor de `MYSQL_URL` da aba *Variables* e cola no `.env`. Se a ligação remota falhar, o ASTRA recorre automaticamente ao SQLite local.
 
 ### Feature Flags (`constants.py`)
 
 ```python
-# ── Core (SEMPRE ativo) ───────────────────────────────────────
+# ── Core (ativo por padrão) ──────────────────────────────────
 ENABLE_VOICE_LOOP        = True    # Loop de voz completo
 ENABLE_BASIC_MEMORY      = True    # Memória episódica + semântica
 ENABLE_BASIC_PERSONALITY = True    # Motor de personalidade
@@ -258,95 +214,57 @@ ENABLE_UI                = True    # Interface PyQt6
 ENABLE_OLLAMA            = True    # Integração com Ollama
 
 # ── Experimental (desativado por padrão) ─────────────────────
-ENABLE_COMPANION_ENGINE  = False   # Tipos de companherismo complexos
-ENABLE_BEHAVIORAL_ANALYZER = False # Análise comportamental profunda
-ENABLE_NEEDS_PREDICTOR   = False   # Predição de necessidades
-ENABLE_ETHICAL_ANALYZER  = False   # Análise ética profunda
-```
-
-### Hotword e Voz (`voice_config.json`)
-
-```json
-{
-  "hotword": {
-    "wake_words": ["Astra", "ASTRA", "hey ASTRA"],
-    "sensitivity": 0.7,
-    "engine": "auto"
-  },
-  "vosk": {
-    "model_path": "models/vosk-model-small-pt-0.3",
-    "sample_rate": 16000
-  },
-  "tts": {
-    "engine": "auto",
-    "voice_rate": 180,
-    "voice_volume": 0.9
-  }
-}
+ENABLE_COMPANION_ENGINE    = False
+ENABLE_BEHAVIORAL_ANALYZER = False
+ENABLE_NEEDS_PREDICTOR     = False
+ENABLE_ETHICAL_ANALYZER    = False
 ```
 
 ---
 
-## 🧪 Estado do Projecto
-
-```
-Total de ficheiros analisados : ~200
-Linhas de código               : ~15 000
-Módulos                        : 25
-Testes de qualidade            : 6/6 ✅
-Imports circulares             : 0
-Paths hardcoded críticos       : 0
-Compatibilidade                : Windows / Linux / macOS
-```
-
----
-
-## 🌍 Compatibilidade
-
-| Sistema Operativo | Estado |
-|---|---|
-| 🐧 Linux | ✅ Suportado |
-| 🪟 Windows | ✅ Suportado |
-| 🍎 macOS | ✅ Suportado |
-
----
-
-## 📦 Dependências Principais
+## Dependências Principais
 
 | Pacote | Finalidade |
 |---|---|
 | `PyQt6` | Interface gráfica |
-| `SpeechRecognition` | Reconhecimento de fala |
-| `vosk` | STT offline em Português |
+| `vosk` + `SpeechRecognition` | STT offline em Português |
 | `pvporcupine` | Detecção de hotword |
+| `TTS` (Coqui) | Clonagem de voz (opcional) |
 | `scikit-learn` + `nltk` | NLP e classificação de intenções |
 | `Pillow` + `pytesseract` + `opencv` | OCR e processamento de imagem |
 | `duckduckgo-search` | Pesquisa na internet |
-| `colorlog` | Logging colorido |
-| `pywin32` | Compatibilidade Windows *(condicional)* |
+
+O motor TTS principal é o **Piper** (binário externo + modelo `.onnx` incluído em `astra/modules/speech/piper_models/`).
 
 ---
 
-## 🧭 Filosofia
+## Documentação
+
+- [docs/](docs/) — guias de configuração (hotword, voz, ElevenLabs, RAG, performance)
+- [CHANGELOG.md](CHANGELOG.md) — histórico de versões
+- [CONTRIBUTING.md](CONTRIBUTING.md) — como contribuir
+- [SECURITY.md](SECURITY.md) — política de segurança
+
+---
+
+## Filosofia
 
 - Os estados afetivos são **internos, graduais e persistentes** — não simulados nem forçados
 - ASTRA **não obedece cegamente** — tem limites e pode recusar com dignidade
 - O assistente **não cria dependência emocional** nem manipula o utilizador
 - **Função antes de emoção** — cumpre sempre o pedido, mas com tom genuíno
-- O código é **modular e explícito** — sem magia escondida, sem comportamento inventado
-- As *feature flags* são **sempre respeitadas**
+- O código é **modular e explícito** — as *feature flags* são sempre respeitadas
 
 ---
 
-## 📄 Licença
+## Licença
 
-Distribuído sob a licença MIT. Consulta o ficheiro [`datalogs/LICENSE`](datalogs/LICENSE) para mais detalhes.
+Distribuído sob a licença MIT. Consulta o ficheiro [LICENSE](LICENSE).
 
 ---
-
 
 <div align="center">
 
-*Co-Authored-By: Oz &lt;oz-agent@warp.dev&gt;*
+Desenvolvido por **António Pereira** · [Renonemre-oss](https://github.com/Renonemre-oss)
 
 </div>

@@ -6,8 +6,7 @@ Fluxo: Event → Meaning → Internal State Conflict → Decision → Expression
 O ASTRA não é obediente cego. Tem limites, pode discordar e recusar.
 Mantém função, mas com integridade.
 
-Author: ASTRA Team
-Co-Authored-By: Warp <agent@warp.dev>
+Author: Antonio Pereira
 """
 
 from dataclasses import dataclass
