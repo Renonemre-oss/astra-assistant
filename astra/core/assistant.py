@@ -9,6 +9,7 @@ Sistema modular usando PyQt6 e funcionalidades organizadas em módulos separados
 """
 
 import sys
+import re
 import threading
 import os
 import traceback
@@ -1015,7 +1016,7 @@ class AssistenteGUI(QtWidgets.QWidget):
                     # Detetar cumprimentos diretamente (independente do classificador)
                     # Usar palavras do comando para evitar falsos positivos (ex: "escola" contém "ola")
                     # ✅ `re` já está importado no topo do ficheiro
-                    _greeting_patterns
+                    _greeting_patterns = [r'\bol[aá]\b', r'\boi\b', r'\bbom dia\b', r'\bboa tarde\b', r'\bboa noite\b', r'\bhey\b', r'\beai\b', r'\bfala\b']
                     _is_greeting = any(re.search(p, comando_lower) for p in _greeting_patterns)
                     
                     # Ações baseadas na intenção
