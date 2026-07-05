@@ -1,0 +1,12 @@
+# ASTRA - Clonagem de voz (XTTS / Coqui TTS) - opcional
+#
+# O pacote TTS fixa versões exatas de numpy/tqdm em Python <=3.10
+# (numpy==1.22.0, tqdm==4.64.*), incompatíveis com o requirements.txt
+# principal. Instala isto num ambiente virtual à parte se quiseres usar
+# a clonagem de voz (astra/modules/speech/xtts_voice_cloning.py):
+#
+#   python -m venv .venv-voice-cloning
+#   .venv-voice-cloning\Scripts\activate   (ou source .venv-voice-cloning/bin/activate)
+#   pip install -r requirements-voice-cloning.txt
+
+TTS>=0.18.0

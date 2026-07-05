@@ -229,12 +229,21 @@ ENABLE_ETHICAL_ANALYZER    = False
 | `PyQt6` | Interface gráfica |
 | `vosk` + `SpeechRecognition` | STT offline em Português |
 | `pvporcupine` | Detecção de hotword |
-| `TTS` (Coqui) | Clonagem de voz (opcional) |
 | `scikit-learn` + `nltk` | NLP e classificação de intenções |
 | `Pillow` + `pytesseract` + `opencv` | OCR e processamento de imagem |
 | `duckduckgo-search` | Pesquisa na internet |
 
 O motor TTS principal é o **Piper** (binário externo + modelo `.onnx` incluído em `astra/modules/speech/piper_models/`).
+
+### Clonagem de voz (opcional)
+
+A clonagem de voz (XTTS / Coqui `TTS`) **não está** no `requirements.txt` principal: o pacote fixa `numpy==1.22.0` e `tqdm==4.64.*` em Python ≤3.10, o que entra em conflito com as restantes dependências. Se quiseres esta funcionalidade, instala num ambiente virtual à parte:
+
+```bash
+python -m venv .venv-voice-cloning
+.venv-voice-cloning\Scripts\activate   # ou: source .venv-voice-cloning/bin/activate
+pip install -r requirements-voice-cloning.txt
+```
 
 Em Linux, o fallback de sistema (`pyttsx3`) usa o `espeak`, instalado via gestor de pacotes — não é um pacote Python:
 

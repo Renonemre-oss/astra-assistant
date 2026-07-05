@@ -8,8 +8,11 @@ joblib>=1.3.0
 numpy>=1.24.0
 
 # Text-to-Speech
-TTS>=0.18.0
-# Nota: TTS (anteriormente coqui-tts) é o pacote oficial
+# O motor principal é o Piper (binário externo, ver README). Para a
+# funcionalidade opcional de clonagem de voz (XTTS), instala à parte:
+#   pip install -r requirements-voice-cloning.txt
+# Não está aqui porque o pacote TTS fixa numpy==1.22.0 / tqdm==4.64.*
+# em Python <=3.10, o que entra em conflito com o resto do projeto.
 
 # Speech Recognition
 SpeechRecognition>=3.10.0
