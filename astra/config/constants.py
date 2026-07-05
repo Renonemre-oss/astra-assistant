@@ -142,22 +142,6 @@ MAX_QUERY_RESULTS = 100
 DEFAULT_PAGE_SIZE = 20
 
 # ==============================================================================
-# CONFIGURAÇÕES DE SKILLS
-# ==============================================================================
-
-# Sistema de skills
-SKILLS_AUTO_LOAD = True
-SKILLS_PRIORITY_ENABLED = True
-MAX_SKILL_TIMEOUT = 10  # segundos
-
-# Prioridades (valores numéricos)
-SKILL_PRIORITY_CRITICAL = 100
-SKILL_PRIORITY_HIGH = 75
-SKILL_PRIORITY_NORMAL = 50
-SKILL_PRIORITY_LOW = 25
-SKILL_PRIORITY_MINIMAL = 1
-
-# ==============================================================================
 # CONFIGURAÇÕES DE UI
 # ==============================================================================
 
@@ -208,7 +192,6 @@ ENABLE_ETHICAL_ANALYZER = False      # Análise ética profunda
 
 # Core Features (SEMPRE habilitados)
 ENABLE_VOICE_LOOP = True             # Sistema de voz (TTS + Recognition)
-ENABLE_SKILLS = True                 # Framework de skills
 ENABLE_BASIC_MEMORY = True           # Memória episódica + semântica
 ENABLE_BASIC_PERSONALITY = True      # Personalidade básica
 ENABLE_UI = True                     # Interface PyQt6

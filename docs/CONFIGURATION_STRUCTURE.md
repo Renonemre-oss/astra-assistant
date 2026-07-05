@@ -116,7 +116,6 @@ CONFIG = {
 ```python
 # Core Features (SEMPRE habilitados)
 ENABLE_VOICE_LOOP = True             # Sistema de voz
-ENABLE_SKILLS = True                 # Framework de skills
 ENABLE_BASIC_MEMORY = True           # Memória episódica + semântica
 ENABLE_BASIC_PERSONALITY = True      # Personalidade básica
 ENABLE_UI = True                     # Interface PyQt6

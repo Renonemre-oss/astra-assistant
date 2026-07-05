@@ -38,8 +38,7 @@ FEATURES = [
 # Limitações conhecidas
 KNOWN_LIMITATIONS = [
     "partial_voice_recognition",
-    "sqlalchemy_conflicts",
-    "dependency_version_conflicts", 
+    "dependency_version_conflicts",
     "limited_error_handling",
     "manual_configuration_required"
 ]

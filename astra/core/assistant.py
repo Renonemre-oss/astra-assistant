@@ -156,7 +156,6 @@ try:
         ENABLE_NEEDS_PREDICTOR,
         ENABLE_ETHICAL_ANALYZER,
         ENABLE_VOICE_LOOP,
-        ENABLE_SKILLS,
         ENABLE_UI,
         ENABLE_OLLAMA
     )
@@ -172,7 +171,6 @@ except ImportError as e:
     ENABLE_NEEDS_PREDICTOR = False
     ENABLE_ETHICAL_ANALYZER = False
     ENABLE_VOICE_LOOP = True
-    ENABLE_SKILLS = True
     ENABLE_UI = True
     ENABLE_OLLAMA = True
 

@@ -68,7 +68,6 @@ Memória multi-camada com *decay* diferenciado: episódica, semântica, procedim
 - OCR com **Tesseract** + **OpenCV**
 - Classificação de intenções com **scikit-learn**
 - Sistema RAG opcional (`astra/ai/`)
-- Framework extensível de **skills** e **plugins**
 
 ---
 
@@ -92,7 +91,7 @@ Astra/
 │   ├── config/
 │   │   ├── constants.py      ← Fonte única: paths + feature flags
 │   │   └── settings/         ← main_config.py, voice_config.json
-│   ├── skills/ · plugins/ · security/ · utils/
+│   ├── security/ · utils/
 │   ├── data/                 ← Dados de runtime (não versionados)
 │   └── tests/                ← Testes unitários e de integração
 ├── docs/                     ← Documentação e guias
@@ -209,7 +208,6 @@ No Railway: cria um serviço **MySQL**, copia o valor de `MYSQL_URL` da aba *Var
 ENABLE_VOICE_LOOP        = True    # Loop de voz completo
 ENABLE_BASIC_MEMORY      = True    # Memória episódica + semântica
 ENABLE_BASIC_PERSONALITY = True    # Motor de personalidade
-ENABLE_SKILLS            = True    # Framework de skills
 ENABLE_UI                = True    # Interface PyQt6
 ENABLE_OLLAMA            = True    # Integração com Ollama
 

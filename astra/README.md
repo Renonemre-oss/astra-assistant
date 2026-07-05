@@ -20,8 +20,9 @@ python -m astra
 | `ai/` | RAG, embeddings e providers de LLM (Ollama / OpenAI) |
 | `api_server/` | API REST (FastAPI) |
 | `config/` | Constantes, feature flags e ficheiros de configuração |
-| `skills/`, `plugins/` | Frameworks extensíveis |
-| `security/` | Autenticação, encriptação, rate limiting |
+| `security/` | Autenticação, encriptação, rate limiting (ver nota abaixo) |
 | `utils/` | Utilitários partilhados |
 | `data/` | Dados de runtime (não versionados) |
 | `tests/` | Testes unitários e de integração |
+
+> `security/` e `api_server/` só interessam se um dia expuseres o ASTRA para lá do teu PC (ex: acesso remoto via telemóvel). O servidor REST não arranca sozinho nem tem autenticação ligada por padrão.

@@ -121,20 +121,7 @@ Você tem duas opções principais:
        api_key: ${OPENAI_API_KEY}
    ```
 
-### 5. Configure as Skills (Opcional)
-
-Edite `Astra/config/skills_config.yaml`:
-
-```yaml
-builtin_skills:
-  weather:
-    enabled: true
-    config:
-      openweather_api_key: ""  # Deixe vazio para modo demo
-      default_city: "Lisboa"   # Sua cidade
-```
-
-### 6. Execute o Astra!
+### 5. Execute o Astra!
 
 ```bash
 cd Astra
@@ -147,7 +134,6 @@ Você deverá ver algo como:
 📁 Nova estrutura organizada carregada!
 --------------------------------------------------
 AI Engine inicializado. Provedor padrão: ollama
-Skill ativada: Weather
 Sistema iniciado com sucesso!
 ```
 
@@ -169,18 +155,6 @@ Em `config/ai_config.yaml`:
 ```yaml
 defaults:
   temperature: 0.7  # 0.0 = mais preciso, 1.0 = mais criativo
-```
-
-### Ativar Mais Skills
-
-Em `config/skills_config.yaml`:
-
-```yaml
-builtin_skills:
-  weather:
-    enabled: true
-  news:
-    enabled: true  # Ativar skill de notícias
 ```
 
 ### Configurar Cache
@@ -237,9 +211,8 @@ export OPENAI_API_KEY=sua-chave
 Agora que o Astra está funcionando:
 
 1. **[Configure Provedores de IA](04_ai_providers.md)** - Aprenda mais sobre Ollama, OpenAI e outros
-2. **[Crie sua Primeira Skill](03_creating_skills.md)** - Adicione novas capacidades
-3. **[Explore Exemplos](../../examples/)** - Veja código prático
-4. **[Leia a API](../api/)** - Documentação completa
+2. **[Explore Exemplos](../../examples/)** - Veja código prático
+3. **[Leia a API](../api/)** - Documentação completa
 
 ## 🆘 Precisa de Ajuda?
 

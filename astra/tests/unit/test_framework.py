@@ -323,38 +323,6 @@ class TestPersonalProfile(ASTRATestCase):
         except ImportError:
             self.skipTest("PersonalProfile não disponível")
 
-class TestDatabaseModels(ASTRATestCase):
-    """Testes para modelos de base de dados."""
-    
-    def test_database_models_import(self):
-        """Testa importação dos modelos de base de dados."""
-        try:
-            from database.models import (
-                Conversation, Message, VoiceInteraction, 
-                UserPreference, Person, UserProfile
-            )
-            
-            # Testar que classes existem
-            self.assertTrue(hasattr(Conversation, '__tablename__'))
-            self.assertTrue(hasattr(Message, '__tablename__'))
-            self.assertTrue(hasattr(UserProfile, '__tablename__'))
-            
-        except ImportError:
-            self.skipTest("Modelos de base de dados não disponíveis")
-    
-    def test_model_to_dict(self):
-        """Testa conversão de modelos para dicionário."""
-        try:
-            from database.models import UserPreference
-            from datetime import datetime
-            
-            # Não podemos criar instâncias reais sem base de dados
-            # Apenas verificar que método existe
-            self.assertTrue(hasattr(UserPreference, 'to_dict'))
-            
-        except ImportError:
-            self.skipTest("Modelos de base de dados não disponíveis")
-
 class TestConfigSystem(ASTRATestCase):
     """Testes para sistema de configuração."""
     

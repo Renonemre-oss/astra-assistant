@@ -197,64 +197,15 @@ def example_function(param1: str, param2: int) -> bool:
 
 ```
 jarvis_organized/
-├── jarvis/                 # Main application
+├── astra/                  # Main application
 │   ├── core/              # Core functionality
 │   ├── modules/           # Feature modules
 │   ├── api_server/        # REST API
-│   ├── plugins/           # Plugin system
 │   ├── utils/             # Utilities
 │   └── tests/             # Tests
 ├── docs/                  # Documentation
 ├── examples/              # Usage examples
 └── .github/               # CI/CD workflows
-```
-
-## Plugin Development
-
-### Creating a Plugin
-
-1. **Create plugin file**
-```python
-# plugins/builtin/my_plugin.py
-from plugins.plugin_interface import PluginInterface, PluginMetadata, PluginPriority
-
-class MyPlugin(PluginInterface):
-    def get_metadata(self) -> PluginMetadata:
-        return PluginMetadata(
-            name="my_plugin",
-            version="1.0.0",
-            author="Your Name",
-            description="Plugin description",
-            dependencies=[],
-            capabilities=["command_handling"],
-            priority=PluginPriority.NORMAL
-        )
-    
-    def on_load(self) -> bool:
-        self.log_info("Plugin loaded")
-        return True
-    
-    def on_unload(self) -> bool:
-        self.log_info("Plugin unloaded")
-        return True
-    
-    def handle_command(self, command: str, context: dict) -> Optional[str]:
-        if "hello" in command.lower():
-            return "Hello from my plugin!"
-        return None
-    
-    def get_capabilities(self) -> List[str]:
-        return ["greetings"]
-```
-
-2. **Test the plugin**
-```python
-# tests/test_my_plugin.py
-def test_my_plugin():
-    plugin = MyPlugin()
-    assert plugin.on_load()
-    response = plugin.handle_command("hello", {})
-    assert response is not None
 ```
 
 ## Need Help?

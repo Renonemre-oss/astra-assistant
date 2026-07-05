@@ -241,34 +241,6 @@ class InvalidUserDataError(UserError):
 
 
 # ==========================
-# PLUGIN EXCEPTIONS
-# ==========================
-class PluginError(ASTRAException):
-    """Erro relacionado a plugins."""
-    pass
-
-
-class PluginLoadError(PluginError):
-    """Erro ao carregar plugin."""
-    pass
-
-
-class PluginNotFoundError(PluginError):
-    """Plugin não encontrado."""
-    pass
-
-
-class PluginVersionError(PluginError):
-    """Versão de plugin incompatível."""
-    pass
-
-
-class PluginExecutionError(PluginError):
-    """Erro durante execução de plugin."""
-    pass
-
-
-# ==========================
 # VALIDATION EXCEPTIONS
 # ==========================
 class ValidationError(ASTRAException):
@@ -459,12 +431,6 @@ def get_exception_hierarchy() -> Dict[str, Any]:
                 'UserNotFoundError',
                 'UserIdentificationError',
                 'InvalidUserDataError'
-            ],
-            'PluginError': [
-                'PluginLoadError',
-                'PluginNotFoundError',
-                'PluginVersionError',
-                'PluginExecutionError'
             ],
             'ValidationError': [
                 'InvalidInputError',

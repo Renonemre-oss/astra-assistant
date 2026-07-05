@@ -55,8 +55,7 @@ def test_config():
         
         # Check YAML configs
         yaml_configs = [
-            project_root / "config" / "ai_config.yaml",
-            project_root / "config" / "skills_config.yaml"
+            project_root / "config" / "ai_config.yaml"
         ]
         
         print(f"\n  Arquivos YAML:")
@@ -132,36 +131,6 @@ def test_ollama_connection():
         print(f"  ❌ Erro: {e}")
         return False
 
-def test_skills_basic():
-    """Test basic skills functionality."""
-    print("\n" + "=" * 60)
-    print("TEST 5: Skills Básicas")
-    print("=" * 60)
-    
-    try:
-        import yaml
-        
-        skills_config = project_root / "config" / "skills_config.yaml"
-        
-        if not skills_config.exists():
-            print("  ❌ skills_config.yaml não encontrado")
-            return False
-        
-        with open(skills_config, 'r', encoding='utf-8') as f:
-            config = yaml.safe_load(f)
-        
-        builtin_skills = config.get('builtin_skills', {})
-        enabled_skills = [name for name, cfg in builtin_skills.items() if cfg.get('enabled', False)]
-        
-        print(f"  Skills configuradas: {len(builtin_skills)}")
-        print(f"  Skills ativadas: {len(enabled_skills)}")
-        print(f"  Ativadas: {', '.join(enabled_skills)}")
-        
-        return True
-    except Exception as e:
-        print(f"  ❌ Erro: {e}")
-        return False
-
 def main():
     """Run all tests."""
     print("\n🤖 ASTRA - Teste de Funcionalidade Básica")
@@ -171,8 +140,7 @@ def main():
         "Imports": test_imports(),
         "Config": test_config(),
         "AudioManager": test_audio_manager(),
-        "Ollama": test_ollama_connection(),
-        "Skills": test_skills_basic()
+        "Ollama": test_ollama_connection()
     }
     
     print("\n" + "=" * 60)

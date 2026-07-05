@@ -356,7 +356,6 @@ defaults:
 ```gitignore
 # API Keys e configurações sensíveis
 config/ai_config.yaml
-config/skills_config.yaml
 .env
 *.key
 ```
