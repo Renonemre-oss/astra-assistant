@@ -65,10 +65,6 @@ PyQt6-Qt6>=6.4.0
 pywin32>=306; sys_platform == "win32"
 # winsound is part of Python standard library
 
-# Optional: Additional TTS voices
-festival>=2.5; sys_platform != "win32"
-espeak>=1.48; sys_platform != "win32"
-
 # Hotword Detection / Wake Word
 pvporcupine>=2.2.0
 vosk>=0.3.45

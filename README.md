@@ -236,6 +236,12 @@ ENABLE_ETHICAL_ANALYZER    = False
 
 O motor TTS principal é o **Piper** (binário externo + modelo `.onnx` incluído em `astra/modules/speech/piper_models/`).
 
+Em Linux, o fallback de sistema (`pyttsx3`) usa o `espeak`, instalado via gestor de pacotes — não é um pacote Python:
+
+```bash
+sudo apt install espeak festival   # Debian/Ubuntu
+```
+
 ---
 
 ## Documentação
