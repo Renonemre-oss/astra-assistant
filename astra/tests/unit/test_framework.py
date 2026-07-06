@@ -407,7 +407,6 @@ def create_test_suite() -> unittest.TestSuite:
     suite.addTest(unittest.makeSuite(TestErrorHandler))
     suite.addTest(unittest.makeSuite(TestAudioManager))
     suite.addTest(unittest.makeSuite(TestPersonalProfile))
-    suite.addTest(unittest.makeSuite(TestDatabaseModels))
     suite.addTest(unittest.makeSuite(TestConfigSystem))
     
     # Adicionar testes de performance

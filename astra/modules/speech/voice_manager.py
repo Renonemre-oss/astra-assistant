@@ -343,8 +343,9 @@ class VoiceManagerGUI:
                     self.root.after(0, lambda: self.status_label.config(text="❌ Erro na síntese"))
                     
             except Exception as e:
-                self.root.after(0, lambda: self.status_label.config(text=f"❌ Erro: {str(e)}"))
-        
+                error_msg = str(e)
+                self.root.after(0, lambda: self.status_label.config(text=f"❌ Erro: {error_msg}"))
+
         threading.Thread(target=speak_thread, daemon=True).start()
     
     def analyze_voice_quality(self):
@@ -382,8 +383,9 @@ class VoiceManagerGUI:
                 ])
                 
             except Exception as e:
+                error_msg = str(e)
                 self.root.after(0, lambda: [
-                    messagebox.showerror("Erro", f"Erro na análise: {str(e)}"),
+                    messagebox.showerror("Erro", f"Erro na análise: {error_msg}"),
                     self.status_label.config(text="❌ Erro na análise")
                 ])
         
@@ -468,8 +470,9 @@ class VoiceManagerGUI:
                             ])
                             
                     except Exception as e:
+                        error_msg = str(e)
                         self.root.after(0, lambda: [
-                            messagebox.showerror("Erro", f"Erro na clonagem: {str(e)}"),
+                            messagebox.showerror("Erro", f"Erro na clonagem: {error_msg}"),
                             self.status_label.config(text="❌ Erro na importação")
                         ])
                 

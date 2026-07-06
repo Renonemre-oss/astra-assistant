@@ -107,10 +107,20 @@ class HotwordDetector:
         return False
     
     def _init_porcupine(self) -> bool:
-        """Tenta inicializar Porcupine."""
+        """Tenta inicializar Porcupine.
+
+        Requer uma access_key gratuita da Picovoice Console
+        (https://console.picovoice.ai/), configurada em PORCUPINE_ACCESS_KEY
+        no .env. Sem chave, salta para o próximo engine (Vosk/SimpleSTT).
+        """
+        access_key = os.environ.get("PORCUPINE_ACCESS_KEY")
+        if not access_key:
+            logger.info("PORCUPINE_ACCESS_KEY não definida — a saltar Porcupine")
+            return False
+
         try:
             import pvporcupine
-            
+
             # Verificar palavras-chave disponíveis no Porcupine
             if hasattr(pvporcupine, 'KEYWORDS'):
                 # KEYWORDS pode ser um dict ou um set dependendo da versão
@@ -139,6 +149,7 @@ class HotwordDetector:
             
             # Criar instância do Porcupine (versão gratuita)
             self.porcupine = pvporcupine.create(
+                access_key=access_key,
                 keywords=selected_keywords,
                 sensitivities=[self.sensitivity] * len(selected_keywords)
             )
@@ -160,13 +171,28 @@ class HotwordDetector:
         try:
             import vosk
             import json
-            
-            # Verificar se há modelo Vosk disponível
-            model_path = "models/vosk-model-small-pt-0.3"
-            if not os.path.exists(model_path):
+
+            # Verificar se há modelo Vosk disponível. Testa o path oficial
+            # (MODELS_DIR, config/constants.py) e o path relativo antigo,
+            # para não depender do diretório a partir do qual a app corre.
+            model_path = None
+            candidates = []
+            try:
+                from ...config.constants import MODELS_DIR
+                candidates.append(str(MODELS_DIR / "vosk-model-small-pt-0.3"))
+            except ImportError:
+                pass
+            candidates.append("models/vosk-model-small-pt-0.3")
+
+            for candidate in candidates:
+                if os.path.exists(candidate):
+                    model_path = candidate
+                    break
+
+            if not model_path:
                 logger.info("Modelo Vosk não encontrado. Download necessário.")
                 return False
-            
+
             self.vosk_model = vosk.Model(model_path)
             self.vosk_rec = vosk.KaldiRecognizer(self.vosk_model, 16000)
             

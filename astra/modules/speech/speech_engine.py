@@ -303,16 +303,35 @@ class SpeechEngine:
         return text.strip()
     
     def _speak_blocking(self, text: str) -> bool:
-        """Fala texto de forma síncrona."""
+        """Fala texto de forma síncrona.
+
+        Cria um engine pyttsx3 novo para esta chamada em vez de reutilizar
+        self.tts_engine entre threads: o driver SAPI5 do pyttsx3 assenta em
+        COM e não tolera runAndWait() chamado a partir de threads diferentes
+        na mesma instância — resulta em "run loop already started".
+        """
         try:
             self.is_speaking = True
             self.set_status(f"🗣️ Falando: {text[:50]}...", SpeechStatus.SPEAKING)
-            
-            self.tts_engine.say(text)
-            self.tts_engine.runAndWait()
-            
+
+            if self.current_engine_type in (EngineType.WINDOWS_SAPI, EngineType.SYSTEM_DEFAULT):
+                import pyttsx3
+                driver_name = 'sapi5' if self.current_engine_type == EngineType.WINDOWS_SAPI else None
+                engine = pyttsx3.init(driverName=driver_name) if driver_name else pyttsx3.init()
+                engine.setProperty('rate', self.voice_rate)
+                engine.setProperty('volume', self.voice_volume)
+                voices = engine.getProperty('voices')
+                if voices and len(voices) > self.voice_index:
+                    engine.setProperty('voice', voices[self.voice_index].id)
+                engine.say(text)
+                engine.runAndWait()
+                engine.stop()
+            else:
+                self.tts_engine.say(text)
+                self.tts_engine.runAndWait()
+
             return True
-            
+
         except Exception as e:
             logger.error(f"Erro na fala síncrona: {e}")
             return False
@@ -328,8 +347,21 @@ class SpeechEngine:
             return False
         
         def speak_thread():
-            self._speak_blocking(text)
-        
+            com_initialized = False
+            if self.current_engine_type in (EngineType.WINDOWS_SAPI, EngineType.SYSTEM_DEFAULT):
+                try:
+                    import pythoncom
+                    pythoncom.CoInitialize()
+                    com_initialized = True
+                except ImportError:
+                    pass
+            try:
+                self._speak_blocking(text)
+            finally:
+                if com_initialized:
+                    import pythoncom
+                    pythoncom.CoUninitialize()
+
         try:
             self.speech_thread = threading.Thread(target=speak_thread, daemon=True)
             self.speech_thread.start()
