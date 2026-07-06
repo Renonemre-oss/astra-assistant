@@ -5,162 +5,13 @@
 ASTRA - Assistente Pessoal
 Módulo de Processamento de Texto
 
-Funções para OCR, processamento de imagens e análise de texto.
+Funções para análise de texto.
 """
 
 import logging
-from pathlib import Path
 from typing import Optional, List, Dict
-from ..config import TESSERACT_AVAILABLE, DEPENDENCIES
 
 logger = logging.getLogger(__name__)
-
-# ==========================
-# PROCESSAMENTO DE IMAGENS (OCR)
-# ==========================
-def processar_imagem(image_path: str) -> str:
-    """
-    Extrai texto de uma imagem usando OCR (Tesseract).
-    
-    Args:
-        image_path: Caminho para o arquivo de imagem
-        
-    Returns:
-        str: Texto extraído da imagem ou mensagem de erro
-    """
-    if not TESSERACT_AVAILABLE:
-        return "OCR não disponível. Tesseract não foi encontrado."
-    
-    if not DEPENDENCIES.get('pytesseract', False):
-        return "OCR não disponível. Pytesseract não instalado."
-    
-    if not DEPENDENCIES.get('PIL', False):
-        return "OCR não disponível. PIL (Pillow) não instalado."
-    
-    try:
-        import pytesseract
-        from PIL import Image
-        
-        # Verificar se arquivo existe
-        if not Path(image_path).exists():
-            logger.error(f"Arquivo de imagem não encontrado: {image_path}")
-            return "Erro: Arquivo de imagem não encontrado."
-        
-        # Carregar e verificar imagem
-        logger.info(f"Processando imagem: {image_path}")
-        img = Image.open(image_path)
-        
-        # Verificar se imagem não está vazia/corrompida
-        if img.size[0] == 0 or img.size[1] == 0:
-            return "Erro: Imagem vazia ou corrompida."
-            
-        # Tentar OCR com diferentes idiomas
-        try:
-            text = pytesseract.image_to_string(img, lang='por+eng')  # Português e Inglês
-        except pytesseract.TesseractError:
-            # Fallback para inglês apenas
-            logger.warning("Fallback para OCR apenas em inglês")
-            text = pytesseract.image_to_string(img, lang='eng')
-            
-        text = text.strip()
-        if text:
-            logger.info(f"Texto extraído: {len(text)} caracteres")
-            return text
-        else:
-            logger.warning("Nenhum texto encontrado na imagem")
-            return "Nenhum texto foi encontrado na imagem."
-            
-    except FileNotFoundError:
-        logger.error(f"Arquivo não encontrado: {image_path}")
-        return "Erro: Arquivo de imagem não encontrado."
-    except PermissionError:
-        logger.error(f"Permissão negada para acessar: {image_path}")
-        return "Erro: Permissão negada para acessar o arquivo."
-    except Exception as e:
-        logger.error(f"Erro ao processar imagem '{image_path}': {str(e)}")
-        return f"Erro ao processar a imagem: {str(e)[:100]}..."
-
-def validar_imagem(image_path: str) -> bool:
-    """
-    Valida se um arquivo é uma imagem válida.
-    
-    Args:
-        image_path: Caminho para o arquivo
-        
-    Returns:
-        bool: True se for uma imagem válida
-    """
-    try:
-        if not DEPENDENCIES.get('PIL', False):
-            return False
-            
-        from PIL import Image
-        
-        # Verificar extensão
-        valid_extensions = {'.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff'}
-        if Path(image_path).suffix.lower() not in valid_extensions:
-            return False
-        
-        # Tentar abrir a imagem
-        with Image.open(image_path) as img:
-            img.verify()  # Verificar se é uma imagem válida
-            return True
-            
-    except Exception as e:
-        logger.warning(f"Imagem inválida '{image_path}': {e}")
-        return False
-
-def otimizar_imagem_para_ocr(image_path: str, output_path: str = None) -> str:
-    """
-    Otimiza uma imagem para melhorar a precisão do OCR.
-    
-    Args:
-        image_path: Caminho da imagem original
-        output_path: Caminho para salvar a imagem otimizada (opcional)
-        
-    Returns:
-        str: Caminho da imagem otimizada ou mensagem de erro
-    """
-    if not DEPENDENCIES.get('PIL', False):
-        return image_path  # Retorna original se não pode otimizar
-    
-    try:
-        from PIL import Image, ImageFilter, ImageEnhance
-        
-        # Carregar imagem
-        img = Image.open(image_path)
-        
-        # Converter para escala de cinza
-        if img.mode != 'L':
-            img = img.convert('L')
-        
-        # Aumentar contraste
-        enhancer = ImageEnhance.Contrast(img)
-        img = enhancer.enhance(1.5)
-        
-        # Aumentar nitidez
-        img = img.filter(ImageFilter.SHARPEN)
-        
-        # Redimensionar se muito pequena (mínimo 300px width)
-        width, height = img.size
-        if width < 300:
-            scale_factor = 300 / width
-            new_width = int(width * scale_factor)
-            new_height = int(height * scale_factor)
-            img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
-        
-        # Salvar imagem otimizada
-        if not output_path:
-            output_path = str(Path(image_path).with_suffix('.optimized.png'))
-        
-        img.save(output_path, 'PNG', optimize=True)
-        logger.info(f"Imagem otimizada salva: {output_path}")
-        
-        return output_path
-        
-    except Exception as e:
-        logger.warning(f"Erro ao otimizar imagem: {e}")
-        return image_path  # Retorna original se otimização falhar
 
 # ==========================
 # ANÁLISE DE TEXTO
@@ -416,18 +267,6 @@ def extrair_urls(texto: str) -> List[str]:
 # ==========================
 # FUNÇÕES DE TESTE
 # ==========================
-def testar_ocr():
-    """Testa a funcionalidade de OCR."""
-    print("🔍 TESTE DE OCR")
-    print("-" * 30)
-    
-    if not TESSERACT_AVAILABLE:
-        print("❌ Tesseract não disponível")
-        return
-    
-    print("✅ OCR disponível")
-    print("Para testar, use uma imagem com texto.")
-
 def testar_analise_texto():
     """Testa análise de texto."""
     print("\n📝 TESTE DE ANÁLISE DE TEXTO")
@@ -457,6 +296,5 @@ def testar_analise_texto():
 if __name__ == "__main__":
     print("📄 PROCESSADOR DE TEXTO DO ASTRA")
     print("=" * 40)
-    
-    testar_ocr()
+
     testar_analise_texto()

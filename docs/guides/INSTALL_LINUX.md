@@ -35,9 +35,6 @@ sudo apt install -y espeak espeak-ng espeak-data
 # Opcional: Vozes em português para espeak
 sudo apt install -y espeak-ng-espeak mbrola mbrola-br1 mbrola-br3
 
-# Tesseract OCR (opcional, para reconhecimento de texto em imagens)
-sudo apt install -y tesseract-ocr tesseract-ocr-por
-
 # Git (se ainda não tiver)
 sudo apt install -y git
 ```

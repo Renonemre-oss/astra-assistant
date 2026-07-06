@@ -65,7 +65,6 @@ Memória multi-camada com *decay* diferenciado: episódica, semântica, procedim
 ### 🖥️ Interface e outras capacidades
 - Interface **PyQt6** (tema escuro), não-bloqueante com threading
 - Pesquisa na internet via **DuckDuckGo**
-- OCR com **Tesseract** + **OpenCV**
 - Classificação de intenções com **scikit-learn**
 - Sistema RAG opcional (`astra/ai/`)
 
@@ -132,7 +131,6 @@ ASTRA responde
 
 - **Python 3.9+** → [python.org](https://www.python.org/downloads/)
 - **Ollama** com o modelo `dolphin-llama3:8b` → [ollama.ai](https://ollama.ai)
-- **Tesseract OCR** *(opcional, para OCR de imagens)*
 
 ### Opção A — Download direto
 
@@ -228,7 +226,6 @@ ENABLE_ETHICAL_ANALYZER    = False
 | `vosk` + `SpeechRecognition` | STT offline em Português |
 | `pvporcupine` | Detecção de hotword |
 | `scikit-learn` + `nltk` | NLP e classificação de intenções |
-| `Pillow` + `pytesseract` + `opencv` | OCR e processamento de imagem |
 | `duckduckgo-search` | Pesquisa na internet |
 
 O motor TTS principal é o **Piper** (binário externo + modelo `.onnx` incluído em `astra/modules/speech/piper_models/`).

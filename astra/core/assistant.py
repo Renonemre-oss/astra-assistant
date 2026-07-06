@@ -85,7 +85,7 @@ import configparser
 from ..config import CONFIG, DATABASE_AVAILABLE, UI_STYLES
 from ..config.constants import MAX_TOKEN_LENGTH
 from ..modules.audio.audio_manager import AudioManager
-from ..utils.text_processor import processar_imagem, formatar_resposta
+from ..utils.text_processor import formatar_resposta
 from ..modules.personal_profile import PersonalProfile
 from ..modules.people_manager import PeopleManager
 from ..utils.utils import (
@@ -729,7 +729,6 @@ class AssistenteGUI(QtWidgets.QWidget):
         self.btn_microfone.setEnabled(enabled)
         self.caixa_input.setEnabled(enabled)
         self.btn_parar.setEnabled(not enabled)
-        self.btn_processar_imagem.setEnabled(enabled)
 
     def set_status_message(self, message):
         """Define a mensagem de status na UI."""
@@ -813,9 +812,6 @@ class AssistenteGUI(QtWidgets.QWidget):
         self.btn_microfone = QtWidgets.QPushButton("🎙️")
         self.btn_microfone.clicked.connect(self.toggle_microfone)
 
-        self.btn_processar_imagem = QtWidgets.QPushButton("🖼️ Processar Imagem")
-        self.btn_processar_imagem.clicked.connect(self.selecionar_e_processar_imagem)
-
         self.btn_parar = QtWidgets.QPushButton("🚫")
         self.btn_parar.setObjectName("stopButton")
         self.btn_parar.clicked.connect(self.parar_processamento)
@@ -824,7 +820,6 @@ class AssistenteGUI(QtWidgets.QWidget):
         h_layout.addWidget(self.caixa_input)
         h_layout.addWidget(self.btn_enviar)
         h_layout.addWidget(self.btn_microfone)
-        h_layout.addWidget(self.btn_processar_imagem)
         h_layout.addWidget(self.btn_parar)
 
         ui_layout.addWidget(header_container)
@@ -1507,47 +1502,6 @@ Utilizador: {comando}"""
         # Processar comando
         self.caixa_input.setText(comando)
         self.enviar_mensagem()
-
-    # ==========================
-    # MÉTODOS DE IMAGEM
-    # ==========================
-    def selecionar_e_processar_imagem(self):
-        """Abre uma caixa de diálogo de ficheiros e processa a imagem selecionada."""
-        file_dialog = QtWidgets.QFileDialog()
-        file_path, _ = file_dialog.getOpenFileName(
-            self,
-            "Selecione uma Imagem",
-            "",
-            "Image Files (*.png *.jpg *.jpeg)"
-        )
-        if file_path:
-            self.stop_signal.clear()
-            self.ui_updater.enable_buttons_signal.emit(False)
-            self.ui_updater.set_status_signal.emit("🖼️ Processando imagem...")
-            threading.Thread(target=self.executar_assistente_imagem, args=(file_path, self.stop_signal), daemon=True).start()
-
-    def executar_assistente_imagem(self, image_path, stop_signal):
-        """Processa a imagem e envia o texto para o assistente."""
-        try:
-            self.ui_updater.append_input_signal.emit(f"🖼️ Imagem selecionada: {os.path.basename(image_path)}")
-            
-            extracted_text = processar_imagem(image_path)
-            
-            if extracted_text and "Erro" not in extracted_text and "não disponível" not in extracted_text:
-                self.ui_updater.set_status_signal.emit("✔️ Texto extraído. A processar...")
-                self.ui_updater.append_input_signal.emit(f"📝 Texto extraído: {extracted_text[:100]}...")
-                
-                # Enviar o texto extraído para a função de assistente de texto
-                self.executar_assistente_texto(extracted_text, stop_signal)
-            else:
-                self.ui_updater.append_output_signal.emit(f"❌ {extracted_text}")
-                self.ui_updater.enable_buttons_signal.emit(True)
-                self.ui_updater.set_status_signal.emit("Pronto para começar.")
-        except Exception as e:
-            self.ui_updater.append_output_signal.emit(f"❌ Erro ao processar a imagem: {e}")
-            traceback.print_exc()
-            self.ui_updater.enable_buttons_signal.emit(True)
-            self.ui_updater.set_status_signal.emit("Pronto para começar.")
 
     # ==========================
     # MÉTODOS DE BASE DE DADOS
